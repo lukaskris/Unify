@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TempSourceCode"
+        android:theme="@style/Theme.App"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name="id.co.app.source.MainActivity">
             <intent-filter>
