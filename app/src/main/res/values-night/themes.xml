@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.App" parent="Base.Theme.App"/>
+    <style name="Theme.App" parent="Base.Theme.App" />
 
     <!-- Base application theme. -->
     <style name="Base.Theme.App" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -25,4 +25,16 @@
         <item name="android:colorBackground">@color/color_background_night</item>
 
     </style>
+
+    <style name="Theme.App.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.App.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="TextAppearance.App.Toolbar.Text" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
 </resources>
