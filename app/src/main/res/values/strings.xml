@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">APP Source</string>
+
+    <string name="my_garden_title"
+        translation_description="Title for the 'My garden' screen where the user can see the list of plants that have been added to their garden.">My garden</string>
+    <string name="plant_list_title"
+        translation_description="Title for the plant list screen where the user can see a list of plants available to add to their garden.">Plant list</string>
 </resources>

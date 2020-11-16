@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">APP Source</string>
+    <string name="my_garden_title">สวนของฉัน</string>
+    <string name="plant_list_title">รายการแผน</string>
+</resources>
