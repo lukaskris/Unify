@@ -19,7 +19,7 @@
         <item name="colorOnSecondary">@color/color_on_secondary</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item> -->
 
         <!-- Background color. -->
         <item name="android:colorBackground">@color/color_background</item>
