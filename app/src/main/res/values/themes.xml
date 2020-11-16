@@ -28,6 +28,7 @@
         <!-- On Error color. -->
         <item name="colorError">@color/color_error</item>
         <item name="colorOnError">@color/color_on_error</item>
+
     </style>
 
     <style name="Theme.App.NoActionBar">

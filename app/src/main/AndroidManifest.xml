@@ -20,7 +20,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name="id.co.app.source.ui.main.MainActivity"
-            android:theme="@style/Theme.App.NoActionBar">
+            android:theme="@style/Theme.App">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
