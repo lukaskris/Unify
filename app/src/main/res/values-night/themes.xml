@@ -24,6 +24,10 @@
         <!-- Background color. -->
         <item name="android:colorBackground">@color/color_background_night</item>
 
+        <!-- On Error color. -->
+        <item name="colorError">@color/color_error_night</item>
+        <item name="colorOnError">@color/color_on_error_night</item>
+
     </style>
 
     <style name="Theme.App.NoActionBar">
