@@ -23,7 +23,7 @@
             android:background="?attr/colorSurface"
             android:fitsSystemWindows="true"
             android:stateListAnimator="@animator/show_toolbar"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:id="@+id/toolbar_layout"
@@ -32,9 +32,9 @@
                 android:fitsSystemWindows="true"
                 app:collapsedTitleGravity="center"
                 app:collapsedTitleTextAppearance="@style/TextAppearance.App.Toolbar.Text"
-                app:contentScrim="?attr/colorSurface"
+                app:contentScrim="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:statusBarScrim="?attr/colorSurface"
+                app:statusBarScrim="?attr/colorPrimaryDark"
                 app:title="@string/app_name"
                 app:titleEnabled="false"
                 app:toolbarId="@id/toolbar">
@@ -53,10 +53,9 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="@android:color/transparent"
+                    android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
                     app:contentInsetStartWithNavigation="0dp"
-                    app:layout_collapseMode="pin"
-                    app:titleTextColor="?attr/colorOnSurface" />
+                    app:layout_collapseMode="pin" />
 
                 <!--                <com.google.android.material.appbar.MaterialToolbar-->
                 <!--                    android:id="@+id/toolbar"-->

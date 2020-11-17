@@ -1,6 +1,7 @@
 package id.co.app.source.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,27 +32,28 @@ class HomeFragment : Fragment() {
             //viewModel = plantDetailViewModel
             lifecycleOwner = viewLifecycleOwner
             var isToolbarShown = false
-
-            homePhotosList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    super.onScrolled(recyclerView, dx, dy)
-                    val shouldShowToolbar = dy > 0
-                    if (isToolbarShown != shouldShowToolbar) {
-                        isToolbarShown = shouldShowToolbar
-
-                        // Use shadow animator to add elevation if toolbar is shown
-                        appbar.isActivated = shouldShowToolbar
-
-                        // Show the plant name if toolbar is shown
-                        toolbarLayout.isTitleEnabled = shouldShowToolbar
-                        if (isToolbarShown) {
-                            Common.setStatusColorDark(activity!!)
-                        } else {
-                            Common.setStatusColorLight(activity!!)
-                        }
-                    }
-                }
-            })
+            toolbarLayout.isTitleEnabled = true
+//            homePhotosList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+//                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+//                    super.onScrolled(recyclerView, dx, dy)
+//                    Log.v("dy", "dy : $dy")
+//                    val shouldShowToolbar = dy > 0
+//                    if (isToolbarShown != shouldShowToolbar) {
+//                        isToolbarShown = shouldShowToolbar
+//
+//                        // Use shadow animator to add elevation if toolbar is shown
+//                        appbar.isActivated = shouldShowToolbar
+//
+//                        // Show the plant name if toolbar is shown
+//                        toolbarLayout.isTitleEnabled = shouldShowToolbar
+//                        if (isToolbarShown) {
+//                            Common.setStatusColorDark(activity!!)
+//                        } else {
+//                            Common.setStatusColorLight(activity!!)
+//                        }
+//                    }
+//                }
+//            })
 
 //            toolbar.setNavigationOnClickListener { view ->
 //                view.findNavController().navigateUp()
