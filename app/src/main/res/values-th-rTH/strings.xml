@@ -3,4 +3,5 @@
     <string name="app_name">APP Source</string>
     <string name="my_garden_title">สวนของฉัน</string>
     <string name="plant_list_title">รายการแผน</string>
+    <string name="share">แบ่งปัน</string>
 </resources>

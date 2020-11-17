@@ -3,4 +3,5 @@
     <string name="app_name">APP Source</string>
     <string name="plant_list_title">工厂清单</string>
     <string name="my_garden_title">我的花园</string>
+    <string name="share">分享</string>
 </resources>
