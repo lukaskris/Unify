@@ -45,9 +45,9 @@ class HomeFragment : Fragment() {
             toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt()
             appbar.addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout, verticalOffset ->
                 val totalScrollRange = appBarLayout.totalScrollRange
-                val midTotalScrollRange = totalScrollRange / 2
+//                val midTotalScrollRange = totalScrollRange / 2
                 val totalVerticalOffset = verticalOffset * -1
-                Log.v("verticalOffset", "verticalOffset : $totalVerticalOffset , $totalScrollRange")
+//                Log.v("verticalOffset", "verticalOffset : $totalVerticalOffset , $totalScrollRange")
 //                val color = changeAlpha(
 //                    ContextCompat.getColor(requireContext(), R.color.white),
 //                    abs(verticalOffset * 1.0f) / totalScrollRange
