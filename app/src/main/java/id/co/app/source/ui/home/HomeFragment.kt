@@ -42,7 +42,8 @@ class HomeFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             val scrimHeightTrigger = (resources.getDimension(R.dimen.plant_detail_app_bar_height) /
                     resources.displayMetrics.density)
-            toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt()
+            //val scrimHeightTrigger = 240
+            toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() + 20
             appbar.addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout, verticalOffset ->
                 val totalScrollRange = appBarLayout.totalScrollRange
 //                val midTotalScrollRange = totalScrollRange / 2
