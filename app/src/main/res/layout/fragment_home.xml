@@ -8,6 +8,7 @@
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coor_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?attr/colorSurface"
@@ -23,7 +24,7 @@
             android:background="?attr/colorSurface"
             android:fitsSystemWindows="true"
             android:stateListAnimator="@animator/show_toolbar"
-            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:id="@+id/toolbar_layout"
@@ -32,9 +33,9 @@
                 android:fitsSystemWindows="true"
                 app:collapsedTitleGravity="center"
                 app:collapsedTitleTextAppearance="@style/TextAppearance.App.Toolbar.Text"
-                app:contentScrim="?attr/colorPrimary"
+                app:contentScrim="?attr/colorSurface"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:statusBarScrim="?attr/colorPrimaryDark"
+                app:statusBarScrim="?attr/colorSurface"
                 app:title="@string/app_name"
                 app:titleEnabled="false"
                 app:toolbarId="@id/toolbar">
@@ -53,20 +54,21 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+                    android:background="@android:color/transparent"
                     app:contentInsetStartWithNavigation="0dp"
-                    app:layout_collapseMode="pin" />
+                    app:layout_collapseMode="pin"
+                    app:titleTextColor="?attr/colorOnSurface" />
 
-                <!--                <com.google.android.material.appbar.MaterialToolbar-->
-                <!--                    android:id="@+id/toolbar"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="?attr/actionBarSize"-->
-                <!--                    android:background="@android:color/transparent"-->
-                <!--                    app:contentInsetStartWithNavigation="0dp"-->
-                <!--                    app:layout_collapseMode="pin"-->
-                <!--                    app:menu="@menu/menu_upper_corner_detail"-->
-                <!--                    app:navigationIcon="@drawable/ic_detail_back"-->
-                <!--                    app:titleTextColor="?attr/colorOnSurface" />-->
+<!--                <com.google.android.material.appbar.MaterialToolbar-->
+<!--                    android:id="@+id/toolbar"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="?attr/actionBarSize"-->
+<!--                    android:background="@android:color/transparent"-->
+<!--                    app:contentInsetStartWithNavigation="0dp"-->
+<!--                    app:layout_collapseMode="pin"-->
+<!--                    app:menu="@menu/menu_upper_corner_detail"-->
+<!--                    app:navigationIcon="@drawable/ic_detail_back"-->
+<!--                    app:titleTextColor="?attr/colorOnSurface" />-->
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
