@@ -29,7 +29,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         if (savedInstanceState != null) {
             isToolbarShown = savedInstanceState.getBoolean(isToolbarShownKey)
         }
@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
         ).apply {
             //viewModel = plantDetailViewModel
             lifecycleOwner = viewLifecycleOwner
-            val statusBarHeight = getStatusBarHeight()
+            val statusBarHeight = Common.statusBarHeight(requireActivity())
             val backdropHeight = (resources.getDimension(R.dimen.plant_detail_app_bar_height) /
                     resources.displayMetrics.density)
             //val backdropHeight = resources.getDimension(R.dimen.plant_detail_app_bar_height)
@@ -72,13 +72,12 @@ class HomeFragment : Fragment() {
                 if (isToolbarShown != shouldShowToolbar) {
                     isToolbarShown = shouldShowToolbar
                     appbar.isActivated = shouldShowToolbar
-
                     toolbarLayout.isTitleEnabled = shouldShowToolbar
                     if (isToolbarShown) {
-                        toolbarLayout.setScrimsShown(true)
+                        //toolbarLayout.setScrimsShown(true)
                         Common.setStatusColorDark(requireActivity())
                     } else {
-                        toolbarLayout.setScrimsShown(false)
+                        //toolbarLayout.setScrimsShown(false)
                         Common.setStatusColorLight(requireActivity())
                     }
                 }
@@ -122,31 +121,18 @@ class HomeFragment : Fragment() {
 //            }
         }
 //        setHasOptionsMenu(true)
-        Common.setStatusColorLight(requireActivity())
+        checkToolbarStatus()
         return binding.root
     }
 
-//    private fun calculateActionBar() : Int {
-//        var result = 0
-//        val tv = TypedValue()
-//        if (requireActivity().theme.resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
-//            result = TypedValue.complexToDimensionPixelSize(tv.data, resources.displayMetrics)
-//        }
-//        return result
-//    }
-
-    fun getStatusBarHeight(): Int {
-        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
-        return if (resourceId > 0) resources.getDimensionPixelSize(resourceId)
-        else Rect().apply { requireActivity().window.decorView.getWindowVisibleDisplayFrame(this) }.top
-    }
-
-    fun changeAlpha(color: Int, fraction: Float): Int {
-        val red: Int = Color.red(color)
-        val green: Int = Color.green(color)
-        val blue: Int = Color.blue(color)
-        val alpha = (Color.alpha(color) * fraction)
-        return Color.argb(alpha.toInt(), red, green, blue)
+    private fun checkToolbarStatus() {
+        binding.appbar.isActivated = isToolbarShown
+        binding.toolbarLayout.isTitleEnabled = isToolbarShown
+        if (isToolbarShown) {
+            Common.setStatusColorDark(requireActivity())
+        } else {
+            Common.setStatusColorLight(requireActivity())
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
