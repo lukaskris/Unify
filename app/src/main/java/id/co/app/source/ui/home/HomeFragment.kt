@@ -1,8 +1,10 @@
 package id.co.app.source.ui.home
 
 import android.graphics.Color
+import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,15 +42,27 @@ class HomeFragment : Fragment() {
         ).apply {
             //viewModel = plantDetailViewModel
             lifecycleOwner = viewLifecycleOwner
-            val scrimHeightTrigger = (resources.getDimension(R.dimen.plant_detail_app_bar_height) /
+            val statusBarHeight = getStatusBarHeight()
+            val backdropHeight = (resources.getDimension(R.dimen.plant_detail_app_bar_height) /
                     resources.displayMetrics.density)
+            //val backdropHeight = resources.getDimension(R.dimen.plant_detail_app_bar_height)
+            val scrimHeightTrigger = backdropHeight + statusBarHeight
             //val scrimHeightTrigger = 240
-            toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() + 20
+            toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() - 25
+            //val toolbarHeight =  calculateActionBar()
+            //toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() - toolbarHeight
+            //toolbarLayout.scrimVisibleHeightTrigger = 0
+//            Log.v(
+//                "scrimHeightTrigger", "statusbar : " +
+//                        "$statusBarHeight, backdropHeight: $backdropHeight, " +
+//                        "scrimHeightTrigger : $scrimHeightTrigger, " +
+//                        "toolbarHeight: $toolbarHeight"
+//            )
             appbar.addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout, verticalOffset ->
                 val totalScrollRange = appBarLayout.totalScrollRange
 //                val midTotalScrollRange = totalScrollRange / 2
                 val totalVerticalOffset = verticalOffset * -1
-//                Log.v("verticalOffset", "verticalOffset : $totalVerticalOffset , $totalScrollRange")
+                //Log.v("verticalOffset", "verticalOffset : $totalVerticalOffset , $totalScrollRange")
 //                val color = changeAlpha(
 //                    ContextCompat.getColor(requireContext(), R.color.white),
 //                    abs(verticalOffset * 1.0f) / totalScrollRange
@@ -58,10 +72,13 @@ class HomeFragment : Fragment() {
                 if (isToolbarShown != shouldShowToolbar) {
                     isToolbarShown = shouldShowToolbar
                     appbar.isActivated = shouldShowToolbar
+
                     toolbarLayout.isTitleEnabled = shouldShowToolbar
                     if (isToolbarShown) {
+                        toolbarLayout.setScrimsShown(true)
                         Common.setStatusColorDark(requireActivity())
                     } else {
+                        toolbarLayout.setScrimsShown(false)
                         Common.setStatusColorLight(requireActivity())
                     }
                 }
@@ -107,6 +124,21 @@ class HomeFragment : Fragment() {
 //        setHasOptionsMenu(true)
         Common.setStatusColorLight(requireActivity())
         return binding.root
+    }
+
+//    private fun calculateActionBar() : Int {
+//        var result = 0
+//        val tv = TypedValue()
+//        if (requireActivity().theme.resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+//            result = TypedValue.complexToDimensionPixelSize(tv.data, resources.displayMetrics)
+//        }
+//        return result
+//    }
+
+    fun getStatusBarHeight(): Int {
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+        return if (resourceId > 0) resources.getDimensionPixelSize(resourceId)
+        else Rect().apply { requireActivity().window.decorView.getWindowVisibleDisplayFrame(this) }.top
     }
 
     fun changeAlpha(color: Int, fraction: Float): Int {

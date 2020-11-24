@@ -36,7 +36,7 @@
                 app:contentScrim="?attr/colorSurface"
                 app:expandedTitleGravity="top"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-                app:scrimAnimationDuration="200"
+                app:scrimAnimationDuration="300"
                 app:statusBarScrim="?attr/colorSurface"
                 app:title="@string/app_name"
                 app:titleEnabled="false"
