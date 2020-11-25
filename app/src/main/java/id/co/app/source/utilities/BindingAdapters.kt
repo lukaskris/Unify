@@ -16,6 +16,7 @@ fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
         Glide.with(view.context)
             .load(imageUrl)
             .transition(DrawableTransitionOptions.withCrossFade())
+            .centerCrop()
             .into(view)
     }
 }
@@ -26,6 +27,7 @@ fun bindImageFromDrawable(view: ImageView, drawable: Drawable?) {
         Glide.with(view.context)
             .load(drawable)
             .transition(DrawableTransitionOptions.withCrossFade())
+            .centerCrop()
             .into(view)
     }
 }
