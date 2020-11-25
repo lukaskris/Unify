@@ -4,5 +4,6 @@
 
     <!-- Number of columns for list grid -->
     <integer name="grid_columns">2</integer>
+    <integer name="scrim_animation_duration">0</integer>
 
 </resources>

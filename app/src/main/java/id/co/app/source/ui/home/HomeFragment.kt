@@ -38,7 +38,7 @@ class HomeFragment : Fragment() {
             //viewModel = plantDetailViewModel
             lifecycleOwner = viewLifecycleOwner
             val statusBarHeight = Common.statusBarHeight(requireActivity())
-            val backdropHeight = (resources.getDimension(R.dimen.plant_detail_app_bar_height) /
+            val backdropHeight = (resources.getDimension(R.dimen.app_bar_backdrop_height) /
                     resources.displayMetrics.density)
             //val backdropHeight = resources.getDimension(R.dimen.plant_detail_app_bar_height)
             val scrimHeightTrigger = backdropHeight + statusBarHeight

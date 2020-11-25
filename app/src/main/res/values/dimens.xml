@@ -31,6 +31,6 @@
     <dimen name="gallery_header_margin">72dp</dimen>
 
     <dimen name="plant_description_min_height">555dp</dimen>
-    <dimen name="plant_detail_app_bar_height">220dp</dimen>
+    <dimen name="app_bar_backdrop_height">220dp</dimen>
 <!--    <dimen name="plant_detail_app_bar_height">278dp</dimen>-->
 </resources>
