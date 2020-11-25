@@ -1,25 +1,20 @@
 package id.co.app.source.ui.home
 
-import android.graphics.Color
-import android.graphics.Rect
 import android.os.Bundle
-import android.util.Log
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
+import dagger.hilt.android.AndroidEntryPoint
 import id.co.app.source.R
 import id.co.app.source.databinding.FragmentHomeBinding
 import id.co.app.source.utilities.Common
-import kotlin.math.abs
 
-
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
