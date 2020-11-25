@@ -4,4 +4,7 @@
     <string name="my_garden_title">สวนของฉัน</string>
     <string name="plant_list_title">รายการแผน</string>
     <string name="share">แบ่งปัน</string>
+    <string name="settings">การตั้งค่า</string>
+    <string name="home">บ้าน</string>
+    <string name="feed">สำรวจ</string>
 </resources>

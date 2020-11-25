@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = binding.bottomNavigation
         val navGraphIds = listOf(
             R.navigation.navigation_home,
-            R.navigation.navigation_feed
+            R.navigation.navigation_settings
         )
 
         val controller = bottomNavigationView.setupWithNavController(

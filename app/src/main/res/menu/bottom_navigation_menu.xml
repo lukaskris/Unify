@@ -4,11 +4,16 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/garden_tab_selector"
-        android:title="@string/my_garden_title" />
+        android:title="@string/home" />
 
     <item
         android:id="@+id/navigation_feed"
+        android:icon="@drawable/garden_tab_selector"
+        android:title="@string/feed" />
+
+    <item
+        android:id="@+id/navigation_settings"
         android:icon="@drawable/plant_list_tab_selector"
-        android:title="@string/plant_list_title" />
+        android:title="@string/settings" />
 
 </menu>

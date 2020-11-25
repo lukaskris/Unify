@@ -2,13 +2,13 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation_feed"
-    app:startDestination="@id/feed_dest">
+    android:id="@+id/navigation_settings"
+    app:startDestination="@id/settings_dest">
 
     <fragment
-        android:id="@+id/feed_dest"
-        android:name="id.co.app.source.ui.feed.FeedFragment"
-        android:label="Feed"
+        android:id="@+id/settings_dest"
+        android:name="id.co.app.source.ui.settings.SettingsFragment"
+        android:label="@string/settings"
         tools:layout="@layout/fragment_feed" />
 
 </navigation>

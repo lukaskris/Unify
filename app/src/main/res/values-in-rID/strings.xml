@@ -5,4 +5,7 @@
     <string name="my_garden_title">Kebun Ku</string>
     <string name="plant_list_title">Daftar Tanaman</string>
     <string name="share">Bagikan</string>
+    <string name="settings">Pengaturan</string>
+    <string name="home">Beranda</string>
+    <string name="feed">Jelajahi</string>
 </resources>
