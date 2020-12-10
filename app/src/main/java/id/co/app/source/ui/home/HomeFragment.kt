@@ -37,52 +37,61 @@ class HomeFragment : Fragment() {
         ).apply {
             //viewModel = plantDetailViewModel
             lifecycleOwner = viewLifecycleOwner
-            val statusBarHeight = Common.statusBarHeight(requireActivity())
-            val backdropHeight = (resources.getDimension(R.dimen.app_bar_backdrop_height) /
-                    resources.displayMetrics.density)
-            //val backdropHeight = resources.getDimension(R.dimen.plant_detail_app_bar_height)
-            val scrimHeightTrigger = backdropHeight + statusBarHeight
-            //val scrimHeightTrigger = 240
-            toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() - 25
-            //val toolbarHeight =  calculateActionBar()
-            //toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() - toolbarHeight
-            //toolbarLayout.scrimVisibleHeightTrigger = 0
+
+        }
+        setToolbar()
+//        setHasOptionsMenu(true)
+        checkToolbarStatus()
+        return binding.root
+    }
+
+    private fun setToolbar() {
+        val statusBarHeight = Common.statusBarHeight(requireActivity())
+        val backdropHeight = (resources.getDimension(R.dimen.app_bar_backdrop_height) /
+                resources.displayMetrics.density)
+        //val backdropHeight = resources.getDimension(R.dimen.plant_detail_app_bar_height)
+        val scrimHeightTrigger = backdropHeight + statusBarHeight
+        //val scrimHeightTrigger = 240
+        binding.toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() - 25
+        //val toolbarHeight =  calculateActionBar()
+        //toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() - toolbarHeight
+        //toolbarLayout.scrimVisibleHeightTrigger = 0
 //            Log.v(
 //                "scrimHeightTrigger", "statusbar : " +
 //                        "$statusBarHeight, backdropHeight: $backdropHeight, " +
 //                        "scrimHeightTrigger : $scrimHeightTrigger, " +
 //                        "toolbarHeight: $toolbarHeight"
 //            )
-            appbar.addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout, verticalOffset ->
-                val totalScrollRange = appBarLayout.totalScrollRange
+        binding.appbar.addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout, verticalOffset ->
+            val totalScrollRange = appBarLayout.totalScrollRange
 //                val midTotalScrollRange = totalScrollRange / 2
-                val totalVerticalOffset = verticalOffset * -1
-                //Log.v("verticalOffset", "verticalOffset : $totalVerticalOffset , $totalScrollRange")
+            val totalVerticalOffset = verticalOffset * -1
+            //Log.v("verticalOffset", "verticalOffset : $totalVerticalOffset , $totalScrollRange")
 //                val color = changeAlpha(
 //                    ContextCompat.getColor(requireContext(), R.color.white),
 //                    abs(verticalOffset * 1.0f) / totalScrollRange
 //                )
-                //toolbar.setBackgroundColor(color)
-                val shouldShowToolbar = totalVerticalOffset >= totalScrollRange
-                if (isToolbarShown != shouldShowToolbar) {
-                    isToolbarShown = shouldShowToolbar
-                    appbar.isActivated = shouldShowToolbar
-                    toolbarLayout.isTitleEnabled = shouldShowToolbar
-                    if (isToolbarShown) {
-                        //toolbarLayout.setScrimsShown(true)
-                        Common.setStatusColorDark(requireActivity())
-                    } else {
-                        //toolbarLayout.setScrimsShown(false)
-                        Common.setStatusColorLight(requireActivity())
-                    }
+            //toolbar.setBackgroundColor(color)
+            val shouldShowToolbar = totalVerticalOffset >= totalScrollRange
+            if (isToolbarShown != shouldShowToolbar) {
+                isToolbarShown = shouldShowToolbar
+                binding.appbar.isActivated = shouldShowToolbar
+                binding.toolbarLayout.isTitleEnabled = shouldShowToolbar
+                if (isToolbarShown) {
+                    //toolbarLayout.setScrimsShown(true)
+                    Common.setStatusColorDark(requireActivity())
+                } else {
+                    //toolbarLayout.setScrimsShown(false)
+                    Common.setStatusColorLight(requireActivity())
                 }
+            }
 
-                //toolbarLayout.setStatusBarScrimColor(color)
-            })
-            homePhotosList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    super.onScrolled(recyclerView, dx, dy)
-                    //Log.v("dy", "dy : $dy")
+            //toolbarLayout.setStatusBarScrimColor(color)
+        })
+        binding.homePhotosList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                //Log.v("dy", "dy : $dy")
 //                    val shouldShowToolbar = dy > 0
 //                    if (isToolbarShown != shouldShowToolbar) {
 //                        isToolbarShown = shouldShowToolbar
@@ -98,9 +107,8 @@ class HomeFragment : Fragment() {
 //                            Common.setStatusColorLight(activity!!)
 //                        }
 //                    }
-
-                }
-            })
+            }
+        })
 
 //            toolbar.setNavigationOnClickListener { view ->
 //                view.findNavController().navigateUp()
@@ -114,10 +122,6 @@ class HomeFragment : Fragment() {
 //                    else -> false
 //                }
 //            }
-        }
-//        setHasOptionsMenu(true)
-        checkToolbarStatus()
-        return binding.root
     }
 
     private fun checkToolbarStatus() {
