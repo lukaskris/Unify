@@ -17,12 +17,20 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+
+
     </fragment>
 
     <fragment
         android:id="@+id/details_dest"
         android:name="id.co.app.source.ui.home.detail.HomeDetailsFragment"
-        android:label="Photo Details"
-        tools:layout="@layout/fragment_home_details" />
+        android:label="@string/home_details"
+        tools:layout="@layout/fragment_home_details" >
+
+        <argument
+            android:name="detailsName"
+            app:argType="string" />
+
+    </fragment>
 
 </navigation>

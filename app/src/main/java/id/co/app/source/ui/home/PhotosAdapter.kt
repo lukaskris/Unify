@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import id.co.app.source.R
 import id.co.app.source.databinding.ItemPhotoHomeBinding
 
 class PhotosAdapter(private val photosList: List<String>) :
@@ -33,9 +32,13 @@ class PhotosAdapter(private val photosList: List<String>) :
 
         fun bind(str: String) {
             binding.camera = str
-            val bundle = bundleOf("PHOTO_NAME" to str)
+            //val bundle = bundleOf("PHOTO_NAME" to str)
             binding.root.setOnClickListener { view ->
-                Navigation.findNavController(view).navigate(R.id.action_home_to_details, bundle)
+                val direction =
+                    HomeFragmentDirections.actionHomeToDetails(str)
+                //Navigation.findNavController(view).navigate(R.id.action_home_to_details, bundle)
+                //findNavController().navigate(direction)
+                Navigation.findNavController(view).navigate(direction)
             }
         }
     }

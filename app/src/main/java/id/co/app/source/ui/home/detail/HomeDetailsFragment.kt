@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.NestedScrollView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout
 import id.co.app.source.R
@@ -16,9 +19,12 @@ import id.co.app.source.utilities.Common
 class HomeDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeDetailsBinding
-    private lateinit var cameraStr: String
+    private lateinit var codeId: String
+    private val codeIdKey = "CODE_KEY"
     private var isToolbarShown = false
     private val isToolbarShownKey = "isToolbarShown"
+
+    private val args: HomeDetailsFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +32,8 @@ class HomeDetailsFragment : Fragment() {
     }
 
     private fun loadArguments() {
-        arguments?.getString("PHOTO_NAME")?.let {
-            cameraStr = it
+        arguments?.getString(codeIdKey)?.let {
+            codeId = it
         }
     }
 
@@ -46,7 +52,7 @@ class HomeDetailsFragment : Fragment() {
         ).apply {
             //viewModel = plantDetailViewModel
             lifecycleOwner = viewLifecycleOwner
-            camera = cameraStr
+            code = args.detailsName
 
         }
         setToolbar()
@@ -75,6 +81,26 @@ class HomeDetailsFragment : Fragment() {
                 }
             }
         })
+
+//        binding.homeDetailScrollview.setOnScrollChangeListener(
+//            NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
+//                isToolbarShown = scrollY > binding.toolbar.height
+//                if (isToolbarShown != isToolbarShown) {
+//                    isToolbarShown = isToolbarShown
+//                    binding.appbar.isActivated = isToolbarShown
+//                    binding.toolbarLayout.isTitleEnabled = isToolbarShown
+//                    if (isToolbarShown) {
+//                        Common.setStatusColorDark(requireActivity())
+//                    } else {
+//                        Common.setStatusColorLight(requireActivity())
+//                    }
+//                }
+//            }
+//        )
+
+        binding.toolbar.setNavigationOnClickListener { view ->
+            view.findNavController().navigateUp()
+        }
     }
 
     private fun checkToolbarStatus() {

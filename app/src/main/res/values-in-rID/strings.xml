@@ -8,4 +8,5 @@
     <string name="settings">Pengaturan</string>
     <string name="home">Beranda</string>
     <string name="feed">Jelajahi</string>
+    <string name="home_details">Detail Beranda</string>
 </resources>

@@ -7,4 +7,5 @@
     <string name="settings">การตั้งค่า</string>
     <string name="home">บ้าน</string>
     <string name="feed">สำรวจ</string>
+    <string name="home_details">รายละเอียดหน้าแรก</string>
 </resources>

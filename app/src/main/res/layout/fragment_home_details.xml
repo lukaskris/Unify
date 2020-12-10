@@ -7,7 +7,7 @@
     <data>
 
         <variable
-            name="camera"
+            name="code"
             type="String" />
 
     </data>
@@ -42,7 +42,7 @@
                 app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
                 app:scrimAnimationDuration="@integer/scrim_animation_duration"
                 app:statusBarScrim="?attr/colorSurface"
-                app:title="@string/app_name"
+                app:title="@{code}"
                 app:titleEnabled="false"
                 app:toolbarId="@id/toolbar">
 
@@ -90,7 +90,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:gravity="center_horizontal"
-                    android:text="@{camera}"
+                    android:text="@{code}"
                     android:textAppearance="?attr/textAppearanceHeadline5"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
