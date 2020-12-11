@@ -54,7 +54,21 @@ class HomeDetailsFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             code = args.detailsName
 
+            toolbar.setNavigationOnClickListener { view ->
+                view.findNavController().navigateUp()
+            }
+
+            toolbar.setOnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.action_share -> {
+                        true
+                    }
+                    else -> false
+                }
+            }
+
         }
+        setHasOptionsMenu(true)
         setToolbar()
         checkToolbarStatus()
         return binding.root
@@ -84,11 +98,11 @@ class HomeDetailsFragment : Fragment() {
 
 //        binding.homeDetailScrollview.setOnScrollChangeListener(
 //            NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
-//                isToolbarShown = scrollY > binding.toolbar.height
-//                if (isToolbarShown != isToolbarShown) {
-//                    isToolbarShown = isToolbarShown
-//                    binding.appbar.isActivated = isToolbarShown
-//                    binding.toolbarLayout.isTitleEnabled = isToolbarShown
+//                val shouldShowToolbar = scrollY > binding.toolbar.height
+//                if (isToolbarShown != shouldShowToolbar) {
+//                    isToolbarShown = shouldShowToolbar
+//                    binding.appbar.isActivated = shouldShowToolbar
+//                    binding.toolbarLayout.isTitleEnabled = shouldShowToolbar
 //                    if (isToolbarShown) {
 //                        Common.setStatusColorDark(requireActivity())
 //                    } else {
@@ -98,9 +112,6 @@ class HomeDetailsFragment : Fragment() {
 //            }
 //        )
 
-        binding.toolbar.setNavigationOnClickListener { view ->
-            view.findNavController().navigateUp()
-        }
     }
 
     private fun checkToolbarStatus() {
