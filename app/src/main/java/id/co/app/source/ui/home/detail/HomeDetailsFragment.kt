@@ -77,42 +77,42 @@ class HomeDetailsFragment : Fragment() {
     }
 
     private fun setToolbar() {
-        val statusBarHeight = Common.statusBarHeight(requireActivity())
-        val backdropHeight = (resources.getDimension(R.dimen.app_bar_backdrop_height) /
-                resources.displayMetrics.density)
-        val scrimHeightTrigger = backdropHeight + statusBarHeight
-        binding.toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() - 25
-        binding.appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
-            val totalScrollRange = appBarLayout.totalScrollRange
-            val totalVerticalOffset = verticalOffset * -1
-            val shouldShowToolbar = totalVerticalOffset >= totalScrollRange
-            if (isToolbarShown != shouldShowToolbar) {
-                isToolbarShown = shouldShowToolbar
-                binding.appbar.isActivated = shouldShowToolbar
-                binding.toolbarLayout.isTitleEnabled = shouldShowToolbar
-                if (isToolbarShown) {
-                    Common.setStatusColorDark(requireActivity())
-                } else {
-                    Common.setStatusColorLight(requireActivity())
-                }
-            }
-        })
-
-//        binding.homeDetailScrollview.setOnScrollChangeListener(
-//            NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
-//                val shouldShowToolbar = scrollY > binding.toolbar.height
-//                if (isToolbarShown != shouldShowToolbar) {
-//                    isToolbarShown = shouldShowToolbar
-//                    binding.appbar.isActivated = shouldShowToolbar
-//                    binding.toolbarLayout.isTitleEnabled = shouldShowToolbar
-//                    if (isToolbarShown) {
-//                        Common.setStatusColorDark(requireActivity())
-//                    } else {
-//                        Common.setStatusColorLight(requireActivity())
-//                    }
+//        val statusBarHeight = Common.statusBarHeight(requireActivity())
+//        val backdropHeight = (resources.getDimension(R.dimen.app_bar_backdrop_height) /
+//                resources.displayMetrics.density)
+//        val scrimHeightTrigger = backdropHeight + statusBarHeight
+//        binding.toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() - 25
+//        binding.appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+//            val totalScrollRange = appBarLayout.totalScrollRange
+//            val totalVerticalOffset = verticalOffset * -1
+//            val shouldShowToolbar = totalVerticalOffset >= totalScrollRange
+//            if (isToolbarShown != shouldShowToolbar) {
+//                isToolbarShown = shouldShowToolbar
+//                binding.appbar.isActivated = shouldShowToolbar
+//                binding.toolbarLayout.isTitleEnabled = shouldShowToolbar
+//                if (isToolbarShown) {
+//                    Common.setStatusColorDark(requireActivity())
+//                } else {
+//                    Common.setStatusColorLight(requireActivity())
 //                }
 //            }
-//        )
+//        })
+
+        binding.homeDetailScrollview.setOnScrollChangeListener(
+            NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
+                val shouldShowToolbar = scrollY > binding.toolbar.height
+                if (isToolbarShown != shouldShowToolbar) {
+                    isToolbarShown = shouldShowToolbar
+                    binding.appbar.isActivated = shouldShowToolbar
+                    binding.toolbarLayout.isTitleEnabled = shouldShowToolbar
+                    if (isToolbarShown) {
+                        Common.setStatusColorDark(requireActivity())
+                    } else {
+                        Common.setStatusColorLight(requireActivity())
+                    }
+                }
+            }
+        )
 
     }
 
