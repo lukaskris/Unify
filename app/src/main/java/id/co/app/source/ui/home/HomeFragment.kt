@@ -75,15 +75,7 @@ class HomeFragment : Fragment() {
             val shouldShowToolbar = totalVerticalOffset >= totalScrollRange
             if (isToolbarShown != shouldShowToolbar) {
                 isToolbarShown = shouldShowToolbar
-                binding.appbar.isActivated = shouldShowToolbar
-                binding.toolbarLayout.isTitleEnabled = shouldShowToolbar
-                if (isToolbarShown) {
-                    //toolbarLayout.setScrimsShown(true)
-                    Common.setStatusColorDark(requireActivity())
-                } else {
-                    //toolbarLayout.setScrimsShown(false)
-                    Common.setStatusColorLight(requireActivity())
-                }
+                checkToolbarStatus()
             }
 
             //toolbarLayout.setStatusBarScrimColor(color)
@@ -128,7 +120,8 @@ class HomeFragment : Fragment() {
         binding.appbar.isActivated = isToolbarShown
         binding.toolbarLayout.isTitleEnabled = isToolbarShown
         if (isToolbarShown) {
-            Common.setStatusColorDark(requireActivity())
+            if (!activity?.let { Common.isDarkModeOn(it) }!!)
+                Common.setStatusColorDark(requireActivity())
         } else {
             Common.setStatusColorLight(requireActivity())
         }

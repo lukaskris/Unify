@@ -23,7 +23,7 @@
     <color name="color_on_primary_night">#ffff63</color>
     <color name="color_background_night">@color/black</color>
     <color name="color_on_background_night">#000000</color>
-    <color name="color_surface_night">#de000000</color>
+    <color name="color_surface_night">#202020</color>
     <color name="color_on_surface_night">#fafafa</color>
     <color name="color_primary_dark_night">#005d2b</color>
     <color name="color_accent_night">#005d2b</color>

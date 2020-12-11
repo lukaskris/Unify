@@ -1,6 +1,7 @@
 package id.co.app.source.utilities
 
 import android.app.Activity
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.Rect
 import android.os.Build
@@ -102,5 +103,11 @@ object Common {
                 TypedValue.complexToDimensionPixelSize(tv.data, activity.resources.displayMetrics)
         }
         return result
+    }
+
+    fun isDarkModeOn(activity: Activity): Boolean {
+        val currentNightMode =
+            activity.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        return currentNightMode == Configuration.UI_MODE_NIGHT_YES
     }
 }
