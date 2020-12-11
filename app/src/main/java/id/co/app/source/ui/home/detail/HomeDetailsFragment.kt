@@ -11,11 +11,13 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout
+import dagger.hilt.android.AndroidEntryPoint
 import id.co.app.source.R
 import id.co.app.source.databinding.FragmentHomeBinding
 import id.co.app.source.databinding.FragmentHomeDetailsBinding
 import id.co.app.source.utilities.Common
 
+@AndroidEntryPoint
 class HomeDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeDetailsBinding
