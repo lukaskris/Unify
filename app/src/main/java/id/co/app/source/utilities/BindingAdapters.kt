@@ -32,6 +32,17 @@ fun bindImageFromDrawable(view: ImageView, drawable: Drawable?) {
     }
 }
 
+@BindingAdapter("imageFromDrawableCenterInside")
+fun bindImageFromDrawableCenterInside(view: ImageView, drawable: Drawable?) {
+    if (drawable != null) {
+        Glide.with(view.context)
+            .load(drawable)
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .centerInside()
+            .into(view)
+    }
+}
+
 @BindingAdapter("isFabGone")
 fun bindIsFabGone(view: FloatingActionButton, isGone: Boolean?) {
     if (isGone == null || isGone) {

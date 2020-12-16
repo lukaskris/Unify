@@ -21,31 +21,22 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/row_photo_rover_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Curiosity"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.3" />
-
-            <TextView
                 android:id="@+id/row_photo_rover_camera"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@{camera}"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/row_photo_rover_name"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.3" />
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:padding="@dimen/margin_big"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher_round"
+                app:imageFromDrawableCenterInside="@{@drawable/app_sinarmas_logo}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
