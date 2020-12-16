@@ -1,6 +1,7 @@
 package id.co.app.source.ui.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
@@ -23,23 +24,29 @@ class PhotosAdapter(private val photosList: List<String>) :
     override fun getItemCount() = photosList.size
 
     override fun onBindViewHolder(holder: PhotosViewHolder, position: Int) {
-        holder.bind(photosList[position])
+        val nameItem = photosList[position]
+        val listener = View.OnClickListener { view ->
+            val direction =
+                HomeFragmentDirections.actionHomeToDetails(nameItem)
+            Navigation.findNavController(view).navigate(direction)
+        }
+        holder.bind(nameItem, listener)
     }
 
     class PhotosViewHolder(rowBinding: ItemPhotoHomeBinding) :
         RecyclerView.ViewHolder(rowBinding.root) {
         private val binding = rowBinding
-
-        fun bind(str: String) {
-            binding.camera = str
+        fun bind(str: String, listener: View.OnClickListener?) {
+            binding.item = str
             //val bundle = bundleOf("PHOTO_NAME" to str)
-            binding.root.setOnClickListener { view ->
-                val direction =
-                    HomeFragmentDirections.actionHomeToDetails(str)
-                //Navigation.findNavController(view).navigate(R.id.action_home_to_details, bundle)
-                //findNavController().navigate(direction)
-                Navigation.findNavController(view).navigate(direction)
-            }
+            binding.clickListener = listener
+//            binding.parentViewList.setOnClickListener { view ->
+//                val direction =
+//                    HomeFragmentDirections.actionHomeToDetails(str)
+//                //Navigation.findNavController(view).navigate(R.id.action_home_to_details, bundle)
+//                //findNavController().navigate(direction)
+//                Navigation.findNavController(view).navigate(direction)
+//            }
         }
     }
 }
