@@ -10,15 +10,20 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_margin="8dp"
-        android:elevation="2dp"
-        app:cardCornerRadius="10dp">
+        android:elevation="3dp"
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
             <TextView
                 android:id="@+id/row_photo_rover_camera"
