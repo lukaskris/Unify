@@ -7,7 +7,7 @@
     <color name="color_on_primary">#FFFFFF</color>
     <color name="color_background">#FFFFFF</color>
     <color name="color_on_background">#000000</color>
-    <color name="color_surface">#FFFFFF</color>
+    <color name="color_surface">#E0E0E0</color>
     <color name="color_on_surface">#000000</color>
     <color name="color_primary_dark">@color/app_brand_dark_color</color>
     <color name="color_accent">#005d2b</color>

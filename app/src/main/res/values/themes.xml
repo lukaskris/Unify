@@ -23,7 +23,8 @@
 
         <!-- Background color. -->
         <item name="android:colorBackground">@color/color_background</item>
-        <item name="colorOnBackground">@color/color_background</item>
+
+        <item name="colorOnBackground">@color/color_on_background</item>
 
         <!-- On Error color. -->
         <item name="colorError">@color/color_error</item>
