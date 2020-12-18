@@ -89,8 +89,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_small"
                     android:layout_marginEnd="@dimen/margin_small"
-                    android:clickable="true"
-                    android:focusable="true"
                     android:gravity="center_horizontal"
                     android:text="@{code}"
                     android:textAppearance="?attr/textAppearanceHeadline5"
@@ -108,7 +106,6 @@
                     android:layout_marginTop="@dimen/margin_normal"
                     android:layout_marginEnd="@dimen/margin_small"
                     android:text="@string/lorem_ipsum"
-                    android:textIsSelectable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/header_detail_name" />
