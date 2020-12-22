@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Created by Hendry Syamsudin on 22/12/20 17:36
   ~ Copyright (c) APP Sinarmas 2020. All rights reserved.
   ~ Last modified 22/12/20 17:34
@@ -26,7 +25,8 @@
         style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/home_list_height"
-        android:layout_margin="@dimen/margin_extra_small"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_small"
         android:elevation="3dp"
         app:cardBackgroundColor="?attr/colorSurface"
         app:cardCornerRadius="10dp"
