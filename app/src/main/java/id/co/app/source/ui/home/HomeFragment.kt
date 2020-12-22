@@ -145,7 +145,7 @@ class HomeFragment : Fragment() {
     private fun getPhotosList(): List<String> {
         val photosList = mutableListOf<String>()
         for (i in 0..25) {
-            photosList.add("Detail $i")
+            photosList.add("List $i")
         }
         return photosList
     }
