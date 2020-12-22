@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Created by Hendry Syamsudin on 22/12/20 17:36
   ~ Copyright (c) APP Sinarmas 2020. All rights reserved.
   ~ Last modified 22/12/20 17:34
@@ -20,6 +19,7 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coord_layout"
+        style="@style/BackgroundTextFull"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
