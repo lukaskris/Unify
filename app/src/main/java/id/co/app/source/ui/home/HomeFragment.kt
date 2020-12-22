@@ -133,7 +133,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initBindings() {
-        val photosAdapter = PhotosAdapter(getPhotosList())
+        val photosAdapter = HomeAdapter(getPhotosList())
         val linearLayoutManager = LinearLayoutManager(activity)
         binding.homePhotosList.apply {
             adapter = photosAdapter
@@ -145,7 +145,7 @@ class HomeFragment : Fragment() {
     private fun getPhotosList(): List<String> {
         val photosList = mutableListOf<String>()
         for (i in 0..25) {
-            photosList.add("Photo $i")
+            photosList.add("Detail $i")
         }
         return photosList
     }

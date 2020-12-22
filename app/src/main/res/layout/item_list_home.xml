@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -18,7 +19,7 @@
         android:id="@+id/card_list"
         style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="@dimen/home_list_height"
         android:layout_margin="@dimen/margin_extra_small"
         android:elevation="3dp"
         app:cardBackgroundColor="?attr/colorSurface"
@@ -36,23 +37,27 @@
 
             <TextView
                 android:id="@+id/row_photo_rover_camera"
-                android:layout_width="0dp"
+                android:layout_width="303dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:layout_marginStart="@dimen/margin_big"
+                android:gravity="start"
                 android:text="@{item}"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.3" />
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:padding="@dimen/margin_big"
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/home_icon_list_size"
+                android:layout_height="@dimen/home_icon_list_size"
+                android:layout_marginStart="@dimen/margin_small"
+                android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
-                app:imageFromDrawableCenterInside="@{@drawable/app_sinarmas_logo}"
+                app:imageFromDrawableCenterInside="@{@drawable/sinarmas_logo}"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.7" />
 

@@ -37,4 +37,7 @@
 
     <dimen name="app_logo_width">100dp</dimen>
     <dimen name="app_logo_height">42dp</dimen>
+
+    <dimen name="home_list_height">110dp</dimen>
+    <dimen name="home_icon_list_size">80dp</dimen>
 </resources>

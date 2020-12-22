@@ -7,8 +7,8 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import id.co.app.source.databinding.ItemListHomeBinding
 
-class PhotosAdapter(private val photosList: List<String>) :
-    RecyclerView.Adapter<PhotosAdapter.PhotosViewHolder>() {
+class HomeAdapter(private val photosList: List<String>) :
+    RecyclerView.Adapter<HomeAdapter.PhotosViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotosViewHolder {
         return PhotosViewHolder(
