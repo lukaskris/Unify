@@ -23,6 +23,7 @@
 
         <!-- Background color. -->
         <item name="android:colorBackground">@color/color_background_night</item>
+        <item name="colorOnBackground">@color/color_on_background_night</item>
 
         <!-- On Error color. -->
         <item name="colorError">@color/color_error_night</item>
