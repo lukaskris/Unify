@@ -21,8 +21,8 @@
     <color name="color_primary_night">#BB86FC</color>
     <color name="color_primary_variant_night">#3700B3</color>
     <color name="color_on_primary_night">#000000</color>
-    <color name="color_background_night">#141c21</color>
-    <color name="color_surface_night">#272d31</color>
+    <color name="color_background_night">#202124</color>
+    <color name="color_surface_night">#3c4043</color>
     <color name="color_on_background_night">#FFFFFF</color>
     <color name="color_on_surface_night">#FFFFFF</color>
     <color name="color_primary_dark_night">#000000</color>

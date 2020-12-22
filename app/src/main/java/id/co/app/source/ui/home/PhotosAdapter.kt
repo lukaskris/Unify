@@ -3,17 +3,16 @@ package id.co.app.source.ui.home
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import id.co.app.source.databinding.ItemPhotoHomeBinding
+import id.co.app.source.databinding.ItemListHomeBinding
 
 class PhotosAdapter(private val photosList: List<String>) :
     RecyclerView.Adapter<PhotosAdapter.PhotosViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotosViewHolder {
         return PhotosViewHolder(
-            ItemPhotoHomeBinding.inflate(
+            ItemListHomeBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -33,7 +32,7 @@ class PhotosAdapter(private val photosList: List<String>) :
         holder.bind(nameItem, listener)
     }
 
-    class PhotosViewHolder(rowBinding: ItemPhotoHomeBinding) :
+    class PhotosViewHolder(rowBinding: ItemListHomeBinding) :
         RecyclerView.ViewHolder(rowBinding.root) {
         private val binding = rowBinding
         fun bind(str: String, listener: View.OnClickListener?) {
