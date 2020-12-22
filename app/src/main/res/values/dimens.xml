@@ -21,6 +21,7 @@
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_big">25dp</dimen>
     <dimen name="margin_extra_small">4dp</dimen>
+    <dimen name="margin_extra_very_small">2dp</dimen>
 
     <dimen name="plant_item_image_height">95dp</dimen>
 
