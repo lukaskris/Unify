@@ -24,7 +24,7 @@
     <dimen name="card_corner_radius">12dp</dimen>
 
     <!-- elevation for page Detail toolbar - used to convert to pixels when hiding/showing -->
-    <dimen name="toolbar_elevation">5dp</dimen>
+    <dimen name="toolbar_elevation">8dp</dimen>
 
     <!-- Page List Header margin -->
     <dimen name="header_margin">24dp</dimen>
