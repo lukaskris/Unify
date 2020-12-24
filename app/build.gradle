@@ -106,6 +106,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutinesVersion"
     implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hiltViewModelVersion"
+    implementation "com.tapadoo.android:alerter:6.2.1"
     //  Android X MultiDex
     implementation 'androidx.multidex:multidex:2.0.1'
 

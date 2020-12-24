@@ -15,4 +15,6 @@
     <string name="home">Trang Chủ</string>
     <string name="feed">Khám phá</string>
     <string name="home_details">Chi tiết trang chủ</string>
+    <string name="exit_confirm">nhấn một lần nữa để thoát</string>
+    <string name="exit_application">Ứng dụng xuất cảnh</string>
 </resources>

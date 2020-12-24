@@ -10,6 +10,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.core.widget.NestedScrollView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -77,10 +79,30 @@ class HomeDetailsFragment : Fragment() {
 
         }
         setHasOptionsMenu(true)
+        //setBackPressCallBack()
         setToolbar()
         checkToolbarStatus()
         return binding.root
     }
+
+//    private fun setBackPressCallBack() {
+//        requireActivity()
+//            .onBackPressedDispatcher
+//            .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+//                override fun handleOnBackPressed() {
+//
+//                    // Do custom work here
+//                    val cobastatus = isEnabled
+//                    // if you want onBackPressed() to be called as normal afterwards
+//                    if (isEnabled) {
+//                        Toast.makeText(requireContext(), "test", Toast.LENGTH_SHORT).show()
+//                        isEnabled = false
+//                        requireActivity().onBackPressed()
+//                    }
+//                }
+//            }
+//            )
+//    }
 
     private fun setToolbar() {
 //        val statusBarHeight = Common.statusBarHeight(requireActivity())

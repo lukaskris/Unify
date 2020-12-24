@@ -4,9 +4,12 @@
  * Last modified 22/12/20 17:34
  */
 
+
+
 package id.co.app.source.utilities
 
 import android.app.Activity
+import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.Rect
@@ -14,6 +17,8 @@ import android.os.Build
 import android.util.TypedValue
 import android.view.View
 import android.view.WindowManager
+import androidx.annotation.AttrRes
+import androidx.annotation.ColorInt
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
@@ -21,6 +26,7 @@ import id.co.app.source.R
 
 object Common {
 
+    @Suppress("DEPRECATION")
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun setStatusColorLight(activity: FragmentActivity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -52,6 +58,7 @@ object Common {
         }
     }
 
+    @Suppress("DEPRECATION")
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun setStatusColorDark(activity: FragmentActivity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -115,5 +122,15 @@ object Common {
         val currentNightMode =
             activity.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         return currentNightMode == Configuration.UI_MODE_NIGHT_YES
+    }
+
+    @ColorInt
+    fun Context.getColorFromAttr(
+        @AttrRes attrColor: Int,
+        typedValue: TypedValue = TypedValue(),
+        resolveRefs: Boolean = true
+    ): Int {
+        theme.resolveAttribute(attrColor, typedValue, resolveRefs)
+        return typedValue.data
     }
 }
