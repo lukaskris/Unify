@@ -22,5 +22,5 @@
         \n\n\Phasellus mauris velit, placerat vehicula nisi vel, vehicula volutpat velit. Phasellus eget erat sed dolor pharetra hendrerit. Donec posuere, leo sed fringilla mollis, magna risus iaculis justo, sit amet ornare quam felis id elit. Donec sit amet pharetra lectus. Ut tempus, magna sit amet egestas condimentum, dolor ligula egestas tellus, eu porttitor magna nisl vitae diam. Sed tincidunt turpis non quam suscipit, non dignissim sem suscipit. Cras et volutpat arcu. Integer ut posuere dolor. Suspendisse lectus velit, iaculis id pretium nec, sollicitudin sed sem. Cras vulputate a sapien eget posuere. Aenean aliquam sodales elementum. Suspendisse venenatis, nunc eu porta porttitor, tellus nibh vehicula magna, ut ullamcorper odio lacus eget nibh. Quisque ultricies malesuada consectetur. Vivamus laoreet magna in facilisis viverra. Aliquam et sem massa. Pellentesque sit amet quam id lacus porttitor ullamcorper gravida id tellus.
     </string>
     <string name="exit_confirm" translation_description="The label for exit app confirmation">Press again to exit</string>
-    <string name="exit_application">Exit Application</string>
+    <string name="exit_application">Exit App</string>
 </resources>
