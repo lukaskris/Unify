@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                 .setTitle(R.string.exit_application)
                 .setText(R.string.exit_confirm)
                 .setBackgroundColorRes(R.color.alert_background_info)
-                .setDuration(500)
+                .setDuration(1000)
                 .show()
             Handler(Looper.getMainLooper()).postDelayed(mRunnable, 2000)
         } else {
