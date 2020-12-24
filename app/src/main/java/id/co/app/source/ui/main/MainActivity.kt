@@ -79,11 +79,11 @@ class MainActivity : AppCompatActivity() {
                 return
             }
             doubleBackToExitPressedOnce = true
-            //Toast.makeText(this, "Back lagi (temp)", Toast.LENGTH_SHORT).show()
             Alerter.create(this@MainActivity)
                 .setTitle(R.string.exit_application)
                 .setText(R.string.exit_confirm)
-                .setBackgroundColorRes(R.color.alert_background_info) // or setBackgroundColorInt(Color.CYAN)
+                .setBackgroundColorRes(R.color.alert_background_info)
+                .setDuration(500)
                 .show()
             Handler(Looper.getMainLooper()).postDelayed(mRunnable, 2000)
         } else {
