@@ -6,11 +6,9 @@
 
 package id.co.app.source.ui.main
 
-import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.lifecycle.LiveData
@@ -19,7 +17,6 @@ import com.tapadoo.alerter.Alerter
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.app.source.R
 import id.co.app.source.databinding.MainActivityBinding
-import id.co.app.source.utilities.Common.getColorFromAttr
 import id.co.app.source.utilities.setupWithNavController
 
 @AndroidEntryPoint
