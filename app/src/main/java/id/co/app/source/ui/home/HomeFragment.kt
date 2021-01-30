@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
         //val backdropHeight = resources.getDimension(R.dimen.plant_detail_app_bar_height)
         val scrimHeightTrigger = backdropHeight + statusBarHeight
         //val scrimHeightTrigger = 240
-        binding.toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() - 25
+        binding.toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() - 20
         //val toolbarHeight =  calculateActionBar()
         //toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() - toolbarHeight
         //toolbarLayout.scrimVisibleHeightTrigger = 0
