@@ -24,6 +24,7 @@ class FeedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        //binding = FragmentFeedBinding.inflate(layoutInflater)
         binding = FragmentFeedBindingImpl.inflate(inflater)
         return binding.root
     }
