@@ -80,16 +80,15 @@ dependencies {
     compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:$rootProject.assistedInjectVersion"
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
-    kapt 'com.google.dagger:hilt-android-compiler:2.33-beta'
-    kapt "androidx.hilt:hilt-compiler:$rootProject.hiltViewModelVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltDaggerVersion"
     kapt "com.squareup.inject:assisted-inject-processor-dagger2:$rootProject.assistedInjectVersion"
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
     implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
     implementation "androidx.fragment:fragment-ktx:$rootProject.fragmentVersion"
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleLiveDataVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleLiveDataVersion"
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
     implementation "androidx.paging:paging-runtime-ktx:$rootProject.pagingVersion"
@@ -106,14 +105,14 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutinesVersion"
-    implementation 'com.google.dagger:hilt-android:2.33-beta'
+    implementation "com.google.dagger:hilt-android:$rootProject.hiltDaggerVersion"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hiltViewModelVersion"
     implementation "com.tapadoo.android:alerter:6.2.1"
     //  Android X MultiDex
     implementation 'androidx.multidex:multidex:2.0.1'
 
     // Testing dependencies
-    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.33-beta'
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$rootProject.hiltDaggerVersion"
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
@@ -122,7 +121,7 @@ dependencies {
     androidTestImplementation "androidx.test.uiautomator:uiautomator:$rootProject.uiAutomatorVersion"
     androidTestImplementation "androidx.work:work-testing:$rootProject.workVersion"
     androidTestImplementation "com.google.truth:truth:1.1.2"
-    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.33-beta'
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$rootProject.hiltDaggerVersion"
     testImplementation "junit:junit:$rootProject.junitVersion"
 }
 
