@@ -27,8 +27,6 @@ android {
         vectorDrawables.useSupportLibrary true
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        // Consult the README on instructions for setting up Unsplash API key
-        buildConfigField("String", "UNSPLASH_ACCESS_KEY", "\"" + getUnsplashAccess() + "\"")
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
@@ -123,8 +121,4 @@ dependencies {
     androidTestImplementation "com.google.truth:truth:1.1.2"
     androidTestImplementation "com.google.dagger:hilt-android-testing:$rootProject.hiltDaggerVersion"
     testImplementation "junit:junit:$rootProject.junitVersion"
-}
-
-def getUnsplashAccess() {
-    return project.findProperty("unsplash_access_key")
 }
