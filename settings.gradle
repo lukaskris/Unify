@@ -1,2 +1,7 @@
+include ':home'
+include ':core'
 include ':app'
+include ':feed'
+include ':homedetail'
+include ':setting'
 rootProject.name = "AppSource"
