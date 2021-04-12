@@ -14,23 +14,23 @@ import androidx.databinding.DataBindingUtil.setContentView
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import com.tapadoo.alerter.Alerter
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.app.source.R
-import id.co.app.source.databinding.MainActivityBinding
+import id.co.app.source.databinding.ActivityMainBinding
+import id.co.app.source.utilities.setupWithNavController
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private var currentNavController: NavController? = null
-    private lateinit var binding: MainActivityBinding
+    private var currentNavController: LiveData<NavController>? = null
+    private lateinit var binding: ActivityMainBinding
     private var doubleBackToExitPressedOnce = false
     private val mRunnable = Runnable { doubleBackToExitPressedOnce = false }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = setContentView(this, R.layout.main_activity)
+        binding = setContentView(this, R.layout.activity_main)
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
         }
@@ -42,25 +42,34 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return currentNavController?.navigateUp() ?: false
+        return currentNavController?.value?.navigateUp() ?: false
     }
 
     private fun setupBottomNavigationBar() {
         val bottomNavigationView = binding.bottomNavigation
-        val navController = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
+        val navGraphIds = listOf(
+            R.navigation.navigation_home,
+            R.navigation.navigation_feed,
+            R.navigation.navigation_settings
+        )
+        val controller = bottomNavigationView.setupWithNavController(
+            navGraphIds = navGraphIds,
+            fragmentManager = supportFragmentManager,
+            containerId = R.id.nav_host_fragment,
+            intent = intent
+        )
 
-        bottomNavigationView.setupWithNavController(navController)
-
-        currentNavController = navController
         // Whenever the selected controller changes, setup the action bar.
 //        controller.observe(this, Observer { navController ->
 //            setupActionBarWithNavController(navController)
 //        })
+        currentNavController = controller
     }
+
 
     override fun onBackPressed() {
 
-        val currentFragmentLabel = currentNavController?.currentDestination?.label
+        val currentFragmentLabel = currentNavController?.value?.currentDestination?.label
         val fragmentHomeLabel = getString(R.string.home)
         if (currentFragmentLabel == fragmentHomeLabel) {
             if (doubleBackToExitPressedOnce) {

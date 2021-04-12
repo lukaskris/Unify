@@ -18,4 +18,6 @@
         tools:layout="@layout/fragment_home">
     </fragment>
 
+    <include app:graph="@navigation/navigation_home_detail"/>
+
 </navigation>

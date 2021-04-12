@@ -7,8 +7,7 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="id.co.app.source.ui.main.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,9 +17,6 @@
             android:id="@+id/nav_host_fragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_graph"
             app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
