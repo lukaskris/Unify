@@ -4,6 +4,7 @@ import id.co.app.core.base.Result
 import id.co.app.core.domain.network.PokedexClient
 import id.co.app.core.domain.persistence.PokemonDao
 import id.co.app.core.extension.whatIfNotNull
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
@@ -16,6 +17,7 @@ class MainRepository @Inject constructor(
     ) = flow {
         try{
             emit(Result.Loading)
+            delay(5000)
             var pokemons = pokemonDao.getPokemonList(page)
             if (pokemons.isEmpty()) {
                 pokedexClient.fetchPokemonList(page = page).result.whatIfNotNull { data ->

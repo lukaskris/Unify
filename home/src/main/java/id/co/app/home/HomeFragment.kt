@@ -15,6 +15,7 @@ import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,11 +25,13 @@ import com.squareup.moshi.Moshi
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.app.core.deeplink.InternalDeepLink
 import id.co.app.core.domain.entities.Pokemon
-import id.co.app.core.extension.isLoading
 import id.co.app.core.extension.onFailure
 import id.co.app.core.extension.onSuccess
 import id.co.app.core.utilities.Common
 import id.co.app.home.databinding.FragmentHomeBinding
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -38,8 +41,9 @@ class HomeFragment : Fragment() {
     lateinit var moshi: Moshi
 
     private lateinit var binding: FragmentHomeBinding
-    private val viewModel: HomeViewModel by viewModels()
+    private val homeViewModel: HomeViewModel by viewModels()
 
+    private var localJob: Job? = null
 
     private val optionsTransition by lazy {
         NavOptions.Builder()
@@ -73,6 +77,7 @@ class HomeFragment : Fragment() {
             false
         ).apply {
             lifecycleOwner = viewLifecycleOwner
+            viewModel = homeViewModel
         }
         setToolbar()
 //        setHasOptionsMenu(true)
@@ -177,16 +182,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun observeLiveData(){
-        viewModel.getInitialDataList()
-        viewModel.homeLiveData.observe(viewLifecycleOwner){ result ->
-            binding.isLoading = result.isLoading
+        localJob = lifecycleScope.launch {
+            homeViewModel.pokemonListFlow.collect { result ->
+                result.onSuccess {
+                    if(it.firstOrNull()?.page != 0) homeAdapter.appendList(it)
+                    else homeAdapter.submitList(it)
+                }
 
-            result.onSuccess {
-                homeAdapter.submitList(it)
-            }
-
-            result.onFailure {
-                Toast.makeText(context, "Please check your connection issues", Toast.LENGTH_LONG).show()
+                result.onFailure {
+                    Toast.makeText(context, "Please check your connection issues", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
@@ -197,4 +202,8 @@ class HomeFragment : Fragment() {
         super.onSaveInstanceState(savedInstanceState)
     }
 
+    override fun onDestroy() {
+        localJob?.cancel()
+        super.onDestroy()
+    }
 }

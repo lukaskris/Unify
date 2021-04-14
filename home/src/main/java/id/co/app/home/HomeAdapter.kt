@@ -9,22 +9,17 @@ package id.co.app.home
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.net.toUri
-import androidx.navigation.NavOptions
-import androidx.navigation.Navigation
-import com.squareup.moshi.Moshi
 import id.co.app.core.base.BaseAdapter
 import id.co.app.core.base.BaseViewHolder
-import id.co.app.core.deeplink.InternalDeepLink
 import id.co.app.core.domain.entities.Pokemon
 import id.co.app.home.databinding.ItemListHomeBinding
 
 class HomeAdapter (
     private val clickListener: (Pokemon) -> Unit
 ):
-    BaseAdapter<HomeAdapter.PhotosViewHolder, Pokemon>() {
+    BaseAdapter() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotosViewHolder {
+    override fun createViewHolders(parent: ViewGroup, viewType: Int): BaseViewHolder<Any> {
         return PhotosViewHolder(
             ItemListHomeBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -32,7 +27,7 @@ class HomeAdapter (
                 false
             ),
             clickListener
-        )
+        ) as BaseViewHolder<Any>
     }
 
     class PhotosViewHolder(rowBinding: ItemListHomeBinding, private val clickListener: (Pokemon) -> Unit) :
