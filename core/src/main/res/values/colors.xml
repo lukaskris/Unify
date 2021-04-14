@@ -47,6 +47,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#dddddd</color>
     <color name="app_brand_primary_color">#c62828</color>
     <color name="app_brand_primary_light_color">#ff5f52</color>
     <color name="app_brand_dark_color">#8e0000</color>

@@ -47,11 +47,10 @@ dependencies {
 
     implementation "com.google.dagger:hilt-android:$rootProject.hiltDaggerVersion"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hiltViewModelVersion"
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:$rootProject.assistedInjectVersion"
     kapt "com.squareup.inject:assisted-inject-processor-dagger2:$rootProject.assistedInjectVersion"
     kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltDaggerVersion"
+    kapt "androidx.hilt:hilt-compiler:$rootProject.hiltCompilerVersion"
 
 
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"

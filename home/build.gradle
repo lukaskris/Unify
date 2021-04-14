@@ -44,6 +44,12 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
     implementation "com.google.android.material:material:$rootProject.materialVersion"
 
+    implementation "com.squareup.moshi:moshi-kotlin:$rootProject.moshiVersion"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$rootProject.moshiVersion"
+
+    
+    implementation "com.facebook.shimmer:shimmer:$rootProject.shimmerVersion"
+
 
     implementation "com.google.dagger:hilt-android:$rootProject.hiltDaggerVersion"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hiltViewModelVersion"
@@ -52,6 +58,7 @@ dependencies {
     compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:$rootProject.assistedInjectVersion"
     kapt "com.squareup.inject:assisted-inject-processor-dagger2:$rootProject.assistedInjectVersion"
     kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltDaggerVersion"
+    kapt "androidx.hilt:hilt-compiler:$rootProject.hiltCompilerVersion"
 
 
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"

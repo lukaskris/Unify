@@ -15,12 +15,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.squareup.moshi.Moshi
 import dagger.hilt.android.AndroidEntryPoint
+import id.co.app.core.domain.entities.Pokemon
 import id.co.app.core.utilities.Common
 import id.co.app.homedetail.databinding.FragmentHomeDetailsBinding
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeDetailsFragment : Fragment() {
+
+    @Inject
+    lateinit var moshi: Moshi
 
     private lateinit var binding: FragmentHomeDetailsBinding
     private lateinit var codeId: String
@@ -48,6 +54,9 @@ class HomeDetailsFragment : Fragment() {
         if (savedInstanceState != null) {
             isToolbarShown = savedInstanceState.getBoolean(isToolbarShownKey)
         }
+
+        val pokemonArgs = moshi.adapter(Pokemon::class.java).fromJson(args.pokemon)
+
         binding = DataBindingUtil.inflate<FragmentHomeDetailsBinding>(
             inflater,
             R.layout.fragment_home_details,
@@ -56,7 +65,7 @@ class HomeDetailsFragment : Fragment() {
         ).apply {
             //viewModel = plantDetailViewModel
             lifecycleOwner = viewLifecycleOwner
-            code = args.detailsName
+            pokemon = pokemonArgs
 
             toolbar.setNavigationOnClickListener { view ->
                 view.findNavController().navigateUp()
