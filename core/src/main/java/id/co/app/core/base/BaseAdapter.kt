@@ -8,6 +8,10 @@ abstract class BaseAdapter : RecyclerView.Adapter<BaseViewHolder<Any>>(){
     protected val data = mutableListOf<Any>()
     private val loadingModel = BaseLoadingModel()
 
+    init {
+        data.add(loadingModel)
+    }
+
     override fun getItemCount(): Int {
         return data.size
     }
