@@ -3,18 +3,31 @@ package id.co.app.core.binding
 import android.graphics.drawable.Drawable
 import android.text.method.LinkMovementMethod
 import android.view.View
-import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.text.HtmlCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
+import com.bumptech.glide.request.transition.DrawableCrossFadeFactory
+import com.facebook.shimmer.Shimmer
+import com.facebook.shimmer.ShimmerDrawable
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import id.co.app.core.R
 
 object ViewBinding {
+    private val factory = DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(true).build()
+    // This is the placeholder for the imageView
+    private val shimmerDrawable = ShimmerDrawable().apply {
+        setShimmer(
+            Shimmer.AlphaHighlightBuilder()// The attributes for a ShimmerDrawable is set by this builder
+                .setBaseAlpha(0.9f) //the alpha of the underlying children
+                .setDirection(Shimmer.Direction.LEFT_TO_RIGHT)
+                .setAutoStart(true)
+                .build()
+        )
+    }
+
     @JvmStatic
     @BindingAdapter("gone")
     fun bindGone(view: View, shouldBeGone: Boolean) {
@@ -35,9 +48,11 @@ object ViewBinding {
     @BindingAdapter("imageFromUrl")
     fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
         if (!imageUrl.isNullOrEmpty()) {
+
             Glide.with(view.context)
                 .load(imageUrl)
-                .transition(DrawableTransitionOptions.withCrossFade())
+                .placeholder(shimmerDrawable)
+                .transition(withCrossFade(factory))
                 .centerCrop()
                 .into(view)
         }
@@ -49,7 +64,7 @@ object ViewBinding {
         if (drawable != null) {
             Glide.with(view.context)
                 .load(drawable)
-                .transition(DrawableTransitionOptions.withCrossFade())
+                .transition(withCrossFade())
                 .centerCrop()
                 .into(view)
         }
@@ -61,7 +76,7 @@ object ViewBinding {
         if (drawable != null) {
             Glide.with(view.context)
                 .load(drawable)
-                .transition(DrawableTransitionOptions.withCrossFade())
+                .transition(withCrossFade())
                 .centerInside()
                 .into(view)
         }
