@@ -13,23 +13,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.tapadoo.alerter.Alerter
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.app.source.R
-import id.co.app.source.databinding.MainActivityBinding
+import id.co.app.source.databinding.ActivityMainBinding
 import id.co.app.source.utilities.setupWithNavController
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private var currentNavController: LiveData<NavController>? = null
-    private lateinit var binding: MainActivityBinding
+    private lateinit var binding: ActivityMainBinding
     private var doubleBackToExitPressedOnce = false
     private val mRunnable = Runnable { doubleBackToExitPressedOnce = false }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = setContentView(this, R.layout.main_activity)
+        binding = setContentView(this, R.layout.activity_main)
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
         }
@@ -51,7 +52,6 @@ class MainActivity : AppCompatActivity() {
             R.navigation.navigation_feed,
             R.navigation.navigation_settings
         )
-
         val controller = bottomNavigationView.setupWithNavController(
             navGraphIds = navGraphIds,
             fragmentManager = supportFragmentManager,
@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
 //        })
         currentNavController = controller
     }
+
 
     override fun onBackPressed() {
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_home_detail">
+
+    <fragment
+        android:id="@+id/details_dest"
+        android:name="id.co.app.homedetail.HomeDetailsFragment"
+        android:label="@string/home_details"
+        tools:layout="@layout/fragment_home_details">
+
+        <argument
+            android:name="detailsName"
+            app:argType="string" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="app://home-detail?detailsName={detailsName}" />
+
+    </fragment>
+
+</navigation>

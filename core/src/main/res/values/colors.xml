@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Hendry Syamsudin on 22/12/20 17:36
+  ~ Copyright (c) APP Sinarmas 2020. All rights reserved.
+  ~ Last modified 22/12/20 17:34
+  -->
+
+<resources>
+
+    <!-- Light Colors -->
+    <color name="color_primary">@color/app_brand_primary_color</color>
+    <color name="color_primary_variant">@color/app_brand_primary_light_color</color>
+    <color name="color_on_primary">#FFFFFF</color>
+    <color name="color_background">#E0E0E0</color>
+    <color name="color_on_background">#000000</color>
+    <color name="color_surface">#FFFFFF</color>
+    <color name="color_on_surface">#000000</color>
+    <color name="color_primary_dark">@color/app_brand_dark_color</color>
+    <color name="color_accent">#005d2b</color>
+    <color name="color_secondary">#03DAC6</color>
+    <color name="color_secondary_variant">#018786</color>
+    <color name="color_on_secondary">#000000</color>
+    <color name="color_error">#B00020</color>
+    <color name="color_on_error">#FFFFFF</color>
+
+    <!-- Night Colors -->
+    <color name="color_primary_night">#BB86FC</color>
+    <color name="color_primary_variant_night">#3700B3</color>
+    <color name="color_on_primary_night">#000000</color>
+    <color name="color_background_night">#202124</color>
+    <color name="color_surface_night">#3c4043</color>
+    <color name="color_on_background_night">#FFFFFF</color>
+    <color name="color_on_surface_night">#FFFFFF</color>
+    <color name="color_primary_dark_night">#000000</color>
+    <color name="color_accent_night">#005d2b</color>
+    <color name="color_secondary_night">#03DAC5</color>
+    <color name="color_secondary_variant_night">#FF018786</color>
+    <color name="color_on_secondary_night">#ffff63</color>
+    <color name="color_error_night">#CF6679</color>
+    <color name="color_on_error_night">#000000</color>
+
+    <!-- Other Colors -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="app_brand_primary_color">#c62828</color>
+    <color name="app_brand_primary_light_color">#ff5f52</color>
+    <color name="app_brand_dark_color">#8e0000</color>
+    <color name="sinarmas_color">#ed1b23</color>
+    <color name="alert_background_info">#ff9100</color>
+
+</resources>
