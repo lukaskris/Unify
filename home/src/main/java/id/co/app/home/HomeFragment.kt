@@ -19,10 +19,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.AndroidEntryPoint
+import id.co.app.core.base.RecyclerViewPagination
 import id.co.app.core.deeplink.InternalDeepLink
 import id.co.app.core.domain.entities.Pokemon
 import id.co.app.core.extension.onFailure
@@ -54,11 +54,26 @@ class HomeFragment : Fragment() {
             .build()
     }
 
-    private val homeAdapter by lazy { HomeAdapter {
-        val json = moshi.adapter(Pokemon::class.java).toJson(it)
-        val deepLink = InternalDeepLink.HOME_DETAIL.format(json).toUri()
-        Navigation.findNavController(binding.root).navigate(deepLink, optionsTransition)
-    } }
+    private val homeAdapter by lazy {
+        HomeAdapter {
+            val json = moshi.adapter(Pokemon::class.java).toJson(it)
+            val deepLink = InternalDeepLink.HOME_DETAIL.format(json).toUri()
+            Navigation.findNavController(binding.root).navigate(deepLink, optionsTransition)
+        }
+    }
+
+    private val paginationListener by lazy {
+        RecyclerViewPagination(
+            recyclerView = binding.homePhotosList,
+            isLoading = {
+                homeViewModel.isLoading.value ?: false
+            },
+            loadMore = homeViewModel::fetchPage,
+            onLast = { false }
+        ).apply {
+            threshold = 2
+        }
+    }
 
     private var isToolbarShown = false
     private val isToolbarShownKey = "isToolbarShown"
@@ -80,7 +95,6 @@ class HomeFragment : Fragment() {
             viewModel = homeViewModel
         }
         setToolbar()
-//        setHasOptionsMenu(true)
         checkToolbarStatus()
         return binding.root
     }
@@ -89,71 +103,17 @@ class HomeFragment : Fragment() {
         val statusBarHeight = Common.statusBarHeight(requireActivity())
         val backdropHeight = (resources.getDimension(R.dimen.app_bar_backdrop_height) /
                 resources.displayMetrics.density)
-        //val backdropHeight = resources.getDimension(R.dimen.plant_detail_app_bar_height)
         val scrimHeightTrigger = backdropHeight + statusBarHeight
-        //val scrimHeightTrigger = 240
         binding.toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() - 20
-        //val toolbarHeight =  calculateActionBar()
-        //toolbarLayout.scrimVisibleHeightTrigger = scrimHeightTrigger.toInt() - toolbarHeight
-        //toolbarLayout.scrimVisibleHeightTrigger = 0
-//            Log.v(
-//                "scrimHeightTrigger", "statusbar : " +
-//                        "$statusBarHeight, backdropHeight: $backdropHeight, " +
-//                        "scrimHeightTrigger : $scrimHeightTrigger, " +
-//                        "toolbarHeight: $toolbarHeight"
-//            )
         binding.appbar.addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout, verticalOffset ->
             val totalScrollRange = appBarLayout.totalScrollRange
-//                val midTotalScrollRange = totalScrollRange / 2
             val totalVerticalOffset = verticalOffset * -1
-            //Log.v("verticalOffset", "verticalOffset : $totalVerticalOffset , $totalScrollRange")
-//                val color = changeAlpha(
-//                    ContextCompat.getColor(requireContext(), R.color.white),
-//                    abs(verticalOffset * 1.0f) / totalScrollRange
-//                )
-            //toolbar.setBackgroundColor(color)
             val shouldShowToolbar = totalVerticalOffset >= totalScrollRange
             if (isToolbarShown != shouldShowToolbar) {
                 isToolbarShown = shouldShowToolbar
                 checkToolbarStatus()
             }
-
-            //toolbarLayout.setStatusBarScrimColor(color)
         })
-        binding.homePhotosList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-                //Log.v("dy", "dy : $dy")
-//                    val shouldShowToolbar = dy > 0
-//                    if (isToolbarShown != shouldShowToolbar) {
-//                        isToolbarShown = shouldShowToolbar
-//
-//                        // Use shadow animator to add elevation if toolbar is shown
-//                        appbar.isActivated = shouldShowToolbar
-//
-//                        // Show the plant name if toolbar is shown
-//                        toolbarLayout.isTitleEnabled = shouldShowToolbar
-//                        if (isToolbarShown) {
-//                            Common.setStatusColorDark(activity!!)
-//                        } else {
-//                            Common.setStatusColorLight(activity!!)
-//                        }
-//                    }
-            }
-        })
-
-//            toolbar.setNavigationOnClickListener { view ->
-//                view.findNavController().navigateUp()
-//            }
-//            toolbar.setOnMenuItemClickListener { item ->
-//                when (item.itemId) {
-//                    R.id.action_share -> {
-//                        //createShareIntent()
-//                        true
-//                    }
-//                    else -> false
-//                }
-//            }
     }
 
     private fun checkToolbarStatus() {
@@ -178,20 +138,39 @@ class HomeFragment : Fragment() {
         binding.homePhotosList.apply {
             adapter = homeAdapter
             layoutManager = linearLayoutManager
+            addOnScrollListener(paginationListener)
+        }
+        binding.swipeRefresh.setOnRefreshListener {
+            binding.homePhotosList.removeOnScrollListener(paginationListener)
+            paginationListener.resetCurrentPage()
+            homeAdapter.resetRecyclerView()
+            homeViewModel.refreshPage()
         }
     }
 
-    private fun observeLiveData(){
+    private fun observeLiveData() {
         localJob = lifecycleScope.launch {
             homeViewModel.pokemonListFlow.collect { result ->
                 result.onSuccess {
-                    if(it.firstOrNull()?.page != 0) homeAdapter.appendList(it)
+                    if (it.firstOrNull()?.page != 0) homeAdapter.appendList(it)
                     else homeAdapter.submitList(it)
                 }
 
                 result.onFailure {
-                    Toast.makeText(context, "Please check your connection issues", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        context,
+                        "Please check your connection issues",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
+            }
+        }
+
+        homeViewModel.isLoading.observe(viewLifecycleOwner){
+            homeAdapter.showLoading()
+            if(!it){
+                binding.homePhotosList.addOnScrollListener(paginationListener)
+                binding.swipeRefresh.isRefreshing = false
             }
         }
     }

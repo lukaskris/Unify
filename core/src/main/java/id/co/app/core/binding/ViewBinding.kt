@@ -13,10 +13,10 @@ import com.bumptech.glide.request.transition.DrawableCrossFadeFactory
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import id.co.app.core.R
 
 object ViewBinding {
     private val factory = DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(true).build()
+
     // This is the placeholder for the imageView
     private val shimmerDrawable = ShimmerDrawable().apply {
         setShimmer(
@@ -40,7 +40,7 @@ object ViewBinding {
 
     @JvmStatic
     @BindingAdapter("titleText")
-    fun bindTitleText(view: TextView, value: String){
+    fun bindTitleText(view: TextView, value: String) {
         view.text = value.capitalize()
     }
 
@@ -102,7 +102,4 @@ object ViewBinding {
             view.text = ""
         }
     }
-
-
-
 }
