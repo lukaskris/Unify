@@ -10,10 +10,9 @@
     tools:context="id.co.app.source.id.co.app.homedetail.HomeDetailsFragment">
 
     <data>
-
         <variable
-            name="code"
-            type="String" />
+            name="pokemon"
+            type="id.co.app.core.domain.entities.Pokemon" />
 
     </data>
 
@@ -47,7 +46,7 @@
                 app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
                 app:scrimAnimationDuration="@integer/scrim_animation_duration"
                 app:statusBarScrim="?attr/colorSurface"
-                app:title="@{code}"
+                app:title="@{pokemon.name}"
                 app:titleEnabled="false"
                 app:toolbarId="@id/toolbar">
 
@@ -59,6 +58,17 @@
                     android:fitsSystemWindows="true"
                     app:imageFromDrawable="@{@drawable/backdrop_detail}"
                     app:layout_collapseMode="parallax" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/image"
+                    android:layout_width="190dp"
+                    android:layout_height="190dp"
+                    android:layout_marginBottom="20dp"
+                    android:scaleType="center"
+                    android:layout_gravity="center"
+                    android:fitsSystemWindows="true"
+                    app:layout_collapseMode="pin"
+                    app:imageFromUrl="@{pokemon.imageUrl}"/>
 
                 <com.google.android.material.appbar.MaterialToolbar
                     android:id="@+id/toolbar"
@@ -95,8 +105,8 @@
                     android:layout_marginStart="@dimen/margin_small"
                     android:layout_marginEnd="@dimen/margin_small"
                     android:gravity="center_horizontal"
-                    android:text="@{code}"
                     android:textAppearance="?attr/textAppearanceHeadline5"
+                    app:titleText="@{pokemon.name}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

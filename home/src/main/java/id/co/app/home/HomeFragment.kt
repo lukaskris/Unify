@@ -10,17 +10,56 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavOptions
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
+import com.squareup.moshi.Moshi
+import dagger.hilt.android.AndroidEntryPoint
+import id.co.app.core.deeplink.InternalDeepLink
+import id.co.app.core.domain.entities.Pokemon
+import id.co.app.core.extension.onFailure
+import id.co.app.core.extension.onSuccess
 import id.co.app.core.utilities.Common
 import id.co.app.home.databinding.FragmentHomeBinding
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
+    @Inject
+    lateinit var moshi: Moshi
+
     private lateinit var binding: FragmentHomeBinding
+    private val homeViewModel: HomeViewModel by viewModels()
+
+    private var localJob: Job? = null
+
+    private val optionsTransition by lazy {
+        NavOptions.Builder()
+            .setEnterAnim(R.anim.slide_in_right)
+            .setExitAnim(R.anim.slide_out_left)
+            .setPopEnterAnim(R.anim.slide_in_left)
+            .setPopExitAnim(R.anim.slide_out_right)
+            .build()
+    }
+
+    private val homeAdapter by lazy { HomeAdapter {
+        val json = moshi.adapter(Pokemon::class.java).toJson(it)
+        val deepLink = InternalDeepLink.HOME_DETAIL.format(json).toUri()
+        Navigation.findNavController(binding.root).navigate(deepLink, optionsTransition)
+    } }
+
     private var isToolbarShown = false
     private val isToolbarShownKey = "isToolbarShown"
 
@@ -31,16 +70,14 @@ class HomeFragment : Fragment() {
         if (savedInstanceState != null) {
             isToolbarShown = savedInstanceState.getBoolean(isToolbarShownKey)
         }
-        //binding = FragmentHomeBindingImpl.inflate(inflater)
         binding = DataBindingUtil.inflate<FragmentHomeBinding>(
             inflater,
             R.layout.fragment_home,
             container,
             false
         ).apply {
-            //viewModel = plantDetailViewModel
             lifecycleOwner = viewLifecycleOwner
-
+            viewModel = homeViewModel
         }
         setToolbar()
 //        setHasOptionsMenu(true)
@@ -133,25 +170,30 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBindings()
+        observeLiveData()
     }
 
     private fun initBindings() {
-        val photosAdapter = HomeAdapter()
-        photosAdapter.submitList(getPhotosList())
         val linearLayoutManager = LinearLayoutManager(activity)
         binding.homePhotosList.apply {
-            adapter = photosAdapter
+            adapter = homeAdapter
             layoutManager = linearLayoutManager
-
         }
     }
 
-    private fun getPhotosList(): List<String> {
-        val photosList = mutableListOf<String>()
-        for (i in 0..25) {
-            photosList.add("List $i")
+    private fun observeLiveData(){
+        localJob = lifecycleScope.launch {
+            homeViewModel.pokemonListFlow.collect { result ->
+                result.onSuccess {
+                    if(it.firstOrNull()?.page != 0) homeAdapter.appendList(it)
+                    else homeAdapter.submitList(it)
+                }
+
+                result.onFailure {
+                    Toast.makeText(context, "Please check your connection issues", Toast.LENGTH_LONG).show()
+                }
+            }
         }
-        return photosList
     }
 
     @Override
@@ -160,4 +202,8 @@ class HomeFragment : Fragment() {
         super.onSaveInstanceState(savedInstanceState)
     }
 
+    override fun onDestroy() {
+        localJob?.cancel()
+        super.onDestroy()
+    }
 }

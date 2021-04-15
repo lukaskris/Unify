@@ -11,7 +11,7 @@
 
         <variable
             name="item"
-            type="String" />
+            type="id.co.app.core.domain.entities.Pokemon" />
 
         <variable
             name="clickListener"
@@ -44,25 +44,29 @@
 
             <TextView
                 android:id="@+id/row_photo_rover_camera"
-                android:layout_width="303dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_big"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/margin_big"
                 android:gravity="start"
-                android:text="@{item}"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:maxLines="2"
+                app:titleText="@{item.name}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.3" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="@dimen/home_icon_list_size"
                 android:layout_height="@dimen/home_icon_list_size"
                 android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
-                app:imageFromDrawableCenterInside="@{@drawable/sinarmas_logo}"
+                app:imageFromUrl="@{item.imageUrl}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
