@@ -17,7 +17,6 @@ class MainRepository @Inject constructor(
     ) = flow {
         try{
             emit(Result.Loading)
-            delay(5000)
             var pokemons = pokemonDao.getPokemonList(page)
             if (pokemons.isEmpty()) {
                 pokedexClient.fetchPokemonList(page = page).result.whatIfNotNull { data ->

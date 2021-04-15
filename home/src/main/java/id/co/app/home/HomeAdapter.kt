@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import id.co.app.core.base.BaseAdapter
+import id.co.app.core.base.BaseModel
 import id.co.app.core.base.BaseViewHolder
 import id.co.app.core.domain.entities.Pokemon
 import id.co.app.home.databinding.ItemListHomeBinding
@@ -19,7 +20,7 @@ class HomeAdapter (
 ):
     BaseAdapter() {
 
-    override fun createViewHolders(parent: ViewGroup, viewType: Int): BaseViewHolder<Any> {
+    override fun createViewHolders(parent: ViewGroup, viewType: Int): BaseViewHolder<BaseModel> {
         return PhotosViewHolder(
             ItemListHomeBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -27,7 +28,7 @@ class HomeAdapter (
                 false
             ),
             clickListener
-        ) as BaseViewHolder<Any>
+        ) as BaseViewHolder<BaseModel>
     }
 
     class PhotosViewHolder(rowBinding: ItemListHomeBinding, private val clickListener: (Pokemon) -> Unit) :

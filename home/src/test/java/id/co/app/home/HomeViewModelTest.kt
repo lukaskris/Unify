@@ -63,7 +63,7 @@ class HomeViewModelTest {
             assert(expectItem().isSuccessful)
         }
 
-        homeViewModel.fetchLoadMore(1)
+        homeViewModel.fetchPage(1)
         homeViewModel.pokemonListFlow.test {
             assert(expectItem().isLoading)
             assert(expectItem().isSuccessful)
@@ -86,7 +86,7 @@ class HomeViewModelTest {
             assert(expectItem().isSuccessful)
         }
 
-        homeViewModel.fetchLoadMore(1)
+        homeViewModel.fetchPage(1)
         homeViewModel.pokemonListFlow.test {
             assert(expectItem().isLoading)
             assert(expectItem().isFailure)
