@@ -1,6 +1,6 @@
-include ':home'
-include ':core'
 include ':app'
+include ':core'
+include ':home'
 include ':feed'
 include ':homedetail'
 include ':setting'
