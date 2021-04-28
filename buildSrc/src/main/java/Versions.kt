@@ -6,8 +6,9 @@ object Versions {
     const val safeArgsNavigationVersion = "2.3.5"
 
     //libs
-    const val coreKtx = "1.2.0"
+    const val coreKtx = "1.1.0"
     const val appcompat = "1.3.0-alpha01"
+    const val biometric = "1.1.0"
     const val material = "1.2.0-alpha06"
     const val constraintLayout = "2.0.0-beta8"
     const val multidexVersion = "2.0.1"
