@@ -14,7 +14,8 @@ plugins {
 }
 
 android {
-    compileSdkVersion(AppConfig.compileSdk)
+    compileSdkVersion(30)
+    buildToolsVersion("30.0.3")
     buildFeatures {
         dataBinding = true
     }
@@ -38,13 +39,22 @@ android {
         getByName("debug") {
             debuggable(true)
             isZipAlignEnabled = true
+            isMinifyEnabled = false
         }
         getByName("release") {
             isDebuggable = false
             isZipAlignEnabled = true
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            debuggable(false)
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -66,7 +76,8 @@ subprojects {
     project.configurations.all {
         resolutionStrategy.eachDependency {
             if (requested.group == "androidx.core" &&
-                    !requested.name.contains("androidx")) {
+                !requested.name.contains("androidx")
+            ) {
                 useVersion("${Versions.appcompat}")
             }
         }
@@ -76,11 +87,11 @@ subprojects {
 }
 
 dependencies {
-    implementation(project(":core"))
-    implementation(project(":setting"))
-    implementation(project(":feed"))
-    implementation(project(":home"))
-    implementation(project(":homedetail"))
+    implementation(project(ModuleDependencies.Libraries.CORE))
+    implementation(project(ModuleDependencies.Features.HOME))
+    implementation(project(ModuleDependencies.Features.HOME_DETAIL))
+    implementation(project(ModuleDependencies.Features.SETTING))
+    implementation(project(ModuleDependencies.Features.FEED))
     implementation(AppDependencies.androidLibraries)
     implementation(AppDependencies.dependencyInjectionLibraries)
     implementation(AppDependencies.networkLibraries)

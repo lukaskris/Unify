@@ -1,7 +1,0 @@
-include ':app'
-include ':core'
-include ':home'
-include ':feed'
-include ':homedetail'
-include ':setting'
-rootProject.name = "AppSource"

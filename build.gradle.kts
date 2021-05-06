@@ -7,7 +7,11 @@ buildscript {
     }
 
     dependencies {
-        classpathPlugin(AppDependencies.buildPlugins)
+        classpath("com.android.tools.build:gradle:4.1.3")
+        classpath(AppDependencies.androidGradle)
+        classpath(AppDependencies.kotlinGradlePlugin)
+        classpath(AppDependencies.navigationGradlePlugin)
+        classpath(AppDependencies.hiltGradlePlugin)
     }
 }
 

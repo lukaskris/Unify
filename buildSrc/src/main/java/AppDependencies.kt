@@ -1,5 +1,4 @@
 import org.gradle.api.artifacts.dsl.DependencyHandler
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 object AppDependencies {
     const val androidGradle = "com.android.tools.build:gradle:${Versions.androidGradleVersion}"
@@ -19,6 +18,8 @@ object AppDependencies {
     private const val material = "com.google.android.material:material:${Versions.material}"
     private const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     private const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
+    private const val lifecycleKtx =
+        "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleKtx}"
     private const val viewModelKtx =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     private const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
@@ -31,8 +32,6 @@ object AppDependencies {
 
     //retrofit
     private const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    private const val retrofitConverterGson =
-        "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     private const val okHttpInterceptor =
         "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpInterceptor}"
 
@@ -45,6 +44,8 @@ object AppDependencies {
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}"
     private const val coroutineAndroid =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}"
+    private const val coroutineTest =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutine}"
     private const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
     private const val liveDataKtx =
         "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
@@ -64,7 +65,7 @@ object AppDependencies {
     const val hiltAssistedInject =
         "com.squareup.inject:assisted-inject-annotations-dagger2:${Versions.hiltAssistedVersion}"
 
-    // Jetpack
+    // jetpack
     private const val navigationRuntime =
         "androidx.navigation:navigation-runtime-ktx:${Versions.jetpackNavigation}"
     private const val navigationFragment =
@@ -73,15 +74,12 @@ object AppDependencies {
         "androidx.navigation:navigation-dynamic-features-fragment:${Versions.jetpackNavigation}"
     private const val navigationUiKtx =
         "androidx.navigation:navigation-ui-ktx:${Versions.jetpackNavigation}"
-    private const val biometric =
-        "androidx.biometric:biometric:${Versions.biometric}"
 
     // chucker
     private const val chucker = "com.github.chuckerteam.chucker:library:${Versions.chucker}"
 
     // database encrypt
     private const val sqlchipper = "net.zetetic:android-database-sqlcipher:${Versions.sqlchipper}"
-    private const val sqllite = "androidx.sqlite:sqlite-ktx:${Versions.sqlite}"
 
     // shimmer
     private const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
@@ -93,15 +91,38 @@ object AppDependencies {
     private const val alerter = "com.tapadoo.android:alerter:${Versions.alerter}"
 
     // moshi
-    private const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshiVersion}"
+    const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshiVersion}"
     private const val moshiRetrofitFactory =
         "com.squareup.retrofit2:converter-moshi:${Versions.moshiRetrofitFactoryVersion}"
     private const val moshiCodegen =
         "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshiVersion}"
 
+    // material color
+    private const val materialColor =
+        "com.github.mcginty:material-colors:${Versions.materialColorVersion}"
+
+    // sDp size unit
+    private const val sDp = "com.intuit.sdp:sdp-android:${Versions.spDpVersion}"
+    private const val sSp = "com.intuit.ssp:ssp-android:${Versions.spDpVersion}"
+
+    // preferences
+    private const val jetpackDatastore =
+        "androidx.datastore:datastore-preferences:${Versions.jetpackDataStoreVersion}"
+    private const val jetpackDatastoreCore =
+        "androidx.datastore:datastore:${Versions.jetpackDataStoreVersion}"
+
+    // circular button
+    private const val circularButton =
+        "br.com.simplepass:loading-button-android:${Versions.circularButtonVersion}"
+
+    const val toasty = "com.github.GrenderG:Toasty:${Versions.toastyVersion}"
+
+    const val timelineView = "com.github.vipulasri:timelineview:${Versions.timelineViewVersion}"
+
     // test libs
     private const val junit = "junit:junit:${Versions.junit}"
     private const val mockk = "io.mockk:mockk:${Versions.mockk}"
+    private const val turbine = "app.cash.turbine:turbine:${Versions.turbine}"
     private const val extJUnit = "androidx.test.ext:junit:${Versions.extJunit}"
 
     // instrument test libs
@@ -127,8 +148,11 @@ object AppDependencies {
         add(viewModel)
         add(viewModelKtx)
         add(fragmentKtx)
+        add(lifecycleKtx)
         add(appcompat)
         add(material)
+        add(materialColor)
+        add(materialColor)
         add(multiDex)
         add(alerter)
         add(swipeRefreshVersion)
@@ -138,10 +162,14 @@ object AppDependencies {
         add(liveDataKtx)
         add(chucker)
         add(sqlchipper)
-        add(sqllite)
+        add(sDp)
+        add(sSp)
         add(shimmer)
         add(glide)
-        add(biometric)
+        add(circularButton)
+        add(timelineView)
+        add(toasty)
+        add("com.eightbitlab:blurview:1.6.6")
     }
 
     val kaptLibraries = arrayListOf<String>().apply {
@@ -162,8 +190,12 @@ object AppDependencies {
         add(retrofit)
         add(moshi)
         add(moshiRetrofitFactory)
-        add(retrofitConverterGson)
         add(okHttpInterceptor)
+    }
+
+    val datastoreLibraries = arrayListOf<String>().apply {
+        add(jetpackDatastore)
+        add(jetpackDatastoreCore)
     }
 
     val persistenceLibraries = arrayListOf<String>().apply {
@@ -190,6 +222,8 @@ object AppDependencies {
 
     val testLibraries = arrayListOf<String>().apply {
         add(junit)
+        add(coroutineTest)
+        add(turbine)
         add(mockk)
         add(truth)
         add(archCoreTesting)
