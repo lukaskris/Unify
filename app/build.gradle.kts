@@ -87,11 +87,8 @@ subprojects {
 }
 
 dependencies {
-    implementation(project(ModuleDependencies.Libraries.CORE))
-    implementation(project(ModuleDependencies.Features.HOME))
-    implementation(project(ModuleDependencies.Features.HOME_DETAIL))
-    implementation(project(ModuleDependencies.Features.SETTING))
-    implementation(project(ModuleDependencies.Features.FEED))
+    implementationProject(ModuleDependencies.libraries)
+    implementationProject(ModuleDependencies.features)
     implementation(AppDependencies.androidLibraries)
     implementation(AppDependencies.dependencyInjectionLibraries)
     implementation(AppDependencies.networkLibraries)

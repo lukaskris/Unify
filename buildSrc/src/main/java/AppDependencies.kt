@@ -1,4 +1,5 @@
 import org.gradle.api.artifacts.dsl.DependencyHandler
+import org.gradle.kotlin.dsl.project
 
 object AppDependencies {
     const val androidGradle = "com.android.tools.build:gradle:${Versions.androidGradleVersion}"
@@ -246,6 +247,12 @@ fun DependencyHandler.kapt(list: List<String>) {
 fun DependencyHandler.implementation(list: List<String>) {
     list.forEach { dependency ->
         add("implementation", dependency)
+    }
+}
+
+fun DependencyHandler.implementationProject(list: List<String>) {
+    list.forEach { dependency ->
+        add("implementation", project(dependency))
     }
 }
 

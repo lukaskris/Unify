@@ -16,4 +16,14 @@ object ModuleDependencies {
 		const val HOME_DETAIL = "$FEATURES:homedetail"
 		const val SETTING = "$FEATURES:setting"
 	}
+
+	val features = arrayListOf<String>().apply {
+		add(Features.FEED)
+		add(Features.HOME)
+		add(Features.HOME_DETAIL)
+		add(Features.SETTING)
+	}
+	val libraries = arrayListOf<String>().apply {
+		add(Libraries.CORE)
+	}
 }
