@@ -11,5 +11,6 @@
     <!-- Number of columns for list grid -->
     <integer name="grid_columns">2</integer>
     <integer name="scrim_animation_duration">100</integer>
+    <integer name="slide">300</integer>
 
 </resources>

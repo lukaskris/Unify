@@ -31,6 +31,12 @@ object AppDependencies {
     private const val swipeRefreshVersion =
         "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshVersion}"
 
+    // paging
+    private const val pagingRuntime = "androidx.paging:paging-runtime:${Versions.pagingVersion}"
+
+    //timber
+    private const val timber = "com.jakewharton.timber:timber:${Versions.timberVersion}"
+
     //retrofit
     private const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     private const val okHttpInterceptor =
@@ -39,6 +45,7 @@ object AppDependencies {
     // room
     private const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     private const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+    private const val jdbcForSupportM1 = "org.xerial:sqlite-jdbc:${Versions.jdbc}"
 
     //coroutines
     private const val coroutineCore =
@@ -75,6 +82,8 @@ object AppDependencies {
         "androidx.navigation:navigation-dynamic-features-fragment:${Versions.jetpackNavigation}"
     private const val navigationUiKtx =
         "androidx.navigation:navigation-ui-ktx:${Versions.jetpackNavigation}"
+
+    private const val easyPermission = "pub.devrel:easypermissions:3.0.0"
 
     // chucker
     private const val chucker = "com.github.chuckerteam.chucker:library:${Versions.chucker}"
@@ -116,9 +125,36 @@ object AppDependencies {
     private const val circularButton =
         "br.com.simplepass:loading-button-android:${Versions.circularButtonVersion}"
 
-    const val toasty = "com.github.GrenderG:Toasty:${Versions.toastyVersion}"
+    // toast library
+    private const val toasty = "com.github.GrenderG:Toasty:${Versions.toastyVersion}"
 
-    const val timelineView = "com.github.vipulasri:timelineview:${Versions.timelineViewVersion}"
+    private const val mpChartAndroid =
+        "com.github.PhilJay:MPAndroidChart:${Versions.mpChartVersion}"
+
+    private const val timelineView = "com.github.vipulasri:timelineview:${Versions.timelineViewVersion}"
+
+    private const val compressor = "id.zelory:compressor:${Versions.compressorVersion}"
+
+    // cameraX android
+    private const val cameraXCore = "androidx.camera:camera-core:${Versions.cameraxVersion}"
+    private const val cameraX = "androidx.camera:camera-camera2:${Versions.cameraxVersion}"
+    private const val cameraXLifecycle =
+        "androidx.camera:camera-lifecycle:${Versions.cameraxVersion}"
+    private const val cameraXView = "androidx.camera:camera-view:${Versions.cameraViewVersion}"
+    private const val cameraXExtension =
+        "androidx.camera:camera-extensions:${Versions.cameraViewVersion}"
+
+    private const val securityX = "androidx.security:security-crypto:${Versions.securityVersion}"
+
+    private const val commonIO = "commons-io:commons-io:${Versions.commonIoVersion}"
+
+
+
+    private const val sweetAlertDialog =
+        "com.github.f0ris.sweetalert:library:${Versions.sweetAlertVersion}"
+
+    private const val donutProgressLib = "app.futured.donut:library:${Versions.donutProgressVersion}"
+
 
     // test libs
     private const val junit = "junit:junit:${Versions.junit}"
@@ -136,12 +172,6 @@ object AppDependencies {
     private const val espressoIntent =
         "androidx.test.espresso:espresso-intents:${Versions.espresso}"
 
-    val buildPlugins = arrayListOf<String>().apply {
-        add(androidGradle)
-        add(kotlinGradlePlugin)
-        add(navigationGradlePlugin)
-        add(hiltGradlePlugin)
-    }
 
     val androidLibraries = arrayListOf<String>().apply {
         add(kotlinStdLib)
@@ -170,8 +200,20 @@ object AppDependencies {
         add(circularButton)
         add(timelineView)
         add(toasty)
-        add("com.eightbitlab:blurview:1.6.6")
+        add(compressor)
+        add(easyPermission)
+        add(securityX)
+        add(commonIO)
+        add(mpChartAndroid)
+        add(timber)
+        add(pagingRuntime)
+        add(sweetAlertDialog)
+        add(donutProgressLib)
     }
+
+    val cameraXLibraries = arrayListOf(
+        cameraXCore, cameraX, cameraXView, cameraXLifecycle, cameraXExtension
+    )
 
     val kaptLibraries = arrayListOf<String>().apply {
         add(hiltCompiler)
@@ -187,7 +229,7 @@ object AppDependencies {
         add(hiltViewModelAndroidX)
     }
 
-    val networkLibraries = arrayListOf<String>().apply {
+    val networkLibraries = arrayListOf<String>().apply{
         add(retrofit)
         add(moshi)
         add(moshiRetrofitFactory)
@@ -199,12 +241,13 @@ object AppDependencies {
         add(jetpackDatastoreCore)
     }
 
-    val persistenceLibraries = arrayListOf<String>().apply {
+    val persistenceLibraries = arrayListOf<String>().apply{
         add(roomRuntime)
+        add(jdbcForSupportM1)
         add(roomKtx)
     }
 
-    val navigationLibraries = arrayListOf<String>().apply {
+    val navigationLibraries = arrayListOf<String>().apply{
         add(navigationFragment)
         add(navigationUiKtx)
         add(navigationRuntime)
@@ -232,7 +275,7 @@ object AppDependencies {
 }
 
 //util functions for adding the different type dependencies from build.gradle.kts file
-fun DependencyHandler.classpathPlugin(list: List<String>) {
+fun DependencyHandler.classpathPlugin(list: List<String>){
     list.forEach { dependency ->
         add("classpath", dependency)
     }

@@ -9,69 +9,45 @@ package id.co.app.source.ui.main
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil.setContentView
-import androidx.lifecycle.LiveData
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.NavOptions
+import androidx.navigation.findNavController
+import com.forestry.plantation.core.extension.makeStatusBarTransparent
+import com.forestry.plantation.core.extension.withDefault
 import com.tapadoo.alerter.Alerter
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.app.source.R
+import id.co.app.source.core.base.base.RootNavigation
 import id.co.app.source.databinding.ActivityMainBinding
-import id.co.app.source.utilities.setupWithNavController
+import id.co.app.source.home.ui.HomeFragmentDirections
+import id.co.app.source.login.ui.LoginFragmentDirections
+import timber.log.Timber
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), RootNavigation {
 
-    private var currentNavController: LiveData<NavController>? = null
-    private lateinit var binding: ActivityMainBinding
+    private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private var doubleBackToExitPressedOnce = false
     private val mRunnable = Runnable { doubleBackToExitPressedOnce = false }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = setContentView(this, R.layout.activity_main)
-        if (savedInstanceState == null) {
-            setupBottomNavigationBar()
-        }
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-        setupBottomNavigationBar()
+        setContentView(binding.root)
+        makeStatusBarTransparent()
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return currentNavController?.value?.navigateUp() ?: false
+        return findNavController(R.id.nav_host_fragment).navigateUp() || super.onSupportNavigateUp()
     }
-
-    private fun setupBottomNavigationBar() {
-        val bottomNavigationView = binding.bottomNavigation
-        val navGraphIds = listOf(
-            R.navigation.navigation_home,
-            R.navigation.navigation_feed,
-            R.navigation.navigation_settings
-        )
-        val controller = bottomNavigationView.setupWithNavController(
-            navGraphIds = navGraphIds,
-            fragmentManager = supportFragmentManager,
-            containerId = R.id.nav_host_fragment,
-            intent = intent
-        )
-
-        // Whenever the selected controller changes, setup the action bar.
-//        controller.observe(this, Observer { navController ->
-//            setupActionBarWithNavController(navController)
-//        })
-        currentNavController = controller
-    }
-
 
     override fun onBackPressed() {
-
-        val currentFragmentLabel = currentNavController?.value?.currentDestination?.label
-        val fragmentHomeLabel = getString(R.string.home)
-        if (currentFragmentLabel == fragmentHomeLabel) {
+        val navController = findNavController(R.id.nav_host_fragment)
+        if (navController.previousBackStackEntry == null ||
+            navController.currentBackStackEntry == null ||
+            navController.currentBackStackEntry?.destination?.id == R.id.home_fragment
+        ) {
+            Timber.tag("Prefo").d("back pressed on Dashboard")
             if (doubleBackToExitPressedOnce) {
                 super.onBackPressed()
                 return
@@ -85,7 +61,29 @@ class MainActivity : AppCompatActivity() {
                 .show()
             Handler(Looper.getMainLooper()).postDelayed(mRunnable, 2000)
         } else {
-            super.onBackPressed()
+            Log.d(
+                "MAIN",
+                "Back pressed. Target: " + navController.previousBackStackEntry!!.destination.label
+            )
+            val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+            val backStackCount =
+                navHostFragment?.childFragmentManager?.backStackEntryCount.withDefault()
+            if (backStackCount > 1) {
+                navController.navigateUp()
+            } else {
+                navController.navigate(
+                    R.id.home_fragment, Bundle(),
+                    NavOptions.Builder().setPopUpTo(R.id.home_fragment, true).build()
+                )
+            }
         }
+    }
+
+    override fun navigateToHome() {
+        findNavController(R.id.nav_host_fragment).navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+    }
+
+    override fun navigateToLogin() {
+        findNavController(R.id.nav_host_fragment).navigate(HomeFragmentDirections.actionHomeFragmentToLoginFragment())
     }
 }

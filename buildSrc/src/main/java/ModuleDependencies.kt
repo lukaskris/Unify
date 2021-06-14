@@ -7,23 +7,26 @@ object ModuleDependencies {
 	object Libraries {
 		private const val LIBRARY = ":libraries"
 		const val CORE = "$LIBRARY:core"
+		const val CAMERA = "$LIBRARY:camera"
+		const val USER_SESSION = "$LIBRARY:usersession"
+		const val QUERY_BUILDER = "$LIBRARY:querybuilder"
 	}
 
 	object Features {
 		private const val FEATURES = ":features"
-		const val FEED = "$FEATURES:feed"
+		const val LOGIN = "$FEATURES:login"
 		const val HOME = "$FEATURES:home"
-		const val HOME_DETAIL = "$FEATURES:homedetail"
-		const val SETTING = "$FEATURES:setting"
 	}
 
 	val features = arrayListOf<String>().apply {
-		add(Features.FEED)
+		add(Features.LOGIN)
 		add(Features.HOME)
-		add(Features.HOME_DETAIL)
-		add(Features.SETTING)
 	}
+
 	val libraries = arrayListOf<String>().apply {
 		add(Libraries.CORE)
+		add(Libraries.CAMERA)
+		add(Libraries.USER_SESSION)
+		add(Libraries.QUERY_BUILDER)
 	}
 }

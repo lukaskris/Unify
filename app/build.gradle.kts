@@ -72,13 +72,19 @@ android {
     }
 }
 
+configurations {
+    all {
+        exclude(group = "org.xerial")
+    }
+}
+
 subprojects {
     project.configurations.all {
         resolutionStrategy.eachDependency {
             if (requested.group == "androidx.core" &&
                 !requested.name.contains("androidx")
             ) {
-                useVersion("${Versions.appcompat}")
+                useVersion(Versions.appcompat)
             }
         }
         resolutionStrategy.force("org.antlr:antlr4-runtime:4.7.1")

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MaterialTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="color">@color/material_white</item>
+        <item name="android:textColor">@color/material_white</item>
+        <item name="boxStrokeColor">@color/outline_material_text</item>
+        <item name="shapeAppearanceOverlay">@style/TextInputLayout.Rounded</item>
+    </style>
+
+    <style name="Widget.App.ExposedDropdownMenu" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.ExposedDropdownMenu</item>
+        <item name="hintTextColor">?attr/colorOnSurface</item>
+        <item name="endIconTint">?attr/colorOnSurface</item>
+        <item name="shapeAppearanceOverlay">@style/TextInputLayout.Rounded</item>
+    </style>
+
+    <style name="ThemeOverlay.App.ExposedDropdownMenu" parent="">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorSurface">@color/material_white</item>
+        <item name="colorOnSurface">@color/material_white</item>
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="colorError">@color/color_error</item><!-- Additional styles only available via a theme overlay (HORRID) -->
+        <item name="materialThemeOverlay">@style/Theme.MyApp.Spinner.ThemeOverlay</item>
+    </style>
+    <!--
+    Spinner theme overlay (Access to additional styling for the child
+    AutoCompleteTextView, which includes this spinner's dropdown/popup menu)
+     -->
+    <style name="Theme.MyApp.Spinner.ThemeOverlay" parent="">
+        <!-- Style inception - hook into styling the AutoCompleteTextView -->
+        <item name="autoCompleteTextViewStyle">@style/Widget.MyApp.Spinner.ThemeOverlay.AutoCompleteTextView</item>
+        <!-- Background color of dropdown (popup) entries -->
+        <item name="colorSurface">@color/material_white</item>
+        <!-- Dropdown arrow color -->
+        <item name="colorOnSurface">@color/material_white</item>
+    </style>
+    <!-- Text (NOT the popup) of the child AutoCompleteTextView of our material spinner -->
+    <style name="Widget.MyApp.Spinner.ThemeOverlay.AutoCompleteTextView" parent="Widget.AppCompat.AutoCompleteTextView">
+        <!--
+        Another nasty little bug. Our main spinner style inherits from material
+        TextInputLayout.OutlinedBox.ExposedDropdownMenu, which means we want the
+        spinner to have an outline. But this won't work unless we manually FORCE
+        a null background on the child AutoCompleteTextView.
+        https://github.com/material-components/material-components-android/issues/1989
+        -->
+        <item name="android:background">@null</item>
+        <!-- Restore padding to sanity -->
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <!-- Color of selected item -->
+        <item name="android:textColor">@color/material_teal700</item>
+    </style>
+    <!-- Material spinner 'item' layout style -->
+    <style name="Widget.MyApp.SpinnerItem" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/material_white</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+<!--        <item name="android:padding">16dp</item>-->
+    </style>
+
+    <style name="TextInputLayout.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="AccentButton" parent="ThemeOverlay.AppCompat.Dark">
+        <!-- customize colorButtonNormal for the disable color -->
+        <!-- customize colorAccent for the enabled color -->
+        <item name="colorButtonNormal">@color/material_grey400</item>
+        <item name="colorAccent">@color/md_white</item>
+        <item name="android:textColor">@color/color_accent</item>
+    </style>
+</resources>

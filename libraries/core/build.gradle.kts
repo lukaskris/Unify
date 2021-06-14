@@ -47,6 +47,7 @@ android {
 }
 
 dependencies {
+    implementation(project(ModuleDependencies.Libraries.QUERY_BUILDER))
     implementation(AppDependencies.androidLibraries)
     implementation(AppDependencies.dependencyInjectionLibraries)
     implementation(AppDependencies.networkLibraries)

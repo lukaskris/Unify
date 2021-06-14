@@ -1,5 +1,6 @@
 //version constants for the Kotlin DSL dependencies
 object Versions {
+
 	//app level
 	const val kotlinVersion = "1.4.32"
 	const val androidGradleVersion = "4.1.3"
@@ -22,24 +23,28 @@ object Versions {
 	const val hiltCompilerVersion = "1.0.0-beta01"
 	const val hiltAssistedVersion = "0.8.1"
 
-	const val jetpackNavigation = "2.3.4"
+	const val jetpackNavigation = "2.4.0-alpha02"
 
 	const val jetpackDataStoreVersion = "1.0.0-beta01"
 
 	// chucker
-	const val chucker = "3.2.0"
+	const val chucker = "3.4.0"
 
 	// sqllite
 	const val sqlchipper = "4.4.0"
-	const val sqlite = "2.1.0"
+
+	const val timberVersion = "4.7.1"
+
+	const val pagingVersion = "3.0.0"
 
 	// retrofit
 	const val retrofit = "2.9.0"
-    const val okHttpInterceptor = "4.9.0"
-    const val coroutine = "1.4.2"
+	const val okHttpInterceptor = "4.9.0"
+	const val coroutine = "1.4.2"
 
-    // room
-    const val room = "2.3.0-rc01"
+	// room
+	const val room = "2.3.0"
+	const val jdbc = "3.32.3.3"
 
 	// shimmer
 	const val shimmer = "0.5.0"
@@ -58,6 +63,23 @@ object Versions {
 
 	const val toastyVersion = "1.5.0"
 
+	const val mpChartVersion = "v3.1.0"
+
+	const val compressorVersion = "3.0.1"
+
+	const val cameraxVersion = "1.0.0"
+	const val cameraViewVersion = "1.0.0-alpha24"
+
+	const val securityVersion = "1.1.0-alpha03"
+
+	const val commonIoVersion = "2.8.0"
+
+	const val arcgisAndroidVersion = "100.8.0"
+
+	const val sweetAlertVersion = "1.6.2"
+
+	const val donutProgressVersion = "2.1.0"
+
 	// moshi
 	const val moshiVersion = "1.12.0"
 	const val moshiRetrofitFactoryVersion = "2.9.0"
@@ -74,5 +96,5 @@ object Versions {
 
 	// instrument test
 	const val truthVersion = "1.1.2"
-    const val archCoreVersion = "2.1.0"
+	const val archCoreVersion = "2.1.0"
 }
