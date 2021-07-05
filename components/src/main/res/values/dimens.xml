@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="bottom_sheet_corner_radius">@dimen/layout_lvl2</dimen>
+    <dimen name="bottom_sheet_top_padding">@dimen/layout_lvl1</dimen>
+
+    <dimen name="toaster_text_horizontal_padding">16dp</dimen>
+    <dimen name="toaster_text_vertical_margin">12dp</dimen>
+    <dimen name="toaster_max_width">100dp</dimen>
+    <dimen name="toaster_cta_padding">16dp</dimen>
+
+    <dimen name="button_corner_radius">8dp</dimen>
+    <dimen name="button_corner_radius_micro">6dp</dimen>
+    <dimen name="button_stroke_width">1dp</dimen>
+    <dimen name="button_padding_large_and_medium">12dp</dimen>
+    <dimen name="button_padding_small_and_micro">8dp</dimen>
+    <dimen name="button_height_large">48dp</dimen>
+    <dimen name="button_height_medium">40dp</dimen>
+    <dimen name="button_height_small">32dp</dimen>
+    <dimen name="button_height_micro">24dp</dimen>
+
+    <dimen name="cardview_default_border_radius">8dp</dimen>
+    <dimen name="cardview_default_elevation">4dp</dimen>
+    <dimen name="card_corner_radius">8dp</dimen>
+
+    <dimen name="selection_control_padding">32dp</dimen>
+
+    <!-- switch dimen -->
+    <dimen name="switch_thumb_radius">20dp</dimen>
+    <dimen name="switch_width">0dp</dimen>
+
+    <!-- bottomsheet dimen -->
+    <dimen name="bottom_sheet_max_action">56dp</dimen>
+    <dimen name="bottom_sheet_margin_action">12dp</dimen>
+    <dimen name="bottom_sheet_margin_close">12dp</dimen>
+    <dimen name="bottom_sheet_knob_width">40dp</dimen>
+    <dimen name="bottom_sheet_knob_height">4dp</dimen>
+    <dimen name="bottom_sheet_default_peek">100dp</dimen>
+    <dimen name="bottom_sheet_wrapper_padding_ltr">16dp</dimen>
+
+    <!-- content switcher -->
+    <dimen name="content_switcher_radius">8dp</dimen>
+
+    <!--circle indicator dimen-->
+    <dimen name="indicator_margin_top">5dp</dimen>
+    <dimen name="indicator_margin_bottom">5dp</dimen>
+    <dimen name="oval_indicator_width">50dp</dimen>
+    <dimen name="oval_indicator_height">9dp</dimen>
+
+    <!-- quantity editor -->
+    <dimen name="qty_editor_min_width">88dp</dimen>
+    <dimen name="qty_editor_icon_width">24dp</dimen>
+
+    <!-- divider -->
+    <dimen name="divider_min_height">8dp</dimen>
+
+    <!-- wish list -->
+    <dimen name="wish_list_size">32dp</dimen>
+
+    <!-- chips -->
+    <dimen name="chip_icon_width">24dp</dimen>
+    <dimen name="chip_text_size">14sp</dimen>
+    <dimen name="chip_medium_height">40dp</dimen>
+    <dimen name="chip_small_height">32dp</dimen>
+    <dimen name="chip_content_space">4dp</dimen>
+    <dimen name="chip_container_padding">8dp</dimen>
+
+    <!-- notification text -->
+    <dimen name="notification_size_lv1">8dp</dimen>
+    <dimen name="notification_size_lv2">10dp</dimen>
+    <dimen name="notification_size_lv3">16dp</dimen>
+
+    <!-- local load -->
+    <dimen name="local_load_refresh_corner_radius">34dp</dimen>
+    <dimen name="local_load_refresh_elevation">8dp</dimen>
+
+    <!-- range slider -->
+    <dimen name="range_slider_thumb_size">24dp</dimen>
+    <dimen name="range_slider_height">4dp</dimen>
+
+    <!-- floating button -->
+    <dimen name="fb_circle_radius">48dp</dimen>
+    <dimen name="fb_circle_radius_small">40dp</dimen>
+    <dimen name="fb_image_size">24dp</dimen>
+    <dimen name="fb_checklist_size">16dp</dimen>
+  
+    <!-- tab -->
+    <dimen name="tab_item_padding">16dp</dimen>
+    <dimen name="tab_icon_margin_right">4dp</dimen>
+    <dimen name="tab_icon_width">24dp</dimen>
+    <dimen name="tab_icon_height">24dp</dimen>
+    <dimen name="tab_notif_width">8dp</dimen>
+    <dimen name="tab_notif_height">8dp</dimen>
+    <dimen name="tab_notif_margin_left">4dp</dimen>
+    <dimen name="tab_label_margin_left">4dp</dimen>
+    <dimen name="tab_label_padding">3dp</dimen>
+
+    <!-- ticker -->
+    <dimen name="unify_ticker_top_space">8dp</dimen>
+
+    <!-- timer highlight -->
+    <dimen name="timer_unify_highlight_text_margin_top">4px</dimen>
+
+    <!-- textfield -->
+    <dimen name="textfield2_text_size">14sp</dimen>
+</resources>

@@ -9,8 +9,6 @@ plugins {
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
-    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -93,16 +91,6 @@ subprojects {
 }
 
 dependencies {
-    implementationProject(ModuleDependencies.libraries)
-    implementationProject(ModuleDependencies.features)
+    implementationProject(ModuleDependencies.widgets)
     implementation(AppDependencies.androidLibraries)
-    implementation(AppDependencies.dependencyInjectionLibraries)
-    implementation(AppDependencies.networkLibraries)
-    implementation(AppDependencies.persistenceLibraries)
-    implementation(AppDependencies.navigationLibraries)
-
-    compileOnly(AppDependencies.hiltAssistedInject)
-    kapt(AppDependencies.kaptLibraries)
-
-    androidTestImplementation(AppDependencies.androidTestLibraries)
 }

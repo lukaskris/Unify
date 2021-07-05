@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fontSize_lvl10" category="font-size">8sp</dimen>
+    <dimen name="fontSize_lvl1" category="font-size">10sp</dimen>
+    <dimen name="fontSize_lvl2" category="font-size">12sp</dimen>
+    <dimen name="fontSize_lvl3" category="font-size">14sp</dimen>
+    <dimen name="fontSize_lvl4" category="font-size">16sp</dimen>
+    <dimen name="fontSize_lvl5" category="font-size">18sp</dimen>
+    <dimen name="fontSize_lvl6" category="font-size">20sp</dimen>
+    <dimen name="fontSize_lvl7" category="font-size">24sp</dimen>
+    <dimen name="fontSize_lvl8" category="font-size">28sp</dimen>
+    <dimen name="fontSize_lvl9" category="font-size">34sp</dimen>
+
+    <dimen name="heading_1">28sp</dimen>
+    <dimen name="heading_2">20sp</dimen>
+    <dimen name="heading_3">18sp</dimen>
+    <dimen name="heading_4">16sp</dimen>
+    <dimen name="heading_5">14sp</dimen>
+    <dimen name="heading_6">12sp</dimen>
+
+    <dimen name="body_1">16sp</dimen>
+    <dimen name="body_2">14sp</dimen>
+    <dimen name="body_3">12sp</dimen>
+
+    <dimen name="small">10sp</dimen>
+
+    <!-- ========================= New font size dimen ============================== -->
+
+    <dimen name="unify_font_8" category="font-size">8sp</dimen>
+    <dimen name="unify_font_10" category="font-size">10sp</dimen>
+    <dimen name="unify_font_12" category="font-size">12sp</dimen>
+    <dimen name="unify_font_14" category="font-size">14sp</dimen>
+    <dimen name="unify_font_16" category="font-size">16sp</dimen>
+    <dimen name="unify_font_18" category="font-size">18sp</dimen>
+    <dimen name="unify_font_20" category="font-size">20sp</dimen>
+    <dimen name="unify_font_24" category="font-size">24sp</dimen>
+    <dimen name="unify_font_28" category="font-size">28sp</dimen>
+    <dimen name="unify_font_34" category="font-size">34sp</dimen>
+</resources>

@@ -1,8 +1,3 @@
-include(":libraries:core")
-include(":libraries:camera")
-include(":libraries:querybuilder")
-include(":libraries:usersession")
-include(":features:login")
-include(":features:home")
+include(":components")
 include(":app")
-rootProject.name = "AppSource"
+rootProject.name = "Unify"

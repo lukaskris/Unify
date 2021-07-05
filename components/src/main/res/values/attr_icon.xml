@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="UnifyIcon">
+        <attr name="icon_enable_state" format="boolean" />
+        <attr name="icon_color_light_enable" format="color" />
+        <attr name="icon_color_light_disabled" format="color" />
+        <attr name="icon_color_night_enable" format="color" />
+        <attr name="icon_color_night_disabled" format="color" />
+        <attr name="icon_name" format="enum">
+            <enum name="BELL" value="0" />
+            <enum name="BELL_RING" value="1" />
+            <enum name="CALENDAR" value="2" />
+            <enum name="CAMERA" value="3" />
+            <enum name="CART" value="4" />
+            <enum name="CLOCK" value="5" />
+            <enum name="HEART" value="6" />
+            <enum name="HEART_FILLED" value="7" />
+            <enum name="IMAGE" value="8" />
+            <enum name="IMAGE_ADD" value="9" />
+            <enum name="IMAGE_BROKEN" value="10" />
+            <enum name="IMAGE_SEARCH" value="11" />
+            <enum name="INFORMATION" value="12" />
+            <enum name="LIGHT_BULB" value="13" />
+            <enum name="LOCATION" value="14" />
+            <enum name="MESSAGE" value="15" />
+            <enum name="MICROPHONE" value="16" />
+            <enum name="SETTING" value="17" />
+            <enum name="SIGN_IN" value="18" />
+            <enum name="SIGN_OUT" value="19" />
+            <enum name="TARGET" value="20" />
+            <enum name="THUMB" value="21" />
+            <enum name="THUMB_FILLED" value="22" />
+            <enum name="VIDEO" value="23" />
+            <enum name="VIDEO_BROKEN" value="24" />
+            <enum name="WALLET" value="25" />
+
+            <enum name="ARROW_BACK" value="26" />
+            <enum name="BACK_TO_TOP" value="27" />
+            <enum name="CHEVRON_DOWN" value="28" />
+            <enum name="CHEVRON_RIGHT" value="29" />
+            <enum name="CHEVRON_UP" value="30" />
+            <enum name="CLOSE" value="31" />
+            <enum name="ERROR" value="32" />
+            <enum name="MENU_HAMBURGER" value="33" />
+            <enum name="MENU_KEBAB_HORIZONTAL" value="34" />
+            <enum name="MENU_KEBAB_VERTICAL" value="35" />
+            <enum name="VIEW_GRID" value="36" />
+            <enum name="VIEW_GRID_BIG" value="37" />
+            <enum name="VIEW_LIST" value="38" />
+            <enum name="WARNING" value="39" />
+
+            <enum name="COUPON" value="40" />
+            <enum name="FORMAT_ALIGN_LEFT" value="41" />
+            <enum name="FORMAT_ALIGN_RIGHT" value="42" />
+            <enum name="FORMAT_BOLD" value="43" />
+            <enum name="FORMAT_CENTER" value="44" />
+            <enum name="FORMAT_ITALIC" value="45" />
+            <enum name="FORMAT_JUSTIFY" value="46" />
+            <enum name="FORMAT_LIST_BULLET" value="47" />
+            <enum name="FORMAT_UNDERLINE" value="48" />
+            <enum name="INVITATION" value="49" />
+            <enum name="PROMO" value="50" />
+            <enum name="REDO" value="51" />
+            <enum name="SPEAKER" value="52" />
+            <enum name="TICKET_ACTIVE" value="53" />
+            <enum name="TICKET_CHANGE" value="54" />
+            <enum name="TICKET_HISTORY" value="55" />
+            <enum name="TICKET_INSTANT" value="56" />
+            <enum name="TOKOMEMBER" value="57" />
+            <enum name="TOPQUEST" value="58" />
+            <enum name="UNDO" value="59" />
+
+            <enum name="CALL" value="60" />
+            <enum name="CALL_MISSED" value="61" />
+            <enum name="CHAT" value="62" />
+            <enum name="DISCUSSION" value="63" />
+            <enum name="FACEBOOK" value="64" />
+            <enum name="GOOGLE_AUTHENTICATOR" value="65" />
+            <enum name="INSTAGRAM" value="66" />
+            <enum name="LINE" value="67" />
+            <enum name="LINK" value="68" />
+            <enum name="READ" value="69" />
+            <enum name="SHARE" value="70" />
+            <enum name="SHARE_MOBILE" value="71" />
+            <enum name="TWITTER" value="72" />
+            <enum name="UNREAD" value="73" />
+            <enum name="WHATSAPP" value="74" />
+
+            <enum name="AUTO_DEBIT" value="75" />
+            <enum name="BADGE_OS" value="76" />
+            <enum name="BADGE_VERIFIED" value="77" />
+            <enum name="BILL" value="78" />
+            <enum name="BOOKMARK" value="79" />
+            <enum name="BOOKMARK_FILLED" value="80" />
+            <enum name="CALL_CENTER" value="81" />
+            <enum name="FINANCE" value="82" />
+            <enum name="FLASH_SALE" value="83" />
+            <enum name="GOLD" value="84" />
+            <enum name="KEYBOARD" value="85" />
+            <enum name="KEYWORD" value="86" />
+            <enum name="KEYWORD_NEGATIVE" value="87" />
+            <enum name="POLL" value="88" />
+            <enum name="PROTECTION" value="89" />
+            <enum name="RATING" value="90" />
+            <enum name="REFUND" value="91" />
+            <enum name="REFUND_NON" value="92" />
+            <enum name="STAR" value="93" />
+            <enum name="STAR_FILLED" value="94" />
+            <enum name="STICKER" value="95" />
+
+            <enum name="BILL_ALL" value="96" />
+            <enum name="BILL_CHECK" value="97" />
+            <enum name="CLIPBOARD" value="98" />
+            <enum name="GIFT" value="99" />
+            <enum name="GRAPH" value="100" />
+            <enum name="GRAPH_REPORT" value="101" />
+            <enum name="NOTEBOOK" value="102" />
+            <enum name="PRODUCT" value="103" />
+            <enum name="PRODUCT_ADD" value="104" />
+            <enum name="PRODUCT_INFO" value="105" />
+            <enum name="PRODUCT_NEXT" value="106" />
+            <enum name="PRODUCT_PROMO" value="107" />
+            <enum name="PRODUCT_SETTING" value="108" />
+            <enum name="SHOP" value="109" />
+            <enum name="SHOP_INFO" value="110" />
+            <enum name="SHOP_REPORT" value="111" />
+            <enum name="SHOP_SETTING" value="112" />
+            <enum name="SHOPPING_BAG" value="113" />
+            <enum name="STAMP" value="114" />
+
+            <enum name="ADD" value="115" />
+            <enum name="ADD_CIRCLE" value="116" />
+            <enum name="BACKGROUND" value="117" />
+            <enum name="BROOM" value="118" />
+            <enum name="CHECK" value="119" />
+            <enum name="CHECK_DOUBLE" value="120" />
+            <enum name="CLEAR" value="121" />
+            <enum name="COMPARE" value="122" />
+            <enum name="COPY" value="123" />
+            <enum name="CROP" value="124" />
+            <enum name="DELETE" value="125" />
+            <enum name="DOWNLOAD" value="126" />
+            <enum name="EDIT" value="127" />
+            <enum name="LOCK" value="128" />
+            <enum name="PRINT" value="129" />
+            <enum name="PUSH_PIN" value="130" />
+            <enum name="PUSH_PIN_FILLED" value="131" />
+            <enum name="QR_CODE" value="132" />
+            <enum name="REMOVE_CIRCLE" value="133" />
+            <enum name="SEARCH" value="134" />
+            <enum name="SEND_TEXT" value="135" />
+            <enum name="SORT_FILTER" value="136" />
+            <enum name="TEXT" value="137" />
+            <enum name="TEXT_ADD" value="138" />
+            <enum name="VISIBILITY" value="139" />
+            <enum name="VISIBILITY_OFF" value="140" />
+
+            <enum name="ACTIVITY" value="141" />
+            <enum name="CAMERA_SWITCH" value="142" />
+            <enum name="FLASH_OFF" value="143" />
+            <enum name="FLASH_ON" value="144" />
+            <enum name="PAUSE" value="145" />
+            <enum name="PLAY" value="146" />
+            <enum name="REPLAY" value="147" />
+            <enum name="SCREEN_FULL" value="148" />
+            <enum name="SCREEN_NORMAL" value="149" />
+            <enum name="SKIP_NEXT" value="150" />
+            <enum name="SWIPE" value="151" />
+            <enum name="SWIPE_RIGHT" value="152" />
+            <enum name="TAP" value="153" />
+            <enum name="VOLUME_DOWN" value="154" />
+            <enum name="VOLUME_MUTE" value="155" />
+            <enum name="VOLUME_UP" value="156" />
+
+            <enum name="CARD" value="157" />
+            <enum name="CHILD" value="158" />
+            <enum name="CONTACT" value="159" />
+            <enum name="INFANT" value="160" />
+            <enum name="LAPTOP" value="161" />
+            <enum name="PHONE" value="162" />
+            <enum name="PHONE_SETTING" value="163" />
+            <enum name="SALDO" value="164" />
+            <enum name="USER" value="165" />
+            <enum name="USER_ADD" value="166" />
+            <enum name="USER_SUCCESS" value="167" />
+
+            <!-- update toko asset 28/09/2020 -->
+            <enum name="LIST_TRANSACTION" value="168" />
+            <enum name="PRODUCT_FILLED" value="169" />
+            <enum name="SHOP_FAVORITE" value="170" />
+            <enum name="SHOP_FILLED" value="171" />
+
+            <!-- update misc asset 28/09/2020 -->
+            <enum name="BADGE_OS_FILLED" value="172" />
+            <enum name="POLICY_PRIVACY" value="173" />
+            <enum name="QUICK_BUY" value="174" />
+            <enum name="SHAKE" value="175" />
+            <enum name="TOPED" value="176" />
+
+            <!-- update user asset 28/09/2020 -->
+            <enum name="COMPLAIN" value="177" />
+
+            <!-- update general asset 28/09/2020 -->
+            <enum name="BELL_FILLED" value="178" />
+            <enum name="CABINET" value="179" />
+            <enum name="CABINET_FILLED" value="180" />
+            <enum name="FEED" value="181" />
+            <enum name="FEED_FILLED" value="182" />
+            <enum name="HOME" value="183" />
+            <enum name="HOME_FILLED" value="184" />
+            <enum name="MESSAGE_HELP" value="185" />
+            <enum name="MODE_SCREEN" value="186" />
+            <enum name="SUBSCRIPTION" value="187" />
+
+            <!-- general update - 15/10/20 -->
+            <enum name="CALENDAR_ADD" value="188" />
+            <enum name="FIRE_FILLED" value="189" />
+            <enum name="FIRE" value="190" />
+
+            <!-- promo update - 15/10/20 -->
+            <enum name="STAR_CIRCLE" value="191" />
+            <enum name="DISCOUNT" value="192" />
+            <enum name="PROMO_ADS" value="193" />
+
+            <!-- user update - 15/10/20 -->
+            <enum name="USER_SETTING" value="194" />
+
+            <!-- navigation update - 15/10/20 -->
+            <enum name="ARROW_TOP_RIGHT" value="195" />
+            <enum name="ARROW_TOP_LEFT" value="196" />
+
+            <!-- update - 23/10/2020 -->
+            <!-- navigation - social - misc - toko - view - general -->
+            <enum name="CHEVRON_LEFT" value="197" />
+            <enum name="CHAT_FILLED" value="198" />
+            <enum name="PROTECTION_CHECK" value="199" />
+            <enum name="CLIPBOARD_FILLED" value="200" />
+            <enum name="COURIER" value="201" />
+            <enum name="VIEW_GRID_FILLED" value="202" />
+            <enum name="FOLDER" value="203" />
+
+            <!-- update - 30/10/2020 -->
+            <!-- toko - action -->
+            <enum name="COURIER_FAST" value="204" />
+            <enum name="PRODUCT_REPORT" value="205" />
+            <enum name="RELOAD" value="206" />
+            <enum name="CHECK_CIRCLE" value="207" />
+            <enum name="CHECK_BIG" value="208" />
+
+            <!-- toko update - 24/11/2020 -->
+            <enum name="PRODUCT_BUDGET" value="209" />
+            <enum name="SHIRT_BUDGET" value="210" />
+
+            <!-- update - 07/12/2020 -->
+            <!-- toko - misc - user - social - action - promo - general -->
+            <enum name="GRAPH_FILLED" value="211" />
+            <enum name="SHOP_INFO_FILLED" value="212" />
+            <enum name="BADGE_VERIFIED_FILLED" value="213" />
+            <enum name="CALL_CENTER_FILLED" value="214" />
+            <enum name="USER_TALK" value="215" />
+            <enum name="USER_TALK_FILLED" value="216" />
+            <enum name="USER_REPORT" value="217" />
+            <enum name="USER_BLOCK" value="218" />
+            <enum name="DISCUSSION_FILLED" value="219" />
+            <enum name="BROADCAST" value="220" />
+            <enum name="PRINT_FILLED" value="221" />
+            <enum name="PROMO_ADS_FILLED" value="222" />
+            <enum name="PROMO_BLOCK" value="223" />
+            <enum name="SETTING_FILLED" value="224" />
+            <enum name="SIGN_OUT_FILLED" value="225" />
+
+            <enum name="CALL_RING" value="226"/>
+            <enum name="CITY" value="227"/>
+            <enum name="LOCATION_FILLED" value="228"/>
+            <enum name="LOCATION_OFF" value="229"/>
+            <enum name="PACKAGE" value="230"/>
+            <enum name="PACKAGE_FILLED" value="231"/>
+            <enum name="PHONE_BELL" value="232"/>
+            <enum name="USER_REMOVE" value="233"/>
+
+            <enum name="BADGE_PM_FILLED" value="234"/>
+            <enum name="BADGE_PM_FILLED_BASIC" value="235"/>
+            <enum name="BADGE_PM_FILLED_BRONZE" value="236"/>
+            <enum name="BADGE_PM_FILLED_DIAMOND" value="237"/>
+            <enum name="BADGE_PM_FILLED_GOLD" value="238"/>
+            <enum name="BADGE_PM_FILLED_SILVER" value="239"/>
+            <enum name="CLOCK_FILLED" value="240"/>
+            <enum name="FILE_DOC" value="241"/>
+            <enum name="FILE_PDF" value="242"/>
+            <enum name="FILE_XLS" value="243"/>
+            <enum name="RISK_HIGH" value="244"/>
+            <enum name="RISK_LOW" value="245"/>
+            <enum name="RISK_MODERATE" value="246"/>
+            <enum name="SALAM" value="247"/>
+
+            <enum name="CHAT_REPORT" value="248"/>
+            <enum name="HELP" value="249"/>
+            <enum name="MAP" value="250"/>
+            <enum name="ZOOM_IN" value="251"/>
+            <enum name="ZOOM_OUT" value="252"/>
+
+            <enum name="SERVICE" value="253"/>
+            <enum name="SERVICE_FILLED" value="254"/>
+            <enum name="SALDO_INCOME" value="255"/>
+            <enum name="SALDO_OUTCOME" value="256"/>
+            <enum name="SALDO_TEMPO" value="257"/>
+            <enum name="PROMO_LIVE" value="258"/>
+            <enum name="REMOVE" value="259"/>
+            <enum name="RELOAD_24H" value="260"/>
+            <enum name="CHAT_BELL" value="261"/>
+
+            <enum name="FILE_CSV" value="262"/>
+            <enum name="FILE_JSON" value="263"/>
+            <enum name="FOLDER_FILLED" value="264"/>
+            <enum name="PROJECT" value="265"/>
+            <enum name="PROJECT_FILLED" value="266"/>
+            <enum name="USER_FILLED" value="267"/>
+            <enum name="IP" value="268"/>
+            <enum name="FREE" value="269"/>
+            <enum name="UPLOAD" value="270"/>
+            <enum name="PERFORMANCE" value="271"/>
+
+            <enum name="ARROW_UP" value="272"/>
+            <enum name="ARROW_DOWN" value="273"/>
+            <enum name="AUDIO_WAVE" value="274"/>
+            <enum name="SCREEN_FIT" value="275"/>
+            <enum name="BADGE_PMPRO_FILLED" value="276"/>
+
+        </attr>
+    </declare-styleable>
+</resources>

@@ -87,14 +87,7 @@ object Versions {
 	// material color
 	const val materialColorVersion = "1.1.0"
 
-	// test
-	const val junit = "4.12"
-	const val mockk = "1.11.0"
-	const val extJunit = "1.1.1"
-	const val espresso = "3.2.0"
-	const val turbine = "0.4.1"
+	// material color
+	const val exoPlayer = "2.14.1"
 
-	// instrument test
-	const val truthVersion = "1.1.2"
-	const val archCoreVersion = "2.1.0"
 }

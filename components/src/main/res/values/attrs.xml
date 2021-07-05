@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="UnifyButton">
+        <attr name="unifyButtonVariant" format="enum">
+            <enum name="filled" value="1"/>
+            <enum name="ghost" value="2"/>
+            <enum name="text" value="3"/>
+        </attr>
+        <attr name="unifyButtonSize" format="enum">
+            <enum name="large" value="1"/>
+            <enum name="medium" value="2"/>
+            <enum name="small" value="3"/>
+            <enum name="micro" value="4"/>
+        </attr>
+        <attr name="unifyButtonType" format="enum">
+            <enum name="main" value="1"/>
+            <enum name="transaction" value="2"/>
+            <enum name="alternate" value="3"/>
+        </attr>
+        <attr name="unifyButtonInvers" format="boolean"/>
+        <attr name="unifyButtonRightLoader" format="boolean"/>
+        <attr name="unifyButtonLoadingText" format="string"/>
+        <attr name="unifyButtonLoadingState" format="boolean"/>
+        <attr name="unifyButtonLeftDrawable" format="reference"/>
+        <attr name="unifyButtonRightDrawable" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="UnifyImageButton">
+        <attr name="unifyImageButtonVariant" format="enum">
+            <enum name="filled" value="1"/>
+            <enum name="ghost" value="2"/>
+            <enum name="image" value="3"/>
+        </attr>
+        <attr name="unifyImageButtonSize" format="enum">
+            <enum name="large" value="1"/>
+            <enum name="medium" value="2"/>
+            <enum name="small" value="3"/>
+            <enum name="micro" value="4"/>
+        </attr>
+        <attr name="unifyImageButtonType" format="enum">
+            <enum name="main" value="1"/>
+            <enum name="transaction" value="2"/>
+        </attr>
+        <attr name="unifyImageButtonInvers" format="boolean"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="UnifyLoader">
+        <attr name="loader_type" format="enum">
+            <enum name="circular" value="0" />
+            <enum name="circular_white" value="1" />
+            <enum name="rect" value="2" />
+            <enum name="line" value="3" />
+            <enum name="circle" value="4" />
+        </attr>
+
+        <attr name="loader_corner_radius" format="dimension"/>
+    </declare-styleable>
+</resources>
