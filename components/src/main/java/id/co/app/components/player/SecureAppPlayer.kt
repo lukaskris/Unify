@@ -1,17 +1,21 @@
 package id.co.app.components.player
 
 import android.content.Context
+import android.net.Uri
 import android.util.AttributeSet
-import android.view.TextureView
 import android.widget.FrameLayout
-import androidx.core.net.toUri
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory
+import com.google.android.exoplayer2.extractor.ExtractorsFactory
+import com.google.android.exoplayer2.source.MediaSource
+import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.ui.PlayerView
+import com.google.android.exoplayer2.upstream.DataSource
 
 
 /**
@@ -22,25 +26,28 @@ import com.google.android.exoplayer2.ui.PlayerView
 open class SecureAppPlayer @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr), LifecycleObserver {
-    private val textureView: TextureView = TextureView(context)
     private val exoPlayerView = PlayerView(context)
+
     private var player = SimpleExoPlayer.Builder(context).build()
     private var lifecycleOwner: LifecycleOwner? = null
+
     init {
         this.addView(exoPlayerView)
         initPlayer()
     }
 
     private fun initPlayer() {
-        // Build the media item.
-        val mediaItem: MediaItem = MediaItem.fromUri("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4".toUri())
-        // Set the media item to be played.
-        player.setMediaItem(mediaItem)
-        // Prepare the player.
-        player.prepare()
-
-//        player.setVideoTextureView(textureView)
         exoPlayerView.player = player
+    }
+
+    fun setVideo(uri: Uri, key: String){
+        val dataSourceFactory: DataSource.Factory = EncryptedDataSourceFactory(key)
+        val extractorsFactory: ExtractorsFactory = DefaultExtractorsFactory()
+        val videoSource: MediaSource = ProgressiveMediaSource.Factory(dataSourceFactory, extractorsFactory)
+            .createMediaSource(MediaItem.fromUri(uri))
+        player.setMediaSource(videoSource)
+        player.prepare()
+        player.playWhenReady = true
     }
 
     fun setLifecycleOwner(lifecycleOwner: LifecycleOwner){
