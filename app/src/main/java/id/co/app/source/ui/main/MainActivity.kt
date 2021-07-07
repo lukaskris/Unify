@@ -20,7 +20,7 @@ import java.io.IOException
 class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
-    private val url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+    private val url = "https://drive.google.com/file/d/1T92LHvCLJHlnhbFn0rLLBZo7ffVsLrMR/view?usp=sharing"
 
     private val password = "encryptPassword1"
     private val path by lazy { File(application.getExternalFilesDir(null), "videos") }
