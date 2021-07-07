@@ -3,6 +3,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
         maven { setUrl("https://jitpack.io") }
     }
 
@@ -12,20 +13,35 @@ buildscript {
         classpath(AppDependencies.kotlinGradlePlugin)
         classpath(AppDependencies.navigationGradlePlugin)
         classpath(AppDependencies.hiltGradlePlugin)
+        classpath ("org.jfrog.buildinfo:build-info-extractor-gradle:4.24.10")
     }
 }
 
 plugins {
     id ("com.diffplug.spotless") version "5.2.0"
 }
+val artifactory_url: String by project
+val artifactory_username: String by project
+val artifactory_password: String by project
 
 allprojects {
+    apply(plugin = "com.jfrog.artifactory")
+    apply(plugin = "maven-publish")
+
     repositories {
         google()
         jcenter()
         mavenCentral()
         maven {
             setUrl("https://jitpack.io")
+        }
+
+        maven {
+            url = uri("$artifactory_url/app-gradle-release-local/")
+            credentials {
+                username = artifactory_username
+                password = artifactory_password
+            }
         }
     }
 }
