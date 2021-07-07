@@ -33,9 +33,6 @@ object AppDependencies {
     // glide
     private const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
 
-    // material color
-    private const val materialColor =
-        "com.github.mcginty:material-colors:${Versions.materialColorVersion}"
 
     private const val exoPlayer = "com.google.android.exoplayer:exoplayer:${Versions.exoPlayer}"
 
@@ -46,7 +43,6 @@ object AppDependencies {
         add(lifecycleKtx)
         add(appcompat)
         add(material)
-        add(materialColor)
         add(multiDex)
         add(swipeRefreshVersion)
         add(constraintLayout)

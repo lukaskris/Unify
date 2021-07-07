@@ -168,9 +168,9 @@ class Typography : AppCompatTextView {
                  * REGULAR / BOLD remove native modifier because the font asset itself already bold
                  */
                 if (weightType == REGULAR) {
-                    this.typeface = getTypeface(context, "RobotoRegular.ttf")
+                    this.typeface = getTypeface(context, "NotoSansRegular.ttf")
                 } else {
-                    this.typeface = getTypeface(context, "RobotoBold.ttf")
+                    this.typeface = getTypeface(context, "NotoSansBold.ttf")
                 }
             }
             else -> {

@@ -125,9 +125,9 @@ fun TextView.setSmallText(isBold: Boolean = false) {
  */
 fun fontTypeLoader(context: Context, isBold: Boolean): Typeface? {
     return if (isBold) {
-        getTypeface(context, "RobotoBold.ttf")
+        getTypeface(context, "NotoSansBold.ttf")
     } else {
-        getTypeface(context, "RobotoRegular.ttf")
+        getTypeface(context, "NotoSansRegular.ttf")
     }
 }
 
@@ -352,7 +352,7 @@ class HtmlLinkHelper(context: Context, htmlString: String) {
             val boldStart = spanHandler.getSpanStart(it)
             val boldEnd = spanHandler.getSpanEnd(it)
 
-            spanHandler.setSpan(UnifyCustomTypefaceSpan(getTypeface(context, "RobotoBold.ttf")), boldStart, boldEnd, Spannable.SPAN_EXCLUSIVE_INCLUSIVE)
+            spanHandler.setSpan(UnifyCustomTypefaceSpan(getTypeface(context, "NotoSansBold.ttf")), boldStart, boldEnd, Spannable.SPAN_EXCLUSIVE_INCLUSIVE)
         }
 
         urlListArr.forEachIndexed { index, it ->

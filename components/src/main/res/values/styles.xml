@@ -5,4 +5,10 @@
         <item name="boxStrokeWidth">1dp</item>
         <item name="boxStrokeWidthFocused">1dp</item>
     </style>
+
+    <style name="UnifyButtonStyle" parent="">
+        <item name="unifyButtonColorPrimary">@color/Unify_G500</item>
+        <item name="unifyButtonColorSecondary">@color/Unify_Y500</item>
+        <item name="unifyButtonColorSecondary">@color/material_grey800</item>
+    </style>
 </resources>

@@ -92,11 +92,14 @@ class UnifyButton : AppCompatTextView {
     private var iconDrawable: Drawable? = null
     private var ignoreSetDrawableOnSetText = false
     private var drawablePosition = DrawablePosition.LEFT
+    private var primaryColor: Int = 0
+    private var secondaryColor: Int = 0
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         initWittAttrs(context, attrs)
     }
+
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         initWittAttrs(context, attrs)
     }
@@ -106,12 +109,20 @@ class UnifyButton : AppCompatTextView {
         buttonSize = attributeArray.getInt(R.styleable.UnifyButton_unifyButtonSize, Size.LARGE)
         buttonVariant = attributeArray.getInt(R.styleable.UnifyButton_unifyButtonVariant, Variant.FILLED)
         buttonType = attributeArray.getInt(R.styleable.UnifyButton_unifyButtonType, Type.MAIN)
-        isInverse = attributeArray.getBoolean(R.styleable.UnifyButton_unifyButtonInvers, false)
+        isInverse = attributeArray.getBoolean(R.styleable.UnifyButton_unifyButtonInverse, false)
         loadingText = attributeArray.getString(R.styleable.UnifyButton_unifyButtonLoadingText) ?: ""
         rightLoader =
             attributeArray.getBoolean(R.styleable.UnifyButton_unifyButtonRightLoader, true)
         isLoading =
             attributeArray.getBoolean(R.styleable.UnifyButton_unifyButtonLoadingState, false)
+        primaryColor = attributeArray.getColor(
+            R.styleable.UnifyButton_unifyButtonColorPrimary,
+            ContextCompat.getColor(context, R.color.Unify_G500)
+        )
+        secondaryColor = attributeArray.getColor(
+            R.styleable.UnifyButton_unifyButtonColorPrimary,
+            ContextCompat.getColor(context, R.color.Unify_Y500)
+        )
 
         attributeArray.getDrawable(R.styleable.UnifyButton_unifyButtonLeftDrawable)?.let {
             setDrawable(it, DrawablePosition.LEFT)
@@ -132,8 +143,8 @@ class UnifyButton : AppCompatTextView {
     override fun setText(text: CharSequence?, type: BufferType?) {
         super.setText(text, type)
 
-        if(!isLoading) {
-            placeholderText = text?:""
+        if (!isLoading) {
+            placeholderText = text ?: ""
         }
 
         if (!ignoreSetDrawableOnSetText) {
@@ -156,7 +167,8 @@ class UnifyButton : AppCompatTextView {
 
     private fun initButtonPadding() {
         val padding = resources.getDimensionPixelSize(
-            if (buttonSize == Size.LARGE || buttonSize == Size.MEDIUM) R.dimen.button_padding_large_and_medium else R.dimen.button_padding_small_and_micro)
+            if (buttonSize == Size.LARGE || buttonSize == Size.MEDIUM) R.dimen.button_padding_large_and_medium else R.dimen.button_padding_small_and_micro
+        )
         setPadding(padding, paddingTop, padding, paddingBottom)
     }
 
@@ -165,10 +177,16 @@ class UnifyButton : AppCompatTextView {
         font?.let {
             typeface = it
         }
-        when (buttonSize){
-            Size.LARGE -> { setTextSize(COMPLEX_UNIT_SP, 16f) }
-            Size.MEDIUM -> { setTextSize(COMPLEX_UNIT_SP, 14f) }
-            Size.SMALL, Size.MICRO -> { setTextSize(COMPLEX_UNIT_SP, 12f) }
+        when (buttonSize) {
+            Size.LARGE -> {
+                setTextSize(COMPLEX_UNIT_SP, 16f)
+            }
+            Size.MEDIUM -> {
+                setTextSize(COMPLEX_UNIT_SP, 14f)
+            }
+            Size.SMALL, Size.MICRO -> {
+                setTextSize(COMPLEX_UNIT_SP, 12f)
+            }
         }
 
         if (isLoading) {
@@ -183,34 +201,38 @@ class UnifyButton : AppCompatTextView {
 
     private fun initButtonSize() {
         height = resources.getDimensionPixelSize(
-            when(buttonSize){
+            when (buttonSize) {
                 Size.MEDIUM -> R.dimen.button_height_medium
                 Size.SMALL -> R.dimen.button_height_small
                 Size.MICRO -> R.dimen.button_height_micro
                 else -> R.dimen.button_height_large
-            })
+            }
+        )
     }
 
     private fun initButtonBackground() {
         val whiteColor = ContextCompat.getColor(context, android.R.color.white)
-        val background = ContextCompat.getColor(context, when(buttonType){
-            Type.MAIN -> R.color.Unify_GN500
-            Type.TRANSACTION -> R.color.buttonunify_transaction_color
-            else -> R.color.Unify_GN500
-        })
+        val background = when (buttonType) {
+            Type.MAIN -> primaryColor
+            Type.SECONDARY -> secondaryColor
+            else -> primaryColor
+        }
         val enableFillDrawable = GradientDrawable().apply {
             shape = GradientDrawable.RECTANGLE
             cornerRadius = resources.getDimension(R.dimen.button_corner_radius)
             setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), background)
-            if (buttonVariant == Variant.GHOST && buttonType == Type.TRANSACTION) {
-                setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), ContextCompat.getColor(context, R.color.buttonunify_transaction_stroke_color))
+            if (buttonVariant == Variant.GHOST && buttonType == Type.SECONDARY) {
+                setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), secondaryColor)
             }
         }
         val disableFillDrawable = GradientDrawable().apply {
             shape = GradientDrawable.RECTANGLE
             setColor(ContextCompat.getColor(context, R.color.Unify_NN100))
             cornerRadius = resources.getDimension(R.dimen.button_corner_radius)
-            setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), ContextCompat.getColor(context, R.color.Unify_NN100))
+            setStroke(
+                resources.getDimensionPixelSize(R.dimen.button_stroke_width),
+                ContextCompat.getColor(context, R.color.Unify_NN100)
+            )
         }
         disableFillDrawable.cornerRadius =
             resources.getDimension(if (buttonSize == Size.MICRO) R.dimen.button_corner_radius_micro else R.dimen.button_corner_radius)
@@ -218,12 +240,15 @@ class UnifyButton : AppCompatTextView {
             resources.getDimension(if (buttonSize == Size.MICRO) R.dimen.button_corner_radius_micro else R.dimen.button_corner_radius)
 
         if (isLoading) loadingDrawable = AnimatedVectorDrawableCompat.create(context, R.drawable.unify_loader)!!
-        when(buttonVariant){
+        when (buttonVariant) {
             Variant.FILLED -> {
                 enableFillDrawable.setColor(background)
                 enableFillDrawable.setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), background)
                 disableFillDrawable.setColor(ContextCompat.getColor(context, R.color.buttonunify_filled_disabled_color))
-                disableFillDrawable.setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), ContextCompat.getColor(context, R.color.buttonunify_filled_disabled_color))
+                disableFillDrawable.setStroke(
+                    resources.getDimensionPixelSize(R.dimen.button_stroke_width),
+                    ContextCompat.getColor(context, R.color.buttonunify_filled_disabled_color)
+                )
                 /**
                  * Set disabled state for filled text color
                  */
@@ -240,14 +265,22 @@ class UnifyButton : AppCompatTextView {
             Variant.GHOST -> {
                 enableFillDrawable.setColor(Color.TRANSPARENT)
                 disableFillDrawable.setColor(Color.TRANSPARENT)
-                disableFillDrawable.setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width),
-                    ContextCompat.getColor(context, R.color.buttonunify_alternate_disabled_stroke_color))
-                if (isInverse){
+                disableFillDrawable.setStroke(
+                    resources.getDimensionPixelSize(R.dimen.button_stroke_width),
+                    ContextCompat.getColor(context, R.color.buttonunify_alternate_disabled_stroke_color)
+                )
+                if (isInverse) {
                     if (isEnabled) {
-                        enableFillDrawable.setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), ContextCompat.getColor(context, R.color.Unify_Static_White))
+                        enableFillDrawable.setStroke(
+                            resources.getDimensionPixelSize(R.dimen.button_stroke_width),
+                            ContextCompat.getColor(context, R.color.Unify_Static_White)
+                        )
                         setTextColor(ContextCompat.getColor(context, R.color.Unify_Static_White))
                     } else {
-                        disableFillDrawable.setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), ContextCompat.getColor(context, R.color.buttonunify_alternate_disabled_stroke_color))
+                        disableFillDrawable.setStroke(
+                            resources.getDimensionPixelSize(R.dimen.button_stroke_width),
+                            ContextCompat.getColor(context, R.color.buttonunify_alternate_disabled_stroke_color)
+                        )
                         setTextColor(ContextCompat.getColor(context, R.color.buttonunify_text_disabled_color))
                     }
 
@@ -259,8 +292,11 @@ class UnifyButton : AppCompatTextView {
                     /**
                      * Update border color using new color NN300
                      */
-                    if(buttonType == Type.ALTERNATE){
-                        enableFillDrawable.setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), ContextCompat.getColor(context, R.color.buttonunify_alternate_stroke_color))
+                    if (buttonType == Type.ALTERNATE) {
+                        enableFillDrawable.setStroke(
+                            resources.getDimensionPixelSize(R.dimen.button_stroke_width),
+                            ContextCompat.getColor(context, R.color.buttonunify_alternate_stroke_color)
+                        )
                         setTextColor(ContextCompat.getColor(context, R.color.buttonunify_alternate_text_color))
                     } else {
                         setTextColor(background)
@@ -275,8 +311,10 @@ class UnifyButton : AppCompatTextView {
             }
             Variant.TEXT_ONLY -> {
                 enableFillDrawable.setColor(ContextCompat.getColor(context, android.R.color.transparent))
-                enableFillDrawable.setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width),
-                    ContextCompat.getColor(context, android.R.color.transparent))
+                enableFillDrawable.setStroke(
+                    resources.getDimensionPixelSize(R.dimen.button_stroke_width),
+                    ContextCompat.getColor(context, android.R.color.transparent)
+                )
                 if (isEnabled) {
                     setTextColor(ContextCompat.getColor(context, R.color.buttonunify_alternate_text_color))
                 } else {
@@ -291,7 +329,7 @@ class UnifyButton : AppCompatTextView {
          */
         val stateListDefaultDrawable = StateListDrawable().apply {
             addState(intArrayOf(-android.R.attr.state_enabled), disableFillDrawable)
-            addState(intArrayOf(android.R.attr.state_enabled),enableFillDrawable)
+            addState(intArrayOf(android.R.attr.state_enabled), enableFillDrawable)
         }
         setBackground(stateListDefaultDrawable)
 
@@ -326,7 +364,7 @@ class UnifyButton : AppCompatTextView {
             ignoreSetDrawableOnSetText = true
             text = placeholderText
             ignoreSetDrawableOnSetText = false
-            if(::loadingDrawable.isInitialized){
+            if (::loadingDrawable.isInitialized) {
                 loadingDrawable.stop()
                 loadingDrawable.clearAnimationCallbacks()
             }
@@ -390,7 +428,7 @@ class UnifyButton : AppCompatTextView {
     }
 
     override fun onDetachedFromWindow() {
-        if(::loadingDrawable.isInitialized){
+        if (::loadingDrawable.isInitialized) {
             loadingDrawable.stop()
             loadingDrawable.clearAnimationCallbacks()
         }
@@ -421,7 +459,7 @@ class UnifyButton : AppCompatTextView {
             drawablePosition = position
             iconDrawable = drawable.constantState?.newDrawable()?.mutate()
             iconDrawable?.colorFilter = drawableColorFilter
-            val spannableString = when{
+            val spannableString = when {
                 mText.isEmpty() -> SpannableString(" ")
                 position == DrawablePosition.LEFT -> SpannableString("  $mText")
                 else -> SpannableString("$mText  ")
@@ -464,7 +502,7 @@ class UnifyButton : AppCompatTextView {
 
     object Type {
         const val MAIN = 1
-        const val TRANSACTION = 2
+        const val SECONDARY = 2
         const val ALTERNATE = 3
     }
 
