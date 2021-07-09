@@ -74,7 +74,6 @@ internal fun getResourceRef(iconId: Int): Int {
         IconUnify.TICKET_CHANGE -> iconR.iconunify_ticket_change
         IconUnify.TICKET_HISTORY -> iconR.iconunify_ticket_history
         IconUnify.TICKET_INSTANT -> iconR.iconunify_ticket_instant
-        IconUnify.TOKOMEMBER -> iconR.iconunify_tokomember
         IconUnify.TOPQUEST -> iconR.iconunify_topquest
         IconUnify.UNDO -> iconR.iconunify_undo
 
@@ -95,7 +94,6 @@ internal fun getResourceRef(iconId: Int): Int {
         IconUnify.WHATSAPP -> iconR.iconunify_whatsapp
 
         IconUnify.AUTO_DEBIT -> iconR.iconunify_auto_debit
-        IconUnify.BADGE_OS -> iconR.iconunify_badge_os
         IconUnify.BADGE_VERIFIED -> iconR.iconunify_badge_verified
         IconUnify.BILL -> iconR.iconunify_bill
         IconUnify.BOOKMARK -> iconR.iconunify_bookmark
@@ -197,11 +195,9 @@ internal fun getResourceRef(iconId: Int): Int {
         IconUnify.SHOP_FAVORITE -> iconR.iconunify_shop_favorite
         IconUnify.SHOP_FILLED -> iconR.iconunify_shop_filled
 
-        IconUnify.BADGE_OS_FILLED -> iconR.iconunify_badge_os_filled
         IconUnify.POLICY_PRIVACY -> iconR.iconunify_policy_privacy
         IconUnify.QUICK_BUY -> iconR.iconunify_quick_buy
         IconUnify.SHAKE -> iconR.iconunify_shake
-        IconUnify.TOPED -> iconR.iconunify_toped
 
         IconUnify.COMPLAINT -> iconR.iconunify_complaint
 
@@ -271,12 +267,6 @@ internal fun getResourceRef(iconId: Int): Int {
         IconUnify.PHONE_BELL -> iconR.iconunify_phone_bell
         IconUnify.USER_REMOVE -> iconR.iconunify_user_remove
 
-        IconUnify.BADGE_PM_FILLED -> iconR.iconunify_badge_pm_filled
-        IconUnify.BADGE_PM_FILLED_BASIC -> iconR.iconunify_badge_pm_filled_basic
-        IconUnify.BADGE_PM_FILLED_BRONZE -> iconR.iconunify_badge_pm_filled_bronze
-        IconUnify.BADGE_PM_FILLED_DIAMOND -> iconR.iconunify_badge_pm_filled_diamond
-        IconUnify.BADGE_PM_FILLED_GOLD -> iconR.iconunify_badge_pm_filled_gold
-        IconUnify.BADGE_PM_FILLED_SILVER -> iconR.iconunify_badge_pm_filled_silver
         IconUnify.CLOCK_FILLED -> iconR.iconunify_clock_filled
         IconUnify.FILE_DOC -> iconR.iconunify_file_doc
         IconUnify.FILE_PDF -> iconR.iconunify_file_pdf
@@ -284,7 +274,6 @@ internal fun getResourceRef(iconId: Int): Int {
         IconUnify.RISK_HIGH -> iconR.iconunify_risk_high
         IconUnify.RISK_LOW -> iconR.iconunify_risk_low
         IconUnify.RISK_MODERATE -> iconR.iconunify_risk_moderate
-        IconUnify.SALAM -> iconR.iconunify_salam
 
         IconUnify.CHAT_REPORT -> iconR.iconunify_chat_report
         IconUnify.HELP -> iconR.iconunify_help
@@ -317,7 +306,6 @@ internal fun getResourceRef(iconId: Int): Int {
         IconUnify.ARROW_DOWN -> iconR.iconunify_arrow_down
         IconUnify.AUDIO_WAVE -> iconR.iconunify_audio_wave
         IconUnify.SCREEN_FIT -> iconR.iconunify_screen_fit
-        IconUnify.BADGE_PMPRO_FILLED -> iconR.iconunify_badge_pmpro_filled
 
         else -> iconR.iconunify_error
     }
@@ -330,16 +318,7 @@ internal fun isExcluded(iconId: Int): Boolean {
         IconUnify.INSTAGRAM,
         IconUnify.LINE,
         IconUnify.TWITTER,
-        IconUnify.WHATSAPP,
-        IconUnify.BADGE_OS_FILLED,
-        IconUnify.BADGE_PM_FILLED,
-        IconUnify.BADGE_PM_FILLED_BASIC,
-        IconUnify.BADGE_PM_FILLED_BRONZE,
-        IconUnify.BADGE_PM_FILLED_DIAMOND,
-        IconUnify.BADGE_PM_FILLED_GOLD,
-        IconUnify.BADGE_PM_FILLED_SILVER,
-        IconUnify.BADGE_PMPRO_FILLED-> true
-
+        IconUnify.WHATSAPP -> true
         else -> false
     }
 }
@@ -349,7 +328,7 @@ fun getIconUnifyDrawable(
     iconId: Int,
     assetColor: Int? = null
 ): Drawable? {
-    var img = AppCompatResources.getDrawable(context, getResourceRef(iconId))
+    val img = AppCompatResources.getDrawable(context, getResourceRef(iconId))
 
     if(!isExcluded(iconId)){
         val color = assetColor ?: ContextCompat.getColor(context, R.color.icon_enable_default_color)

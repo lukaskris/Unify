@@ -1,12 +1,3 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-
-
-val libraryGroupId by extra { "id.co.app" }
-val libraryArtifactId by extra { "components" }
-val libraryVersion by extra { "1.0.0" }
-val libraryName by extra { "components" }
-
-
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -24,11 +15,13 @@ android {
     defaultConfig {
         minSdkVersion(AppConfig.minSdk)
         targetSdkVersion(AppConfig.targetSdk)
+
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
@@ -41,14 +34,15 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
-    buildFeatures {
-        dataBinding = true
-    }
 }
 
 dependencies {
-	implementation(AppDependencies.androidLibraries)
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+
+    implementation (AppDependencies.kotlinStdLib)
+    implementation (AppDependencies.material)
+    implementation (AppDependencies.exoPlayer)
+    implementation (AppDependencies.glide)
 }
 
 project.ext{
@@ -56,48 +50,8 @@ project.ext{
     set("groupId", "id.co.app")
     set("versionName", "1.0.0")
     set("artifactName", "components")
-//    project.ext {
-//        artifactId = 'datepicker'
-//        groupId = 'com.tokopedia.unify.compositions'
-//        versionName = "${project.unifyDatepickerVersion}"
-//        artifactName ="date_picker"
-//    }
-//
-//    apply from: "$rootDir/buildconfig/publish.gradle"
 }
 
 apply{
     from("$rootDir/publish.gradle")
 }
-
-//
-//publishing {
-//    (publications) {
-//        create<MavenPublication>("aar") {
-//            artifactId = libraryArtifactId
-//            groupId = libraryGroupId
-//            version = libraryVersion
-//            artifact("$buildDir/outputs/aar/${libraryName}-release.aar")
-//        }
-//    }
-//}
-//
-//artifactory{
-//    setContextUrl(AppConfig.artifactoryUrl)
-//    publish {
-//        repository {
-//            setRepoKey(AppConfig.artifactoryKey)
-//            setUsername(AppConfig.artifactoryUsername)
-//            setPassword(AppConfig.artifactoryPassword)
-//            setMavenCompatible(true)
-//        }
-//    }
-//    resolve {
-//        repository {
-//            setRepoKey("app-gradle-dev")
-//            setUsername(AppConfig.artifactoryUsername)
-//            setPassword(AppConfig.artifactoryPassword)
-//            setMavenCompatible(true)
-//        }
-//    }
-//}

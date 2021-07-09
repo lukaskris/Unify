@@ -30,7 +30,7 @@ artifactory {
     contextUrl = artifactory_url
     publish {
         repository {
-            repoKey = 'app-gradle-release-local'
+            repoKey = 'app-gradle-dev-local'
 
             username = artifactory_username
             password = artifactory_password

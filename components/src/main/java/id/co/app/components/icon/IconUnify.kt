@@ -80,7 +80,7 @@ class IconUnify : AppCompatImageView {
         }
 
         attrs?.let {
-            var xmlAttr = context.obtainStyledAttributes(attrs, R.styleable.UnifyIcon)
+            val xmlAttr = context.obtainStyledAttributes(attrs, R.styleable.UnifyIcon)
             iconId = xmlAttr.getInteger(R.styleable.UnifyIcon_icon_name, BELL)
 
             isEnabled = xmlAttr.getBoolean(R.styleable.UnifyIcon_icon_enable_state, true)
@@ -262,7 +262,6 @@ class IconUnify : AppCompatImageView {
         const val TICKET_CHANGE = 54
         const val TICKET_HISTORY = 55
         const val TICKET_INSTANT = 56
-        const val TOKOMEMBER = 57
         const val TOPQUEST = 58
         const val UNDO = 59
 
@@ -399,7 +398,7 @@ class IconUnify : AppCompatImageView {
         const val USER_SUCCESS = 167
 
         /**
-         * toko update - 28/09/2020
+         * toko update
          */
         const val LIST_TRANSACTION = 168
         const val PRODUCT_FILLED = 169
@@ -407,21 +406,19 @@ class IconUnify : AppCompatImageView {
         const val SHOP_FILLED = 171
 
         /**
-         * misc update - 28/09/2020
+         * misc update
          */
-        const val BADGE_OS_FILLED = 172
         const val POLICY_PRIVACY = 173
         const val QUICK_BUY = 174
         const val SHAKE = 175
-        const val TOPED = 176
 
         /**
-         * user update - 28/09/2020
+         * user update
          */
         const val COMPLAINT = 177
 
         /**
-         * general update - 28/09/2020
+         * general update
          */
         const val BELL_FILLED = 178
         const val CABINET = 179
@@ -435,32 +432,32 @@ class IconUnify : AppCompatImageView {
         const val SUBSCRIPTION = 187
 
         /**
-         * general update - 15/10/2020
+         * general update
          */
         const val CALENDAR_ADD = 188
         const val FIRE_FILLED = 189
         const val FIRE = 190
 
         /**
-         * promo update - 15/10/2020
+         * promo update
          */
         const val STAR_CIRCLE = 191
         const val DISCOUNT = 192
         const val PROMO_ADS = 193
 
         /**
-         * user update - 15/10/2020
+         * user update
          */
         const val USER_SETTING = 194
 
         /**
-         * navigation update - 15/10/2020
+         * navigation update
          */
         const val ARROW_TOP_RIGHT = 195
         const val ARROW_TOP_LEFT = 196
 
         /**
-         * update - 23/10/2020
+         * update
          * navigation - social - misc - toko - view - general
          */
         const val CHEVRON_LEFT = 197
@@ -472,7 +469,7 @@ class IconUnify : AppCompatImageView {
         const val FOLDER = 203
 
         /**
-         * update - 30/10/2020
+         * update
          * toko - action
          */
         const val COURIER_FAST = 204
@@ -482,14 +479,14 @@ class IconUnify : AppCompatImageView {
         const val CHECK_BIG = 208
 
         /**
-         * update - 24/11/2020
+         * update
          * toko
          */
         const val PRODUCT_BUDGET = 209
         const val SHIRT_BUDGET = 210
 
         /**
-         * update - 07/12/2020
+         * update
          * toko - misc - user - social - action - promo - general
          */
         const val GRAPH_FILLED = 211
@@ -509,7 +506,7 @@ class IconUnify : AppCompatImageView {
         const val SIGN_OUT_FILLED = 225
 
         /**
-         * update - 29/12/2020
+         * update
          */
         const val CALL_RING = 226
         const val CITY = 227
@@ -521,14 +518,8 @@ class IconUnify : AppCompatImageView {
         const val USER_REMOVE = 233
 
         /**
-         * update - 22/01/2021
+         * update
          */
-        const val BADGE_PM_FILLED = 234
-        const val BADGE_PM_FILLED_BASIC = 235
-        const val BADGE_PM_FILLED_BRONZE = 236
-        const val BADGE_PM_FILLED_DIAMOND = 237
-        const val BADGE_PM_FILLED_GOLD = 238
-        const val BADGE_PM_FILLED_SILVER = 239
         const val CLOCK_FILLED = 240
         const val FILE_DOC = 241
         const val FILE_PDF = 242
@@ -536,7 +527,6 @@ class IconUnify : AppCompatImageView {
         const val RISK_HIGH = 244
         const val RISK_LOW = 245
         const val RISK_MODERATE = 246
-        const val SALAM = 247
 
         /**
          * update - 18/02/2021
@@ -581,6 +571,5 @@ class IconUnify : AppCompatImageView {
         const val ARROW_DOWN = 273
         const val AUDIO_WAVE = 274
         const val SCREEN_FIT = 275
-        const val BADGE_PMPRO_FILLED = 276
     }
 }

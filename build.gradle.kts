@@ -9,10 +9,7 @@ buildscript {
 
     dependencies {
         classpath("com.android.tools.build:gradle:4.1.3")
-        classpath(AppDependencies.androidGradle)
         classpath(AppDependencies.kotlinGradlePlugin)
-        classpath(AppDependencies.navigationGradlePlugin)
-        classpath(AppDependencies.hiltGradlePlugin)
         classpath ("org.jfrog.buildinfo:build-info-extractor-gradle:4.24.10")
     }
 }
@@ -37,7 +34,7 @@ allprojects {
         }
 
         maven {
-            url = uri("$artifactory_url/app-gradle-release-local/")
+            url = uri("$artifactory_url/app-gradle-dev-local/")
             credentials {
                 username = artifactory_username
                 password = artifactory_password
