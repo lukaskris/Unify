@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="indeterminate" format="boolean"/>
+    <attr name="bold" format="boolean"/>
+    <attr name="unify_checkbox_type" format="enum">
+        <enum name="type_default" value="0" />
+        <enum name="type_white" value="1" />
+    </attr>
+</resources>

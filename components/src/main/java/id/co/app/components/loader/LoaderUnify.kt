@@ -74,7 +74,7 @@ class LoaderUnify : androidx.appcompat.widget.AppCompatImageView {
 //        setLayerType(View.LAYER_TYPE_SOFTWARE, null)
 
         paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            color = ContextCompat.getColor(context, R.color.Neutral_N0)
+            color = ContextCompat.getColor(context, R.color.Unify_N0)
             xfermode = PorterDuffXfermode(PorterDuff.Mode.DST_IN)
         }
     }

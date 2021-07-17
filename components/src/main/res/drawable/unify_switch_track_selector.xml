@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:aapt="http://schemas.android.com/aapt">
+
+    <!-- OFF ENABLE -->
+    <item android:state_checked="false" android:state_enabled="true">
+        <aapt:attr name="android:drawable">
+            <shape android:dither="true"
+                   android:shape="rectangle"
+                   android:useLevel="false"
+                   android:visible="true">
+                <solid android:color="@color/switch_background_off_enable" />
+                <corners android:radius="12dp"/>
+                <size
+                        android:width="44dp"
+                        android:height="24dp"/>
+            </shape>
+        </aapt:attr>
+    </item>
+
+    <!-- ON ENABLE -->
+    <item android:state_checked="true" android:state_enabled="true">
+        <aapt:attr name="android:drawable">
+            <shape android:dither="true"
+                   android:shape="rectangle"
+                   android:useLevel="false"
+                   android:visible="true">
+                <solid android:color="@color/Unify_G500" />
+                <corners android:radius="12dp" />
+                <size
+                        android:width="44dp"
+                        android:height="24dp" />
+            </shape>
+        </aapt:attr>
+    </item>
+
+    <!-- OFF DISABLE -->
+    <item android:state_checked="false" android:state_enabled="false">
+        <aapt:attr name="android:drawable">
+            <shape android:dither="true"
+                   android:shape="rectangle"
+                   android:useLevel="false"
+                   android:visible="true">
+                <solid android:color="@color/switch_background_disabled" />
+                <corners android:radius="12dp" />
+                <size
+                        android:width="44dp"
+                        android:height="24dp" />
+            </shape>
+        </aapt:attr>
+    </item>
+
+    <!-- ON DISABLE -->
+    <item android:state_checked="true" android:state_enabled="false">
+        <aapt:attr name="android:drawable">
+            <shape android:dither="true"
+                   android:shape="rectangle"
+                   android:useLevel="false"
+                   android:visible="true">
+                <solid android:color="@color/Unify_G500_32" />
+                <corners android:radius="12dp" />
+                <size
+                        android:width="44dp"
+                        android:height="24dp" />
+            </shape>
+        </aapt:attr>
+    </item>
+</selector>

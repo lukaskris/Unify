@@ -274,7 +274,7 @@ open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(c
      * Set error state to TextField
      * @param boolean true to set error, false to set default state
      */
-    private fun setError(isError: Boolean) {
+    fun setError(isError: Boolean) {
         val textView: TextView? =
             ((textInputLayout.getChildAt(1) as ViewGroup?)?.getChildAt(0) as ViewGroup?)?.getChildAt(
                 0

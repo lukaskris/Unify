@@ -10,4 +10,24 @@
         <item name="unifyButtonColorPrimary">@color/Unify_G500</item>
         <item name="unifyButtonColorSecondary">@color/Unify_Y500</item>
     </style>
+
+    <style name="UnifyBottomSheetNotOverlapStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="UnifyBottomSheetOverlapStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="UnifyBottomsheetWindowAnimation" parent="@android:style/Theme.Dialog">
+        <item name="android:windowEnterAnimation">@anim/unify_bottomsheet_show</item>
+        <item name="android:windowExitAnimation">@anim/unify_bottomsheet_hide</item>
+    </style>
 </resources>

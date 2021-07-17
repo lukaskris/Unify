@@ -141,8 +141,8 @@ fun fontColorList(context: Context): ColorStateList {
     )
 
     val colorList = IntArray(2)
-    colorList[0] = ContextCompat.getColor(context, R.color.Neutral_N700_96)
-    colorList[1] = ContextCompat.getColor(context, R.color.Neutral_N700_20)
+    colorList[0] = ContextCompat.getColor(context, R.color.Unify_N700_96)
+    colorList[1] = ContextCompat.getColor(context, R.color.Unify_N700_20)
 
     return ColorStateList(stateList, colorList)
 }
@@ -377,7 +377,7 @@ class HtmlLinkHelper(context: Context, htmlString: String) {
                 }
             }, linkStart, linkEnd, Spanned.SPAN_EXCLUSIVE_INCLUSIVE)
             spanHandler.setSpan(UrlSpanNoUnderline(linkUrl), linkStart, linkEnd, Spanned.SPAN_EXCLUSIVE_INCLUSIVE)
-            spanHandler.setSpan(ForegroundColorSpan(context.resources.getColor(R.color.Green_G500)), linkStart, linkEnd, Spannable.SPAN_EXCLUSIVE_INCLUSIVE)
+            spanHandler.setSpan(ForegroundColorSpan(context.resources.getColor(R.color.Unify_G500)), linkStart, linkEnd, Spannable.SPAN_EXCLUSIVE_INCLUSIVE)
             spanHandler.setSpan(StyleSpan(Typeface.BOLD), linkStart, linkEnd, Spannable.SPAN_EXCLUSIVE_INCLUSIVE)
         }
 

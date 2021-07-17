@@ -19,6 +19,7 @@ class IconUnify : AppCompatImageView {
     var iconImg: Drawable? = null
 
     private var iconId = BELL
+    private var customDrawable = 0
 
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
@@ -82,6 +83,7 @@ class IconUnify : AppCompatImageView {
         attrs?.let {
             val xmlAttr = context.obtainStyledAttributes(attrs, R.styleable.UnifyIcon)
             iconId = xmlAttr.getInteger(R.styleable.UnifyIcon_icon_name, BELL)
+            customDrawable = xmlAttr.getResourceId(R.styleable.UnifyIcon_icon_custom_drawable, 0)
 
             isEnabled = xmlAttr.getBoolean(R.styleable.UnifyIcon_icon_enable_state, true)
 
@@ -149,7 +151,12 @@ class IconUnify : AppCompatImageView {
                 }
             }
 
-        iconImg = AppCompatResources.getDrawable(context, getResourceRef(iconId))
+
+        iconImg = if(customDrawable != 0){
+            AppCompatResources.getDrawable(context, customDrawable)
+        } else {
+            AppCompatResources.getDrawable(context, getResourceRef(iconId))
+        }
         iconImg?.mutate()
 
         /**
@@ -224,16 +231,13 @@ class IconUnify : AppCompatImageView {
         const val VIDEO_BROKEN = 24
         const val WALLET = 25
 
-        /**
-         * navigation
-         */
         const val ARROW_BACK = 26
         const val BACK_TO_TOP = 27
         const val CHEVRON_DOWN = 28
         const val CHEVRON_RIGHT = 29
         const val CHEVRON_UP = 30
         const val CLOSE = 31
-        const val ERROR = 32    // soft remove on 1.0.2
+        const val ERROR = 32
         const val MENU_HAMBURGER = 33
         const val MENU_KEBAB_HORIZONTAL = 34
         const val MENU_KEBAB_VERTICAL = 35
@@ -242,9 +246,6 @@ class IconUnify : AppCompatImageView {
         const val VIEW_LIST = 38
         const val WARNING = 39
 
-        /**
-         * promo
-         */
         const val COUPON = 40
         const val FORMAT_ALIGN_LEFT = 41
         const val FORMAT_ALIGN_RIGHT = 42
@@ -262,12 +263,8 @@ class IconUnify : AppCompatImageView {
         const val TICKET_CHANGE = 54
         const val TICKET_HISTORY = 55
         const val TICKET_INSTANT = 56
-        const val TOPQUEST = 58
         const val UNDO = 59
 
-        /**
-         * social
-         */
         const val CALL = 60
         const val CALL_MISSED = 61
         const val CHAT = 62
@@ -284,11 +281,7 @@ class IconUnify : AppCompatImageView {
         const val UNREAD = 73
         const val WHATSAPP = 74
 
-        /**
-         * misc
-         */
         const val AUTO_DEBIT = 75
-        const val BADGE_OS = 76
         const val BADGE_VERIFIED = 77
         const val BILL = 78
         const val BOOKMARK = 79
@@ -309,9 +302,6 @@ class IconUnify : AppCompatImageView {
         const val STAR_FILLED = 94
         const val STICKER = 95
 
-        /**
-         * toko
-         */
         const val BILL_ALL = 96
         const val BILL_CHECK = 97
         const val CLIPBOARD = 98
@@ -332,9 +322,6 @@ class IconUnify : AppCompatImageView {
         const val SHOPPING_BAG = 113
         const val STAMP = 114
 
-        /**
-         * action
-         */
         const val ADD = 115
         const val ADD_CIRCLE = 116
         const val BACKGROUND = 117
@@ -362,16 +349,13 @@ class IconUnify : AppCompatImageView {
         const val VISIBILITY = 139
         const val VISIBILITY_OFF = 140
 
-        /**
-         * audiovisual
-         */
         const val ACTIVITY = 141
         const val CAMERA_SWITCH = 142
         const val FLASH_OFF = 143
         const val FLASH_ON = 144
         const val PAUSE = 145
         const val PLAY = 146
-        const val REPLAY = 147  // soft remove on 1.0.2
+        const val REPLAY = 147
         const val SCREEN_FULL = 148
         const val SCREEN_NORMAL = 149
         const val SKIP_NEXT = 150
@@ -382,9 +366,6 @@ class IconUnify : AppCompatImageView {
         const val VOLUME_MUTE = 155
         const val VOLUME_UP = 156
 
-        /**
-         * user
-         */
         const val CARD = 157
         const val CHILD = 158
         const val CONTACT = 159
@@ -397,179 +378,121 @@ class IconUnify : AppCompatImageView {
         const val USER_ADD = 166
         const val USER_SUCCESS = 167
 
-        /**
-         * toko update
-         */
         const val LIST_TRANSACTION = 168
         const val PRODUCT_FILLED = 169
         const val SHOP_FAVORITE = 170
         const val SHOP_FILLED = 171
 
-        /**
-         * misc update
-         */
-        const val POLICY_PRIVACY = 173
-        const val QUICK_BUY = 174
-        const val SHAKE = 175
+        const val POLICY_PRIVACY = 172
+        const val QUICK_BUY = 173
+        const val SHAKE = 174
 
-        /**
-         * user update
-         */
-        const val COMPLAINT = 177
+        const val COMPLAINT = 175
 
-        /**
-         * general update
-         */
-        const val BELL_FILLED = 178
-        const val CABINET = 179
-        const val CABINET_FILLED = 180
-        const val FEED = 181
-        const val FEED_FILLED = 182
-        const val HOME = 183
-        const val HOME_FILLED = 184
-        const val MESSAGE_HELP = 185
-        const val MODE_SCREEN = 186
-        const val SUBSCRIPTION = 187
+        const val BELL_FILLED = 176
+        const val CABINET = 177
+        const val CABINET_FILLED = 178
+        const val FEED = 179
+        const val FEED_FILLED = 180
+        const val HOME = 181
+        const val HOME_FILLED = 182
+        const val MESSAGE_HELP = 183
+        const val MODE_SCREEN = 184
+        const val SUBSCRIPTION = 185
 
-        /**
-         * general update
-         */
-        const val CALENDAR_ADD = 188
-        const val FIRE_FILLED = 189
-        const val FIRE = 190
+        const val CALENDAR_ADD = 186
+        const val FIRE_FILLED = 187
+        const val FIRE = 188
 
-        /**
-         * promo update
-         */
-        const val STAR_CIRCLE = 191
-        const val DISCOUNT = 192
-        const val PROMO_ADS = 193
+        const val STAR_CIRCLE = 189
+        const val DISCOUNT = 190
+        const val PROMO_ADS = 191
 
-        /**
-         * user update
-         */
-        const val USER_SETTING = 194
+        const val USER_SETTING = 192
 
-        /**
-         * navigation update
-         */
-        const val ARROW_TOP_RIGHT = 195
-        const val ARROW_TOP_LEFT = 196
+        const val ARROW_TOP_RIGHT = 193
+        const val ARROW_TOP_LEFT = 194
 
-        /**
-         * update
-         * navigation - social - misc - toko - view - general
-         */
-        const val CHEVRON_LEFT = 197
-        const val CHAT_FILLED = 198
-        const val PROTECTION_CHECK = 199
-        const val CLIPBOARD_FILLED = 200
-        const val COURIER = 201
-        const val VIEW_GRID_FILLED = 202
-        const val FOLDER = 203
+        const val CHEVRON_LEFT = 195
+        const val CHAT_FILLED = 196
+        const val PROTECTION_CHECK = 197
+        const val CLIPBOARD_FILLED = 198
+        const val COURIER = 199
+        const val VIEW_GRID_FILLED = 200
+        const val FOLDER = 201
 
-        /**
-         * update
-         * toko - action
-         */
-        const val COURIER_FAST = 204
-        const val PRODUCT_REPORT = 205
-        const val RELOAD = 206
-        const val CHECK_CIRCLE = 207
-        const val CHECK_BIG = 208
+        const val COURIER_FAST = 202
+        const val PRODUCT_REPORT = 203
+        const val RELOAD = 204
+        const val CHECK_CIRCLE = 205
+        const val CHECK_BIG = 206
 
-        /**
-         * update
-         * toko
-         */
-        const val PRODUCT_BUDGET = 209
-        const val SHIRT_BUDGET = 210
+        const val PRODUCT_BUDGET = 207
+        const val SHIRT_BUDGET = 208
 
-        /**
-         * update
-         * toko - misc - user - social - action - promo - general
-         */
-        const val GRAPH_FILLED = 211
-        const val SHOP_INFO_FILLED = 212
-        const val BADGE_VERIFIED_FILLED = 213
-        const val CALL_CENTER_FILLED = 214
-        const val USER_TALK = 215
-        const val USER_TALK_FILLED = 216
-        const val USER_REPORT = 217
-        const val USER_BLOCK = 218
-        const val DISCUSSION_FILLED = 219
-        const val BROADCAST = 220
-        const val PRINT_FILLED = 221
-        const val PROMO_ADS_FILLED = 222
-        const val PROMO_BLOCK = 223
-        const val SETTING_FILLED = 224
-        const val SIGN_OUT_FILLED = 225
+        const val GRAPH_FILLED = 209
+        const val SHOP_INFO_FILLED = 210
+        const val BADGE_VERIFIED_FILLED = 211
+        const val CALL_CENTER_FILLED = 212
+        const val USER_TALK = 213
+        const val USER_TALK_FILLED = 214
+        const val USER_REPORT = 215
+        const val USER_BLOCK = 216
+        const val DISCUSSION_FILLED = 217
+        const val BROADCAST = 218
+        const val PRINT_FILLED = 219
+        const val PROMO_ADS_FILLED = 220
+        const val PROMO_BLOCK = 221
+        const val SETTING_FILLED = 222
+        const val SIGN_OUT_FILLED = 223
 
-        /**
-         * update
-         */
-        const val CALL_RING = 226
-        const val CITY = 227
-        const val LOCATION_FILLED = 228
-        const val LOCATION_OFF = 229
-        const val PACKAGE = 230
-        const val PACKAGE_FILLED = 231
-        const val PHONE_BELL = 232
-        const val USER_REMOVE = 233
+        const val CALL_RING = 224
+        const val CITY = 225
+        const val LOCATION_FILLED = 226
+        const val LOCATION_OFF = 227
+        const val PACKAGE = 228
+        const val PACKAGE_FILLED = 229
+        const val PHONE_BELL = 230
+        const val USER_REMOVE = 231
 
-        /**
-         * update
-         */
-        const val CLOCK_FILLED = 240
-        const val FILE_DOC = 241
-        const val FILE_PDF = 242
-        const val FILE_XLS = 243
-        const val RISK_HIGH = 244
-        const val RISK_LOW = 245
-        const val RISK_MODERATE = 246
+        const val CLOCK_FILLED = 232
+        const val FILE_DOC = 233
+        const val FILE_PDF = 234
+        const val FILE_XLS = 235
+        const val RISK_HIGH = 236
+        const val RISK_LOW = 237
+        const val RISK_MODERATE = 238
 
-        /**
-         * update - 18/02/2021
-         */
-        const val CHAT_REPORT = 248
-        const val HELP = 249
-        const val MAP = 250
-        const val ZOOM_IN = 251
-        const val ZOOM_OUT = 252
+        const val CHAT_REPORT = 239
+        const val HELP = 240
+        const val MAP = 241
+        const val ZOOM_IN = 242
+        const val ZOOM_OUT = 243
 
-        /**
-         * update - 25/03/2021
-         */
-        const val SERVICE = 253
-        const val SERVICE_FILLED = 254
-        const val SALDO_INCOME = 255
-        const val SALDO_OUTCOME = 256
-        const val SALDO_TEMPO = 257
-        const val PROMO_LIVE = 258
-        const val REMOVE = 259
-        const val RELOAD_24H = 260
-        const val CHAT_BELL = 261
+        const val SERVICE = 244
+        const val SERVICE_FILLED = 245
+        const val SALDO_INCOME = 246
+        const val SALDO_OUTCOME = 247
+        const val SALDO_TEMPO = 248
+        const val PROMO_LIVE = 249
+        const val REMOVE = 250
+        const val RELOAD_24H = 251
+        const val CHAT_BELL = 252
 
-        /**
-         * update - 07/04/2021
-         */
-        const val FILE_CSV = 262
-        const val FILE_JSON = 263
-        const val FOLDER_FILLED = 264
-        const val PROJECT = 265
-        const val PROJECT_FILLED = 266
-        const val USER_FILLED = 267
-        const val IP = 268
-        const val FREE = 269
-        const val UPLOAD = 270
-        const val PERFORMANCE = 271
+        const val FILE_CSV = 253
+        const val FILE_JSON = 254
+        const val FOLDER_FILLED = 255
+        const val PROJECT = 256
+        const val PROJECT_FILLED = 257
+        const val USER_FILLED = 258
+        const val IP = 259
+        const val FREE = 260
+        const val UPLOAD = 261
+        const val PERFORMANCE = 262
 
-        /**
-         * update - 23/04/2021
-         */
-        const val ARROW_UP = 272
-        const val ARROW_DOWN = 273
-        const val AUDIO_WAVE = 274
-        const val SCREEN_FIT = 275
+        const val ARROW_UP = 263
+        const val ARROW_DOWN = 264
+        const val AUDIO_WAVE = 265
+        const val SCREEN_FIT = 266
     }
 }

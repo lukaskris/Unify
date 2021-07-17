@@ -74,7 +74,6 @@ internal fun getResourceRef(iconId: Int): Int {
         IconUnify.TICKET_CHANGE -> iconR.iconunify_ticket_change
         IconUnify.TICKET_HISTORY -> iconR.iconunify_ticket_history
         IconUnify.TICKET_INSTANT -> iconR.iconunify_ticket_instant
-        IconUnify.TOPQUEST -> iconR.iconunify_topquest
         IconUnify.UNDO -> iconR.iconunify_undo
 
         IconUnify.CALL -> iconR.iconunify_call

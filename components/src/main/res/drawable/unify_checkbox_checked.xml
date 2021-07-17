@@ -1,0 +1,80 @@
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:name="checkbox"
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="24"
+            android:viewportHeight="24">
+            <group
+                android:name="group"
+                android:pivotX="12"
+                android:pivotY="12">
+                <path
+                    android:name="filled"
+                    android:pathData="M 18 2 C 20.209 2 22 3.791 22 6 L 22 18 C 22 20.209 20.209 22 18 22 L 6 22 C 3.791 22 2 20.209 2 18 L 2 6 C 2 3.791 3.791 2 6 2 L 18 2 Z"
+                    android:fillColor="@color/Unify_GN500"
+                    android:strokeWidth="1"/>
+            </group>
+            <path
+                android:name="border"
+                android:pathData="M 6 2 L 18 2 C 20.209 2 22 3.791 22 6 L 22 18 C 22 20.209 20.209 22 18 22 L 6 22 C 3.791 22 2 20.209 2 18 L 2 6 C 2 3.791 3.791 2 6 2 Z M 6 4 C 4.895 4 4 4.895 4 6 L 4 18 C 4 19.105 4.895 20 6 20 L 18 20 C 19.105 20 20 19.105 20 18 L 20 6 C 20 4.895 19.105 4 18 4 L 6 4 Z"
+                android:fillColor="@color/checkbox_border_color"
+                android:strokeWidth="1"/>
+            <path
+                android:name="checklist"
+                android:pathData="M 7.253 12 L 10.646 15.329 L 16.777 9.162"
+                android:strokeColor="@color/checkbox_check_color"
+                android:strokeWidth="2"
+                android:trimPathEnd="0"
+                android:strokeLineCap="round"
+                android:strokeLineJoin="round"
+                android:fillType="evenOdd"/>
+        </vector>
+    </aapt:attr>
+    <target android:name="border">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="fillColor"
+                android:duration="151"
+                android:valueFrom="@color/checkbox_border_color"
+                android:valueTo="@color/Unify_GN500"
+                android:valueType="colorType"
+                android:interpolator="@android:interpolator/fast_out_slow_in"/>
+        </aapt:attr>
+    </target>
+    <target android:name="group">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:duration="400"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"/>
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:duration="400"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"/>
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="checklist">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="trimPathEnd"
+                android:startOffset="151"
+                android:duration="249"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:valueType="floatType"
+                android:interpolator="@android:interpolator/fast_out_slow_in"/>
+        </aapt:attr>
+    </target>
+</animated-vector>

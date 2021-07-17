@@ -53,4 +53,5 @@
     <color name="sinarmas_color">#ed1b23</color>
     <color name="alert_background_info">#ff9100</color>
 
+    <color name="listunify_chevron">@color/Unify_N400</color>
 </resources>

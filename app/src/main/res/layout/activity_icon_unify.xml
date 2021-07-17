@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/Unify_Background"
+        android:orientation="vertical"
+        android:focusableInTouchMode="true">
+
+        <LinearLayout
+            android:padding="8dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <id.co.app.components.typography.Typography
+                android:layout_marginEnd="16dp"
+                app:typographyType="body_2"
+                android:text="Light - enable = G500 \t\t\t\t\tLight - disabled = Y500 \nDark - enable = B500 \t\t\t\t\tDark - disabled = P500"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <id.co.app.components.icon.IconUnify
+                    android:id="@+id/icon_sample_ref"
+                    app:icon_name="INFORMATION"
+                    app:icon_color_light_enable="@color/Unify_T500"
+                    app:icon_color_light_disabled="@color/Unify_Y500"
+                    app:icon_color_night_enable="@color/Unify_B500"
+                    app:icon_color_night_disabled="@color/Unify_P500"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp" />
+
+                <id.co.app.components.icon.IconUnify
+                    android:id="@+id/icon_sample_ref4"
+                    android:layout_marginStart="12dp"
+                    app:icon_name="INFORMATION"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp" />
+
+                <id.co.app.components.icon.IconUnify
+                    android:layout_marginStart="16dp"
+                    android:id="@+id/icon_sample_ref2"
+                    app:icon_name="INFORMATION"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp" />
+
+                <id.co.app.components.typography.Typography
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    app:typographyType="body_2"
+                    android:text="Click to change state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/icon_sample_ref3"
+                    android:layout_width="24dp"
+                    android:layout_height="21dp" />
+
+                <id.co.app.components.icon.IconUnify
+                    android:layout_marginStart="16dp"
+                    app:icon_enable_state="false"
+                    app:icon_custom_drawable="@drawable/ic_android_black_24dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/Unify_B400" />
+
+        <GridLayout
+            android:columnCount="2"
+            android:rowCount="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <id.co.app.components.button.UnifyButton
+                    android:id="@+id/unifyicon_sample_color_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Change color"
+                    app:unifyButtonSize="small"
+                    app:unifyButtonType="main"
+                    app:unifyButtonVariant="ghost" />
+
+                <id.co.app.components.typography.Typography
+                    android:id="@+id/active_color_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Default color"
+                    app:typographyType="body_2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <id.co.app.components.quantity.QuantityEditorUnify
+                    android:id="@+id/unifyicon_sample_size_qty"
+                    app:qty_default_value="24"
+                    app:qty_min_value="1"
+                    app:qty_max_value="200"
+                    android:layout_marginEnd="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <id.co.app.components.button.UnifyButton
+                    android:id="@+id/unifyicon_sample_size_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Apply size"
+                    app:unifyButtonSize="small"
+                    app:unifyButtonType="main"
+                    app:unifyButtonVariant="ghost" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <id.co.app.components.switchunify.SwitchUnify
+                    android:id="@+id/unifyicon_sample_bound_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <id.co.app.components.typography.Typography
+                    android:layout_marginStart="16dp"
+                    app:typographyType="body_2"
+                    android:text="Show bound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </GridLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/Unify_B400" />
+
+        <LinearLayout
+            android:paddingStart="16dp"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <id.co.app.components.text.TextFieldUnify
+                android:id="@+id/iconunify_search_text"
+                android:layout_marginEnd="16dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content" />
+
+            <id.co.app.components.button.UnifyButton
+                android:id="@+id/iconunify_search_btn"
+                app:unifyButtonType="main"
+                app:unifyButtonVariant="ghost"
+                android:text="Search"
+                app:unifyButtonSize="small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/Unify_B400" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/unifyicon_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</layout>

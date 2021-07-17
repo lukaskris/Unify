@@ -1,0 +1,49 @@
+<resources>
+
+    <!-- Quantity Editor -->
+    <color name="quantityedtorunify_border">@color/Unify_N100</color>
+    <color name="quantityedtorunify_border_focused">@color/Unify_G500</color>
+
+    <!-- Textfield color -->
+    <color name="textfieldunify_focus_color">@color/Unify_G500</color>
+    <color name="textfieldunify_unfocus_color">@color/Unify_N100</color>
+    <!-- Selection Control color -->
+    <color name="checkbox_border_color">@color/Unify_NN700</color>
+    <color name="switch_background_off_enable">@color/Unify_N150</color>
+    <color name="switch_background_disabled">@color/Unify_N75</color>
+    <color name="switch_thumb_disabled">@color/Unify_N200</color>
+  
+    <!-- Bottomsheet color -->
+    <color name="bottomsheetunify_overlay">#7F000000</color>
+    <color name="bottomsheetunify_background">@color/Unify_N50</color>
+
+    <!-- Label color -->
+    <color name="labelunify_dark_red_background">@color/Unify_R700</color>
+    <color name="labelunify_dark_grey_background">@color/Unify_N400</color>
+    <color name="labelunify_dark_green_background">@color/Unify_G700</color>
+    <color name="labelunify_dark_blue_background">@color/Unify_B700</color>
+    <color name="labelunify_dark_orange_background">@color/Unify_Y700</color>
+    <color name="labelunify_light_red_background">@color/Unify_N100</color>
+    <color name="labelunify_light_grey_background">@color/Unify_N100</color>
+    <color name="labelunify_light_green_background">@color/Unify_N100</color>
+    <color name="labelunify_light_blue_background">@color/Unify_N100</color>
+    <color name="labelunify_light_orange_background">@color/Unify_N100</color>
+    <color name="labelunify_time_high_background">@color/Unify_Y300</color>
+    <color name="labelunify_time_medium_background">@color/Unify_Y500</color>
+    <color name="labelunify_time_low_background">@color/Unify_Y700</color>
+
+    <color name="labelunify_dark_time_general_text">@color/Unify_N100</color>
+    <color name="labelunify_light_red_text">@color/Unify_R700</color>
+    <color name="labelunify_light_grey_text">@color/Unify_N400</color>
+    <color name="labelunify_light_green_text">@color/Unify_G700</color>
+    <color name="labelunify_light_blue_text">@color/Unify_B700</color>
+    <color name="labelunify_light_orange_text">@color/Unify_Y600</color>
+
+    <!-- Button color -->
+    <color name="buttonunify_transaction_color">@color/Unify_Y400</color>
+    <color name="buttonunify_transaction_stroke_color">@color/Unify_Y400</color>
+
+    <!-- Loader color -->
+    <color name="loaderunify_primary">@color/Unify_GN400</color>
+    <color name="loaderunify_secondary">@color/Unify_GN700</color>
+</resources>

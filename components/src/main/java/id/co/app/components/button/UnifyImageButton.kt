@@ -70,21 +70,21 @@ class UnifyImageButton : AppCompatImageButton {
     private fun initButtonBackground() {
         val whiteColor = ContextCompat.getColor(context, android.R.color.white)
         val background = ContextCompat.getColor(context, when(buttonType){
-            Type.MAIN -> R.color.Green_G500
-            Type.TRANSACTION -> R.color.Yellow_Y500
-            else -> R.color.Neutral_N0
+            Type.MAIN -> R.color.Unify_G500
+            Type.TRANSACTION -> R.color.Unify_Y500
+            else -> R.color.Unify_N0
         })
         val enableFillDrawable = GradientDrawable().apply {
             shape = GradientDrawable.RECTANGLE
-            setColor(ContextCompat.getColor(context, R.color.Neutral_N0))
+            setColor(ContextCompat.getColor(context, R.color.Unify_N0))
             cornerRadius = resources.getDimension(R.dimen.button_corner_radius)
             setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), background)
         }
         val disableFillDrawable = GradientDrawable().apply {
             shape = GradientDrawable.RECTANGLE
-            setColor(ContextCompat.getColor(context, R.color.Neutral_N75))
+            setColor(ContextCompat.getColor(context, R.color.Unify_N75))
             cornerRadius = resources.getDimension(R.dimen.button_corner_radius)
-            setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), ContextCompat.getColor(context, R.color.Neutral_N75))
+            setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), ContextCompat.getColor(context, R.color.Unify_N75))
         }
         disableFillDrawable.cornerRadius =
             resources.getDimension(R.dimen.button_corner_radius)
@@ -100,17 +100,17 @@ class UnifyImageButton : AppCompatImageButton {
                 if (isEnabled) {
                     setColorFilter(whiteColor)
                 } else {
-                    setColorFilter(ContextCompat.getColor(context, R.color.Neutral_N700_44))
+                    setColorFilter(ContextCompat.getColor(context, R.color.Unify_N700_44))
                 }
             }
             Variant.GHOST -> {
                 disableFillDrawable.setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width),
-                    ContextCompat.getColor(context, R.color.Neutral_N100))
+                    ContextCompat.getColor(context, R.color.Unify_N100))
                 if (isInverse){
                     enableFillDrawable.setColor(ContextCompat.getColor(context, android.R.color.transparent))
                     enableFillDrawable.setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), whiteColor)
                     disableFillDrawable.setColor(ContextCompat.getColor(context, android.R.color.transparent))
-                    setColorFilter(ContextCompat.getColor(context, R.color.Neutral_N0))
+                    setColorFilter(ContextCompat.getColor(context, R.color.Unify_N0))
                 } else {
                     enableFillDrawable.setColor(whiteColor)
                     disableFillDrawable.setColor(whiteColor)
@@ -120,18 +120,18 @@ class UnifyImageButton : AppCompatImageButton {
                  * Set disabled state for ghost text color
                  */
                 if (!isEnabled) {
-                    setColorFilter(ContextCompat.getColor(context, R.color.Neutral_N700_44))
+                    setColorFilter(ContextCompat.getColor(context, R.color.Unify_N700_44))
                 }
             }
             Variant.IMAGE_ONLY -> {
                 enableFillDrawable.setColor(ContextCompat.getColor(context, android.R.color.transparent))
                 enableFillDrawable.setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width),
                     ContextCompat.getColor(context, android.R.color.transparent))
-                setColorFilter(ContextCompat.getColor(context, R.color.Neutral_N700_44))
+                setColorFilter(ContextCompat.getColor(context, R.color.Unify_N700_44))
             }
         }
         if (buttonVariant != Variant.IMAGE_ONLY && !isEnabled)
-            setColorFilter(ContextCompat.getColor(context, R.color.Neutral_N700_32))
+            setColorFilter(ContextCompat.getColor(context, R.color.Unify_N700_32))
         /**
          * Apply disable state and enable state to component background
          */

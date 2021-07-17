@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:app="http://schemas.android.com/apk/res-auto"
+          xmlns:aapt="http://schemas.android.com/aapt">
+
+    <!-- Indeterminate ON DISABLE -->
+    <item app:indeterminate="true" android:state_checked="true" android:state_enabled="false">
+        <aapt:attr name="android:drawable">
+            <vector android:width="24dp"
+                    android:height="24dp"
+                    android:viewportWidth="24"
+                    android:viewportHeight="24">
+                <path
+                    android:name="path"
+                    android:pathData="M 6 2 L 18 2 C 20.209 2 22 3.791 22 6 L 22 18 C 22 20.209 20.209 22 18 22 L 6 22 C 3.791 22 2 20.209 2 18 L 2 6 C 2 3.791 3.791 2 6 2 Z"
+                    android:fillColor="@color/Unify_NN300"
+                    android:strokeWidth="1"/>
+                <path
+                    android:name="path_1"
+                    android:pathData="M 8.2 10.75 L 15.8 10.75 C 16.463 10.75 17 11.287 17 11.95 L 17 12.05 C 17 12.713 16.463 13.25 15.8 13.25 L 8.2 13.25 C 7.537 13.25 7 12.713 7 12.05 L 7 11.95 C 7 11.287 7.537 10.75 8.2 10.75 Z"
+                    android:fillColor="@color/checkbox_check_color"
+                    android:strokeWidth="1"/>
+            </vector>
+        </aapt:attr>
+    </item>
+
+    <!-- ON DISABLE-->
+    <item android:state_checked="true" android:state_enabled="false">
+        <aapt:attr name="android:drawable">
+            <vector android:width="24dp"
+                    android:height="24dp"
+                    android:viewportWidth="24"
+                    android:viewportHeight="24">
+                <path
+                    android:name="path"
+                    android:pathData="M 6 2 L 18 2 C 19.06 2 20.079 2.422 20.828 3.172 C 21.578 3.921 22 4.94 22 6 L 22 18 C 22 19.06 21.578 20.079 20.828 20.828 C 20.079 21.578 19.06 22 18 22 L 6 22 C 4.94 22 3.921 21.578 3.172 20.828 C 2.422 20.079 2 19.06 2 18 L 2 6 C 2 4.94 2.422 3.921 3.172 3.172 C 3.921 2.422 4.94 2 6 2"
+                    android:fillColor="@color/Unify_NN300"
+                    android:strokeWidth="1"/>
+                <path
+                        android:name="path_1"
+                        android:pathData="M 7.253 12 L 10.646 15.329 L 16.777 9.162"
+                        android:strokeColor="@color/checkbox_check_color"
+                        android:strokeWidth="2"
+                        android:strokeLineCap="round"
+                        android:strokeLineJoin="round"
+                        android:fillType="evenOdd"/>
+            </vector>
+        </aapt:attr>
+    </item>
+
+    <!-- OFF DISABLE-->
+    <item android:state_checked="false" android:state_enabled="false">
+        <aapt:attr name="android:drawable">
+            <vector android:width="24dp"
+                    android:height="24dp"
+                    android:viewportWidth="24"
+                    android:viewportHeight="24">
+                <path
+                        android:pathData="M6,2L18,2C20.2091,2 22,3.7909 22,6L22,18C22,20.2091 20.2091,22 18,22L6,22C3.7909,22 2,20.2091 2,18L2,6C2,3.7909 3.7909,2 6,2ZM6,4C4.8954,4 4,4.8954 4,6L4,18C4,19.1046 4.8954,20 6,20L18,20C19.1046,20 20,19.1046 20,18L20,6C20,4.8954 19.1046,4 18,4L6,4Z"
+                        android:strokeWidth="1"
+                        android:fillColor="@color/Unify_NN300"
+                        android:fillType="nonZero"
+                        android:strokeColor="#00000000"/>
+            </vector>
+        </aapt:attr>
+    </item>
+</selector>

@@ -15,227 +15,53 @@
     <color name="buttonunify_filled_disabled_color">@color/Unify_NN100</color>
 
     <!-- Textfield color -->
-    <color name="textfieldunify_focus_color">@color/Unify_G400</color>
+    <color name="textfieldunify_focus_color">@color/Unify_B400</color>
     <color name="textfieldunify_unfocus_color">@color/Unify_N75</color>
 
     <!-- Loader color -->
-    <color name="loaderunify_primary">@color/Unify_GN500</color>
-    <color name="loaderunify_secondary">@color/Unify_GN300</color>
+    <color name="loaderunify_primary">@color/Unify_BN500</color>
+    <color name="loaderunify_secondary">@color/Unify_BN300</color>
 
-    
-    <color name="Neutral_N0" category="global-color">#FFFFFF</color>
-    <color name="Neutral_N100" category="global-color">#DBDEE2</color>
-    <color name="Neutral_N200" category="global-color">#9FA6B0</color>
-    <color name="Neutral_N200_24" category="global-color">#3D9FA6B0</color>
-    <color name="Neutral_N300" category="global-color">#838994</color>
-    <color name="Neutral_N400" category="global-color">#6C727C</color>
-    <color name="Neutral_N500" category="global-color">#52565E</color>
-    <color name="Neutral_N600" category="global-color">#40454C</color>
-    <color name="Neutral_N700" category="global-color">#31353B</color>
-    <color name="Neutral_N700_20" category="global-color">#3331353B</color>
-    <color name="Neutral_N700_32" category="global-color">#5231353B</color>
-    <color name="Neutral_N700_44" category="global-color">#7031353B</color>
-    <color name="Neutral_N700_68" category="global-color">#AD31353B</color>
-    <color name="Neutral_N700_96" category="global-color">#F531353B</color>
-    <color name="Neutral_N50" category="global-color">#F3F4F5</color>
-    <color name="Neutral_N75" category="global-color">#E5E7E9</color>
-    <color name="Neutral_N150" category="global-color">#B5BBC5</color>
-    <color name="Red_R100" category="global-color">#FFEAEF</color>
-    <color name="Red_R200" category="global-color">#FFCCD9</color>
-    <color name="Red_R300" category="global-color">#FD8AA7</color>
-    <color name="Red_R400" category="global-color">#FF5C84</color>
-    <color name="Red_R500" category="global-color">#EF144A</color>
-    <color name="Red_R600" category="global-color">#D6001C</color>
-    <color name="Red_R600_96" category="global-color">#F5D6001C</color>
-    <color name="Green_G100" category="global-color">#EBFFEF</color>
-    <color name="Green_G200" category="global-color">#D6FFDE</color>
-    <color name="Green_G300" category="global-color">#82EF95</color>
-    <color name="Green_G400" category="global-color">#4FD15A</color>
-    <color name="Green_G500" category="global-color">#03AC0E</color>
-    <color name="Green_G600" category="global-color">#12883D</color>
-    <color name="Blue_B100" category="global-color">#E5F5FF</color>
-    <color name="Blue_B200" category="global-color">#CCEBFF</color>
-    <color name="Blue_B300" category="global-color">#77CAFF</color>
-    <color name="Blue_B400" category="global-color">#32AFFF</color>
-    <color name="Blue_B500" category="global-color">#009BFF</color>
-    <color name="Blue_B600" category="global-color">#0066A9</color>
-    <color name="Purple_P100" category="global-color">#F5E6FC</color>
-    <color name="Purple_P200" category="global-color">#EFC6FF</color>
-    <color name="Purple_P300" category="global-color">#D184F0</color>
-    <color name="Purple_P400" category="global-color">#BB4DE8</color>
-    <color name="Purple_P500" category="global-color">#9E00DE</color>
-    <color name="Purple_P600" category="global-color">#7500A1</color>
-    <color name="Tile_T100" category="global-color">#EBF6F6</color>
-    <color name="Tile_T200" category="global-color">#D2F2F2</color>
-    <color name="Tile_T300" category="global-color">#B0E2E5</color>
-    <color name="Tile_T400" category="global-color">#84C6C9</color>
-    <color name="Tile_T500" category="global-color">#689C9E</color>
-    <color name="Tile_T600" category="global-color">#3A6E70</color>
-    <color name="Yellow_Y100" category="global-color">#FFFAE6</color>
-    <color name="Yellow_Y200" category="global-color">#FFF0B3</color>
-    <color name="Yellow_Y300" category="global-color">#FFC400</color>
-    <color name="Yellow_Y400" category="global-color">#FF8B00</color>
-    <color name="Yellow_Y500" category="global-color">#FA591D</color>
+    <!-- Label color -->
+    <color name="labelunify_dark_red_background">@color/Unify_R400</color>
+    <color name="labelunify_dark_grey_background">@color/Unify_N150</color>
+    <color name="labelunify_dark_green_background">@color/Unify_G400</color>
+    <color name="labelunify_dark_blue_background">@color/Unify_B400</color>
+    <color name="labelunify_dark_orange_background">@color/Unify_Y400</color>
+    <color name="labelunify_light_red_background">@color/Unify_R100</color>
+    <color name="labelunify_light_grey_background">@color/Unify_N50</color>
+    <color name="labelunify_light_green_background">@color/Unify_G200</color>
+    <color name="labelunify_light_blue_background">@color/Unify_B200</color>
+    <color name="labelunify_light_orange_background">@color/Unify_Y200</color>
+    <color name="labelunify_time_high_background">@color/Unify_Y500</color>
+    <color name="labelunify_time_medium_background">@color/Unify_Y400</color>
+    <color name="labelunify_time_low_background">@color/Unify_Y300</color>
 
-    <!-- ====================== Dark color source ====================== -->
+    <color name="labelunify_dark_time_general_text">@color/Unify_N0</color>
+    <color name="labelunify_light_red_text">@color/Unify_R400</color>
+    <color name="labelunify_light_grey_text">@color/Unify_N200</color>
+    <color name="labelunify_light_green_text">@color/Unify_G500</color>
+    <color name="labelunify_light_blue_text">@color/Unify_B500</color>
+    <color name="labelunify_light_orange_text">@color/Unify_Y500</color>
 
-    <color name="dark_G100">#196816</color>
-    <color name="dark_G200">#2E8728</color>
-    <color name="dark_G300">#3A9833</color>
-    <color name="dark_G400">#47AB3E</color>
-    <color name="dark_G500">#50BA47</color>
-    <color name="dark_G600">#6AC564</color>
-    <color name="dark_G700">#86D080</color>
-    <color name="dark_G800">#A9DCA5</color>
-    <color name="dark_G900">#CBEAC8</color>
 
-    <color name="dark_T100">#00544C</color>
-    <color name="dark_T200">#00716B</color>
-    <color name="dark_T300">#00817B</color>
-    <color name="dark_T400">#00918C</color>
-    <color name="dark_T500">#009F9B</color>
-    <color name="dark_T600">#00AEAD</color>
-    <color name="dark_T700">#08BDBD</color>
-    <color name="dark_T800">#6FD0D1</color>
-    <color name="dark_T900">#ABE2E3</color>
+    <!-- Selection Control color -->
+    <color name="checkbox_check_color">@color/Unify_NN0</color>
+    <color name="checkbox_border_color">@color/Unify_NN900</color>
+    <color name="radio_disabled_fill_color">@color/Unify_NN300</color>
+    <color name="switch_background_off_enable">@color/Unify_N400</color>
+    <color name="switch_background_disabled">@color/Unify_N100</color>
+    <color name="switch_thumb_disabled">@color/Unify_N0</color>
 
-    <color name="dark_B100">#38609C</color>
-    <color name="dark_B200">#4480BF</color>
-    <color name="dark_B300">#4A91D3</color>
-    <color name="dark_B400">#51A5E7</color>
-    <color name="dark_B500">#56B3F7</color>
-    <color name="dark_B600">#61BEF8</color>
-    <color name="dark_B700">#72CAFA</color>
-    <color name="dark_B800">#94D9FD</color>
-    <color name="dark_B900">#BCE8FE</color>
 
-    <color name="dark_Y100">#BA3707</color>
-    <color name="dark_Y200">#D34410</color>
-    <color name="dark_Y300">#E14B14</color>
-    <color name="dark_Y400">#EF5219</color>
-    <color name="dark_Y500">#FF8215</color>
-    <color name="dark_Y600">#FFAC23</color>
-    <color name="dark_Y700">#F7BE2B</color>
-    <color name="dark_Y800">#FBDE87</color>
-    <color name="dark_Y900">#FCEBB6</color>
+    <!-- Quantity Editor -->
+    <color name="quantityedtorunify_border">@color/Unify_N75</color>
+    <color name="quantityedtorunify_border_focused">@color/Unify_B400</color>
 
-    <color name="dark_R100">#C70032</color>
-    <color name="dark_R200">#D51A3E</color>
-    <color name="dark_R300">#E22346</color>
-    <color name="dark_R400">#F52E4D</color>
-    <color name="dark_R500">#FF374F</color>
-    <color name="dark_R600">#FC4F66</color>
-    <color name="dark_R700">#EE7484</color>
-    <color name="dark_R800">#F59CA7</color>
-    <color name="dark_R900">#FFCFDA</color>
 
-    <color name="dark_P100">#3F2EC7</color>
-    <color name="dark_P200">#6E33D6</color>
-    <color name="dark_P300">#9C3AE7</color>
-    <color name="dark_P400">#8436DE</color>
-    <color name="dark_P500">#AE3DEE</color>
-    <color name="dark_P600">#BC57F6</color>
-    <color name="dark_P700">#C977F9</color>
-    <color name="dark_P800">#D99FFB</color>
-    <color name="dark_P900">#E8C5FB</color>
-
-    <color name="dark_N0">#1D1F22</color>
-    <color name="dark_N50">#26292E</color>
-    <color name="dark_N75">#31353B</color>
-    <color name="dark_N100">#40454C</color>
-    <color name="dark_N150">#52565E</color>
-    <color name="dark_N200">#6C727C</color>
-    <color name="dark_N300">#838994</color>
-    <color name="dark_N400">#9FA6B0</color>
-    <color name="dark_N500">#C7CBD2</color>
-    <color name="dark_N600">#DBDEE2</color>
-    <color name="dark_N700">#FFFFFF</color>
-
-    <color name="dark_N700_96">#F5FFFFFF</color>
-    <color name="dark_N700_68">#ADFFFFFF</color>
-    <color name="dark_N700_44">#70FFFFFF</color>
-    <color name="dark_N700_32">#52FFFFFF</color>
-    <color name="dark_N700_20">#33FFFFFF</color>
-
-    <!-- ====================== Light color source ====================== -->
-
-    <color name="light_N700">#31353B</color>
-    <color name="light_N600">#40454C</color>
-    <color name="light_N500">#52565E</color>
-    <color name="light_N400">#6C727C</color>
-    <color name="light_N300">#838994</color>
-    <color name="light_N200">#9FA6B0</color>
-    <color name="light_N100">#DBDEE2</color>
-    <color name="light_N150">#B5BBC5</color>
-    <color name="light_N75">#E5E7E9</color>
-    <color name="light_N50">#F3F4F5</color>
-    <color name="light_N0">#FFFFFF</color>
-
-    <color name="light_N700_96">#F531353B</color>
-    <color name="light_N700_68">#AD31353B</color>
-    <color name="light_N700_44">#7031353B</color>
-    <color name="light_N700_32">#5231353B</color>
-    <color name="light_N700_20">#3331353B</color>
-
-    <color name="light_R900">#480009</color>
-    <color name="light_R800">#68000D</color>
-    <color name="light_R700">#950013</color>
-    <color name="light_R600">#D6001C</color>
-    <color name="light_R500">#EF144A</color>
-    <color name="light_R400">#FF5C84</color>
-    <color name="light_R300">#FD8AA7</color>
-    <color name="light_R200">#FFCCD9</color>
-    <color name="light_R100">#FFEAEF</color>
-
-    <color name="light_G900">#002A00</color>
-    <color name="light_G800">#003C00</color>
-    <color name="light_G700">#005600</color>
-    <color name="light_G600">#12883D</color>
-    <color name="light_G500">#03AC0E</color>
-    <color name="light_G400">#4FD15A</color>
-    <color name="light_G300">#82EF95</color>
-    <color name="light_G200">#D6FFDE</color>
-    <color name="light_G100">#EBFFEF</color>
-
-    <color name="light_B900">#002239</color>
-    <color name="light_B800">#003152</color>
-    <color name="light_B700">#004776</color>
-    <color name="light_B600">#0066A9</color>
-    <color name="light_B500">#009BFF</color>
-    <color name="light_B400">#32AFFF</color>
-    <color name="light_B300">#77CAFF</color>
-    <color name="light_B200">#CCEBFF</color>
-    <color name="light_B100">#E5F5FF</color>
-
-    <color name="light_P900">#290244</color>
-    <color name="light_P800">#3B0362</color>
-    <color name="light_P700">#55058C</color>
-    <color name="light_P600">#7500A1</color>
-    <color name="light_P500">#9E00DE</color>
-    <color name="light_P400">#BB4DE8</color>
-    <color name="light_P300">#D184F0</color>
-    <color name="light_P200">#EFC6FF</color>
-    <color name="light_P100">#F5E6FC</color>
-
-    <color name="light_T900">#132525</color>
-    <color name="light_T800">#1C3536</color>
-    <color name="light_T700">#284D4E</color>
-    <color name="light_T600">#3A6E70</color>
-    <color name="light_T500">#689C9E</color>
-    <color name="light_T400">#84C6C9</color>
-    <color name="light_T300">#B0E2E5</color>
-    <color name="light_T200">#D2F2F2</color>
-    <color name="light_T100">#EBF6F6</color>
-
-    <color name="light_Y900">#3B1506</color>
-    <color name="light_Y800">#551E09</color>
-    <color name="light_Y700">#7A2B0E</color>
-    <color name="light_Y600">#AF3e14</color>
-    <color name="light_Y500">#FA591D</color>
-    <color name="light_Y400">#FF8B00</color>
-    <color name="light_Y300">#FFC400</color>
-    <color name="light_Y200">#FFF0B3</color>
-    <color name="light_Y100">#FFFAE6</color>
+    <!-- Bottomsheet color -->
+    <color name="bottomsheetunify_overlay">@color/Unify_N700_68</color>
+    <color name="bottomsheetunify_background">@color/Unify_N0</color>
 
     <!-- ========================= New day color set ============================== -->
 
@@ -716,7 +542,7 @@
 
     <color name="Unify_Background">@color/Unify_N0</color>
 
-    <!-- New Tokopedia Nest Color -->
+    <!-- Nest Color -->
 
     <color name="Unify_GN50">#ECFEF4</color>
     <color name="Unify_GN100">#C9FDE0</color>

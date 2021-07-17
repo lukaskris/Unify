@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:padding="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <id.co.app.components.typography.Typography
+            android:id="@+id/icon_sample_rv_number"
+            android:layout_marginRight="16dp"
+            app:typographyType="body_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <id.co.app.components.icon.IconUnify
+            android:id="@+id/icon_sample_rv_icon"
+            android:layout_marginRight="16dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+
+        <id.co.app.components.typography.Typography
+            android:id="@+id/icon_sample_rv_text"
+            app:typographyType="body_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</layout>

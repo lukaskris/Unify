@@ -8,42 +8,77 @@ package id.co.app.source.ui.main
 
 import android.app.DownloadManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import id.co.app.components.player.CryptoUtil
 import id.co.app.source.databinding.ActivityMainBinding
+import id.co.app.source.ui.icon.UnifyIconActivity
+import id.co.app.source.ui.typography.TypographyActivity
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.IOException
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MyRecyclerViewAdapter.ItemClickListener {
 
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val url = "https://drive.google.com/file/d/1T92LHvCLJHlnhbFn0rLLBZo7ffVsLrMR/view?usp=sharing"
 
-    private val password = "encryptPassword1"
+    private val password = "encryptPassword3"
     private val path by lazy { File(application.getExternalFilesDir(null), "videos") }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        initList()
+//        if(!path.exists()) path.mkdir()
+//        val FILE = File(path, "bigbunny.mp4")
+//
+//        val FILE_ENCRYPTED = File(path, "bigbunny-encrypted.mp4")
+//
+//        binding.secureAppPlayer.setLifecycleOwner(this)
+//        binding.secureAppPlayer.setVideo(FILE_ENCRYPTED.toUri(), password)
+//        binding.secureAppPlayer.play()
+//        if(!FILE.exists()) {
+//            downloadFile(url, FILE)
+//        }
+//
+//        if(!FILE_ENCRYPTED.exists())
+//            encryptBackupFile(FILE_ENCRYPTED)
 
-        if(!path.exists()) path.mkdir()
-        val FILE = File(path, "bigbunny.mp4")
+    }
 
-        val FILE_ENCRYPTED = File(path, "bigbunny-encrypted.mp4")
+    private fun initList(){
 
-        binding.secureAppPlayer.setLifecycleOwner(this)
-        if(!FILE.exists()) {
-            downloadFile(url, FILE)
-        }
+        val menu = ArrayList<String>()
+        menu.add("Typography")
+        menu.add("Button")
+        menu.add("Label")
+        menu.add("Unify Icon")
+        menu.add("Timer New")
+        menu.add("Loader Dialog")
+        menu.add("TextField")
+        menu.add("TextArea")
 
-        if(!FILE_ENCRYPTED.exists())
-            encryptBackupFile(FILE_ENCRYPTED)
+        val dividerItemDecoration = androidx.recyclerview.widget.DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
+        binding.recyclerView.addItemDecoration(dividerItemDecoration)
+        val adapter = MyRecyclerViewAdapter(this, menu)
+        adapter.setClickListener(this)
+        binding.recyclerView.adapter = adapter
+    }
 
-        binding.secureAppPlayer.setVideo(FILE_ENCRYPTED.toUri(), password)
-        binding.secureAppPlayer.play()
+    override fun onItemClick(view: View, position: Int) {
+        startActivity(
+            when(position){
+                0 -> Intent(this, TypographyActivity::class.java)
+                3 -> Intent(this, UnifyIconActivity::class.java)
+                else -> Intent(this, TypographyActivity::class.java)
+            }
+        )
     }
 
     private fun downloadFile(url: String, outputFile: File) {

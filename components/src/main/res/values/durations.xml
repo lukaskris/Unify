@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="Unify_T1">120</integer>
+    <integer name="Unify_T2">200</integer>
+    <integer name="Unify_T3">300</integer>
+    <integer name="Unify_T4">400</integer>
+    <integer name="Unify_T5">600</integer>
+</resources>

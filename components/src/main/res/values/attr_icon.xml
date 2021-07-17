@@ -6,6 +6,7 @@
         <attr name="icon_color_light_disabled" format="color" />
         <attr name="icon_color_night_enable" format="color" />
         <attr name="icon_color_night_disabled" format="color" />
+        <attr name="icon_custom_drawable" format="reference"/>
         <attr name="icon_name" format="enum">
             <enum name="BELL" value="0" />
             <enum name="BELL_RING" value="1" />
@@ -183,148 +184,121 @@
             <enum name="USER" value="165" />
             <enum name="USER_ADD" value="166" />
             <enum name="USER_SUCCESS" value="167" />
-
-            <!-- update toko asset 28/09/2020 -->
             <enum name="LIST_TRANSACTION" value="168" />
             <enum name="PRODUCT_FILLED" value="169" />
             <enum name="SHOP_FAVORITE" value="170" />
             <enum name="SHOP_FILLED" value="171" />
+            <enum name="POLICY_PRIVACY" value="172" />
+            <enum name="QUICK_BUY" value="173" />
+            <enum name="SHAKE" value="174" />
 
-            <!-- update misc asset 28/09/2020 -->
-            <enum name="BADGE_OS_FILLED" value="172" />
-            <enum name="POLICY_PRIVACY" value="173" />
-            <enum name="QUICK_BUY" value="174" />
-            <enum name="SHAKE" value="175" />
-            <enum name="TOPED" value="176" />
+            <enum name="COMPLAIN" value="175" />
 
-            <!-- update user asset 28/09/2020 -->
-            <enum name="COMPLAIN" value="177" />
+            <enum name="BELL_FILLED" value="176" />
+            <enum name="CABINET" value="177" />
+            <enum name="CABINET_FILLED" value="178" />
+            <enum name="FEED" value="179" />
+            <enum name="FEED_FILLED" value="180" />
+            <enum name="HOME" value="181" />
+            <enum name="HOME_FILLED" value="182" />
+            <enum name="MESSAGE_HELP" value="183" />
+            <enum name="MODE_SCREEN" value="184" />
+            <enum name="SUBSCRIPTION" value="185" />
 
-            <!-- update general asset 28/09/2020 -->
-            <enum name="BELL_FILLED" value="178" />
-            <enum name="CABINET" value="179" />
-            <enum name="CABINET_FILLED" value="180" />
-            <enum name="FEED" value="181" />
-            <enum name="FEED_FILLED" value="182" />
-            <enum name="HOME" value="183" />
-            <enum name="HOME_FILLED" value="184" />
-            <enum name="MESSAGE_HELP" value="185" />
-            <enum name="MODE_SCREEN" value="186" />
-            <enum name="SUBSCRIPTION" value="187" />
+            <enum name="CALENDAR_ADD" value="186" />
+            <enum name="FIRE_FILLED" value="187" />
+            <enum name="FIRE" value="188" />
 
-            <!-- general update - 15/10/20 -->
-            <enum name="CALENDAR_ADD" value="188" />
-            <enum name="FIRE_FILLED" value="189" />
-            <enum name="FIRE" value="190" />
+            <enum name="STAR_CIRCLE" value="189" />
+            <enum name="DISCOUNT" value="190" />
+            <enum name="PROMO_ADS" value="191" />
 
-            <!-- promo update - 15/10/20 -->
-            <enum name="STAR_CIRCLE" value="191" />
-            <enum name="DISCOUNT" value="192" />
-            <enum name="PROMO_ADS" value="193" />
+            <enum name="USER_SETTING" value="192" />
 
-            <!-- user update - 15/10/20 -->
-            <enum name="USER_SETTING" value="194" />
+            <enum name="ARROW_TOP_RIGHT" value="193" />
+            <enum name="ARROW_TOP_LEFT" value="194" />
 
-            <!-- navigation update - 15/10/20 -->
-            <enum name="ARROW_TOP_RIGHT" value="195" />
-            <enum name="ARROW_TOP_LEFT" value="196" />
+            <enum name="CHEVRON_LEFT" value="195" />
+            <enum name="CHAT_FILLED" value="196" />
+            <enum name="PROTECTION_CHECK" value="197" />
+            <enum name="CLIPBOARD_FILLED" value="198" />
+            <enum name="COURIER" value="199" />
+            <enum name="VIEW_GRID_FILLED" value="200" />
+            <enum name="FOLDER" value="201" />
 
-            <!-- update - 23/10/2020 -->
-            <!-- navigation - social - misc - toko - view - general -->
-            <enum name="CHEVRON_LEFT" value="197" />
-            <enum name="CHAT_FILLED" value="198" />
-            <enum name="PROTECTION_CHECK" value="199" />
-            <enum name="CLIPBOARD_FILLED" value="200" />
-            <enum name="COURIER" value="201" />
-            <enum name="VIEW_GRID_FILLED" value="202" />
-            <enum name="FOLDER" value="203" />
+            <enum name="COURIER_FAST" value="202" />
+            <enum name="PRODUCT_REPORT" value="203" />
+            <enum name="RELOAD" value="204" />
+            <enum name="CHECK_CIRCLE" value="205" />
+            <enum name="CHECK_BIG" value="206" />
 
-            <!-- update - 30/10/2020 -->
-            <!-- toko - action -->
-            <enum name="COURIER_FAST" value="204" />
-            <enum name="PRODUCT_REPORT" value="205" />
-            <enum name="RELOAD" value="206" />
-            <enum name="CHECK_CIRCLE" value="207" />
-            <enum name="CHECK_BIG" value="208" />
+            <enum name="PRODUCT_BUDGET" value="207" />
+            <enum name="SHIRT_BUDGET" value="208" />
 
-            <!-- toko update - 24/11/2020 -->
-            <enum name="PRODUCT_BUDGET" value="209" />
-            <enum name="SHIRT_BUDGET" value="210" />
+            <enum name="GRAPH_FILLED" value="209" />
+            <enum name="SHOP_INFO_FILLED" value="210" />
+            <enum name="BADGE_VERIFIED_FILLED" value="211" />
+            <enum name="CALL_CENTER_FILLED" value="212" />
+            <enum name="USER_TALK" value="213" />
+            <enum name="USER_TALK_FILLED" value="214" />
+            <enum name="USER_REPORT" value="215" />
+            <enum name="USER_BLOCK" value="216" />
+            <enum name="DISCUSSION_FILLED" value="217" />
+            <enum name="BROADCAST" value="218" />
+            <enum name="PRINT_FILLED" value="219" />
+            <enum name="PROMO_ADS_FILLED" value="220" />
+            <enum name="PROMO_BLOCK" value="221" />
+            <enum name="SETTING_FILLED" value="222" />
+            <enum name="SIGN_OUT_FILLED" value="223" />
 
-            <!-- update - 07/12/2020 -->
-            <!-- toko - misc - user - social - action - promo - general -->
-            <enum name="GRAPH_FILLED" value="211" />
-            <enum name="SHOP_INFO_FILLED" value="212" />
-            <enum name="BADGE_VERIFIED_FILLED" value="213" />
-            <enum name="CALL_CENTER_FILLED" value="214" />
-            <enum name="USER_TALK" value="215" />
-            <enum name="USER_TALK_FILLED" value="216" />
-            <enum name="USER_REPORT" value="217" />
-            <enum name="USER_BLOCK" value="218" />
-            <enum name="DISCUSSION_FILLED" value="219" />
-            <enum name="BROADCAST" value="220" />
-            <enum name="PRINT_FILLED" value="221" />
-            <enum name="PROMO_ADS_FILLED" value="222" />
-            <enum name="PROMO_BLOCK" value="223" />
-            <enum name="SETTING_FILLED" value="224" />
-            <enum name="SIGN_OUT_FILLED" value="225" />
+            <enum name="CALL_RING" value="224"/>
+            <enum name="CITY" value="225"/>
+            <enum name="LOCATION_FILLED" value="226"/>
+            <enum name="LOCATION_OFF" value="227"/>
+            <enum name="PACKAGE" value="228"/>
+            <enum name="PACKAGE_FILLED" value="229"/>
+            <enum name="PHONE_BELL" value="230"/>
+            <enum name="USER_REMOVE" value="231"/>
 
-            <enum name="CALL_RING" value="226"/>
-            <enum name="CITY" value="227"/>
-            <enum name="LOCATION_FILLED" value="228"/>
-            <enum name="LOCATION_OFF" value="229"/>
-            <enum name="PACKAGE" value="230"/>
-            <enum name="PACKAGE_FILLED" value="231"/>
-            <enum name="PHONE_BELL" value="232"/>
-            <enum name="USER_REMOVE" value="233"/>
+            <enum name="CLOCK_FILLED" value="232"/>
+            <enum name="FILE_DOC" value="233"/>
+            <enum name="FILE_PDF" value="234"/>
+            <enum name="FILE_XLS" value="235"/>
+            <enum name="RISK_HIGH" value="236"/>
+            <enum name="RISK_LOW" value="237"/>
+            <enum name="RISK_MODERATE" value="238"/>
 
-            <enum name="BADGE_PM_FILLED" value="234"/>
-            <enum name="BADGE_PM_FILLED_BASIC" value="235"/>
-            <enum name="BADGE_PM_FILLED_BRONZE" value="236"/>
-            <enum name="BADGE_PM_FILLED_DIAMOND" value="237"/>
-            <enum name="BADGE_PM_FILLED_GOLD" value="238"/>
-            <enum name="BADGE_PM_FILLED_SILVER" value="239"/>
-            <enum name="CLOCK_FILLED" value="240"/>
-            <enum name="FILE_DOC" value="241"/>
-            <enum name="FILE_PDF" value="242"/>
-            <enum name="FILE_XLS" value="243"/>
-            <enum name="RISK_HIGH" value="244"/>
-            <enum name="RISK_LOW" value="245"/>
-            <enum name="RISK_MODERATE" value="246"/>
-            <enum name="SALAM" value="247"/>
+            <enum name="CHAT_REPORT" value="239"/>
+            <enum name="HELP" value="240"/>
+            <enum name="MAP" value="241"/>
+            <enum name="ZOOM_IN" value="242"/>
+            <enum name="ZOOM_OUT" value="243"/>
 
-            <enum name="CHAT_REPORT" value="248"/>
-            <enum name="HELP" value="249"/>
-            <enum name="MAP" value="250"/>
-            <enum name="ZOOM_IN" value="251"/>
-            <enum name="ZOOM_OUT" value="252"/>
+            <enum name="SERVICE" value="244"/>
+            <enum name="SERVICE_FILLED" value="245"/>
+            <enum name="SALDO_INCOME" value="246"/>
+            <enum name="SALDO_OUTCOME" value="247"/>
+            <enum name="SALDO_TEMPO" value="248"/>
+            <enum name="PROMO_LIVE" value="249"/>
+            <enum name="REMOVE" value="250"/>
+            <enum name="RELOAD_24H" value="251"/>
+            <enum name="CHAT_BELL" value="252"/>
 
-            <enum name="SERVICE" value="253"/>
-            <enum name="SERVICE_FILLED" value="254"/>
-            <enum name="SALDO_INCOME" value="255"/>
-            <enum name="SALDO_OUTCOME" value="256"/>
-            <enum name="SALDO_TEMPO" value="257"/>
-            <enum name="PROMO_LIVE" value="258"/>
-            <enum name="REMOVE" value="259"/>
-            <enum name="RELOAD_24H" value="260"/>
-            <enum name="CHAT_BELL" value="261"/>
+            <enum name="FILE_CSV" value="253"/>
+            <enum name="FILE_JSON" value="254"/>
+            <enum name="FOLDER_FILLED" value="255"/>
+            <enum name="PROJECT" value="256"/>
+            <enum name="PROJECT_FILLED" value="257"/>
+            <enum name="USER_FILLED" value="258"/>
+            <enum name="IP" value="259"/>
+            <enum name="FREE" value="260"/>
+            <enum name="UPLOAD" value="261"/>
+            <enum name="PERFORMANCE" value="262"/>
 
-            <enum name="FILE_CSV" value="262"/>
-            <enum name="FILE_JSON" value="263"/>
-            <enum name="FOLDER_FILLED" value="264"/>
-            <enum name="PROJECT" value="265"/>
-            <enum name="PROJECT_FILLED" value="266"/>
-            <enum name="USER_FILLED" value="267"/>
-            <enum name="IP" value="268"/>
-            <enum name="FREE" value="269"/>
-            <enum name="UPLOAD" value="270"/>
-            <enum name="PERFORMANCE" value="271"/>
-
-            <enum name="ARROW_UP" value="272"/>
-            <enum name="ARROW_DOWN" value="273"/>
-            <enum name="AUDIO_WAVE" value="274"/>
-            <enum name="SCREEN_FIT" value="275"/>
-            <enum name="BADGE_PMPRO_FILLED" value="276"/>
+            <enum name="ARROW_UP" value="263"/>
+            <enum name="ARROW_DOWN" value="264"/>
+            <enum name="AUDIO_WAVE" value="265"/>
+            <enum name="SCREEN_FIT" value="266"/>
 
         </attr>
     </declare-styleable>

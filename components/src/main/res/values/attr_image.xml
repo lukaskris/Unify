@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="UnifyImage">
+        <attr name="unify_image_type" format="enum">
+            <enum name="rect" value="0" />
+            <enum name="circle" value="1" />
+        </attr>
+        <attr name="unify_image_corner_radius" format="integer" />
+        <attr name="unify_image_url_src" format="string" />
+        <attr name="unify_image_placeholder" format="reference|color" />
+        <attr name="unify_image_custom_loading_avd" format="reference" />
+        <attr name="unify_image_disable_shimmering_placeholder" format="boolean" />
+    </declare-styleable>
+</resources>

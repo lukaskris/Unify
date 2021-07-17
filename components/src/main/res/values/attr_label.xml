@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Label">
+        <attr name="labelType" format="enum">
+            <enum name="general_dark_grey" value="1" />
+            <enum name="general_dark_green" value="2" />
+            <enum name="general_dark_blue" value="3" />
+            <enum name="general_dark_orange" value="4" />
+            <enum name="general_dark_red" value="5" />
+            <enum name="general_light_red" value="6" />
+            <enum name="general_light_green" value="7" />
+            <enum name="general_light_blue" value="8" />
+            <enum name="general_light_grey" value="9" />
+            <enum name="general_light_orange" value="10" />
+            <enum name="time_high_priority" value="11" />
+            <enum name="time_low_priority" value="12" />
+            <enum name="time_medium_priority" value="13" />
+        </attr>
+        <attr name="labelTitle" format="string" />
+        <attr name="labelTimerIcon" format="boolean" />
+        <attr name="labelOpacityLevel" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="LabelProgress">
+        <attr name="labelProgressTitle" format="string" />
+        <attr name="labelProgress" format="integer" />
+    </declare-styleable>
+
+</resources>

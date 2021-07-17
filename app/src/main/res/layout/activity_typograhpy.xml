@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_wrapper"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <id.co.app.components.typography.Typography
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="2"
+                    android:text="color state list - XML"
+                    android:textColor="@drawable/sample_color_state_list"
+                    app:typographyType="heading_3" />
+
+                <id.co.app.components.typography.Typography
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="color state list - XML - disabled"
+                    android:textColor="@drawable/sample_color_state_list"
+                    android:enabled="false"
+                    app:typographyType="heading_3" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <id.co.app.components.typography.Typography
+                    android:id="@+id/text_enable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="color state list - Kotlin"
+                    app:typographyType="heading_3" />
+
+                <id.co.app.components.typography.Typography
+                    android:id="@+id/text_disable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="color state list - Kotlin - disabled"
+                    android:enabled="false"
+                    app:typographyType="heading_3" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <id.co.app.components.typography.Typography
+                    android:id="@+id/text_setprogramatically"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set color programatically"
+                    app:typographyType="heading_2" />
+
+                <id.co.app.components.typography.Typography
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set color XML"
+                    android:textColor="@android:color/holo_red_dark"
+                    app:typographyType="heading_2" />
+
+                <id.co.app.components.typography.Typography
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set color XML - disabled"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:enabled="false"
+                    app:typographyType="heading_2" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <id.co.app.components.typography.Typography
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enable"
+                    app:typographyType="heading_3" />
+
+                <id.co.app.components.typography.Typography
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disable"
+                    android:enabled="false"
+                    app:typographyType="heading_3" />
+
+            </LinearLayout>
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heading 1"
+                app:typographyType="heading_1" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heading 2"
+                app:typographyType="heading_2" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heading 3"
+                app:typographyType="heading_3" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heading 4"
+                app:typographyType="heading_4" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heading 5"
+                app:typographyType="heading_5" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heading 6"
+                app:typographyType="heading_6" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Body 1"
+                app:typographyType="body_1" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Body 2"
+                app:typographyType="body_2" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Body 3"
+                app:typographyType="body_3" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Small"
+                app:typographyType="small" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Body 1 Bold"
+                app:typographyType="body_1"
+                app:typographyWeight="bold" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Body 1 Regular"
+                app:typographyType="body_1"
+                app:typographyWeight="reguler" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Custom Size via XML"
+                android:textSize="24sp" />
+
+            <id.co.app.components.typography.Typography
+                android:id="@+id/custom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:typographyType="body_2" />
+
+            <id.co.app.components.typography.Typography
+                android:id="@+id/custom_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Custom Size"
+                android:textColor="@color/Unify_G500"
+                app:typographyType="heading_1" />
+
+            <id.co.app.components.typography.Typography
+                android:id="@+id/custom_html"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:typographyType="body_2" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/text_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heading"
+                app:typographyType="body_3" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heading"
+                android:lines="3"
+                app:typographyType="body_3" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading Heading"
+                app:typographyType="body_3" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/n700_text_xml"
+                android:lines="1"
+                android:text="TEST COLOR DEFAULT XML"
+                app:typographyType="heading_3" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/n700_text_xml_2"
+                android:lines="2"
+                android:text="TEST COLOR DEFAULT XML disabled"
+                android:enabled="false"
+                app:typographyType="heading_3" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

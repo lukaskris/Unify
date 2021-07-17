@@ -30,7 +30,7 @@
             android:id="@+id/text_field_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:background="@color/Unify_Background"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
@@ -54,7 +54,7 @@
                 app:icon_color_light_enable="@color/Unify_NN500"
                 app:icon_name="CLEAR" />
 
-        <com.tokopedia.unifycomponents.LoaderUnify
+        <id.co.app.components.loader.LoaderUnify
                 android:id="@+id/text_field_loader"
                 android:layout_width="24dp"
                 android:layout_height="24dp"

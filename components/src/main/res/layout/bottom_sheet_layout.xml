@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet_wrapper"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/bottom_sheet_wrapper_padding_ltr"
+    android:paddingRight="@dimen/bottom_sheet_wrapper_padding_ltr"
+    android:paddingTop="@dimen/bottom_sheet_wrapper_padding_ltr"
+    android:background="@drawable/bottomsheet_background_and_shadow"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    app:behavior_peekHeight="@dimen/bottom_sheet_default_peek"
+    app:behavior_hideable="true"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/bottom_sheet_knob"
+        android:background="@drawable/bottomsheet_knob_icon"
+        android:layout_marginBottom="@dimen/layout_lvl2"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/bottom_sheet_knob_width"
+        android:layout_height="@dimen/bottom_sheet_knob_height" />
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/bottom_sheet_header"
+        android:layout_marginBottom="@dimen/layout_lvl2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <id.co.app.components.icon.IconUnify
+            android:id="@+id/bottom_sheet_close"
+            app:icon_name="CLOSE"
+            app:icon_color_light_enable="@color/Unify_N400"
+            app:icon_color_night_enable="@color/Unify_N500"
+            android:layout_marginRight="@dimen/bottom_sheet_margin_close"
+            android:layout_centerVertical="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <id.co.app.components.typography.Typography
+            app:typographyType="heading_3"
+            android:textColor="@color/Unify_N700_96"
+            android:id="@+id/bottom_sheet_title"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/bottom_sheet_close"
+            android:layout_toLeftOf="@id/bottom_sheet_action"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
+        <id.co.app.components.typography.Typography
+            app:typographyType="body_2"
+            android:textAlignment="center"
+            android:textColor="@color/Unify_G500"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:visibility="gone"
+            android:minWidth="@dimen/spacing_lvl4"
+            android:minHeight="@dimen/spacing_lvl4"
+            android:layout_marginLeft="@dimen/bottom_sheet_margin_action"
+            android:id="@+id/bottom_sheet_action"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</LinearLayout>
