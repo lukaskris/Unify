@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Unify_Background">
+
+        <id.co.app.components.text.TextFieldUnify
+            android:id="@+id/input_email"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:unify_text_field_label="E-mail"
+            app:unify_text_field_color_state_stroke="@color/customtextfieldunify_stroke_color"
+            app:unify_text_field_input_type="textEmailAddress" />
+
+        <id.co.app.components.text.TextFieldUnify
+            android:id="@+id/input_password"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:unify_text_field_label_static="true"
+            app:unify_text_field_label="Password"
+            app:unify_text_field_placeholder="Input Your Password"
+            app:unify_text_field_input_type="textPassword" />
+
+        <id.co.app.components.text.TextFieldUnify
+            android:id="@+id/input_name"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:unify_text_field_label="Name"
+            app:unify_text_field_message="Put helper here"
+            app:unify_text_field_prepend_text="Miss"
+            app:unify_text_field_counter="15"
+            app:unify_text_field_append_drawable_icon_1="@drawable/sample_drawable" />
+
+        <id.co.app.components.text.TextFieldUnify
+            android:id="@+id/input_age"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:unify_text_field_label="Age"
+            app:unify_text_field_append_text="years"
+            app:unify_text_field_input_type="number" />
+
+        <id.co.app.components.text.TextFieldUnify
+            android:id="@+id/input_price"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:unify_text_field_label="Price" />
+
+        <id.co.app.components.text.TextFieldUnify
+            android:id="@+id/input_disabled"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:unify_text_field_label="Disabled"
+            app:unify_text_field_message="Disabled"
+            app:unify_text_field_prepend_text="Prepend"
+            app:unify_text_field_append_text="Append"
+            app:unify_text_field_counter="15"
+            app:unify_text_field_append_drawable_icon_1="@drawable/sample_drawable" />
+
+
+        <id.co.app.components.button.UnifyButton
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            app:unifyButtonVariant="filled"
+            app:unifyButtonSize="medium"
+            app:unifyButtonType="main"
+            android:layout_margin="16dp" />
+
+    </LinearLayout>
+</ScrollView>

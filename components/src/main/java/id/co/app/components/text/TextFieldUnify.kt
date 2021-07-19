@@ -151,7 +151,7 @@ open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(c
 
     private val errorBorderTextColor = ColorStateList(disabledStateList, IntArray(2){ContextCompat.getColor(context, R.color.Unify_RN500)})
 
-    private val standbyBorderColor = ContextCompat.getColorStateList(context, R.color.textfieldunify_stroke_color)
+    private var standbyBorderColor = ContextCompat.getColorStateList(context, R.color.textfieldunify_stroke_color)
 
     /**
      * pre & post text label color disabled/enabled
@@ -499,7 +499,15 @@ open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(c
         isLabelStatic = attributeArray.getBoolean(R.styleable.TextFieldUnify_unify_text_field_label_static, false)
         textFieldPlaceholder =  attributeArray.getString(R.styleable.TextFieldUnify_unify_text_field_placeholder) ?: ""
         isClearable =  attributeArray.getBoolean(R.styleable.TextFieldUnify_unify_text_field_clearable, false)
+        val colorListXml = context.obtainStyledAttributes(attributeSet, IntArray(2){R.attr.unify_text_field_color_state_stroke})
+        val colorList = colorListXml.getColorStateList(0)
 
+        if(colorList != null){
+            textInputLayout.setBoxStrokeColorStateList(colorList)
+            standbyBorderColor = colorList
+        }
+
+        colorListXml.recycle()
         attributeArray.recycle()
     }
 
