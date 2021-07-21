@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="UnifyIcon">
+    <declare-styleable name="IconUnify">
         <attr name="icon_enable_state" format="boolean" />
         <attr name="icon_color_light_enable" format="color" />
         <attr name="icon_color_light_disabled" format="color" />

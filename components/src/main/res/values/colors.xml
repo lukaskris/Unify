@@ -45,6 +45,18 @@
     <color name="labelunify_light_orange_text">@color/Unify_Y500</color>
 
 
+    <!-- PageControl color -->
+    <color name="pagecontrolunify_unselected_color">@color/Unify_NN200</color>
+    <color name="pagecontrolunify_selected_inverted_color">@color/Unify_NN0</color>
+    <color name="pagecontrolunify_selected_black_color">@color/Unify_NN900</color>
+    <color name="pagecontrolunify_unselected_inverted_color">@color/Unify_NN0</color>
+    <color name="pagecontrolunify_unselected_black_color">@color/Unify_NN500</color>
+
+    <color name="pagecontrolunify_select_blue">@color/Unify_BN400</color>
+    <color name="pagecontrolunify_select_red">@color/Unify_RN500</color>
+    <color name="pagecontrolunify_select_yellow">@color/Unify_YN300</color>
+
+
     <!-- Selection Control color -->
     <color name="checkbox_check_color">@color/Unify_NN0</color>
     <color name="checkbox_border_color">@color/Unify_NN900</color>

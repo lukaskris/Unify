@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PageControl">
+        <attr name="indicator_color" format="enum">
+            <enum name="DEFAULT" value="0"/>
+            <enum name="BLUE" value="1"/>
+            <enum name="YELLOW" value="2"/>
+            <enum name="RED" value="3"/>
+            <enum name="INVERTED" value="4"/>
+            <enum name="BLACK" value="5"/>
+        </attr>
+        <attr name="indicator_type" format="enum">
+            <enum name="CIRCLE" value="0"/>
+            <enum name="OVAL" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>

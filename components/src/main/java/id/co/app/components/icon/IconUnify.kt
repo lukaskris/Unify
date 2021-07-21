@@ -81,11 +81,11 @@ class IconUnify : AppCompatImageView {
         }
 
         attrs?.let {
-            val xmlAttr = context.obtainStyledAttributes(attrs, R.styleable.UnifyIcon)
-            iconId = xmlAttr.getInteger(R.styleable.UnifyIcon_icon_name, BELL)
-            customDrawable = xmlAttr.getResourceId(R.styleable.UnifyIcon_icon_custom_drawable, 0)
+            val xmlAttr = context.obtainStyledAttributes(attrs, R.styleable.IconUnify)
+            iconId = xmlAttr.getInteger(R.styleable.IconUnify_icon_name, BELL)
+            customDrawable = xmlAttr.getResourceId(R.styleable.IconUnify_icon_custom_drawable, 0)
 
-            isEnabled = xmlAttr.getBoolean(R.styleable.UnifyIcon_icon_enable_state, true)
+            isEnabled = xmlAttr.getBoolean(R.styleable.IconUnify_icon_enable_state, true)
 
             /**
              * get color for every state
@@ -94,21 +94,21 @@ class IconUnify : AppCompatImageView {
             //iconColorLightEnableRef
             colorList[0] =
                 xmlAttr.getInteger(
-                    R.styleable.UnifyIcon_icon_color_light_enable,
+                    R.styleable.IconUnify_icon_color_light_enable,
                     defaultColorEnable
                 )
 
             //iconColorLightDisableRef
             colorList[1] = xmlAttr.getInteger(
-                R.styleable.UnifyIcon_icon_color_light_disabled,
+                R.styleable.IconUnify_icon_color_light_disabled,
                 defaultColorDisable
             )
 
             //iconColorNightEnableRef
-            colorList[2] = xmlAttr.getInteger(R.styleable.UnifyIcon_icon_color_night_enable, 0)
+            colorList[2] = xmlAttr.getInteger(R.styleable.IconUnify_icon_color_night_enable, 0)
 
             // iconColorNightDisableRef
-            colorList[3] = xmlAttr.getInteger(R.styleable.UnifyIcon_icon_color_night_disabled, 0)
+            colorList[3] = xmlAttr.getInteger(R.styleable.IconUnify_icon_color_night_disabled, 0)
 
             /**
              * get color ref source to be color
