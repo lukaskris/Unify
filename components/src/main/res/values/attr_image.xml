@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="UnifyImage">
+    <declare-styleable name="ImageUnify">
         <attr name="unify_image_type" format="enum">
             <enum name="rect" value="0" />
             <enum name="circle" value="1" />

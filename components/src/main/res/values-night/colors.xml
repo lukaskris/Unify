@@ -46,4 +46,558 @@
     <!-- Loader color -->
     <color name="loaderunify_primary">@color/Unify_GN400</color>
     <color name="loaderunify_secondary">@color/Unify_GN700</color>
+
+
+    <!-- ========================= New night color set ============================== -->
+
+    <color name="Unify_G100_20">#33196816</color>
+    <color name="Unify_G100_32">#52196816</color>
+    <color name="Unify_G100_44">#70196816</color>
+    <color name="Unify_G100_68">#AD196816</color>
+    <color name="Unify_G100_96">#F5196816</color>
+    <color name="Unify_G100">#196816</color>
+
+    <color name="Unify_G200_20">#332E8728</color>
+    <color name="Unify_G200_32">#522E8728</color>
+    <color name="Unify_G200_44">#702E8728</color>
+    <color name="Unify_G200_68">#AD2E8728</color>
+    <color name="Unify_G200_96">#F52E8728</color>
+    <color name="Unify_G200">#2E8728</color>
+
+    <color name="Unify_G300_20">#333A9833</color>
+    <color name="Unify_G300_32">#523A9833</color>
+    <color name="Unify_G300_44">#703A9833</color>
+    <color name="Unify_G300_68">#AD3A9833</color>
+    <color name="Unify_G300_96">#F53A9833</color>
+    <color name="Unify_G300">#3A9833</color>
+
+    <color name="Unify_G400_20">#3347AB3E</color>
+    <color name="Unify_G400_32">#5247AB3E</color>
+    <color name="Unify_G400_44">#7047AB3E</color>
+    <color name="Unify_G400_68">#AD47AB3E</color>
+    <color name="Unify_G400_96">#F547AB3E</color>
+    <color name="Unify_G400">#47AB3E</color>
+
+    <color name="Unify_G500_20">#3350BA47</color>
+    <color name="Unify_G500_32">#5250BA47</color>
+    <color name="Unify_G500_44">#7050BA47</color>
+    <color name="Unify_G500_68">#AD50BA47</color>
+    <color name="Unify_G500_96">#F550BA47</color>
+    <color name="Unify_G500">#50BA47</color>
+
+    <color name="Unify_G600_20">#336AC564</color>
+    <color name="Unify_G600_32">#526AC564</color>
+    <color name="Unify_G600_44">#706AC564</color>
+    <color name="Unify_G600_68">#AD6AC564</color>
+    <color name="Unify_G600_96">#F56AC564</color>
+    <color name="Unify_G600">#6AC564</color>
+
+    <color name="Unify_G700_20">#3386D080</color>
+    <color name="Unify_G700_32">#5286D080</color>
+    <color name="Unify_G700_44">#7086D080</color>
+    <color name="Unify_G700_68">#AD86D080</color>
+    <color name="Unify_G700_96">#F586D080</color>
+    <color name="Unify_G700">#86D080</color>
+
+    <color name="Unify_G800_20">#33A9DCA5</color>
+    <color name="Unify_G800_32">#52A9DCA5</color>
+    <color name="Unify_G800_44">#70A9DCA5</color>
+    <color name="Unify_G800_68">#ADA9DCA5</color>
+    <color name="Unify_G800_96">#F5A9DCA5</color>
+    <color name="Unify_G800">#A9DCA5</color>
+
+    <color name="Unify_G900_20">#33CBEAC8</color>
+    <color name="Unify_G900_32">#52CBEAC8</color>
+    <color name="Unify_G900_44">#70CBEAC8</color>
+    <color name="Unify_G900_68">#ADCBEAC8</color>
+    <color name="Unify_G900_96">#F5CBEAC8</color>
+    <color name="Unify_G900">#CBEAC8</color>
+
+
+    <color name="Unify_T100_20">#3300544C</color>
+    <color name="Unify_T100_32">#5200544C</color>
+    <color name="Unify_T100_44">#7000544C</color>
+    <color name="Unify_T100_68">#AD00544C</color>
+    <color name="Unify_T100_96">#F500544C</color>
+    <color name="Unify_T100">#00544C</color>
+
+    <color name="Unify_T200_20">#3300716B</color>
+    <color name="Unify_T200_32">#5200716B</color>
+    <color name="Unify_T200_44">#7000716B</color>
+    <color name="Unify_T200_68">#AD00716B</color>
+    <color name="Unify_T200_96">#F500716B</color>
+    <color name="Unify_T200">#00716B</color>
+
+    <color name="Unify_T300_20">#3300817B</color>
+    <color name="Unify_T300_32">#5200817B</color>
+    <color name="Unify_T300_44">#7000817B</color>
+    <color name="Unify_T300_68">#AD00817B</color>
+    <color name="Unify_T300_96">#F500817B</color>
+    <color name="Unify_T300">#00817B</color>
+
+    <color name="Unify_T400_20">#3300918C</color>
+    <color name="Unify_T400_32">#5200918C</color>
+    <color name="Unify_T400_44">#7000918C</color>
+    <color name="Unify_T400_68">#AD00918C</color>
+    <color name="Unify_T400_96">#F500918C</color>
+    <color name="Unify_T400">#00918C</color>
+
+    <color name="Unify_T500_20">#33009F9B</color>
+    <color name="Unify_T500_32">#52009F9B</color>
+    <color name="Unify_T500_44">#70009F9B</color>
+    <color name="Unify_T500_68">#AD009F9B</color>
+    <color name="Unify_T500_96">#F5009F9B</color>
+    <color name="Unify_T500">#009F9B</color>
+
+    <color name="Unify_T600_20">#3300AEAD</color>
+    <color name="Unify_T600_32">#5200AEAD</color>
+    <color name="Unify_T600_44">#7000AEAD</color>
+    <color name="Unify_T600_68">#AD00AEAD</color>
+    <color name="Unify_T600_96">#F500AEAD</color>
+    <color name="Unify_T600">#00AEAD</color>
+
+    <color name="Unify_T700_20">#3308BDBD</color>
+    <color name="Unify_T700_32">#5208BDBD</color>
+    <color name="Unify_T700_44">#7008BDBD</color>
+    <color name="Unify_T700_68">#AD08BDBD</color>
+    <color name="Unify_T700_96">#F508BDBD</color>
+    <color name="Unify_T700">#08BDBD</color>
+
+    <color name="Unify_T800_20">#336FD0D1</color>
+    <color name="Unify_T800_32">#526FD0D1</color>
+    <color name="Unify_T800_44">#706FD0D1</color>
+    <color name="Unify_T800_68">#AD6FD0D1</color>
+    <color name="Unify_T800_96">#F56FD0D1</color>
+    <color name="Unify_T800">#6FD0D1</color>
+
+    <color name="Unify_T900_20">#33ABE2E3</color>
+    <color name="Unify_T900_32">#52ABE2E3</color>
+    <color name="Unify_T900_44">#70ABE2E3</color>
+    <color name="Unify_T900_68">#ADABE2E3</color>
+    <color name="Unify_T900_96">#F5ABE2E3</color>
+    <color name="Unify_T900">#ABE2E3</color>
+
+
+    <color name="Unify_B100_20">#3338609C</color>
+    <color name="Unify_B100_32">#5238609C</color>
+    <color name="Unify_B100_44">#7038609C</color>
+    <color name="Unify_B100_68">#AD38609C</color>
+    <color name="Unify_B100_96">#F538609C</color>
+    <color name="Unify_B100">#38609C</color>
+
+    <color name="Unify_B200_20">#334480BF</color>
+    <color name="Unify_B200_32">#524480BF</color>
+    <color name="Unify_B200_44">#704480BF</color>
+    <color name="Unify_B200_68">#AD4480BF</color>
+    <color name="Unify_B200_96">#F54480BF</color>
+    <color name="Unify_B200">#4480BF</color>
+
+    <color name="Unify_B300_20">#334A91D3</color>
+    <color name="Unify_B300_32">#524A91D3</color>
+    <color name="Unify_B300_44">#704A91D3</color>
+    <color name="Unify_B300_68">#AD4A91D3</color>
+    <color name="Unify_B300_96">#F54A91D3</color>
+    <color name="Unify_B300">#4A91D3</color>
+
+    <color name="Unify_B400_20">#3351A5E7</color>
+    <color name="Unify_B400_32">#5251A5E7</color>
+    <color name="Unify_B400_44">#7051A5E7</color>
+    <color name="Unify_B400_68">#AD51A5E7</color>
+    <color name="Unify_B400_96">#F551A5E7</color>
+    <color name="Unify_B400">#51A5E7</color>
+
+    <color name="Unify_B500_20">#3356B3F7</color>
+    <color name="Unify_B500_32">#5256B3F7</color>
+    <color name="Unify_B500_44">#7056B3F7</color>
+    <color name="Unify_B500_68">#AD56B3F7</color>
+    <color name="Unify_B500_96">#F556B3F7</color>
+    <color name="Unify_B500">#56B3F7</color>
+
+    <color name="Unify_B600_20">#3361BEF8</color>
+    <color name="Unify_B600_32">#5261BEF8</color>
+    <color name="Unify_B600_44">#7061BEF8</color>
+    <color name="Unify_B600_68">#AD61BEF8</color>
+    <color name="Unify_B600_96">#F561BEF8</color>
+    <color name="Unify_B600">#61BEF8</color>
+
+    <color name="Unify_B700_20">#3372CAFA</color>
+    <color name="Unify_B700_32">#5272CAFA</color>
+    <color name="Unify_B700_44">#7072CAFA</color>
+    <color name="Unify_B700_68">#AD72CAFA</color>
+    <color name="Unify_B700_96">#F572CAFA</color>
+    <color name="Unify_B700">#72CAFA</color>
+
+    <color name="Unify_B800_20">#3394D9FD</color>
+    <color name="Unify_B800_32">#5294D9FD</color>
+    <color name="Unify_B800_44">#7094D9FD</color>
+    <color name="Unify_B800_68">#AD94D9FD</color>
+    <color name="Unify_B800_96">#F594D9FD</color>
+    <color name="Unify_B800">#94D9FD</color>
+
+    <color name="Unify_B900_20">#33BCE8FE</color>
+    <color name="Unify_B900_32">#52BCE8FE</color>
+    <color name="Unify_B900_44">#70BCE8FE</color>
+    <color name="Unify_B900_68">#ADBCE8FE</color>
+    <color name="Unify_B900_96">#F5BCE8FE</color>
+    <color name="Unify_B900">#BCE8FE</color>
+
+
+    <color name="Unify_Y100_20">#33BA3707</color>
+    <color name="Unify_Y100_32">#52BA3707</color>
+    <color name="Unify_Y100_44">#70BA3707</color>
+    <color name="Unify_Y100_68">#ADBA3707</color>
+    <color name="Unify_Y100_96">#F5BA3707</color>
+    <color name="Unify_Y100">#BA3707</color>
+
+    <color name="Unify_Y200_20">#33D34410</color>
+    <color name="Unify_Y200_32">#52D34410</color>
+    <color name="Unify_Y200_44">#70D34410</color>
+    <color name="Unify_Y200_68">#ADD34410</color>
+    <color name="Unify_Y200_96">#F5D34410</color>
+    <color name="Unify_Y200">#D34410</color>
+
+    <color name="Unify_Y300_20">#33E14B14</color>
+    <color name="Unify_Y300_32">#52E14B14</color>
+    <color name="Unify_Y300_44">#70E14B14</color>
+    <color name="Unify_Y300_68">#ADE14B14</color>
+    <color name="Unify_Y300_96">#F5E14B14</color>
+    <color name="Unify_Y300">#E14B14</color>
+
+    <color name="Unify_Y400_20">#33EF5219</color>
+    <color name="Unify_Y400_32">#52EF5219</color>
+    <color name="Unify_Y400_44">#70EF5219</color>
+    <color name="Unify_Y400_68">#ADEF5219</color>
+    <color name="Unify_Y400_96">#F5EF5219</color>
+    <color name="Unify_Y400">#EF5219</color>
+
+    <color name="Unify_Y500_20">#33FF8215</color>
+    <color name="Unify_Y500_32">#52FF8215</color>
+    <color name="Unify_Y500_44">#70FF8215</color>
+    <color name="Unify_Y500_68">#ADFF8215</color>
+    <color name="Unify_Y500_96">#F5FF8215</color>
+    <color name="Unify_Y500">#FF8215</color>
+
+    <color name="Unify_Y600_20">#33FFAC23</color>
+    <color name="Unify_Y600_32">#52FFAC23</color>
+    <color name="Unify_Y600_44">#70FFAC23</color>
+    <color name="Unify_Y600_68">#ADFFAC23</color>
+    <color name="Unify_Y600_96">#F5FFAC23</color>
+    <color name="Unify_Y600">#FFAC23</color>
+
+    <color name="Unify_Y700_20">#33F7BE2B</color>
+    <color name="Unify_Y700_32">#52F7BE2B</color>
+    <color name="Unify_Y700_44">#70F7BE2B</color>
+    <color name="Unify_Y700_68">#ADF7BE2B</color>
+    <color name="Unify_Y700_96">#F5F7BE2B</color>
+    <color name="Unify_Y700">#F7BE2B</color>
+
+    <color name="Unify_Y800_20">#33FBDE87</color>
+    <color name="Unify_Y800_32">#52FBDE87</color>
+    <color name="Unify_Y800_44">#70FBDE87</color>
+    <color name="Unify_Y800_68">#ADFBDE87</color>
+    <color name="Unify_Y800_96">#F5FBDE87</color>
+    <color name="Unify_Y800">#FBDE87</color>
+
+    <color name="Unify_Y900_20">#33FCEBB6</color>
+    <color name="Unify_Y900_32">#52FCEBB6</color>
+    <color name="Unify_Y900_44">#70FCEBB6</color>
+    <color name="Unify_Y900_68">#ADFCEBB6</color>
+    <color name="Unify_Y900_96">#F5FCEBB6</color>
+    <color name="Unify_Y900">#FCEBB6</color>
+
+
+    <color name="Unify_R100_20">#33C70032</color>
+    <color name="Unify_R100_32">#52C70032</color>
+    <color name="Unify_R100_44">#70C70032</color>
+    <color name="Unify_R100_68">#ADC70032</color>
+    <color name="Unify_R100_96">#F5C70032</color>
+    <color name="Unify_R100">#C70032</color>
+
+    <color name="Unify_R200_20">#33D51A3E</color>
+    <color name="Unify_R200_32">#52D51A3E</color>
+    <color name="Unify_R200_44">#70D51A3E</color>
+    <color name="Unify_R200_68">#ADD51A3E</color>
+    <color name="Unify_R200_96">#F5D51A3E</color>
+    <color name="Unify_R200">#D51A3E</color>
+
+    <color name="Unify_R300_20">#33E22346</color>
+    <color name="Unify_R300_32">#52E22346</color>
+    <color name="Unify_R300_44">#70E22346</color>
+    <color name="Unify_R300_68">#ADE22346</color>
+    <color name="Unify_R300_96">#F5E22346</color>
+    <color name="Unify_R300">#E22346</color>
+
+    <color name="Unify_R400_20">#33F52E4D</color>
+    <color name="Unify_R400_32">#52F52E4D</color>
+    <color name="Unify_R400_44">#70F52E4D</color>
+    <color name="Unify_R400_68">#ADF52E4D</color>
+    <color name="Unify_R400_96">#F5F52E4D</color>
+    <color name="Unify_R400">#F52E4D</color>
+
+    <color name="Unify_R500_20">#33FF374F</color>
+    <color name="Unify_R500_32">#52FF374F</color>
+    <color name="Unify_R500_44">#70FF374F</color>
+    <color name="Unify_R500_68">#ADFF374F</color>
+    <color name="Unify_R500_96">#F5FF374F</color>
+    <color name="Unify_R500">#FF374F</color>
+
+    <color name="Unify_R600_20">#33FC4F66</color>
+    <color name="Unify_R600_32">#52FC4F66</color>
+    <color name="Unify_R600_44">#70FC4F66</color>
+    <color name="Unify_R600_68">#ADFC4F66</color>
+    <color name="Unify_R600_96">#F5FC4F66</color>
+    <color name="Unify_R600">#FC4F66</color>
+
+    <color name="Unify_R700_20">#33EE7484</color>
+    <color name="Unify_R700_32">#52EE7484</color>
+    <color name="Unify_R700_44">#70EE7484</color>
+    <color name="Unify_R700_68">#ADEE7484</color>
+    <color name="Unify_R700_96">#F5EE7484</color>
+    <color name="Unify_R700">#EE7484</color>
+
+    <color name="Unify_R800_20">#33F59CA7</color>
+    <color name="Unify_R800_32">#52F59CA7</color>
+    <color name="Unify_R800_44">#70F59CA7</color>
+    <color name="Unify_R800_68">#ADF59CA7</color>
+    <color name="Unify_R800_96">#F5F59CA7</color>
+    <color name="Unify_R800">#F59CA7</color>
+
+    <color name="Unify_R900_20">#33FFCFDA</color>
+    <color name="Unify_R900_32">#52FFCFDA</color>
+    <color name="Unify_R900_44">#70FFCFDA</color>
+    <color name="Unify_R900_68">#ADFFCFDA</color>
+    <color name="Unify_R900_96">#F5FFCFDA</color>
+    <color name="Unify_R900">#FFCFDA</color>
+
+
+    <color name="Unify_P100_20">#333F2EC7</color>
+    <color name="Unify_P100_32">#523F2EC7</color>
+    <color name="Unify_P100_44">#703F2EC7</color>
+    <color name="Unify_P100_68">#AD3F2EC7</color>
+    <color name="Unify_P100_96">#F53F2EC7</color>
+    <color name="Unify_P100">#3F2EC7</color>
+
+    <color name="Unify_P200_20">#336E33D6</color>
+    <color name="Unify_P200_32">#526E33D6</color>
+    <color name="Unify_P200_44">#706E33D6</color>
+    <color name="Unify_P200_68">#AD6E33D6</color>
+    <color name="Unify_P200_96">#F56E33D6</color>
+    <color name="Unify_P200">#6E33D6</color>
+
+    <color name="Unify_P300_20">#339C3AE7</color>
+    <color name="Unify_P300_32">#529C3AE7</color>
+    <color name="Unify_P300_44">#709C3AE7</color>
+    <color name="Unify_P300_68">#AD9C3AE7</color>
+    <color name="Unify_P300_96">#F59C3AE7</color>
+    <color name="Unify_P300">#9C3AE7</color>
+
+    <color name="Unify_P400_20">#338436DE</color>
+    <color name="Unify_P400_32">#528436DE</color>
+    <color name="Unify_P400_44">#708436DE</color>
+    <color name="Unify_P400_68">#AD8436DE</color>
+    <color name="Unify_P400_96">#F58436DE</color>
+    <color name="Unify_P400">#8436DE</color>
+
+    <color name="Unify_P500_20">#33AE3DEE</color>
+    <color name="Unify_P500_32">#52AE3DEE</color>
+    <color name="Unify_P500_44">#70AE3DEE</color>
+    <color name="Unify_P500_68">#ADAE3DEE</color>
+    <color name="Unify_P500_96">#F5AE3DEE</color>
+    <color name="Unify_P500">#AE3DEE</color>
+
+    <color name="Unify_P600_20">#33BC57F6</color>
+    <color name="Unify_P600_32">#52BC57F6</color>
+    <color name="Unify_P600_44">#70BC57F6</color>
+    <color name="Unify_P600_68">#ADBC57F6</color>
+    <color name="Unify_P600_96">#F5BC57F6</color>
+    <color name="Unify_P600">#BC57F6</color>
+
+    <color name="Unify_P700_20">#33C977F9</color>
+    <color name="Unify_P700_32">#52C977F9</color>
+    <color name="Unify_P700_44">#70C977F9</color>
+    <color name="Unify_P700_68">#ADC977F9</color>
+    <color name="Unify_P700_96">#F5C977F9</color>
+    <color name="Unify_P700">#C977F9</color>
+
+    <color name="Unify_P800_20">#33D99FFB</color>
+    <color name="Unify_P800_32">#52D99FFB</color>
+    <color name="Unify_P800_44">#70D99FFB</color>
+    <color name="Unify_P800_68">#ADD99FFB</color>
+    <color name="Unify_P800_96">#F5D99FFB</color>
+    <color name="Unify_P800">#D99FFB</color>
+
+    <color name="Unify_P900_20">#33E8C5FB</color>
+    <color name="Unify_P900_32">#52E8C5FB</color>
+    <color name="Unify_P900_44">#70E8C5FB</color>
+    <color name="Unify_P900_68">#ADE8C5FB</color>
+    <color name="Unify_P900_96">#F5E8C5FB</color>
+    <color name="Unify_P900">#E8C5FB</color>
+
+
+    <color name="Unify_N0_20">#331D1F22</color>
+    <color name="Unify_N0_32">#521D1F22</color>
+    <color name="Unify_N0_44">#701D1F22</color>
+    <color name="Unify_N0_68">#AD1D1F22</color>
+    <color name="Unify_N0_96">#F51D1F22</color>
+    <color name="Unify_N0">#1D1F22</color>
+
+    <color name="Unify_N50_20">#3326292E</color>
+    <color name="Unify_N50_32">#5226292E</color>
+    <color name="Unify_N50_44">#7026292E</color>
+    <color name="Unify_N50_68">#AD26292E</color>
+    <color name="Unify_N50_96">#F526292E</color>
+    <color name="Unify_N50">#26292E</color>
+
+    <color name="Unify_N75_20">#3331353B</color>
+    <color name="Unify_N75_32">#5231353B</color>
+    <color name="Unify_N75_44">#7031353B</color>
+    <color name="Unify_N75_68">#AD31353B</color>
+    <color name="Unify_N75_96">#F531353B</color>
+    <color name="Unify_N75">#31353B</color>
+
+    <color name="Unify_N100_20">#3340454C</color>
+    <color name="Unify_N100_32">#5240454C</color>
+    <color name="Unify_N100_44">#7040454C</color>
+    <color name="Unify_N100_68">#AD40454C</color>
+    <color name="Unify_N100_96">#F540454C</color>
+    <color name="Unify_N100">#40454C</color>
+
+    <color name="Unify_N150_20">#3352565E</color>
+    <color name="Unify_N150_32">#5252565E</color>
+    <color name="Unify_N150_44">#7052565E</color>
+    <color name="Unify_N150_68">#AD52565E</color>
+    <color name="Unify_N150_96">#F552565E</color>
+    <color name="Unify_N150">#52565E</color>
+
+    <color name="Unify_N200_20">#336C727C</color>
+    <color name="Unify_N200_32">#526C727C</color>
+    <color name="Unify_N200_44">#706C727C</color>
+    <color name="Unify_N200_68">#AD6C727C</color>
+    <color name="Unify_N200_96">#F56C727C</color>
+    <color name="Unify_N200">#6C727C</color>
+
+    <color name="Unify_N300_20">#33838994</color>
+    <color name="Unify_N300_32">#52838994</color>
+    <color name="Unify_N300_44">#70838994</color>
+    <color name="Unify_N300_68">#AD838994</color>
+    <color name="Unify_N300_96">#F5838994</color>
+    <color name="Unify_N300">#838994</color>
+
+    <color name="Unify_N400_20">#339FA6B0</color>
+    <color name="Unify_N400_32">#529FA6B0</color>
+    <color name="Unify_N400_44">#709FA6B0</color>
+    <color name="Unify_N400_68">#AD9FA6B0</color>
+    <color name="Unify_N400_96">#F59FA6B0</color>
+    <color name="Unify_N400">#9FA6B0</color>
+
+    <color name="Unify_N500_20">#33B5BBC5</color>
+    <color name="Unify_N500_32">#52B5BBC5</color>
+    <color name="Unify_N500_44">#70B5BBC5</color>
+    <color name="Unify_N500_68">#ADB5BBC5</color>
+    <color name="Unify_N500_96">#F5B5BBC5</color>
+    <color name="Unify_N500">#C7CBD2</color>
+
+    <color name="Unify_N600_20">#33DBDEE2</color>
+    <color name="Unify_N600_32">#52DBDEE2</color>
+    <color name="Unify_N600_44">#70DBDEE2</color>
+    <color name="Unify_N600_68">#ADDBDEE2</color>
+    <color name="Unify_N600_96">#F5DBDEE2</color>
+    <color name="Unify_N600">#DBDEE2</color>
+
+    <color name="Unify_N700_20">#33FFFFFF</color>
+    <color name="Unify_N700_32">#52FFFFFF</color>
+    <color name="Unify_N700_44">#70FFFFFF</color>
+    <color name="Unify_N700_68">#ADFFFFFF</color>
+    <color name="Unify_N700_96">#F5FFFFFF</color>
+    <color name="Unify_N700">#FFFFFF</color>
+
+    <color name="Unify_Background">@color/Unify_N50</color>
+
+    <!-- New Tokopedia Nest Color -->
+
+    <color name="Unify_GN50">#111C17</color>
+    <color name="Unify_GN100">#22382E</color>
+    <color name="Unify_GN200">#215A3D</color>
+    <color name="Unify_GN300">#207C4C</color>
+    <color name="Unify_GN400">#289D5F</color>
+    <color name="Unify_GN500">#2ABF70</color>
+    <color name="Unify_GN600">#37D480</color>
+    <color name="Unify_GN700">#4AE091</color>
+    <color name="Unify_GN800">#71E9AB</color>
+    <color name="Unify_GN900">#9CF7CA</color>
+    <color name="Unify_GN950">#C2FFE3</color>
+
+    <color name="Unify_TN50">#0D2624</color>
+    <color name="Unify_TN100">#0A4A45</color>
+    <color name="Unify_TN200">#01665E</color>
+    <color name="Unify_TN300">#0A8076</color>
+    <color name="Unify_TN400">#0CA194</color>
+    <color name="Unify_TN500">#11B8AA</color>
+    <color name="Unify_TN600">#18C9BB</color>
+    <color name="Unify_TN700">#40DBCE</color>
+    <color name="Unify_TN800">#67E5DB</color>
+    <color name="Unify_TN900">#9BF2EB</color>
+    <color name="Unify_TN950">#BFFFFA</color>
+
+    <color name="Unify_BN50">#012838</color>
+    <color name="Unify_BN100">#064761</color>
+    <color name="Unify_BN200">#035E82</color>
+    <color name="Unify_BN300">#037AA8</color>
+    <color name="Unify_BN400">#0E96CC</color>
+    <color name="Unify_BN500">#13ACE8</color>
+    <color name="Unify_BN600">#20B9F5</color>
+    <color name="Unify_BN700">#4DCCFF</color>
+    <color name="Unify_BN800">#73D7FF</color>
+    <color name="Unify_BN900">#A6E6FF</color>
+    <color name="Unify_BN950">#D4F3FF</color>
+
+    <color name="Unify_PN50">#32095A</color>
+    <color name="Unify_PN100">#58129E</color>
+    <color name="Unify_PN200">#6D1DBD</color>
+    <color name="Unify_PN300">#7E34C9</color>
+    <color name="Unify_PN400">#964EDE</color>
+    <color name="Unify_PN500">#A660EB</color>
+    <color name="Unify_PN600">#B16FF2</color>
+    <color name="Unify_PN700">#C68CFF</color>
+    <color name="Unify_PN800">#D3A6FF</color>
+    <color name="Unify_PN900">#E3C7FF</color>
+    <color name="Unify_PN950">#F3E6FF</color>
+
+    <color name="Unify_RN50">#4D171F</color>
+    <color name="Unify_RN100">#862430</color>
+    <color name="Unify_RN200">#B02E3E</color>
+    <color name="Unify_RN300">#D23B4D</color>
+    <color name="Unify_RN400">#F24E62</color>
+    <color name="Unify_RN500">#FF6577</color>
+    <color name="Unify_RN600">#FF7A8B</color>
+    <color name="Unify_RN700">#FF8C9B</color>
+    <color name="Unify_RN800">#FFA6B8</color>
+    <color name="Unify_RN900">#FFCCD6</color>
+    <color name="Unify_RN950">#FFE6E8</color>
+
+    <color name="Unify_YN50">#511904</color>
+    <color name="Unify_YN100">#B33D09</color>
+    <color name="Unify_YN200">#D64E0B</color>
+    <color name="Unify_YN300">#F2600C</color>
+    <color name="Unify_YN400">#FF820D</color>
+    <color name="Unify_YN500">#FFA617</color>
+    <color name="Unify_YN600">#FFC400</color>
+    <color name="Unify_YN700">#FFCE47</color>
+    <color name="Unify_YN800">#FFDD7F</color>
+    <color name="Unify_YN900">#FCEFB8</color>
+    <color name="Unify_YN950">#FFFAE6</color>
+
+    <color name="Unify_NN0">#1D2025</color>
+    <color name="Unify_NN50">#252930</color>
+    <color name="Unify_NN100">#2D323A</color>
+    <color name="Unify_NN200">#363B45</color>
+    <color name="Unify_NN300">#3D444F</color>
+    <color name="Unify_NN400">#4B5461</color>
+    <color name="Unify_NN500">#5D6775</color>
+    <color name="Unify_NN600">#808FA1</color>
+    <color name="Unify_NN700">#96A5B8</color>
+    <color name="Unify_NN800">#B0BDCF</color>
+    <color name="Unify_NN900">#CBD4E1</color>
+    <color name="Unify_NN950">#DCE4ED</color>
+    <color name="Unify_NN1000">#FFFFFF</color>
 </resources>
