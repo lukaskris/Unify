@@ -147,7 +147,7 @@ class ImageUnify : AppCompatImageView {
     }
 
     private fun initWithAttr(context: Context, attributeSet: AttributeSet) {
-        val attributeArray = context.obtainStyledAttributes(attributeSet, R.styleable.UnifyImage)
+        val attributeArray = context.obtainStyledAttributes(attributeSet, R.styleable.ImageUnify)
         val androidAttributeArray = intArrayOf(
             android.R.attr.scaleType
         )
@@ -155,21 +155,21 @@ class ImageUnify : AppCompatImageView {
         if (scaleType != -1) {
             userPrefScaleType = ScaleType.values()[scaleType]
         }
-        type = attributeArray.getInt(R.styleable.UnifyImage_unify_image_type, TYPE_RECT)
-        cornerRadius = attributeArray.getInt(R.styleable.UnifyImage_unify_image_corner_radius, 8)
+        type = attributeArray.getInt(R.styleable.ImageUnify_unify_image_type, TYPE_RECT)
+        cornerRadius = attributeArray.getInt(R.styleable.ImageUnify_unify_image_corner_radius, 8)
         placeholder =
-            attributeArray.getResourceId(R.styleable.UnifyImage_unify_image_placeholder, 0)
+            attributeArray.getResourceId(R.styleable.ImageUnify_unify_image_placeholder, 0)
         var attrCustomLoadingAvd =
-            attributeArray.getResourceId(R.styleable.UnifyImage_unify_image_custom_loading_avd, 0)
+            attributeArray.getResourceId(R.styleable.ImageUnify_unify_image_custom_loading_avd, 0)
 
         if (attrCustomLoadingAvd != 0) {
             customLoadingAVD = AnimatedVectorDrawableCompat.create(context, attrCustomLoadingAvd)
         }
 
-        disableShimmeringPlaceholder = attributeArray.getBoolean(R.styleable.UnifyImage_unify_image_disable_shimmering_placeholder, false)
+        disableShimmeringPlaceholder = attributeArray.getBoolean(R.styleable.ImageUnify_unify_image_disable_shimmering_placeholder, false)
 
         initPlaceholder()
-        urlSrc = attributeArray.getString(R.styleable.UnifyImage_unify_image_url_src) ?: ""
+        urlSrc = attributeArray.getString(R.styleable.ImageUnify_unify_image_url_src) ?: ""
 
         attributeArray.recycle()
     }
