@@ -8,15 +8,12 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:4.1.3")
+        classpath(AppDependencies.androidGradle)
         classpath(AppDependencies.kotlinGradlePlugin)
-        classpath ("org.jfrog.buildinfo:build-info-extractor-gradle:4.24.10")
+        classpath(AppDependencies.jfrogExtractor)
     }
 }
 
-plugins {
-    id ("com.diffplug.spotless") version "5.2.0"
-}
 val artifactory_url: String by project
 val artifactory_username: String by project
 val artifactory_password: String by project
@@ -40,12 +37,5 @@ allprojects {
                 password = artifactory_password
             }
         }
-    }
-}
-
-spotless {
-    kotlin {
-        target("**/*.kt")
-        ktlint(Versions.kotlinVersion).userData(mapOf("max_line_length" to "100"))
     }
 }

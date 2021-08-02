@@ -23,7 +23,6 @@ import id.co.app.components.R
 import id.co.app.components.icon.IconUnify
 import id.co.app.components.loader.LoaderUnify
 import id.co.app.components.utils.*
-import kotlinx.android.synthetic.main.textfield2_layout.view.*
 import java.lang.reflect.Method
 
 /**
@@ -106,10 +105,10 @@ open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(c
 
             if (value) {
                 loaderView.visibility = View.VISIBLE
-                text_field_custom_icon_container.visibility = View.GONE
+                findViewById<LinearLayout>(R.id.text_field_custom_icon_container).visibility = View.GONE
             } else {
                 loaderView.visibility = View.GONE
-                text_field_custom_icon_container.visibility = View.VISIBLE
+                findViewById<LinearLayout>(R.id.text_field_custom_icon_container).visibility = View.GONE
             }
         }
 

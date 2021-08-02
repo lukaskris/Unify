@@ -16,6 +16,7 @@
     <!-- Bottomsheet color -->
     <color name="bottomsheetunify_overlay">#7F000000</color>
     <color name="bottomsheetunify_background">@color/Unify_N50</color>
+    <color name="highlight_background_color">@color/Unify_N150</color>
 
     <!-- Label color -->
     <color name="labelunify_dark_red_background">@color/Unify_R700</color>

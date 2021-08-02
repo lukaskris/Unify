@@ -14,14 +14,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.co.app.components.bottomsheet.BottomSheetUnify
+import id.co.app.components.button.UnifyButton
 import id.co.app.components.icon.IconUnify
 import id.co.app.components.icon.getIconUnifyDrawable
+import id.co.app.components.quantity.QuantityEditorUnify
 import id.co.app.components.typography.Typography
 import id.co.app.components.utils.toPx
 import id.co.app.source.R
 import id.co.app.source.databinding.ActivityIconUnifyBinding
 import id.co.app.source.databinding.UnifyiconSampleRecyclerLayoutBinding
-import kotlinx.android.synthetic.main.activity_icon_unify.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -328,11 +329,11 @@ class UnifyIconActivity : AppCompatActivity() {
         dataCollection.add(IconData(265,"AUDIO_WAVE"))
         dataCollection.add(IconData(266,"SCREEN_FIT"))
 
-        unifyicon_rv.layoutManager = LinearLayoutManager(this)
+        findViewById<RecyclerView>(R.id.unifyicon_rv).layoutManager = LinearLayoutManager(this)
         val adapter = UnifyIconAdapter(dataCollection)
-        unifyicon_rv.adapter = adapter
+        findViewById<RecyclerView>(R.id.unifyicon_rv).adapter = adapter
 
-        unifyicon_sample_color_btn.setOnClickListener {
+        findViewById<UnifyButton>(R.id.unifyicon_sample_color_btn).setOnClickListener {
             if(!::btmSheet.isInitialized){
                 btmSheet = BottomSheetUnify()
                 btmSheet.setTitle("Color list")
@@ -354,7 +355,7 @@ class UnifyIconActivity : AppCompatActivity() {
                     adapter.iconColor = color
                     adapter.notifyDataSetChanged()
 
-                    active_color_text.text = listCollection[position].listTitleText
+                    findViewById<Typography>(R.id.active_color_text).text = listCollection[position].listTitleText
 
                     btmSheet.dismiss()
                 }
@@ -413,7 +414,7 @@ class UnifyIconActivity : AppCompatActivity() {
         }
 
         binding.unifyiconSampleSizeBtn.setOnClickListener {
-            adapter.size = unifyicon_sample_size_qty.getValue()
+            adapter.size = findViewById<QuantityEditorUnify>(R.id.unifyicon_sample_size_qty).getValue()
             adapter.notifyDataSetChanged()
         }
 
@@ -424,7 +425,7 @@ class UnifyIconActivity : AppCompatActivity() {
             var isResultFound = false
             dataCollection.forEach {
                 if(it.iconName == keyword){
-                    unifyicon_rv.scrollToPosition(it.iconId)
+                    findViewById<RecyclerView>(R.id.unifyicon_rv).scrollToPosition(it.iconId)
                     isResultFound = true
                     return@forEach
                 }

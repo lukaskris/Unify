@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import id.co.app.components.player.CryptoUtil
 import id.co.app.source.databinding.ActivityMainBinding
 import id.co.app.source.ui.icon.UnifyIconActivity
+import id.co.app.source.ui.label.LabelActivity
 import id.co.app.source.ui.textfield.TextFieldActivity
 import id.co.app.source.ui.typography.TypographyActivity
 import java.io.File
@@ -76,6 +77,7 @@ class MainActivity : AppCompatActivity(), MyRecyclerViewAdapter.ItemClickListene
         startActivity(
             when(position){
                 0 -> Intent(this, TypographyActivity::class.java)
+                2 -> Intent(this, LabelActivity::class.java)
                 6 -> Intent(this, TextFieldActivity::class.java)
                 3 -> Intent(this, UnifyIconActivity::class.java)
                 else -> Intent(this, TypographyActivity::class.java)

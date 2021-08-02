@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:paddingRight="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <id.co.app.components.label.Label
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dark Red"
+                    app:labelType="general_dark_red" />
+
+                <id.co.app.components.label.Label
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dark Blue"
+                    app:labelType="general_dark_blue" />
+
+                <id.co.app.components.label.Label
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dark Green"
+                    app:labelType="general_dark_green" />
+
+                <id.co.app.components.label.Label
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dark Grey"
+                    app:labelType="general_dark_grey" />
+
+                <id.co.app.components.label.Label
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dark Orange"
+                    app:labelType="general_dark_orange" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="8dp">
+
+                <id.co.app.components.label.Label
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Light Red"
+                    app:labelType="general_light_red" />
+
+                <id.co.app.components.label.Label
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Light Blue"
+                    app:labelType="general_light_blue" />
+
+                <id.co.app.components.label.Label
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Light Green"
+                    app:labelType="general_light_green" />
+
+                <id.co.app.components.label.Label
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Light Grey"
+                    app:labelType="general_light_grey" />
+
+                <id.co.app.components.label.Label
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Light Orange"
+                    app:labelType="general_light_orange" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <id.co.app.components.label.Label
+            android:id="@+id/label_sample_programatically"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:labelTitle="Set Image Deprecated"
+            app:labelType="general_dark_grey" />
+
+        <id.co.app.components.label.Label
+            android:id="@+id/label_sample_programatically2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:labelTitle="Set Image New"
+            app:labelType="general_dark_grey" />
+
+        <id.co.app.components.label.Label
+            android:id="@+id/LabelView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:labelTitle="Sample Label"
+            app:labelType="general_dark_grey" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp">
+
+            <id.co.app.components.label.Label
+                android:id="@+id/LabelView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp">
+
+            <id.co.app.components.label.Label
+                android:id="@+id/LabelView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp">
+
+            <id.co.app.components.label.Label
+                android:id="@+id/LabelView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp">
+
+            <id.co.app.components.label.Label
+                android:id="@+id/LabelView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp">
+
+            <id.co.app.components.label.Label
+                android:id="@+id/LabelView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp">
+
+            <id.co.app.components.label.Label
+                android:id="@+id/LabelView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp">
+
+            <id.co.app.components.label.Label
+                android:id="@+id/LabelView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp">
+
+            <id.co.app.components.label.Label
+                android:id="@+id/LabelView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp">
+
+            <id.co.app.components.label.Label
+                android:id="@+id/LabelView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp">
+
+            <id.co.app.components.label.Label
+                android:id="@+id/LabelView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <id.co.app.components.label.LabelProgress
+            android:id="@+id/label_progressbar_light_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:labelColor="general_light_blue"
+            app:labelProgress="25"
+            app:labelProgressTitle="Terjual 25%"
+            app:labelTypographyType="heading_2"/>
+
+        <id.co.app.components.label.LabelProgress
+            android:id="@+id/label_progressbar_red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:labelColor="general_light_red"
+            app:labelProgress="63"
+            app:labelTypographyType="body_1"
+            app:labelProgressTitle="Terjual 63%" />
+
+        <id.co.app.components.label.Label
+            android:id="@+id/LabelView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" />
+
+
+    </LinearLayout>
+</ScrollView>

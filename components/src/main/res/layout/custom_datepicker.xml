@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <TextView
+            android:id="@+id/datePicker_info"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginBottom="@dimen/info_bottom_margin"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/datepicker_border"
+            android:orientation="vertical">
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/rounded_corner_selected_datepicker" />
+
+        <LinearLayout
+                android:id="@+id/pickerContainer"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:orientation="horizontal">
+
+            <NumberPicker
+                    android:id="@+id/daySpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    app:np_align="CENTER"
+                    app:np_fadingEdgeEnabled="false"
+                    app:np_max="31"
+                    app:np_min="1"
+                    app:np_selectedTextColor="@color/Unify_N700_96"
+                    app:np_textColor="@color/Unify_N700_44"
+                    app:np_textSize="@dimen/font_size"
+                    app:np_wheelItemCount="5"
+                    app:np_wrapSelectorWheel="true" />
+
+            <id.co.app.components.datetimepicker.numberpicker.NumberPicker
+                    android:id="@+id/monthSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    app:np_align="CENTER"
+                    app:np_fadingEdgeEnabled="false"
+                    app:np_max="12"
+                    app:np_min="1"
+                    app:np_selectedTextColor="@color/Unify_N700_96"
+                    app:np_textColor="@color/Unify_N700_44"
+                    app:np_textSize="@dimen/font_size"
+                    app:np_wheelItemCount="5"
+                    app:np_wrapSelectorWheel="true" />
+
+            <id.co.app.components.datetimepicker.numberpicker.NumberPicker
+                    android:id="@+id/yearSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    app:np_align="CENTER"
+                    app:np_fadingEdgeEnabled="false"
+                    app:np_selectedTextColor="@color/Unify_N700_96"
+                    app:np_textColor="@color/Unify_N700_44"
+                    app:np_textSize="@dimen/font_size"
+                    app:np_wheelItemCount="5"
+                    app:np_wrapSelectorWheel="false" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <id.co.app.components.button.UnifyButton
+            android:id="@+id/datePicker_button"
+            android:layout_marginTop="@dimen/button_vertical_margin"
+            android:layout_marginBottom="@dimen/button_vertical_margin"
+            android:text="@string/button_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>

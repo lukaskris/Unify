@@ -2,13 +2,14 @@
 object Versions {
 
 	//app level
-	const val kotlinVersion = "1.4.32"
-	const val androidGradleVersion = "4.1.3"
+	const val kotlinVersion = "1.5.21"
+	const val androidGradleVersion = "7.0.0"
+	const val jfrogVersion = "4.24.10"
 
 	//libs
-	const val coreKtx = "1.2.0"
-	const val appcompat = "1.3.0-alpha01"
-	const val material = "1.4.0-alpha02"
+	const val coreKtx = "1.6.0"
+	const val appcompat = "1.3.1"
+	const val material = "1.4.0"
 	const val constraintLayout = "2.0.4"
 	const val multidexVersion = "2.0.1"
 	const val swipeRefreshVersion = "1.1.0"

@@ -75,6 +75,22 @@
     <color name="bottomsheetunify_overlay">@color/Unify_N700_68</color>
     <color name="bottomsheetunify_background">@color/Unify_N0</color>
 
+    <!-- Number picker -->
+    <color name="color_subtitle_setting_profile">#ae31353b</color>
+    <color name="color_subtitle_value_setting_profile">#f531353b</color>
+    <color name="color_change_setting_profile">#03ac0e</color>
+    <color name="color_background_tint_setting_profile">#e5e7e9</color>
+
+    <color name="border_color">#E5E7E9</color>
+
+    <color name="font_color">#31353B</color>
+    <color name="highlight_background_color">@color/Unify_N50</color>
+
+
+    <!-- Content Switcher color -->
+    <color name="contentswitcherunify_track_background">@color/Unify_NN50</color>
+    <color name="contentswitcherunify_thumb_background">@color/Unify_NN600</color>
+
     <!-- ========================= New day color set ============================== -->
 
     <color name="Unify_N700_20">#3331353B</color>

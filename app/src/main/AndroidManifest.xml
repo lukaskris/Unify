@@ -51,6 +51,10 @@
         <activity
             android:name=".ui.textfield.TextFieldActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+
+        <activity
+            android:name=".ui.label.LabelActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
     </application>
 
 </manifest>

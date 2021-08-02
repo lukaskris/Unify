@@ -2,8 +2,10 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.project
 
 object AppDependencies {
+    const val androidGradle = "com.android.tools.build:gradle:${Versions.androidGradleVersion}"
     const val kotlinGradlePlugin =
         "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinVersion}"
+    const val jfrogExtractor = "org.jfrog.buildinfo:build-info-extractor-gradle:${Versions.jfrogVersion}"
 
     //std lib
     const val kotlinStdLib =

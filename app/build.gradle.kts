@@ -7,20 +7,20 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("kotlin-android-extensions")
+    id("kotlin-parcelize")
     id("kotlin-kapt")
 }
 
 android {
-    compileSdkVersion(30)
-    buildToolsVersion("30.0.3")
+    compileSdk = AppConfig.compileSdk
+    buildToolsVersion = AppConfig.buildToolsVersion
     buildFeatures {
         dataBinding = true
     }
     defaultConfig {
         applicationId = "id.co.app.source"
-        minSdkVersion(AppConfig.minSdk)
-        targetSdkVersion(AppConfig.targetSdk)
+        minSdk = AppConfig.minSdk
+        targetSdk = AppConfig.targetSdk
         versionCode = AppConfig.versionCode
         versionName = AppConfig.versionName
         vectorDrawables.useSupportLibrary = true
@@ -35,16 +35,13 @@ android {
 
     buildTypes {
         getByName("debug") {
-            debuggable(true)
-            isZipAlignEnabled = true
+            isDebuggable = true
             isMinifyEnabled = false
         }
         getByName("release") {
             isDebuggable = false
-            isZipAlignEnabled = true
             isMinifyEnabled = true
             isShrinkResources = true
-            debuggable(false)
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -56,16 +53,16 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
         kotlinOptions {
-            jvmTarget = "1.8"
-            freeCompilerArgs += "-Xallow-jvm-ir-dependencies"
-            freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
-            freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.FlowPreview"
+            jvmTarget = "11"
+            freeCompilerArgs = freeCompilerArgs + "-Xallow-jvm-ir-dependencies"
+            freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+            freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.FlowPreview"
         }
     }
 }
