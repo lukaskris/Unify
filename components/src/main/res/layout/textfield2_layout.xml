@@ -20,6 +20,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginBottom="@dimen/spacing_lvl2"
                 android:padding="12dp"
+                android:saveEnabled="false"
                 android:textColorHint="@color/Unify_NN600"
                 android:textCursorDrawable="@null"
                 android:textSize="@dimen/textfield2_text_size" />

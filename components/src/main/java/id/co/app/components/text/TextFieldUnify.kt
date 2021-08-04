@@ -6,11 +6,15 @@ import android.graphics.*
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Handler
+import android.os.Parcel
+import android.os.Parcelable
+import android.os.Parcelable.ClassLoaderCreator
 import android.text.*
 import android.text.TextUtils.isEmpty
 import android.text.method.LinkMovementMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
+import android.util.SparseArray
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +28,7 @@ import id.co.app.components.icon.IconUnify
 import id.co.app.components.loader.LoaderUnify
 import id.co.app.components.utils.*
 import java.lang.reflect.Method
+
 
 /**
  * Created by Lukas Kristianto on 7/3/2021.
@@ -190,7 +195,7 @@ open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(c
     }
 
     init {
-        View.inflate(context, R.layout.textfield2_layout,this)
+        inflate(context, R.layout.textfield2_layout,this)
 
         textInputLayout = findViewById(R.id.text_field_wrapper)
         editText = findViewById(R.id.text_field_input)
@@ -201,7 +206,7 @@ open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(c
         clearIconView = findViewById(R.id.text_field_icon_close)
         loaderView = findViewById(R.id.text_field_loader)
 
-        editText.setSingleLine(true)
+        editText.isSingleLine = true
         editText.setTextColor(primaryColorStateList)
         textInputLayout.helperText = " "
 
@@ -483,15 +488,17 @@ open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(c
         textFieldPrependText = attributeArray.getString(R.styleable.TextFieldUnify_unify_text_field_prepend_text) ?: ""
         textFieldAppendText = attributeArray.getString(R.styleable.TextFieldUnify_unify_text_field_append_text) ?: ""
         try {
-            var referencesRes = attributeArray.getResourceId(R.styleable.TextFieldUnify_unify_text_field_append_drawable_icon_1,-1)
+            val referencesRes = attributeArray.getResourceId(R.styleable.TextFieldUnify_unify_text_field_append_drawable_icon_1,-1)
             textFieldAppendDrawableIcon1 = ContextCompat.getDrawable(context,referencesRes)
         } catch(e: Exception){
         }
+
         try{
-            var referencesRes = attributeArray.getResourceId(R.styleable.TextFieldUnify_unify_text_field_append_drawable_icon_2,-1)
+            val referencesRes = attributeArray.getResourceId(R.styleable.TextFieldUnify_unify_text_field_append_drawable_icon_2,-1)
             textFieldAppendDrawableIcon2 = ContextCompat.getDrawable(context,referencesRes)
         } catch(e: Exception){
         }
+
         textFieldAppendUrlIcon1 = attributeArray.getString(R.styleable.TextFieldUnify_unify_text_field_append_url_icon_1) ?: ""
         textFieldAppendUrlIcon2 = attributeArray.getString(R.styleable.TextFieldUnify_unify_text_field_append_url_icon_2) ?: ""
         textFieldType = attributeArray.getInt(R.styleable.TextFieldUnify_unify_text_field_input_type, 0)
@@ -657,6 +664,37 @@ open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(c
             e.printStackTrace()
         }
     }
+    /*
+        Handle saving view state not correctly because same id with other view
+        if the layout show more than 1 TextField Unify
+        it fixed with new mechanism save state with textfield unify self way
+        http://web.archive.org/web/20180625034135/http://trickyandroid.com/saving-android-view-state-correctly/
+     */
+    override fun onSaveInstanceState(): Parcelable? {
+        val superState = super.onSaveInstanceState()
+        val ss = SavedState(superState)
+        ss.childrenStates = SparseArray()
+        for (i in 0 until childCount) {
+            getChildAt(i).saveHierarchyState(ss.childrenStates)
+        }
+        return ss
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        val ss = state as SavedState
+        super.onRestoreInstanceState(ss.superState)
+        for (i in 0 until childCount) {
+            getChildAt(i).restoreHierarchyState(ss.childrenStates)
+        }
+    }
+
+    override fun dispatchSaveInstanceState(container: SparseArray<Parcelable>?) {
+        dispatchFreezeSelfOnly(container)
+    }
+
+    override fun dispatchRestoreInstanceState(container: SparseArray<Parcelable>?) {
+        dispatchThawSelfOnly(container)
+    }
 
     private inner class TextDrawable(text: String, type: String) : Drawable() {
         val paint: Paint = Paint()
@@ -696,6 +734,38 @@ open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(c
 
         override fun getOpacity(): Int {
             return PixelFormat.TRANSLUCENT
+        }
+    }
+
+    internal class SavedState : BaseSavedState {
+        var childrenStates: SparseArray<Parcelable>? = null
+
+        constructor(superState: Parcelable?) : super(superState)
+
+        private constructor(`in`: Parcel?, classLoader: ClassLoader?) : super(`in`) {
+            childrenStates = `in`?.readSparseArray(classLoader)
+        }
+
+        override fun writeToParcel(out: Parcel, flags: Int) {
+            super.writeToParcel(out, flags)
+            out.writeSparseArray(childrenStates)
+        }
+
+        companion object {
+            val CREATOR: ClassLoaderCreator<SavedState> = object : ClassLoaderCreator<SavedState> {
+
+                override fun createFromParcel(source: Parcel?, loader: ClassLoader?): SavedState {
+                    return SavedState(source, loader)
+                }
+
+                override fun createFromParcel(source: Parcel?): SavedState {
+                    return createFromParcel(source, null)
+                }
+
+                override fun newArray(size: Int): Array<SavedState?> {
+                    return arrayOfNulls(size)
+                }
+            }
         }
     }
 }
