@@ -6,15 +6,11 @@ import android.graphics.*
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Handler
-import android.os.Parcel
-import android.os.Parcelable
-import android.os.Parcelable.ClassLoaderCreator
 import android.text.*
 import android.text.TextUtils.isEmpty
 import android.text.method.LinkMovementMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
-import android.util.SparseArray
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -233,6 +229,14 @@ open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(c
         editText.setDropDownBackgroundDrawable(ColorDrawable(Color.WHITE))
         textInputLayout.setBoxCornerRadii(8.toPx().toFloat(), 8.toPx().toFloat(), 8.toPx().toFloat(), 8.toPx().toFloat())
         textInputLayout.defaultHintTextColor = hintEmptyColorStateList
+
+
+        textInputLayout.id = View.generateViewId()
+        editText.id = View.generateViewId()
+        iconContainer.id = View.generateViewId()
+        icon1.id = View.generateViewId()
+        icon2.id = View.generateViewId()
+        labelText.id = View.generateViewId()
     }
 
     /**
@@ -670,31 +674,31 @@ open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(c
         it fixed with new mechanism save state with textfield unify self way
         http://web.archive.org/web/20180625034135/http://trickyandroid.com/saving-android-view-state-correctly/
      */
-    override fun onSaveInstanceState(): Parcelable? {
-        val superState = super.onSaveInstanceState()
-        val ss = SavedState(superState)
-        ss.childrenStates = SparseArray()
-        for (i in 0 until childCount) {
-            getChildAt(i).saveHierarchyState(ss.childrenStates)
-        }
-        return ss
-    }
-
-    override fun onRestoreInstanceState(state: Parcelable?) {
-        val ss = state as SavedState
-        super.onRestoreInstanceState(ss.superState)
-        for (i in 0 until childCount) {
-            getChildAt(i).restoreHierarchyState(ss.childrenStates)
-        }
-    }
-
-    override fun dispatchSaveInstanceState(container: SparseArray<Parcelable>?) {
-        dispatchFreezeSelfOnly(container)
-    }
-
-    override fun dispatchRestoreInstanceState(container: SparseArray<Parcelable>?) {
-        dispatchThawSelfOnly(container)
-    }
+//    override fun onSaveInstanceState(): Parcelable? {
+//        val superState = super.onSaveInstanceState()
+//        val ss = SavedState(superState)
+//        ss.childrenStates = SparseArray()
+//        for (i in 0 until childCount) {
+//            getChildAt(i).saveHierarchyState(ss.childrenStates)
+//        }
+//        return ss
+//    }
+//
+//    override fun onRestoreInstanceState(state: Parcelable?) {
+//        val ss = state as SavedState
+//        super.onRestoreInstanceState(ss.superState)
+//        for (i in 0 until childCount) {
+//            getChildAt(i).restoreHierarchyState(ss.childrenStates)
+//        }
+//    }
+//
+//    override fun dispatchSaveInstanceState(container: SparseArray<Parcelable>?) {
+//        dispatchFreezeSelfOnly(container)
+//    }
+//
+//    override fun dispatchRestoreInstanceState(container: SparseArray<Parcelable>?) {
+//        dispatchThawSelfOnly(container)
+//    }
 
     private inner class TextDrawable(text: String, type: String) : Drawable() {
         val paint: Paint = Paint()
@@ -737,35 +741,35 @@ open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(c
         }
     }
 
-    internal class SavedState : BaseSavedState {
-        var childrenStates: SparseArray<Parcelable>? = null
-
-        constructor(superState: Parcelable?) : super(superState)
-
-        private constructor(`in`: Parcel?, classLoader: ClassLoader?) : super(`in`) {
-            childrenStates = `in`?.readSparseArray(classLoader)
-        }
-
-        override fun writeToParcel(out: Parcel, flags: Int) {
-            super.writeToParcel(out, flags)
-            out.writeSparseArray(childrenStates)
-        }
-
-        companion object {
-            val CREATOR: ClassLoaderCreator<SavedState> = object : ClassLoaderCreator<SavedState> {
-
-                override fun createFromParcel(source: Parcel?, loader: ClassLoader?): SavedState {
-                    return SavedState(source, loader)
-                }
-
-                override fun createFromParcel(source: Parcel?): SavedState {
-                    return createFromParcel(source, null)
-                }
-
-                override fun newArray(size: Int): Array<SavedState?> {
-                    return arrayOfNulls(size)
-                }
-            }
-        }
-    }
+//    internal class SavedState : BaseSavedState {
+//        var childrenStates: SparseArray<Parcelable>? = null
+//
+//        constructor(superState: Parcelable?) : super(superState)
+//
+//        private constructor(`in`: Parcel?, classLoader: ClassLoader?) : super(`in`) {
+//            childrenStates = `in`?.readSparseArray(classLoader)
+//        }
+//
+//        override fun writeToParcel(out: Parcel, flags: Int) {
+//            super.writeToParcel(out, flags)
+//            out.writeSparseArray(childrenStates)
+//        }
+//
+//        companion object {
+//            val CREATOR: ClassLoaderCreator<SavedState> = object : ClassLoaderCreator<SavedState> {
+//
+//                override fun createFromParcel(source: Parcel?, loader: ClassLoader?): SavedState {
+//                    return SavedState(source, loader)
+//                }
+//
+//                override fun createFromParcel(source: Parcel?): SavedState {
+//                    return createFromParcel(source, null)
+//                }
+//
+//                override fun newArray(size: Int): Array<SavedState?> {
+//                    return arrayOfNulls(size)
+//                }
+//            }
+//        }
+//    }
 }

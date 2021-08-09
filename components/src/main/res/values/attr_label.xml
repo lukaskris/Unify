@@ -43,6 +43,7 @@
             <enum name="body_3" value="9" />
             <enum name="small" value="10" />
         </attr>
+        <attr name="labelBackgroundColor" format="color"/>
     </declare-styleable>
 
 </resources>

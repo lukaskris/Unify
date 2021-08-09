@@ -1,9 +1,11 @@
 package id.co.app.components.label
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.ScaleDrawable
+import android.graphics.drawable.ShapeDrawable
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
@@ -42,9 +44,10 @@ class LabelProgress : FrameLayout {
             val labelType = typedArray.getInteger(R.styleable.LabelProgress_labelColor,
                 Label.GENERAL_DARK_GREY
             )
+            val labelBackgroundColor = typedArray.getColor(R.styleable.LabelProgress_labelBackgroundColor, ContextCompat.getColor(context, R.color.Unify_N50))
             val typographyType = typedArray.getInteger(R.styleable.LabelProgress_labelTypographyType, 1)
             setTypographyType(typographyType)
-            setLabelType(labelType)
+            setLabelType(labelType, labelBackgroundColor)
             setLabel(labelText, progressNumber)
         } finally {
             typedArray.recycle()
@@ -56,35 +59,40 @@ class LabelProgress : FrameLayout {
         progressBar!!.progress = progress
     }
 
-    fun setLabelType(labelType: Int) {
+    fun setLabelType(labelType: Int, labelBackgroundColor: Int) {
 
         when (labelType) {
             Label.GENERAL_LIGHT_RED -> {
                 setStyle(
+                    labelBackgroundColor,
                     R.color.labelunify_light_red_background,
                     R.color.labelunify_light_red_text
                 )
             }
             Label.GENERAL_LIGHT_GREEN -> {
                 setStyle(
+                    labelBackgroundColor,
                     R.color.labelunify_light_green_background,
                     R.color.labelunify_light_green_text
                 )
             }
             Label.GENERAL_LIGHT_BLUE -> {
                 setStyle(
+                    labelBackgroundColor,
                     R.color.labelunify_light_blue_background,
                     R.color.labelunify_light_blue_text
                 )
             }
             Label.GENERAL_LIGHT_GREY -> {
                 setStyle(
+                    labelBackgroundColor,
                     R.color.labelunify_light_grey_background,
                     R.color.labelunify_light_grey_text
                 )
             }
             Label.GENERAL_LIGHT_ORANGE -> {
                 setStyle(
+                    labelBackgroundColor,
                     R.color.labelunify_light_orange_background,
                     R.color.labelunify_light_orange_text
                 )
@@ -96,7 +104,7 @@ class LabelProgress : FrameLayout {
         tvLabelProgress?.setType(typographyType)
     }
 
-    private fun setStyle(backgroundColor: Int, textColor: Int) {
+    private fun setStyle(labelBackgroundColor: Int, backgroundColor: Int, textColor: Int) {
         tvLabelProgress?.setTextColor(ContextCompat.getColor(context, textColor))
 
         val layerDrawable = ContextCompat.getDrawable(context, R.drawable.label_bg_progressbar) as LayerDrawable
@@ -104,10 +112,13 @@ class LabelProgress : FrameLayout {
 
         customDrawable.setColor(ContextCompat.getColor(context, backgroundColor))
 
+        val shapeDrawable = layerDrawable.findDrawableByLayerId(android.R.id.background) as GradientDrawable
+        shapeDrawable.setColor(labelBackgroundColor)
+
         val scaleDrawable = layerDrawable.findDrawableByLayerId(android.R.id.progress) as ScaleDrawable
         scaleDrawable.drawable = customDrawable
 
-        progressBar?.progressDrawable = scaleDrawable
+        progressBar?.progressDrawable = layerDrawable
     }
 
     private fun getUnitDp(value: Int): Int {

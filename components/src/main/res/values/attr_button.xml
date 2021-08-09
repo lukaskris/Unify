@@ -21,6 +21,7 @@
         <attr name="unifyButtonRightLoader" format="boolean"/>
         <attr name="unifyButtonLoadingText" format="string"/>
         <attr name="unifyButtonLoadingState" format="boolean"/>
+        <attr name="unifyButtonRadius" format="dimension"/>
         <attr name="unifyButtonLeftDrawable" format="reference"/>
         <attr name="unifyButtonRightDrawable" format="reference"/>
         <attr name="unifyButtonColorPrimary" format="color"/>

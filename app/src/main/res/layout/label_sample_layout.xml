@@ -235,6 +235,7 @@
             android:layout_height="wrap_content"
             app:labelColor="general_light_blue"
             app:labelProgress="25"
+            app:labelBackgroundColor="@color/Unify_G500"
             app:labelProgressTitle="Terjual 25%"
             app:labelTypographyType="heading_2"/>
 

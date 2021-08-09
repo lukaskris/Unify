@@ -94,6 +94,7 @@ class UnifyButton : AppCompatTextView {
     private var drawablePosition = DrawablePosition.LEFT
     private var primaryColor: Int = 0
     private var secondaryColor: Int = 0
+    private var rounded = 0f
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
@@ -110,6 +111,7 @@ class UnifyButton : AppCompatTextView {
         buttonVariant = attributeArray.getInt(R.styleable.UnifyButton_unifyButtonVariant, Variant.FILLED)
         buttonType = attributeArray.getInt(R.styleable.UnifyButton_unifyButtonType, Type.MAIN)
         isInverse = attributeArray.getBoolean(R.styleable.UnifyButton_unifyButtonInverse, false)
+        isInverse = attributeArray.getBoolean(R.styleable.UnifyButton_unifyButtonInverse, false)
         loadingText = attributeArray.getString(R.styleable.UnifyButton_unifyButtonLoadingText) ?: ""
         rightLoader =
             attributeArray.getBoolean(R.styleable.UnifyButton_unifyButtonRightLoader, true)
@@ -123,6 +125,7 @@ class UnifyButton : AppCompatTextView {
             R.styleable.UnifyButton_unifyButtonColorPrimary,
             ContextCompat.getColor(context, R.color.Unify_Y500)
         )
+        rounded = attributeArray.getDimension(R.styleable.UnifyButton_unifyButtonRadius, resources.getDimension(R.dimen.button_corner_radius))
 
         attributeArray.getDrawable(R.styleable.UnifyButton_unifyButtonLeftDrawable)?.let {
             setDrawable(it, DrawablePosition.LEFT)
@@ -219,7 +222,7 @@ class UnifyButton : AppCompatTextView {
         }
         val enableFillDrawable = GradientDrawable().apply {
             shape = GradientDrawable.RECTANGLE
-            cornerRadius = resources.getDimension(R.dimen.button_corner_radius)
+            cornerRadius = rounded
             setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), background)
             if (buttonVariant == Variant.GHOST && buttonType == Type.SECONDARY) {
                 setStroke(resources.getDimensionPixelSize(R.dimen.button_stroke_width), secondaryColor)
@@ -228,16 +231,16 @@ class UnifyButton : AppCompatTextView {
         val disableFillDrawable = GradientDrawable().apply {
             shape = GradientDrawable.RECTANGLE
             setColor(ContextCompat.getColor(context, R.color.Unify_NN100))
-            cornerRadius = resources.getDimension(R.dimen.button_corner_radius)
+            cornerRadius = rounded
             setStroke(
                 resources.getDimensionPixelSize(R.dimen.button_stroke_width),
                 ContextCompat.getColor(context, R.color.Unify_NN100)
             )
         }
         disableFillDrawable.cornerRadius =
-            resources.getDimension(if (buttonSize == Size.MICRO) R.dimen.button_corner_radius_micro else R.dimen.button_corner_radius)
+            rounded - resources.getDimension(if (buttonSize == Size.MICRO) R.dimen.spacing_lvl1 else R.dimen.unify_space_0)
         enableFillDrawable.cornerRadius =
-            resources.getDimension(if (buttonSize == Size.MICRO) R.dimen.button_corner_radius_micro else R.dimen.button_corner_radius)
+            rounded - resources.getDimension(if (buttonSize == Size.MICRO) R.dimen.spacing_lvl1 else R.dimen.unify_space_0)
 
         if (isLoading) loadingDrawable = AnimatedVectorDrawableCompat.create(context, R.drawable.unify_loader)!!
         when (buttonVariant) {

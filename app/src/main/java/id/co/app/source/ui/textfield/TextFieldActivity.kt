@@ -105,6 +105,7 @@ class TextFieldActivity : AppCompatActivity() {
             Toast.makeText(this, "Second Icon Clicked", Toast.LENGTH_SHORT).show()
         }
         findViewById<TextFieldUnify>(R.id.input_price).prependText("$")
+        findViewById<TextFieldUnify>(R.id.input_price).prependText("$")
         findViewById<TextFieldUnify>(R.id.input_price).appendText("USD")
 //        thousand separator from https://stackoverflow.com/a/38802287/8624588
         findViewById<TextFieldUnify>(R.id.input_price).editText.addTextChangedListener(object : TextWatcher {
