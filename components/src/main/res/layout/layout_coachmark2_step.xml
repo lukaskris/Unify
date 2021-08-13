@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/step_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_coachmark"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/layout_lvl2"
+        android:paddingRight="8dp"
+        android:layout_marginBottom="@dimen/spacing_lvl4">
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/layout_lvl2"
+            android:layout_marginRight="@dimen/spacing_lvl2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <id.co.app.components.typography.Typography
+                android:id="@+id/step_title"
+                android:layout_marginBottom="@dimen/spacing_lvl3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone"
+                android:textColor="@color/Unify_N0"
+                app:typographyType="heading_5" />
+
+            <id.co.app.components.typography.Typography
+                android:id="@+id/step_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone"
+                android:textColor="@color/Unify_N0"
+                app:typographyType="body_3" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_marginTop="14dp"
+            android:id="@+id/step_ic_close"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:srcCompat="@drawable/ic_coachmark_unify_close" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/layout_lvl2"
+        android:paddingRight="@dimen/layout_lvl2"
+        android:paddingBottom="@dimen/layout_lvl2"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content">
+            <id.co.app.components.typography.Typography
+                android:id="@+id/step_pagination"
+                app:typographyType="body_3"
+                android:text="1 of 4"
+                android:textColor="@color/Unify_N100"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <id.co.app.components.typography.Typography
+                android:id="@+id/step_prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                android:layout_marginRight="@dimen/spacing_lvl5"
+                android:textColor="@color/Unify_G400"
+                app:typographyType="heading_5" />
+
+            <id.co.app.components.typography.Typography
+                android:id="@+id/step_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:textColor="@color/Unify_G400"
+                app:typographyType="heading_5" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

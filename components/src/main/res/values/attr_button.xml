@@ -24,7 +24,7 @@
         <attr name="unifyButtonRadius" format="dimension"/>
         <attr name="unifyButtonLeftDrawable" format="reference"/>
         <attr name="unifyButtonRightDrawable" format="reference"/>
-        <attr name="unifyButtonColorPrimary" format="color"/>
+        <attr name="unifyButtonColorPrimary" format="color|integer"/>
         <attr name="unifyButtonColorSecondary" format="color"/>
     </declare-styleable>
 </resources>
