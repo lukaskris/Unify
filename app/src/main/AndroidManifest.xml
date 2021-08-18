@@ -59,6 +59,10 @@
         <activity
             android:name=".ui.coachmark.CoachMarkActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+
+        <activity
+            android:name=".ui.carousell.CarouselActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
     </application>
 
 </manifest>

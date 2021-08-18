@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".component.CarouselActivity"
+            android:orientation="vertical">
+        <com.tokopedia.unifyprinciples.Typography android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Simple autoplay carousel"
+                android:layout_margin="10dp"
+                app:typographyType="heading_3"/>
+        <com.tokopedia.carousel.CarouselUnify
+                android:id="@+id/carousel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        <com.tokopedia.unifyprinciples.Typography android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SlideToShow 1.3f carousel"
+                android:layout_margin="10dp"
+                app:typographyType="heading_3"/>
+        <com.tokopedia.carousel.CarouselUnify
+                android:id="@+id/carousel2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        <com.tokopedia.unifyprinciples.Typography android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Center mode carousel"
+                android:layout_margin="10dp"
+                app:typographyType="heading_3"/>
+        <com.tokopedia.carousel.CarouselUnify
+                android:id="@+id/carousel3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        <com.tokopedia.unifyprinciples.Typography android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Free scroll carousel"
+                android:layout_margin="10dp"
+                app:typographyType="heading_3"/>
+        <com.tokopedia.carousel.CarouselUnify
+                android:id="@+id/carousel4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        <com.tokopedia.unifyprinciples.Typography android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Slide to scroll 2 carousel"
+                android:layout_margin="10dp"
+                app:typographyType="heading_3"/>
+        <com.tokopedia.carousel.CarouselUnify
+                android:id="@+id/carousel5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        <com.tokopedia.unifyprinciples.Typography android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Infinite Banner"
+                android:layout_margin="10dp"
+                app:typographyType="heading_3"/>
+        <com.tokopedia.carousel.CarouselUnify
+                android:id="@+id/carousel6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        <com.tokopedia.unifyprinciples.Typography android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home Banner"
+                android:layout_margin="16dp"
+                app:typographyType="heading_3"/>
+        <com.tokopedia.carousel.CarouselUnify
+                android:id="@+id/carousel7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        <com.tokopedia.unifyprinciples.Typography android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Test"
+                android:layout_margin="16dp"
+                app:typographyType="heading_3"/>
+    </LinearLayout>
+</ScrollView>

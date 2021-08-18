@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatImageView
@@ -69,14 +70,15 @@ class IconUnify : AppCompatImageView {
 
     private fun init(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int? = null) {
         val defaultColorEnable = ContextCompat.getColor(context, R.color.icon_enable_default_color)
-        val defaultColorDisable = ContextCompat.getColor(context, R.color.icon_disable_default_color)
+        val defaultColorDisable =
+            ContextCompat.getColor(context, R.color.icon_disable_default_color)
 
 
-        if(iconColorLightEnable == 0){
+        if (iconColorLightEnable == 0) {
             iconColorLightEnable = defaultColorEnable
         }
-        
-        if(iconColorLightDisable == 0){
+
+        if (iconColorLightDisable == 0) {
             iconColorLightDisable = defaultColorDisable
         }
 
@@ -128,7 +130,7 @@ class IconUnify : AppCompatImageView {
         updateImage()
     }
 
-    private fun updateImage(){
+    private fun updateImage() {
         /**
          * Check enable state & night mode
          */
@@ -152,7 +154,7 @@ class IconUnify : AppCompatImageView {
             }
 
 
-        iconImg = if(customDrawable != 0){
+        iconImg = if (customDrawable != 0) {
             AppCompatResources.getDrawable(context, customDrawable)
         } else {
             AppCompatResources.getDrawable(context, getResourceRef(iconId))
@@ -163,11 +165,42 @@ class IconUnify : AppCompatImageView {
          * check if icon is listed on excluded list or not
          * if listed then color filter will be ignored
          */
-        if(!isExcluded(iconId)){
+        if (!isExcluded(iconId)) {
             iconImg?.setColorFilter(iconColor, PorterDuff.Mode.SRC_ATOP)
         }
 
         this.setImageDrawable(iconImg)
+    }
+
+    fun setCustomDrawable(
+        @DrawableRes customDrawable: Int? = null,
+        newLightEnable: Int? = null,
+        newLightDisable: Int? = null,
+        newDarkEnable: Int? = null,
+        newDarkDisable: Int? = null
+    ) {
+        if (customDrawable != null) {
+            this.customDrawable = customDrawable
+            iconId = BELL
+        }
+
+        if (newLightEnable != null) {
+            iconColorLightEnable = newLightEnable
+        }
+
+        if (newLightDisable != null) {
+            iconColorLightDisable = newLightDisable
+        }
+
+        if (newDarkEnable != null) {
+            iconColorNightEnable = newDarkEnable
+        }
+
+        if (newDarkDisable != null) {
+            iconColorNightDisable = newDarkDisable
+        }
+
+        updateImage()
     }
 
     fun setImage(

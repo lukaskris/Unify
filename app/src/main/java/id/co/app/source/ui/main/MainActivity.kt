@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.co.app.components.player.CryptoUtil
 import id.co.app.source.databinding.ActivityMainBinding
+import id.co.app.source.ui.carousell.CarouselActivity
 import id.co.app.source.ui.coachmark.CoachMarkActivity
 import id.co.app.source.ui.icon.UnifyIconActivity
 import id.co.app.source.ui.label.LabelActivity
@@ -67,6 +68,7 @@ class MainActivity : AppCompatActivity(), MyRecyclerViewAdapter.ItemClickListene
         menu.add("TextField")
         menu.add("TextArea")
         menu.add("CoachMark")
+        menu.add("Carousell")
 
         val dividerItemDecoration = androidx.recyclerview.widget.DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
         binding.recyclerView.addItemDecoration(dividerItemDecoration)
@@ -83,6 +85,7 @@ class MainActivity : AppCompatActivity(), MyRecyclerViewAdapter.ItemClickListene
                 6 -> Intent(this, TextFieldActivity::class.java)
                 3 -> Intent(this, UnifyIconActivity::class.java)
                 8 -> Intent(this, CoachMarkActivity::class.java)
+                9 -> Intent(this, CarouselActivity::class.java)
                 else -> Intent(this, TypographyActivity::class.java)
             }
         )
