@@ -30,4 +30,10 @@
         <item name="android:windowEnterAnimation">@anim/unify_bottomsheet_show</item>
         <item name="android:windowExitAnimation">@anim/unify_bottomsheet_hide</item>
     </style>
+
+    <style name="SearchBar" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/Unify_N700_68</item>
+        <item name="android:textColorHint">@color/searchbarunify_hint_color</item>
+    </style>
+
 </resources>

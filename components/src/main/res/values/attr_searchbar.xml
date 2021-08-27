@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SearchBarUnify">
+        <attr name="search_bar_placeholder" format="string"/>
+        <attr name="search_bar_clearable" format="boolean"/>
+        <attr name="search_bar_show_icon" format="boolean"/>
+        <attr name="search_bar_url_icon" format="string" />
+        <attr name="search_bar_drawable_icon" format="reference" />
+        <attr name="search_bar_enable" format="boolean" />
+    </declare-styleable>
+</resources>

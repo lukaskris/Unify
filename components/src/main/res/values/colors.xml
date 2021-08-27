@@ -56,6 +56,9 @@
     <color name="pagecontrolunify_select_red">@color/Unify_RN500</color>
     <color name="pagecontrolunify_select_yellow">@color/Unify_YN300</color>
 
+    <!-- SearchBar color -->
+    <color name="searchbarunify_background">#F4F5F7</color>
+    <color name="searchbarunify_hint_color">@color/Unify_N700_20</color>
 
     <!-- Selection Control color -->
     <color name="checkbox_check_color">@color/Unify_NN0</color>

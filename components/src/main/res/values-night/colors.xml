@@ -48,6 +48,9 @@
     <color name="loaderunify_primary">@color/Unify_GN400</color>
     <color name="loaderunify_secondary">@color/Unify_GN700</color>
 
+    <!-- SearchBar color -->
+    <color name="searchbarunify_background">@color/Unify_N75</color>
+    <color name="searchbarunify_hint_color">@color/Unify_N700_32</color>
 
     <!-- ========================= New night color set ============================== -->
 
