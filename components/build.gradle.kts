@@ -38,9 +38,7 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     implementation (AppDependencies.kotlinStdLib)
-    implementation (AppDependencies.material)
-    implementation (AppDependencies.exoPlayer)
-    implementation (AppDependencies.glide)
+    implementation (AppDependencies.androidLibraries)
 }
 
 project.ext{

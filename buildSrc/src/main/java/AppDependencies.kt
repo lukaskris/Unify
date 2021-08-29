@@ -30,6 +30,7 @@ object AppDependencies {
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
 
 
+
     const val exoPlayer = "com.google.android.exoplayer:exoplayer:${Versions.exoPlayer}"
 
     val androidLibraries = arrayListOf<String>().apply {

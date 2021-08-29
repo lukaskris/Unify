@@ -29,6 +29,8 @@ import androidx.annotation.DimenRes
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+import androidx.core.view.ViewCompat
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.BitmapImageViewTarget
 import id.co.app.components.R
@@ -435,4 +437,66 @@ fun View.fade(value: Float, ms: Long) {
 
 fun isUsingNightModeResources(): Boolean {
     return AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
+}
+
+fun View.makeMeasureSpec() {
+    measure(
+        View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
+        View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+    )
+}
+
+inline fun <reified T : ViewGroup.LayoutParams> View.doOnLayoutWithHeight(view: View) {
+    view.makeMeasureSpec()
+    doOnLayoutWithHeight<T>(view.measuredHeight)
+}
+
+inline fun <reified T : ViewGroup.LayoutParams> View.doOnLayoutWithHeight(newMeasuredHeight: Int) {
+    if (layoutParams.height != measuredHeight) {
+        layoutParams = (layoutParams as T).also { lp -> lp.height = newMeasuredHeight }
+    }
+}
+
+fun View.setMargins(
+    leftMarginDp: Int? = null,
+    topMarginDp: Int? = null,
+    rightMarginDp: Int? = null,
+    bottomMarginDp: Int? = null
+) {
+    if (layoutParams is ViewGroup.MarginLayoutParams) {
+        val params = layoutParams as ViewGroup.MarginLayoutParams
+        leftMarginDp?.run { params.leftMargin = this.dpToPx(context) }
+        topMarginDp?.run { params.topMargin = this.dpToPx(context) }
+        rightMarginDp?.run { params.rightMargin = this.dpToPx(context) }
+        bottomMarginDp?.run { params.bottomMargin = this.dpToPx(context) }
+        requestLayout()
+    }
+}
+
+fun Int.dpToPx(context: Context): Int {
+    val metrics = context.resources.displayMetrics
+    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), metrics).toInt()
+}
+
+
+fun ViewPager2.setShowSideItems(pageMarginPx : Int, offsetPx : Int) {
+
+    clipToPadding = false
+    clipChildren = false
+    offscreenPageLimit = 3
+
+    setPageTransformer { page, position ->
+
+        val offset = position * -(2 * offsetPx + pageMarginPx)
+        if (this.orientation == ViewPager2.ORIENTATION_HORIZONTAL) {
+            if (ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_RTL) {
+                page.translationX = -offset
+            } else {
+                page.translationX = offset
+            }
+        } else {
+            page.translationY = offset
+        }
+    }
+
 }
