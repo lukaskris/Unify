@@ -31,6 +31,7 @@ class CarouselActivity : AppCompatActivity() {
             indicatorPosition = CarouselUnify.INDICATOR_BC
             centerMode = true
             infinite = true
+            autoplay = true
             addData(item)
         }
 //        findViewById<CarouselUnify>(R.id.carousel6).apply {

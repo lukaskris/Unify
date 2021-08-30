@@ -52,6 +52,7 @@ abstract class CountDownTimerExt(var mMillisInFuture: Long, var mInterval: Long)
             countDownTimer.cancel()
             remainingTime = mMillisInFuture
             isTimerPaused = true
+            start()
         } else {
             start()
         }
