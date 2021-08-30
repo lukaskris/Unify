@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Chipview">
+        <attr name="chipImageSrc" format="integer" />
+        <attr name="chipText" format="string"/>
+        <attr name="chipImageURL" format="string" />
+        <attr name="chipSize" format="enum">
+            <enum name="small" value="0" />
+            <enum name="medium" value="1" />
+        </attr>
+        <attr name="chipType" format="enum">
+            <enum name="normal" value="0" />
+            <enum name="disabled" value="1" />
+            <enum name="selected" value="2" />
+            <enum name="alternate" value="3" />
+        </attr>
+        <attr name="centerText" format="boolean"/>
+        <attr name="showNewNotification" format="boolean"/>
+    </declare-styleable>
+    <attr name="chipNormalSmall" format="boolean" />
+    <attr name="chipNormalMedium" format="boolean" />
+    <attr name="chipDisabledSmall" format="boolean" />
+    <attr name="chipDisabledMedium" format="boolean" />
+    <attr name="chipAlternateSmall" format="boolean" />
+    <attr name="chipAlternateMedium" format="boolean" />
+    <attr name="chipSelectedSmall" format="boolean" />
+    <attr name="chipSelectedMedium" format="boolean" />
+</resources>

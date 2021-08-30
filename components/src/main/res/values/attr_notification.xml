@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Notification">
+        <attr name="notificationType" format="enum">
+            <enum name="counter_type" value="1" />
+            <enum name="text_type" value="2" />
+            <enum name="none_type" value="3" />
+        </attr>
+        <attr name="notificationColor" format="enum">
+            <enum name="color_primary" value="1"/>
+            <enum name="color_secondary" value="2"/>
+            <enum name="color_text_type" value="3"/>
+        </attr>
+        <attr name="notificationTitle" format="string"/>
+    </declare-styleable>
+</resources>

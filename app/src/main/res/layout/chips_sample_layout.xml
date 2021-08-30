@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/Unify_Background"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <id.co.app.components.chips.ChipUnify
+                android:id="@+id/sample_medium_chip_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:chipImageSrc="@drawable/cricket"
+                app:chipSize="medium"
+                app:chipText="Chip with icon"
+                app:chipType="normal" />
+
+            <id.co.app.components.chips.ChipUnify
+                android:id="@+id/sample_medium_chip_no_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:chipSize="medium"
+                app:chipText="Use this if no-icon"
+                app:chipType="normal" />
+
+            <id.co.app.components.chips.ChipUnify
+                android:id="@+id/sample_medium_chip_alternate"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:chipSize="medium"
+                app:chipText="Fixed size will be automatically ellipsis"
+                app:chipType="alternate" />
+
+            <id.co.app.components.chips.ChipUnify
+                android:id="@+id/sample_medium_chip_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:chipSize="medium"
+                app:chipText="This is ready to use"
+                app:chipType="selected" />
+
+            <id.co.app.components.chips.ChipUnify
+                android:id="@+id/sample_small_chip_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:chipImageSrc="@drawable/png_sample"
+                app:chipSize="small"
+                app:chipText="Small with icon"
+                app:chipType="normal" />
+
+            <id.co.app.components.chips.ChipUnify
+                android:id="@+id/sample_small_chip_no_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:chipSize="small"
+                app:chipText="Small chip no icon"
+                app:chipType="normal" />
+
+            <id.co.app.components.chips.ChipUnify
+                android:id="@+id/sample_small_chip_alternate"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:centerText="true"
+                app:chipSize="small"
+                app:chipText="Fix width, center content"
+                app:chipType="alternate" />
+
+            <id.co.app.components.chips.ChipUnify
+                android:id="@+id/sample_small_chip_selected"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:chipSize="small"
+                app:chipText="This is ready to use"
+                app:chipType="selected" />
+
+            <id.co.app.components.chips.ChipUnify
+                android:id="@+id/sample_medium_chip_disabled"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:chipSize="medium"
+                app:chipText="Disabled content"
+                app:chipType="disabled" />
+
+            <id.co.app.components.chips.ChipUnify
+                android:id="@+id/sample_small_chip_disabled"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:chipSize="small"
+                app:chipText="Center via programmatically"
+                app:chipType="disabled" />
+
+            <id.co.app.components.chips.ChipUnify
+                android:id="@+id/sample_small_chip_chevron_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:chipSize="small"
+                app:chipText="Option"
+                app:chipType="normal" />
+
+            <id.co.app.components.chips.ChipUnify
+                android:id="@+id/sample_chip_unlock_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:chipSize="small"
+                app:chipType="normal" />
+
+            <id.co.app.components.chips.ChipUnify
+                android:id="@+id/sample_chip_with_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:chipSize="small"
+                app:chipText="With color"
+                app:chipType="normal" />
+
+            <id.co.app.components.chips.ChipUnify
+                android:id="@+id/sample_chip_with_new_notif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:chipSize="small"
+                app:chipText="Chips Label"
+                app:chipType="normal"
+                app:showNewNotification="true" />
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

@@ -44,6 +44,23 @@
     <color name="labelunify_light_blue_text">@color/Unify_B500</color>
     <color name="labelunify_light_orange_text">@color/Unify_Y500</color>
 
+    <!-- Chip Unify color -->
+    <color name="chipsunify_border_enable">@color/Unify_N75</color>
+    <color name="chipsunify_border_disabled">@color/Unify_N50</color>
+    <color name="chipsunify_border_selected">@color/Unify_G400</color>
+
+    <color name="chipsunify_background_enable">@color/Unify_N0</color>
+    <color name="chipsunify_background_disabled">@color/Unify_N50</color>
+    <color name="chipsunify_background_selected">@color/Unify_G100</color>
+
+    <color name="chipsunify_text_enable">@color/Unify_N700_68</color>
+    <color name="chipsunify_text_disabled">@color/Unify_N700</color>
+    <color name="chipsunify_text_selected">@color/Unify_G500</color>
+
+    <!-- Notification color -->
+    <color name="notificationunify_text_type_color">@color/Unify_RN600</color>
+    <color name="notificationunify_primary_type_color">@color/Unify_RN600</color>
+    <color name="notificationunify_secondary_type_color">@color/Unify_GN500</color>
 
     <!-- PageControl color -->
     <color name="pagecontrolunify_unselected_color">@color/Unify_NN200</color>

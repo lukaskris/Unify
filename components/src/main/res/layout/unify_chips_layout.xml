@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/chip_container"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/chip_container_padding"
+    android:paddingRight="@dimen/chip_container_padding">
+
+    <LinearLayout
+            android:id="@+id/chip_sub_container"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <id.co.app.components.image.ImageUnify
+            android:id="@+id/chip_image_icon"
+            app:unify_image_corner_radius="4"
+            android:layout_gravity="center_vertical"
+            android:layout_width="@dimen/chip_icon_width"
+            android:layout_height="@dimen/chip_icon_width"/>
+
+        <TextView
+            android:id="@+id/chip_text"
+            android:layout_gravity="center_vertical"
+            android:text="Sample Chip with Icon"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/chipsunify_text_enable"
+            android:textSize="@dimen/chip_text_size"
+            android:textStyle="normal"
+            android:layout_marginLeft="@dimen/chip_content_space"
+            android:layout_marginRight="@dimen/chip_content_space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <id.co.app.components.notification.NotificationUnify
+        android:id="@+id/chip_new_notification"
+        android:visibility="gone"
+        app:notificationTitle="BARU"
+        app:notificationType="text_type"
+        android:layout_gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/chip_right_icon"
+        android:layout_gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

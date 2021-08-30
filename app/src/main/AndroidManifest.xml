@@ -63,6 +63,10 @@
         <activity
             android:name=".ui.carousell.CarouselActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+
+        <activity
+            android:name=".ui.chip.ChipsActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
     </application>
 
 </manifest>
