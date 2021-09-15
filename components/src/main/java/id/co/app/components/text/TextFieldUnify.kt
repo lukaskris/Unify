@@ -31,7 +31,7 @@ import java.lang.reflect.Method
  * App Sinarmas
  * lukas_kristianto@app.co.id
  */
-open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs) {
+class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs){
     /**
      * get wrapper/layout reference of the TextField
      */
@@ -191,7 +191,7 @@ open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(c
     }
 
     init {
-        inflate(context, R.layout.textfield2_layout,this)
+        View.inflate(context, R.layout.textfield2_layout,this)
 
         textInputLayout = findViewById(R.id.text_field_wrapper)
         editText = findViewById(R.id.text_field_input)
@@ -289,7 +289,7 @@ open class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(c
             ) as TextView?
 
         if (isError) {
-            errorBorderTextColor?.let {
+            errorBorderTextColor.let {
                 textInputLayout.setBoxStrokeColorStateList(it)
             }
 

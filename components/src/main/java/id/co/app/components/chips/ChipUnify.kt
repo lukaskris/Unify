@@ -128,15 +128,15 @@ class ChipUnify : LinearLayout {
 
     private fun initializeAttr(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         val attributes =
-            context.theme.obtainStyledAttributes(attrs, R.styleable.Chipview, defStyleAttr, 0)
+            context.theme.obtainStyledAttributes(attrs, R.styleable.ChipUnify, defStyleAttr, 0)
 
         try {
-            chipText = attributes.getString(R.styleable.Chipview_chipText)
-            chipImageResource = attributes.getDrawable(R.styleable.Chipview_chipImageSrc)
-            chipSize = attributes.getString(R.styleable.Chipview_chipSize)
-            chipType = attributes.getString(R.styleable.Chipview_chipType)
-            centerText = attributes.getBoolean(R.styleable.Chipview_centerText, false)
-            showNewNotification = attributes.getBoolean(R.styleable.Chipview_showNewNotification, false)
+            chipText = attributes.getString(R.styleable.ChipUnify_chipText)
+            chipImageResource = attributes.getDrawable(R.styleable.ChipUnify_chipImageSrc)
+            chipSize = attributes.getString(R.styleable.ChipUnify_chipSize)
+            chipType = attributes.getString(R.styleable.ChipUnify_chipType)
+            centerText = attributes.getBoolean(R.styleable.ChipUnify_centerText, false)
+            showNewNotification = attributes.getBoolean(R.styleable.ChipUnify_showNewNotification, false)
 
             displayRemoveIcon()
         } finally {
