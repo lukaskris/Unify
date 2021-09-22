@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/unify_space_2" />
+            <solid android:color="@color/color_accent" />
+            <padding
+                android:bottom="@dimen/unify_space_4"
+                android:left="@dimen/unify_space_8"
+                android:right="@dimen/unify_space_8"
+                android:top="@dimen/unify_space_4" />
+        </shape>
+    </item>
+</layer-list>

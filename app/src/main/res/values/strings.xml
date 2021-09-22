@@ -16,4 +16,5 @@
     <string name="settings" translation_description="The label for the settings menu item">Settings</string>
     <string name="exit_confirm" translation_description="The label for exit app confirmation">Press again to exit</string>
     <string name="exit_application">Exit App</string>
+    <string name="msg_token_fmt">Token: %s</string>
 </resources>

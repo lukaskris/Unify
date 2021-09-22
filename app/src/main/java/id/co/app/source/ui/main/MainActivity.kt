@@ -10,18 +10,23 @@ import android.app.DownloadManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import id.co.app.components.player.CryptoUtil
+import id.co.app.source.R
 import id.co.app.source.databinding.ActivityMainBinding
 import id.co.app.source.ui.carousell.CarouselActivity
 import id.co.app.source.ui.chip.ChipsActivity
 import id.co.app.source.ui.coachmark.CoachMarkActivity
 import id.co.app.source.ui.icon.UnifyIconActivity
 import id.co.app.source.ui.label.LabelActivity
+import id.co.app.source.ui.notify.NotifySampleActivity
 import id.co.app.source.ui.textfield.TextFieldActivity
 import id.co.app.source.ui.typography.TypographyActivity
 import java.io.File
@@ -40,6 +45,7 @@ class MainActivity : AppCompatActivity(), MyRecyclerViewAdapter.ItemClickListene
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         initList()
+        detectToken()
 //        if(!path.exists()) path.mkdir()
 //        val FILE = File(path, "bigbunny.mp4")
 //
@@ -57,6 +63,23 @@ class MainActivity : AppCompatActivity(), MyRecyclerViewAdapter.ItemClickListene
 
     }
 
+    private fun detectToken(){
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w("Unify", "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+            // Log and toast
+            val msg = getString(R.string.msg_token_fmt, token)
+            Log.d("Unify", msg)
+            Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+        })
+    }
+
     private fun initList(){
 
         val menu = ArrayList<String>()
@@ -71,6 +94,7 @@ class MainActivity : AppCompatActivity(), MyRecyclerViewAdapter.ItemClickListene
         menu.add("CoachMark")
         menu.add("Carousel")
         menu.add("Chip Unify")
+        menu.add("Notify")
 
         val dividerItemDecoration = androidx.recyclerview.widget.DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
         binding.recyclerView.addItemDecoration(dividerItemDecoration)
@@ -89,6 +113,7 @@ class MainActivity : AppCompatActivity(), MyRecyclerViewAdapter.ItemClickListene
                 8 -> Intent(this, CoachMarkActivity::class.java)
                 9 -> Intent(this, CarouselActivity::class.java)
                 10 -> Intent(this, ChipsActivity::class.java)
+                11 -> Intent(this, NotifySampleActivity::class.java)
                 else -> Intent(this, TypographyActivity::class.java)
             }
         )

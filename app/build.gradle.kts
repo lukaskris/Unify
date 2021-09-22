@@ -9,6 +9,8 @@ plugins {
     id("kotlin-android")
     id("kotlin-parcelize")
     id("kotlin-kapt")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -63,6 +65,15 @@ android {
             freeCompilerArgs = freeCompilerArgs + "-Xallow-jvm-ir-dependencies"
             freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
             freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.FlowPreview"
+        }
+    }
+
+    splits {
+        abi {
+            isEnable = true
+            reset()
+//            include ("armeabi-v7a")
+            isUniversalApk = true
         }
     }
 }

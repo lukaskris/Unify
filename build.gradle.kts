@@ -11,6 +11,8 @@ buildscript {
         classpath(AppDependencies.androidGradle)
         classpath(AppDependencies.kotlinGradlePlugin)
         classpath(AppDependencies.jfrogExtractor)
+        classpath(AppDependencies.googleGmsService)
+        classpath(AppDependencies.crashlyticsGradlePlugin)
     }
 }
 

@@ -6,7 +6,10 @@ object AppDependencies {
     const val kotlinGradlePlugin =
         "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinVersion}"
     const val jfrogExtractor = "org.jfrog.buildinfo:build-info-extractor-gradle:${Versions.jfrogVersion}"
-
+    const val googleGmsService =
+        "com.google.gms:google-services:${Versions.googleServiceGms}"
+    const val crashlyticsGradlePlugin =
+        "com.google.firebase:firebase-crashlytics-gradle:${Versions.crashlyticsPlugin}"
     //std lib
     const val kotlinStdLib =
         "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlinVersion}"
@@ -29,7 +32,11 @@ object AppDependencies {
     // glide
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
 
-
+    const val bom = "com.google.firebase:firebase-bom:${Versions.bomFirebaseVersion}"
+    private const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx"
+    private const val analytics = "com.google.firebase:firebase-analytics-ktx"
+    private const val config = "com.google.firebase:firebase-config-ktx"
+    private const val messaging = "com.google.firebase:firebase-messaging-ktx"
 
     const val exoPlayer = "com.google.android.exoplayer:exoplayer:${Versions.exoPlayer}"
 
@@ -45,6 +52,11 @@ object AppDependencies {
         add(shimmer)
         add(exoPlayer)
         add(glide)
+        add(bom)
+        add(analytics)
+        add(config)
+        add(messaging)
+        add(crashlytics)
     }
 }
 
@@ -63,7 +75,11 @@ fun DependencyHandler.kapt(list: List<String>) {
 
 fun DependencyHandler.implementation(list: List<String>) {
     list.forEach { dependency ->
-        add("implementation", dependency)
+        if(dependency == AppDependencies.bom) {
+            add("implementation", platform(dependency))
+        } else {
+            add("implementation", dependency)
+        }
     }
 }
 

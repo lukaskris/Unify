@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
 import android.widget.FrameLayout
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
@@ -16,6 +17,7 @@ import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.upstream.DataSource
+import id.co.app.components.R
 
 
 /**
@@ -23,10 +25,8 @@ import com.google.android.exoplayer2.upstream.DataSource
  * App Sinarmas
  * lukas_kristianto@app.co.id
  */
-open class SecureAppPlayer @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : FrameLayout(context, attrs, defStyleAttr), LifecycleObserver {
-    private val exoPlayerView = PlayerView(context)
+class SecureAppPlayer (context: Context, attrs: AttributeSet) : FrameLayout(context, attrs), LifecycleObserver {
+    val exoPlayerView by lazy { PlayerView(context) }
 
     private var player = SimpleExoPlayer.Builder(context).build()
     private var lifecycleOwner: LifecycleOwner? = null
@@ -38,6 +38,7 @@ open class SecureAppPlayer @JvmOverloads constructor(
 
     private fun initPlayer() {
         exoPlayerView.player = player
+        exoPlayerView.defaultArtwork = ContextCompat.getDrawable(context, R.drawable.default_thumbnail_exo)
     }
 
     fun setVideo(uri: Uri, key: String){
