@@ -1,0 +1,264 @@
+package id.co.app.core.utilities
+
+import java.text.SimpleDateFormat
+import java.util.*
+
+
+/**
+ * Created by Lukas Kristianto on 4/27/2021.
+ * App Sinarmas
+ * lukas_kristianto@app.co.id
+ */
+object DateFormatterUtil {
+
+    /**
+     * LOG TAG
+     */
+    private const val LOG_TAG = "DateTimeUtils"
+
+    private const val TIMED_ZONE_PATTERN = "yyyy-MM-dd'T'HH:mm:ssXXX"
+
+    private const val SHORT_FORMAT_PATTERN = "dd/MM"
+    private const val MEDIUM_FORMAT_PATTERN_1 = "dd-MM-yyyy"
+    private const val MEDIUM_FORMAT_PATTERN_2 = "dd MMM yyyy"
+
+    private const val TIME_FORMAT_PATTERN = "dd-MM-yyyy HH:mm:ss"
+    private const val MEDIUM_TIME_FORMAT_PATTERN = "dd-MM-yyyy HH:mm"
+    private const val MEDIUM_TIME_FORMAT_PATTERN_2 = "MMM dd yyyy HH:mm"
+
+    private const val ISO_8601_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    private const val ISO_8601_PATTERN_2 = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+
+    private const val FILE_TIME_PATTERN = "yyyyMMddHHmmss"
+
+    private const val HOUR_FORMAT = "HH:ss"
+
+    private var timeZone = "UTC+7"
+
+
+    /**
+     * Get Date or DateTime formatting pattern
+     *
+     * @param dateString Date String
+     * @return Format Pattern
+     */
+    private fun getDatePattern(dateString: String): String? {
+        return when{
+            isFileTime(dateString) -> FILE_TIME_PATTERN
+            isTimedZone(dateString) -> TIMED_ZONE_PATTERN
+            isISO8601DateTime(dateString) -> if (dateString.contains('.')) ISO_8601_PATTERN else ISO_8601_PATTERN_2
+            isDateTime(dateString) -> if(dateString.count { it == ':' } == 3) TIME_FORMAT_PATTERN else MEDIUM_TIME_FORMAT_PATTERN
+            dateString.contains("/") -> SHORT_FORMAT_PATTERN
+            dateString.contains("-") -> MEDIUM_FORMAT_PATTERN_1
+            else -> MEDIUM_FORMAT_PATTERN_2
+        }
+    }
+
+    /**
+     * Convert a Java Date object to String
+     *
+     * @param date Date Object
+     * @param locale Locale
+     * @return Date Object string representation
+     */
+    fun formatDate(date: Date, locale: Locale = Locale.getDefault()): String? {
+        val iso8601Format = SimpleDateFormat(
+            ISO_8601_PATTERN,
+            locale
+        )
+        iso8601Format.timeZone = TimeZone.getTimeZone(timeZone)
+        return iso8601Format.format(date)
+    }
+
+    /**
+     * Convert String date to another formatted time String
+     *
+     * @param dateString String date time
+     * @param outputFormat output format date
+     * @return String date with new formatted
+     */
+    fun formatDate(dateString: String, outputFormat: FormatType): String{
+        if(dateString.isEmpty()) return ""
+        val pattern = when(outputFormat){
+            FormatType.SHORT_FORMAT -> SHORT_FORMAT_PATTERN
+            FormatType.STANDARD_FORMAT -> MEDIUM_FORMAT_PATTERN_1
+            FormatType.STANDARD_FORMAT_MONTH -> MEDIUM_FORMAT_PATTERN_2
+            FormatType.ISO_8601 -> ISO_8601_PATTERN_2
+            FormatType.FULL_TIME_FORMAT -> TIME_FORMAT_PATTERN
+            FormatType.TIME_FORMAT -> MEDIUM_TIME_FORMAT_PATTERN
+            FormatType.TIME_FORMAT_MONTH -> MEDIUM_TIME_FORMAT_PATTERN_2
+            FormatType.TIMEZONE_FORMAT -> TIMED_ZONE_PATTERN
+            FormatType.FILE_FORMAT -> FILE_TIME_PATTERN
+            FormatType.HOUR_FORMAT -> HOUR_FORMAT
+        }
+        val dateInPattern = getDatePattern(dateString)
+        val simpleDateFormatter = SimpleDateFormat(pattern, Locale.getDefault())
+        val dateInFormatter = SimpleDateFormat(dateInPattern, Locale.getDefault())
+
+        val dateIn = dateInFormatter.parse(dateString)
+        return simpleDateFormatter.format(dateIn)
+    }
+    /**
+     * Convert String date to another formatted time String
+     *
+     * @param dateString String date time
+     * @param outputFormat output format date
+     * @return String date with new formatted
+     */
+    fun toDate(dateString: String): Date{
+        if(dateString.isEmpty()) return Date()
+        val dateInPattern = getDatePattern(dateString)
+        val dateInFormatter = SimpleDateFormat(dateInPattern, Locale.getDefault())
+
+        val dateIn = dateInFormatter.parse(dateString)
+        return dateIn ?: Date()
+    }
+
+    /**
+     * Convert String date to another formatted time String
+     *
+     * @param date date time
+     * @param outputFormat output format date
+     * @return String date with new formatted
+     */
+    fun formatDate(date: Date, outputFormat: FormatType): String{
+        val pattern = when(outputFormat){
+            FormatType.SHORT_FORMAT -> SHORT_FORMAT_PATTERN
+            FormatType.STANDARD_FORMAT -> MEDIUM_FORMAT_PATTERN_1
+            FormatType.STANDARD_FORMAT_MONTH -> MEDIUM_FORMAT_PATTERN_2
+            FormatType.ISO_8601 -> ISO_8601_PATTERN_2
+            FormatType.FULL_TIME_FORMAT -> TIME_FORMAT_PATTERN
+            FormatType.TIME_FORMAT -> MEDIUM_TIME_FORMAT_PATTERN
+            FormatType.TIME_FORMAT_MONTH -> MEDIUM_TIME_FORMAT_PATTERN_2
+            FormatType.TIMEZONE_FORMAT -> TIMED_ZONE_PATTERN
+            FormatType.FILE_FORMAT -> FILE_TIME_PATTERN
+            FormatType.HOUR_FORMAT -> HOUR_FORMAT
+        }
+        val simpleDateFormatter = SimpleDateFormat(pattern, Locale.getDefault())
+
+        return simpleDateFormatter.format(date)
+    }
+
+    fun formatDate(time: Long, outputFormat: FormatType): String{
+        val pattern = when(outputFormat){
+            FormatType.SHORT_FORMAT -> SHORT_FORMAT_PATTERN
+            FormatType.STANDARD_FORMAT -> MEDIUM_FORMAT_PATTERN_1
+            FormatType.STANDARD_FORMAT_MONTH -> MEDIUM_FORMAT_PATTERN_2
+            FormatType.ISO_8601 -> ISO_8601_PATTERN_2
+            FormatType.FULL_TIME_FORMAT -> TIME_FORMAT_PATTERN
+            FormatType.TIME_FORMAT -> MEDIUM_TIME_FORMAT_PATTERN
+            FormatType.TIME_FORMAT_MONTH -> MEDIUM_TIME_FORMAT_PATTERN_2
+            FormatType.TIMEZONE_FORMAT -> TIMED_ZONE_PATTERN
+            FormatType.FILE_FORMAT -> FILE_TIME_PATTERN
+            FormatType.HOUR_FORMAT -> HOUR_FORMAT
+        }
+        val simpleDateFormatter = SimpleDateFormat(pattern, Locale.getDefault())
+
+        return simpleDateFormatter.format(time)
+    }
+
+    fun iso8601Now(): String{
+        val date = Date()
+        val simpleDateFormatter = SimpleDateFormat(ISO_8601_PATTERN_2, Locale.getDefault())
+        return simpleDateFormatter.format(date)
+    }
+
+    fun timestamp(): String{
+        val date = Date()
+        val simpleDateFormatter = SimpleDateFormat(FILE_TIME_PATTERN, Locale.getDefault())
+        return simpleDateFormatter.format(date)
+    }
+
+    /**
+     * Convert String date to different date with now
+     *
+     * @param dateString String date time
+     * @param outputFormat output format date
+     * @return String date with new formatted
+     */
+    fun differentDate(dateString: String): Long{
+        if(dateString.isEmpty()) return 0L
+        val dateInPattern = getDatePattern(dateString)
+        val dateInFormatter = SimpleDateFormat(dateInPattern, Locale.getDefault())
+
+        val dateIn = dateInFormatter.parse(dateString)
+
+        val time = dateIn.time
+        val current = Calendar.getInstance().time
+        val diff = current.time - time
+        return diff / (24 * 60 * 60 * 1000)
+    }
+
+    /**
+     * Convert String date to different date with now
+     *
+     * @param dateString String date time
+     * @param outputFormat output format date
+     * @return return true if date same
+     */
+    fun isDifferentDate(dateString: String): Boolean{
+        if(dateString.isEmpty()) return false
+        val dateInPattern = getDatePattern(dateString)
+        val dateInFormatter = SimpleDateFormat(dateInPattern, Locale.getDefault())
+        val dateNowFormatter = SimpleDateFormat(SHORT_FORMAT_PATTERN, Locale.getDefault())
+        val dateIn = dateInFormatter.parse(dateString)
+        val dateNow = Date()
+
+        val dateNowString = dateNowFormatter.format(dateNow)
+        val dateInString = dateNowFormatter.format(dateIn)
+        return dateNowString != dateInString
+    }
+
+    /**
+     * Tell whether or not a given string represent a date time string or a simple date
+     *
+     * @param dateString Date String
+     * @return True if given string is a date time False otherwise
+     */
+    fun isDateTime(dateString: String): Boolean {
+        return dateString.trim { it <= ' ' }.split(" ").toTypedArray().size > 1
+    }
+
+    /**
+     * Tell whether or not a given string represent a date time timedzone string or a simple date
+     *
+     * @param dateString Date String
+     * @return True if given string is a date time with timedzone False otherwise
+     */
+    fun isTimedZone(dateString: String): Boolean {
+        return dateString.trim().contains("+")
+    }
+
+    /**
+     * Tell whether or not a given string represent a ISO8601 date time string or a simple date
+     *
+     * @param dateString Date String
+     * @return True if given string is a ISO8601 date time False otherwise
+     */
+    fun isISO8601DateTime(dateString: String): Boolean {
+        return dateString.trim().contains("T")
+    }
+
+    /**
+     * Tell whether or not a given string represent a ISO8601 date time string or a simple date
+     *
+     * @param dateString Date String
+     * @return True if given string is a ISO8601 date time False otherwise
+     */
+    fun isFileTime(dateString: String): Boolean {
+        return dateString.trim().length == FILE_TIME_PATTERN.length && !dateString.contains(' ') && !dateString.contains(':') && !dateString.contains('-') && !dateString.contains('/')
+    }
+
+    enum class FormatType {
+        SHORT_FORMAT, // dd/MM
+        STANDARD_FORMAT, // dd-MM-yyyy
+        STANDARD_FORMAT_MONTH, // dd MMM yyyy
+        ISO_8601, // yyyy-MM-dd'T'HH:mm:ss'Z'
+        FULL_TIME_FORMAT, // dd-MM-yyyy HH:mm:ss
+        TIME_FORMAT, // dd-MM-yyyy HH:mm
+        TIME_FORMAT_MONTH, // MMM dd yyyy HH:mm
+        TIMEZONE_FORMAT, // yyyy-MM-dd'T'HH:mm:ssXXX
+        FILE_FORMAT, // yyyyMMddHHmmss
+        HOUR_FORMAT // HH:ss
+    }
+}

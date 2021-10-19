@@ -13,6 +13,7 @@ buildscript {
         classpath(AppDependencies.jfrogExtractor)
         classpath(AppDependencies.googleGmsService)
         classpath(AppDependencies.crashlyticsGradlePlugin)
+        classpath(AppDependencies.hiltGradlePlugin)
     }
 }
 
