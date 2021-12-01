@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EmptyStateUnify">
+        <attr name="emptyStateTitle" format="reference|string" />
+        <attr name="emptyStateDescription" format="reference|string" />
+        <attr name="emptyStateButtonColor" format="color|integer"/>
+        <attr name="emptyStateImageUrl" format="string" />
+        <attr name="emptyStateImageDrawable" format="reference" />
+        <attr name="emptyStatePrimaryCTAText" format="reference|string" />
+        <attr name="emptyStateSecondaryCTAText" format="reference|string" />
+        <attr name="emptyStateOrientation" format="enum">
+            <enum name="vertical" value="1"/>
+            <enum name="horizontal" value="2"/>
+        </attr>
+        <attr name="emptyStateType" format="enum">
+            <enum name="page" value="1"/>
+            <enum name="section" value="2"/>
+        </attr>
+        <attr name="emptyStateCTAFullWidth" format="boolean" />
+    </declare-styleable>
+</resources>

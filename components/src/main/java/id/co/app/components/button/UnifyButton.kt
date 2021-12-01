@@ -168,6 +168,11 @@ class UnifyButton : AppCompatTextView {
         requestLayout()
     }
 
+    fun setPrimaryColor(color: Int){
+        primaryColor = color
+        refresh()
+    }
+
     private fun initButtonPadding() {
         val padding = resources.getDimensionPixelSize(
             if (buttonSize == Size.LARGE || buttonSize == Size.MEDIUM) R.dimen.button_padding_large_and_medium else R.dimen.button_padding_small_and_micro

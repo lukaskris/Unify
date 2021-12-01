@@ -497,32 +497,32 @@ class TextAreaUnify(context: Context, attrs: AttributeSet) : FrameLayout(context
     }
 
     private fun initializeAttr(attributeSet: AttributeSet) {
-        val attributeArray = context.obtainStyledAttributes(attributeSet, R.styleable.TextFieldUnify)
+        val attributeArray = context.obtainStyledAttributes(attributeSet, R.styleable.TextAreaUnify)
 
-        textFieldLabel = attributeArray.getString(R.styleable.TextFieldUnify_unify_text_field_label) ?: ""
-        textFieldMessage = attributeArray.getString(R.styleable.TextFieldUnify_unify_text_field_message) ?: ""
-        textFieldCounter = attributeArray.getInt(R.styleable.TextFieldUnify_unify_text_field_counter, 0)
-        textFieldPrependText = attributeArray.getString(R.styleable.TextFieldUnify_unify_text_field_prepend_text) ?: ""
-        textFieldAppendText = attributeArray.getString(R.styleable.TextFieldUnify_unify_text_field_append_text) ?: ""
+        textFieldLabel = attributeArray.getString(R.styleable.TextAreaUnify_unify_text_area_label) ?: ""
+        textFieldMessage = attributeArray.getString(R.styleable.TextAreaUnify_unify_text_area_message) ?: ""
+        textFieldCounter = attributeArray.getInt(R.styleable.TextAreaUnify_unify_text_area_counter, 0)
+        textFieldPrependText = attributeArray.getString(R.styleable.TextAreaUnify_unify_text_area_prepend_text) ?: ""
+        textFieldAppendText = attributeArray.getString(R.styleable.TextAreaUnify_unify_text_area_append_text) ?: ""
         try {
-            val referencesRes = attributeArray.getResourceId(R.styleable.TextFieldUnify_unify_text_field_append_drawable_icon_1,-1)
+            val referencesRes = attributeArray.getResourceId(R.styleable.TextAreaUnify_unify_text_area_append_drawable_icon_1,-1)
             textFieldAppendDrawableIcon1 = ContextCompat.getDrawable(context,referencesRes)
         } catch(e: Exception){
         }
 
         try{
-            val referencesRes = attributeArray.getResourceId(R.styleable.TextFieldUnify_unify_text_field_append_drawable_icon_2,-1)
+            val referencesRes = attributeArray.getResourceId(R.styleable.TextAreaUnify_unify_text_area_append_drawable_icon_2,-1)
             textFieldAppendDrawableIcon2 = ContextCompat.getDrawable(context,referencesRes)
         } catch(e: Exception){
         }
 
-        textFieldAppendUrlIcon1 = attributeArray.getString(R.styleable.TextFieldUnify_unify_text_field_append_url_icon_1) ?: ""
-        textFieldAppendUrlIcon2 = attributeArray.getString(R.styleable.TextFieldUnify_unify_text_field_append_url_icon_2) ?: ""
-        textFieldType = attributeArray.getInt(R.styleable.TextFieldUnify_unify_text_field_input_type, 0)
-        isLabelStatic = attributeArray.getBoolean(R.styleable.TextFieldUnify_unify_text_field_label_static, false)
-        textFieldPlaceholder =  attributeArray.getString(R.styleable.TextFieldUnify_unify_text_field_placeholder) ?: ""
-        isClearable =  attributeArray.getBoolean(R.styleable.TextFieldUnify_unify_text_field_clearable, false)
-        val colorListXml = context.obtainStyledAttributes(attributeSet, IntArray(2){R.attr.unify_text_field_color_state_stroke})
+        textFieldAppendUrlIcon1 = attributeArray.getString(R.styleable.TextAreaUnify_unify_text_area_append_url_icon_1) ?: ""
+        textFieldAppendUrlIcon2 = attributeArray.getString(R.styleable.TextAreaUnify_unify_text_area_append_url_icon_2) ?: ""
+        textFieldType = attributeArray.getInt(R.styleable.TextAreaUnify_unify_text_area_input_type, 0)
+        isLabelStatic = attributeArray.getBoolean(R.styleable.TextAreaUnify_unify_text_area_label_static, false)
+        textFieldPlaceholder =  attributeArray.getString(R.styleable.TextAreaUnify_unify_text_area_placeholder) ?: ""
+        isClearable =  attributeArray.getBoolean(R.styleable.TextAreaUnify_unify_text_area_clearable, false)
+        val colorListXml = context.obtainStyledAttributes(attributeSet, IntArray(2){R.attr.unify_text_area_color_state_stroke})
         val colorList = colorListXml.getColorStateList(0)
 
         if(colorList != null){
@@ -530,7 +530,7 @@ class TextAreaUnify(context: Context, attrs: AttributeSet) : FrameLayout(context
             standbyBorderColor = colorList
         }
 
-        maxLine = attributeArray.getInteger(R.styleable.TextFieldUnify_unify_text_field_maxline, 3)
+        maxLine = attributeArray.getInteger(R.styleable.TextAreaUnify_unify_text_area_maxline, 3)
 
         colorListXml.recycle()
         attributeArray.recycle()

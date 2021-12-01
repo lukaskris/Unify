@@ -33,15 +33,14 @@ android {
     }
 
     packagingOptions {
-        exclude("META-INF/DEPENDENCIES")
-        exclude("META-INF/LICENSE")
-        exclude("META-INF/LICENSE.txt")
-        exclude("META-INF/license.txt")
-        exclude("META-INF/NOTICE")
-        exclude("META-INF/NOTICE.txt")
-        exclude("META-INF/notice.txt")
-        exclude("META-INF/ASL2.0")
-        exclude("META-INF/*.kotlin_module")
+        resources.excludes.add("META-INF/DEPENDENCIES")
+        resources.excludes.add("META-INF/LICENSE")
+        resources.excludes.add("META-INF/LICENSE.txt")
+        resources.excludes.add("META-INF/license.txt")
+        resources.excludes.add("META-INF/NOTICE")
+        resources.excludes.add("META-INF/NOTICE.txt")
+        resources.excludes.add("META-INF/notice.txt")
+        resources.excludes.add("META-INF/ASL2.0")
     }
 
     buildFeatures {
@@ -50,8 +49,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":querybuilder"))
-    implementation(project(":components"))
+    api(project(":components"))
     implementation(AppDependencies.androidLibraries)
     implementation(AppDependencies.dependencyInjectionLibraries)
     implementation(AppDependencies.networkLibraries)

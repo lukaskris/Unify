@@ -80,6 +80,9 @@
         <activity
             android:name=".ui.notify.NotifySampleActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+        <activity
+            android:name=".ui.emptystate.EmptyStateActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
     </application>
 
 </manifest>

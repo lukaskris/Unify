@@ -104,6 +104,13 @@
     <!-- textfield -->
     <dimen name="textfield2_text_size">14sp</dimen>
 
+    <!--  Empty state  -->
+    <dimen name="emptystate_title_margin_top">16dp</dimen>
+    <dimen name="emptystate_title_padding_bottom">7dp</dimen>
+    <dimen name="emptystate_button_width">300dp</dimen>
+    <dimen name="emptystate_primary_cta_margin_top">20dp</dimen>
+    <dimen name="emptystate_secondary_cta_margin_top">6dp</dimen>
+
 
     <dimen name="button_vertical_margin">16dp</dimen>
 

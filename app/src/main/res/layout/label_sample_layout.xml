@@ -93,7 +93,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
         <id.co.app.components.label.Label
             android:id="@+id/label_sample_programatically"
             android:layout_width="match_parent"

@@ -24,6 +24,7 @@ import id.co.app.source.databinding.ActivityMainBinding
 import id.co.app.source.ui.carousell.CarouselActivity
 import id.co.app.source.ui.chip.ChipsActivity
 import id.co.app.source.ui.coachmark.CoachMarkActivity
+import id.co.app.source.ui.emptystate.EmptyStateActivity
 import id.co.app.source.ui.icon.UnifyIconActivity
 import id.co.app.source.ui.label.LabelActivity
 import id.co.app.source.ui.notify.NotifySampleActivity
@@ -87,7 +88,7 @@ class MainActivity : AppCompatActivity(), MyRecyclerViewAdapter.ItemClickListene
         menu.add("Button")
         menu.add("Label")
         menu.add("Unify Icon")
-        menu.add("Timer New")
+        menu.add("Empty State")
         menu.add("Loader Dialog")
         menu.add("TextField")
         menu.add("TextArea")
@@ -108,12 +109,14 @@ class MainActivity : AppCompatActivity(), MyRecyclerViewAdapter.ItemClickListene
             when(position){
                 0 -> Intent(this, TypographyActivity::class.java)
                 2 -> Intent(this, LabelActivity::class.java)
-                6 -> Intent(this, TextFieldActivity::class.java)
                 3 -> Intent(this, UnifyIconActivity::class.java)
+                4 -> Intent(this, EmptyStateActivity::class.java)
+                6 -> Intent(this, TextFieldActivity::class.java)
                 8 -> Intent(this, CoachMarkActivity::class.java)
                 9 -> Intent(this, CarouselActivity::class.java)
                 10 -> Intent(this, ChipsActivity::class.java)
                 11 -> Intent(this, NotifySampleActivity::class.java)
+                12 -> Intent(this, EmptyStateActivity::class.java)
                 else -> Intent(this, TypographyActivity::class.java)
             }
         )

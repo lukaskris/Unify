@@ -19,9 +19,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import id.co.app.core.R
 import es.dmoral.toasty.Toasty
 import id.co.app.components.text.TextFieldUnify
+import id.co.app.core.R
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.util.*

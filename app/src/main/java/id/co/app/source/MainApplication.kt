@@ -7,5 +7,10 @@
 package id.co.app.source
 
 import androidx.multidex.MultiDexApplication
+import id.co.app.retrofiturlhandler.RetrofitUrlHandler
 
-class MainApplication : MultiDexApplication()
+class MainApplication : MultiDexApplication(){
+    override fun onCreate() {
+        super.onCreate()
+    }
+}

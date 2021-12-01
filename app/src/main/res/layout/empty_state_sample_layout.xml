@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Empty State Vertical Default"
+                app:typographyType="heading_2" />
+
+            <id.co.app.components.emptystate.EmptyStateUnify
+                android:id="@+id/emptyStateID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:emptyStateDescription="Type your information about the hint in a compact way, don’t take it to long.
+Maximum 3 lines."
+                app:emptyStateImageDrawable="@drawable/ic_empty_result"
+                app:emptyStateOrientation="vertical"
+                app:emptyStatePrimaryCTAText="Primary CTA"
+                app:emptyStateTitle="Title"
+                app:emptyStateType="page" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Empty State Vertical Alt"
+                app:typographyType="heading_2" />
+
+            <id.co.app.components.emptystate.EmptyStateUnify
+                android:id="@+id/emptyState3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:emptyStateCTAFullWidth="true"
+                app:emptyStateDescription="Type your information about the hint in a compact way, don’t take it to long.
+Maximum 3 lines."
+                app:emptyStateImageDrawable="@drawable/png_sample"
+                app:emptyStateOrientation="vertical"
+                app:emptyStatePrimaryCTAText="Primary CTA"
+                app:emptyStateTitle="Title Goes Here"
+                app:emptyStateType="page" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Empty State Vertical Alt 2 Button"
+                app:typographyType="heading_2" />
+
+            <id.co.app.components.emptystate.EmptyStateUnify
+                android:id="@+id/emptyState4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:emptyStateCTAFullWidth="true"
+                app:emptyStateDescription="Type your information about the hint in a compact way, don’t take it to long.
+Maximum 3 lines."
+                app:emptyStateImageDrawable="@drawable/ic_empty_result"
+                app:emptyStateOrientation="vertical"
+                app:emptyStatePrimaryCTAText="Primary CTA"
+                app:emptyStateSecondaryCTAText="Secondary CTA"
+                app:emptyStateTitle="Title Goes Here"
+                app:emptyStateType="page" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Empty State Horizontal Default"
+                app:typographyType="heading_2" />
+
+            <id.co.app.components.emptystate.EmptyStateUnify
+                android:id="@+id/emptyState5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:emptyStateDescription="Type your information about the hint in a compact way, don’t take it to long.
+Maximum 3 lines."
+                app:emptyStateImageDrawable="@drawable/ic_empty_result"
+                app:emptyStateOrientation="horizontal"
+                app:emptyStatePrimaryCTAText="Primary CTA"
+                app:emptyStateTitle="Title Goes Here"
+                app:emptyStateType="section" />
+
+            <id.co.app.components.typography.Typography
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Empty State Horizontal 2 Button"
+                app:typographyType="heading_2" />
+
+            <id.co.app.components.emptystate.EmptyStateUnify
+                android:id="@+id/emptyState2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:emptyStateDescription="Type your information about the hint in a compact way, don’t take it to long.
+Maximum 3 lines."
+                app:emptyStateImageDrawable="@drawable/ic_empty_result"
+                app:emptyStateOrientation="horizontal"
+                app:emptyStatePrimaryCTAText="Primary CTA"
+                app:emptyStateSecondaryCTAText="Secondary CTA"
+                app:emptyStateTitle="Title Goes Here"
+                app:emptyStateType="section" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

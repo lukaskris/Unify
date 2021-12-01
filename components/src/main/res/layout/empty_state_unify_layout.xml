@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             tools:context=".EmptyStateUnify">
+
+
+    <LinearLayout
+            android:id="@+id/empty_state_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+                android:id="@+id/empty_state_content_container_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:weightSum="12">
+
+            <ImageView
+                    android:id="@+id/empty_state_image_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5.5"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY" />
+
+            <LinearLayout
+                    android:id="@+id/empty_state_text_container_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="6.5"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingLeft="0dp">
+
+                <id.co.app.components.typography.Typography
+                        android:id="@+id/empty_state_title_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/emptystate_title_margin_top"
+                        android:paddingBottom="@dimen/emptystate_title_padding_bottom"
+                        app:typographyType="heading_2"/>
+
+                <id.co.app.components.typography.Typography
+                        android:id="@+id/empty_state_description_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        app:typographyType="body_2"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/empty_state_cta_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+            <id.co.app.components.button.UnifyButton
+                    android:id="@+id/empty_state_cta_id"
+                    android:layout_width="@dimen/emptystate_button_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/emptystate_primary_cta_margin_top"
+                    android:clickable="true"
+                    app:unifyButtonSize="large"
+                    app:unifyButtonType="main"
+                    app:unifyButtonVariant="filled" />
+
+            <id.co.app.components.button.UnifyButton
+                    android:id="@+id/empty_state_secondary_cta_id"
+                    android:layout_width="@dimen/emptystate_button_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/emptystate_secondary_cta_margin_top"
+                    android:clickable="true"
+                    app:unifyButtonSize="medium"
+                    app:unifyButtonVariant="text" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

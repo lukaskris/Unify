@@ -32,7 +32,9 @@ object AppDependencies {
     private const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
 
     // glide
-    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+
+    private const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    private const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
 
     const val bom = "com.google.firebase:firebase-bom:${Versions.bomFirebaseVersion}"
     private const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx"
@@ -122,6 +124,7 @@ object AppDependencies {
         add(hiltCompiler)
         add(hiltCompilerAndroidX)
         add(roomCompiler)
+        add(glideCompiler)
         add(moshiCodegen)
         add(hiltAssistedInjectProcessor)
     }

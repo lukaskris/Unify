@@ -41,7 +41,7 @@
             app:unify_text_field_counter="15"
             app:unify_text_field_append_drawable_icon_1="@drawable/sample_drawable" />
 
-        <id.co.app.components.text.TextFieldUnify
+        <id.co.app.components.text.TextAreaUnify
             android:id="@+id/input_age"
             android:layout_margin="16dp"
             android:layout_width="match_parent"

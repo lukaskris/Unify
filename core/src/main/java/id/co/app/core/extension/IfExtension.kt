@@ -257,6 +257,17 @@ inline fun <T> T?.whatIfNotNull(
     )
 }
 
+@JvmSynthetic
+inline fun <T> T?.whatIfNull(
+    whatIf: () -> Unit
+): T? {
+
+    return this.whatIfNotNull(
+        whatIf = { },
+        whatIfNot = whatIf
+    )
+}
+
 /**
  * An expression for invoking [whatIf] when the [T] target object is not null.
  * If the [T] target is null, [whatIfNot] will be invoked instead of the [whatIf].
