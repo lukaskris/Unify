@@ -162,6 +162,47 @@ object DateFormatterUtil {
             ""
         }
     }
+    /**
+     * Convert String date and add with n day to another formatted time String
+     *
+     * @param dateString String date time
+     * @param outputFormat output format date
+     * @return String date with new formatted
+     */
+    fun minusOneYear(dateString: String, outputFormat: FormatType): String {
+        return try {
+            if (dateString.isEmpty()) return ""
+            val pattern = when (outputFormat) {
+                FormatType.SHORT_FORMAT -> SHORT_FORMAT_PATTERN
+                FormatType.SHORT_FORMAT_MONTH -> SHORT_FORMAT_PATTERN_MONTH
+                FormatType.STANDARD_FORMAT -> MEDIUM_FORMAT_PATTERN_1
+                FormatType.STANDARD_FORMAT_MONTH -> MEDIUM_FORMAT_PATTERN_2
+                FormatType.ISO_8601 -> ISO_8601_PATTERN_2
+                FormatType.FULL_TIME_FORMAT -> TIME_FORMAT_PATTERN
+                FormatType.TIME_FORMAT -> MEDIUM_TIME_FORMAT_PATTERN
+                FormatType.TIME_FORMAT_MONTH -> MEDIUM_TIME_FORMAT_PATTERN_2
+                FormatType.TIMEZONE_FORMAT -> TIMED_ZONE_PATTERN
+                FormatType.FILE_FORMAT -> FILE_TIME_PATTERN
+                FormatType.CONFIRM_DATE_FORMAT -> FORMAT_CONFIRMATION_DATE
+                FormatType.HOUR_FORMAT -> HOUR_FORMAT
+                FormatType.STANDARD_FORMAT_YEAR -> MEDIUM_FORMAT_PATTERN_3
+            }
+            val dateInPattern = getDatePattern(dateString)
+            val simpleDateFormatter = SimpleDateFormat(pattern, Locale.getDefault())
+            val dateInFormatter = SimpleDateFormat(dateInPattern, Locale.getDefault())
+            simpleDateFormatter.timeZone = Calendar.getInstance().timeZone
+//            simpleDateFormatter.timeZone = TimeZone.getTimeZone("Asia/Bangkok")
+
+            val dateIn = dateInFormatter.parse(dateString)
+            val c = Calendar.getInstance()
+            c.time = dateIn
+            c.add(Calendar.YEAR, -1)
+
+            simpleDateFormatter.format(c.time)
+        } catch (ex: Exception) {
+            ""
+        }
+    }
 
 
     /**

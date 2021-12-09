@@ -8,12 +8,15 @@ import id.co.app.core.base.adapterdelegate.DelegateAdapterItem
  * App Sinarmas
  * lukas_kristianto@app.co.id
  */
-class EmptyItemModel : DelegateAdapterItem {
-	override fun id(): Any = EMPTY_ITEM_MODEL
+class EmptyItemModel(
+    val title: String = "Tidak ada data tersedia",
+    val subtitle: String = ""
+) : DelegateAdapterItem {
+    override fun id(): Any = EMPTY_ITEM_MODEL
 
-	override fun content(): Any = EMPTY_ITEM_MODEL
+    override fun content(): Any = title + subtitle
 
-	companion object {
-		private const val EMPTY_ITEM_MODEL = "EmptyItemModel"
-	}
+    companion object {
+        private const val EMPTY_ITEM_MODEL = "EmptyItemModel"
+    }
 }

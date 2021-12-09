@@ -39,9 +39,12 @@ class EmptyItemAdapter(
 	}
 
 	inner class EmptyItemViewHolder(
-		binding: ItemEmptyResultBinding
+		private val binding: ItemEmptyResultBinding
 	) : RecyclerView.ViewHolder(binding.root) {
 		fun bind(model: EmptyItemModel) {
+			binding.model = model
+			binding.emptyState.setTitle(model.title)
+			binding.emptyState.setDescription(model.subtitle)
 		}
 	}
 }
