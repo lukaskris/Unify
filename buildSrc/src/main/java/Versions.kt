@@ -3,7 +3,7 @@ object Versions {
 
 	//app level
 	const val kotlinVersion = "1.5.21"
-	const val androidGradleVersion = "7.0.0"
+	const val androidGradleVersion = "7.0.4"
 	const val jfrogVersion = "4.24.10"
 	const val googleServiceGms = "4.3.8"
 	const val crashlyticsPlugin = "2.7.1"
@@ -51,6 +51,16 @@ object Versions {
 	const val hiltCompilerVersion = "1.0.0"
 	const val hiltAssistedVersion = "0.8.1"
 
+	// test
+	const val junit = "4.12"
+	const val mockk = "1.11.0"
+	const val extJunit = "1.1.1"
+	const val espresso = "3.2.0"
+	const val turbine = "0.4.1"
+
+	// instrument test
+	const val truthVersion = "1.1.2"
+	const val archCoreVersion = "2.1.0"
 
 	// chucker
 	const val chucker = "3.5.2"

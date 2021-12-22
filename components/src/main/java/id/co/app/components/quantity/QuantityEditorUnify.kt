@@ -277,12 +277,11 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
         val cleanSource = source.toString().replace(".", "")
 
         val formatter = DecimalFormat("###,###")
-        var formattedSource: String
-        try {
-            formattedSource = formatter.format(cleanSource.toInt())
+        val formattedSource: String = try {
+            formatter.format(cleanSource.toInt())
         } catch (e: Exception) {
             Log.e("Unify", "QuantityEditorUnify Int size over")
-            formattedSource = formatter.format(maxValue)
+            formatter.format(maxValue)
         }
 
         return formattedSource.replace(",", ".")

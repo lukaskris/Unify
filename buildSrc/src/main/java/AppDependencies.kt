@@ -120,6 +120,18 @@ object AppDependencies {
 
     private const val commonIO = "commons-io:commons-io:${Versions.commonIoVersion}"
 
+
+    // test libs
+    private const val junit = "junit:junit:${Versions.junit}"
+    private const val mockk = "io.mockk:mockk:${Versions.mockk}"
+    private const val turbine = "app.cash.turbine:turbine:${Versions.turbine}"
+    private const val extJUnit = "androidx.test.ext:junit:${Versions.extJunit}"
+
+    // instrument test libs
+    private const val truth = "com.google.truth:truth:${Versions.truthVersion}"
+    private const val archCoreTesting =
+        "androidx.arch.core:core-testing:${Versions.archCoreVersion}"
+
     val kaptLibraries = arrayListOf<String>().apply {
         add(hiltCompiler)
         add(hiltCompilerAndroidX)
@@ -184,6 +196,12 @@ object AppDependencies {
     val cameraXLibraries = arrayListOf(
         cameraXCore, cameraX, cameraXView, cameraXLifecycle, cameraXExtension
     )
+    val testLibraries = arrayListOf<String>().apply {
+        add(junit)
+        add(mockk)
+        add(truth)
+        add(archCoreTesting)
+    }
 
 }
 

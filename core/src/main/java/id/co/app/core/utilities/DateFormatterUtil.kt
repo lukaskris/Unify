@@ -19,6 +19,7 @@ object DateFormatterUtil {
     private const val LOG_TAG = "DateTimeUtils"
 
     private const val TIMED_ZONE_PATTERN = "yyyy-MM-dd'T'HH:mm:ssXXX"
+    private const val TIMED_ZONE_2_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
 
     private const val SHORT_FORMAT_PATTERN = "dd/MM"
     private const val SHORT_FORMAT_PATTERN_MONTH = "dd MMM"
@@ -49,7 +50,7 @@ object DateFormatterUtil {
     private fun getDatePattern(dateString: String): String? {
         return when {
             isFileTime(dateString) -> FILE_TIME_PATTERN
-            isTimedZone(dateString) -> TIMED_ZONE_PATTERN
+            isTimedZone(dateString) -> if(dateString.contains(".")) TIMED_ZONE_2_PATTERN else TIMED_ZONE_PATTERN
             isISO8601DateTime(dateString) -> if (dateString.contains('.')) ISO_8601_PATTERN else ISO_8601_PATTERN_2
             isDateTime(dateString) -> if (dateString.count { it == ':' } == 3) TIME_FORMAT_PATTERN else MEDIUM_TIME_FORMAT_PATTERN
             dateString.contains("/") -> SHORT_FORMAT_PATTERN
@@ -107,6 +108,7 @@ object DateFormatterUtil {
                 FormatType.CONFIRM_DATE_FORMAT -> FORMAT_CONFIRMATION_DATE
                 FormatType.HOUR_FORMAT -> HOUR_FORMAT
                 FormatType.STANDARD_FORMAT_YEAR -> MEDIUM_FORMAT_PATTERN_3
+                FormatType.TIMEZONE_2_FORMAT -> TIMED_ZONE_2_PATTERN
             }
             val dateInPattern = getDatePattern(dateString)
             val simpleDateFormatter = SimpleDateFormat(pattern, Locale.getDefault())
@@ -145,6 +147,7 @@ object DateFormatterUtil {
                 FormatType.CONFIRM_DATE_FORMAT -> FORMAT_CONFIRMATION_DATE
                 FormatType.HOUR_FORMAT -> HOUR_FORMAT
                 FormatType.STANDARD_FORMAT_YEAR -> MEDIUM_FORMAT_PATTERN_3
+                FormatType.TIMEZONE_2_FORMAT -> TIMED_ZONE_2_PATTERN
             }
             val dateInPattern = getDatePattern(dateString)
             val simpleDateFormatter = SimpleDateFormat(pattern, Locale.getDefault())
@@ -186,6 +189,7 @@ object DateFormatterUtil {
                 FormatType.CONFIRM_DATE_FORMAT -> FORMAT_CONFIRMATION_DATE
                 FormatType.HOUR_FORMAT -> HOUR_FORMAT
                 FormatType.STANDARD_FORMAT_YEAR -> MEDIUM_FORMAT_PATTERN_3
+                FormatType.TIMEZONE_2_FORMAT -> TIMED_ZONE_2_PATTERN
             }
             val dateInPattern = getDatePattern(dateString)
             val simpleDateFormatter = SimpleDateFormat(pattern, Locale.getDefault())
@@ -248,6 +252,7 @@ object DateFormatterUtil {
                 FormatType.CONFIRM_DATE_FORMAT -> FORMAT_CONFIRMATION_DATE
                 FormatType.HOUR_FORMAT -> HOUR_FORMAT
                 FormatType.STANDARD_FORMAT_YEAR -> MEDIUM_FORMAT_PATTERN_3
+                FormatType.TIMEZONE_2_FORMAT -> TIMED_ZONE_2_PATTERN
             }
             val simpleDateFormatter = SimpleDateFormat(pattern, Locale.getDefault())
             simpleDateFormatter.timeZone = Calendar.getInstance().timeZone
@@ -273,6 +278,7 @@ object DateFormatterUtil {
             FormatType.CONFIRM_DATE_FORMAT -> FORMAT_CONFIRMATION_DATE
             FormatType.HOUR_FORMAT -> HOUR_FORMAT
             FormatType.STANDARD_FORMAT_YEAR -> MEDIUM_FORMAT_PATTERN_3
+            FormatType.TIMEZONE_2_FORMAT -> TIMED_ZONE_2_PATTERN
         }
         val simpleDateFormatter = SimpleDateFormat(pattern, Locale.getDefault())
 
@@ -383,6 +389,7 @@ object DateFormatterUtil {
         TIME_FORMAT, // dd-MM-yyyy HH:mm
         TIME_FORMAT_MONTH, // dd MMM yyyy HH:mm
         TIMEZONE_FORMAT, // yyyy-MM-dd'T'HH:mm:ssXXX
+        TIMEZONE_2_FORMAT, // yyyy-MM-dd'T'HH:mm:ss.SSXXX
         FILE_FORMAT, // yyyyMMddHHmmss
         CONFIRM_DATE_FORMAT, // MMddYYYYHHmmss
         HOUR_FORMAT // HH:ss

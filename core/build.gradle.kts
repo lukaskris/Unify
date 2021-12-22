@@ -25,7 +25,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
     lintOptions {
@@ -64,6 +64,8 @@ dependencies {
 
     compileOnly(AppDependencies.hiltAssistedInject)
     kapt(AppDependencies.kaptLibraries)
+
+    testImplementation(AppDependencies.testLibraries)
 
 }
 
