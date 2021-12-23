@@ -6,7 +6,7 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
-import android.view.inputmethod.InputMethodManager
+import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -123,6 +123,14 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
             addListener()
         }
 
+        editText.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                //Clear focus here from edittext
+                editText.clearFocus()
+            }
+            false
+        }
+
         subtractButton.setOnClickListener {
             editText.clearFocus()
             var tempValue = getEditTextVal()
@@ -148,33 +156,24 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
             subtractListener()
         }
 
-        editText.setOnFocusChangeListener { _, hasFocus ->
-            val isOver: Int?
-            val tempValue = getEditTextVal()
-
-            if (!hasFocus) {
-                isOver = checkOver(tempValue)
-
-                if (autoHideKeyboard) {
-                    val input =
-                        context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                    input.hideSoftInputFromWindow(editText.windowToken, 0)
-                }
-
-                if (::textChangeListener.isInitialized && tempValue != newValue) textChangeListener(
-                    newValue,
-                    oldValue,
-                    isOver
-                )
-            }
-        }
-
         editText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
+                val tempValue = getEditTextVal()
                 editText.removeTextChangedListener(this)
 
                 editText.setText(applyFormat(editText.text))
                 editText.setSelection(editText.text.length)
+
+                oldValue = newValue
+                newValue = tempValue
+
+                if (tempValue >= maxValue) {
+                    addButton.isEnabled = false
+                }
+
+                subtractButton.isEnabled = true
+
+                if (::textChangeListener.isInitialized) textChangeListener(newValue, oldValue, null)
 
                 editText.addTextChangedListener(this)
             }
@@ -290,9 +289,9 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
     private fun getEditTextVal(): Int {
         val tempStorageText = editText.text.toString().replace(".", "")
 
-        return if(tempStorageText.isNullOrEmpty()){
+        return if (tempStorageText.isNullOrEmpty()) {
             newValue
-        }else{
+        } else {
             tempStorageText.toInt()
         }
     }
