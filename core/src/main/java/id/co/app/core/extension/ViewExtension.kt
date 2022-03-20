@@ -82,6 +82,11 @@ fun Activity.closeKeyboard(view: View) {
 	)
 }
 
+fun Context.closeKeyboard(view: View) {
+	val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+	inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+}
+
 fun View.show() {
 	visibility = View.VISIBLE
 }
@@ -121,6 +126,24 @@ fun TextFieldUnify.addDoneButton(activity: Activity){
 			when (keyCode) {
 				KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER -> {
 					activity.closeKeyboard(this)
+					return@setOnKeyListener true
+				}
+				else -> {
+					return@setOnKeyListener false
+				}
+			}
+		} else {
+			return@setOnKeyListener false
+		}
+	}
+}
+
+fun TextFieldUnify.addDoneButton(){
+	editText.setOnKeyListener { _, keyCode, event ->
+		if (event.action == KeyEvent.ACTION_DOWN) {
+			when (keyCode) {
+				KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER -> {
+					context?.closeKeyboard(this)
 					return@setOnKeyListener true
 				}
 				else -> {

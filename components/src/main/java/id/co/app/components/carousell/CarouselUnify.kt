@@ -2,7 +2,6 @@ package id.co.app.components.carousell
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
@@ -29,7 +28,7 @@ import id.co.app.components.utils.toPx
 class CarouselUnify(context: Context, attributeSet: AttributeSet) :
     LinearLayout(context, attributeSet) {
     private val carouselAdapter by lazy { CarouselAdapter() }
-    private val viewPager by lazy {
+    val viewPager by lazy {
         ViewPager2(context, attributeSet).apply {
             orientation = ORIENTATION_HORIZONTAL
             layoutParams = ViewGroup.LayoutParams(
@@ -167,11 +166,11 @@ class CarouselUnify(context: Context, attributeSet: AttributeSet) :
                 list[list.size - 2],
                 list.last()
             ) else listOf(list.last())) +
-            list +
-            (if (centerMode && list.size > 1) listOf(
-                list.first(),
-                list[1],
-            ) else listOf(list.first()))
+                    list +
+                    (if (centerMode && list.size > 1) listOf(
+                        list.first(),
+                        list[1],
+                    ) else listOf(list.first()))
         } else list
         carouselAdapter.submitList(newList)
 
@@ -190,9 +189,9 @@ class CarouselUnify(context: Context, attributeSet: AttributeSet) :
                 val layoutManager = (recyclerView.layoutManager as LinearLayoutManager)
                 val firstItemVisible = layoutManager.findFirstVisibleItemPosition()
                 val lastItemVisible = layoutManager.findLastVisibleItemPosition()
-                Log.d("Lukas", "First Item: $firstItemVisible | dx: $dx")
-                Log.d("Lukas", "Last Item: $lastItemVisible | dx: $dx")
-                if(!centerMode) {
+//                Log.d("Lukas", "First Item: $firstItemVisible | dx: $dx")
+//                Log.d("Lukas", "Last Item: $lastItemVisible | dx: $dx")
+                if (!centerMode) {
                     if (firstItemVisible == newList.size - 1 && dx > 0) {
                         recyclerView.scrollToPosition(1)
                     } else if (lastItemVisible == 0 && dx < 0) {

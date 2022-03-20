@@ -14,7 +14,7 @@ object AppDependencies {
         "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltVersion}"
     //std lib
     const val kotlinStdLib =
-        "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlinVersion}"
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlinVersion}"
 
     //android ui
     const val material = "com.google.android.material:material:${Versions.material}"
@@ -137,8 +137,11 @@ object AppDependencies {
         add(hiltCompilerAndroidX)
         add(roomCompiler)
         add(glideCompiler)
-        add(moshiCodegen)
         add(hiltAssistedInjectProcessor)
+    }
+
+    val kspLibraries = arrayListOf<String>().apply {
+        add(moshiCodegen)
     }
 
     val dependencyInjectionLibraries = arrayListOf<String>().apply {
@@ -215,6 +218,12 @@ fun DependencyHandler.classpathPlugin(list: List<String>){
 fun DependencyHandler.kapt(list: List<String>) {
     list.forEach { dependency ->
         add("kapt", dependency)
+    }
+}
+
+fun DependencyHandler.ksp(list: List<String>) {
+    list.forEach { dependency ->
+        add("ksp", dependency)
     }
 }
 

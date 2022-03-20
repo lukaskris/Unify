@@ -32,28 +32,28 @@ fun ImageView.loadImage(resource: Int) =
 
 fun ImageView.loadImage(uri: Uri) = this.setImageURI(uri)
 
-inline fun ImageView.loadImage(
+fun ImageView.loadImage(
     url: String?,
-    crossinline properties: Properties.() -> Unit = {}
+    properties: Properties.() -> Unit = {}
 ) = call(url, Properties().apply(properties))
 
-inline fun ImageView.loadImageFitCenter(
+fun ImageView.loadImageFitCenter(
     url: String?,
-    crossinline properties: Properties.() -> Unit = {}
+    properties: Properties.() -> Unit = {}
 ) = call(url, Properties().apply(properties).fitCenter())
 
-inline fun ImageView.loadImageWithoutPlaceholder(
+fun ImageView.loadImageWithoutPlaceholder(
     url: String?,
-    crossinline properties: Properties.() -> Unit = {}
+    properties: Properties.() -> Unit = {}
 ) = call(
     url, Properties()
         .apply(properties)
         .setPlaceHolder(-1)
 )
 
-inline fun ImageView.loadImageCircle(
+fun ImageView.loadImageCircle(
     url: String?,
-    crossinline properties: Properties.() -> Unit = {}
+    properties: Properties.() -> Unit = {}
 ) = call(
     url, Properties().apply(properties)
         .isCircular(true)
@@ -71,10 +71,10 @@ fun ImageView.loadImageRounded(
     rounded: Float
 ) = this.setImageResource(resource)
 
-inline fun ImageView.loadImageRounded(
+fun ImageView.loadImageRounded(
     data: Bitmap,
     rounded: Float = DEFAULT_ROUNDED,
-    crossinline properties: Properties.() -> Unit = {}
+    properties: Properties.() -> Unit = {}
 ) {
     call(
         data, Properties()
@@ -83,10 +83,10 @@ inline fun ImageView.loadImageRounded(
     )
 }
 
-inline fun ImageView.loadImageRounded(
+fun ImageView.loadImageRounded(
     url: String?,
     rounded: Float = DEFAULT_ROUNDED,
-    crossinline properties: Properties.() -> Unit = {}
+    properties: Properties.() -> Unit = {}
 ) {
     call(
         url, Properties()
@@ -95,9 +95,9 @@ inline fun ImageView.loadImageRounded(
     )
 }
 
-inline fun ImageView.loadIcon(
+fun ImageView.loadIcon(
     url: String?,
-    crossinline properties: Properties.() -> Unit = {}
+    properties: Properties.() -> Unit = {}
 ) = call(
     url, Properties().apply(properties)
         .useCache(false)

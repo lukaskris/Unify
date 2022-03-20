@@ -15,14 +15,12 @@ import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
+import es.dmoral.toasty.Toasty
 import id.co.app.camera.databinding.FragmentCameraBinding
 import id.co.app.camera.databinding.LayoutImagePreviewBinding
-import id.co.app.core.extension.gone
-import id.co.app.core.extension.show
-import id.co.app.core.extension.showErrorToast
-import id.co.app.core.extension.showToast
 import id.co.app.core.model.eventbus.DataEvent
 import id.co.app.core.model.eventbus.EventBus
 import pub.devrel.easypermissions.AppSettingsDialog
@@ -42,11 +40,13 @@ import javax.inject.Inject
  */
 @AndroidEntryPoint
 class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
+    private val isMultiShotCamera by lazy { arguments?.getString("multishot").orEmpty() == "true" }
     private var imageCapture: ImageCapture? = null
     private val binding by lazy { FragmentCameraBinding.inflate(layoutInflater) }
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
     private val pictureList = mutableListOf<File>()
+    private var lensFacing = CameraSelector.DEFAULT_BACK_CAMERA
     private var isDisposeByAction = false
 
     @Inject
@@ -75,6 +75,14 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
             isDisposeByAction = true
             activity?.onBackPressed()
         }
+        binding.swapCamera.setOnClickListener {
+//            CameraX.getCameraWithCameraSelector(lensFacing)
+            lensFacing =
+                if (lensFacing == CameraSelector.DEFAULT_FRONT_CAMERA) CameraSelector.DEFAULT_BACK_CAMERA else
+                    CameraSelector.DEFAULT_FRONT_CAMERA
+            startCamera()
+        }
+        binding.okButton.isVisible = isMultiShotCamera
         binding.captureButton.setOnClickListener {
             takePhoto()
         }
@@ -114,15 +122,15 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                 this,
                 "You need to accept camera permissions to use this app",
                 REQUEST_CODE_PERMISSIONS,
-                android.Manifest.permission.CAMERA,
-                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                Manifest.permission.CAMERA,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
             )
         }
 
     }
 
     private fun takePhoto() {
-        binding.loadingCapture.show()
+        binding.loadingCapture.isVisible = true
         // Get a stable reference of the modifiable image capture use case
         val imageCapture = imageCapture ?: return
 
@@ -145,15 +153,18 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
             object : ImageCapture.OnImageSavedCallback {
                 override fun onError(exc: ImageCaptureException) {
                     Log.e(TAG, "Photo capture failed: ${exc.message}", exc)
-                    context?.showErrorToast("Photo capture failed: ${exc.message}")
-                    binding.loadingCapture.gone()
+                    Toasty.error(requireContext(), "Photo capture failed: ${exc.message}", Toasty.LENGTH_LONG).show()
+                    binding.loadingCapture.isVisible = false
                 }
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    val savedUri = Uri.fromFile(photoFile)
-                    val msg = "Photo capture succeeded: $savedUri"
-                    addPhotoList(photoFile)
-                    Log.d(TAG, msg)
+                    if (isMultiShotCamera) {
+                        addPhotoList(photoFile)
+                    } else {
+                        eventBus.invokeEvent(DataEvent(listOf(photoFile)))
+                        isDisposeByAction = true
+                        activity?.onBackPressed()
+                    }
                 }
             })
     }
@@ -176,8 +187,6 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                 .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
                 .build()
 
-            // Select back camera as a default
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
             try {
                 // Unbind use cases before rebinding
@@ -185,7 +194,7 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
                 // Bind use cases to camera
                 cameraProvider.bindToLifecycle(
-                    this, cameraSelector, preview, imageCapture
+                    this, lensFacing, preview, imageCapture
                 )
 
             } catch (exc: Exception) {
@@ -202,11 +211,11 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     }
 
     private fun addPhotoList(photo: File) {
-        binding.loadingCapture.gone()
+        binding.loadingCapture.isVisible = false
         val view = LayoutImagePreviewBinding.inflate(layoutInflater)
         view.imageView.setImageURI(Uri.fromFile(photo))
         view.root.setOnClickListener {
-            context?.showToast(photo.name)
+            Toasty.success(requireContext(), photo.name, Toasty.LENGTH_LONG).show()
         }
         view.closeView.setOnClickListener {
             pictureList.remove(photo)
@@ -224,9 +233,7 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
             if (allPermissionsGranted()) {
                 startCamera()
             } else {
-                context?.showErrorToast(
-                    "Permissions not granted by the user."
-                )
+                Toasty.error(requireContext(), "Permissions not granted by the user.", Toasty.LENGTH_LONG).show()
             }
         }
     }

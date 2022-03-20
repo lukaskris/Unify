@@ -32,6 +32,7 @@ android {
 
     kotlinOptions {
         jvmTarget = "11"
+        moduleName = "id.co.app.camera"
     }
 
     buildFeatures {
@@ -39,15 +40,15 @@ android {
     }
 
     packagingOptions {
-        exclude("META-INF/DEPENDENCIES")
-        exclude("META-INF/LICENSE")
-        exclude("META-INF/LICENSE.txt")
-        exclude("META-INF/license.txt")
-        exclude("META-INF/NOTICE")
-        exclude("META-INF/NOTICE.txt")
-        exclude("META-INF/notice.txt")
-        exclude("META-INF/ASL2.0")
-        exclude("META-INF/*.kotlin_module")
+        resources.excludes.add("META-INF/DEPENDENCIES")
+        resources.excludes.add("META-INF/LICENSE")
+        resources.excludes.add("META-INF/LICENSE.txt")
+        resources.excludes.add("META-INF/license.txt")
+        resources.excludes.add("META-INF/NOTICE")
+        resources.excludes.add("META-INF/ASL2.0")
+        resources.excludes.add("META-INF/notice.txt")
+        resources.excludes.add("META-INF/NOTICE.txt")
+//        exclude("META-INF/*.kotlin_module")
     }
 }
 
@@ -65,7 +66,7 @@ dependencies {
 project.ext{
     set("artifactId", "camera")
     set("groupId", "id.co.app")
-    set("versionName", "1.0.0")
+    set("versionName", "1.1.1")
     set("artifactName", "camera")
 }
 

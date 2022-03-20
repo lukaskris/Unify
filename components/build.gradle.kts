@@ -4,6 +4,7 @@ plugins {
     id("kotlin-kapt")
     id("maven-publish")
     id("com.jfrog.artifactory")
+    id("com.google.devtools.ksp").version("1.6.0-1.0.1")
 }
 
 android {
@@ -20,7 +21,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -32,23 +36,36 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
+        moduleName = "id.co.app.components"
+    }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/DEPENDENCIES")
+        resources.excludes.add("META-INF/LICENSE")
+        resources.excludes.add("META-INF/LICENSE.txt")
+        resources.excludes.add("META-INF/license.txt")
+        resources.excludes.add("META-INF/NOTICE")
+        resources.excludes.add("META-INF/ASL2.0")
+        resources.excludes.add("META-INF/notice.txt")
+        resources.excludes.add("META-INF/NOTICE.txt")
+//        exclude("META-INF/*.kotlin_module")
     }
 }
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    implementation (AppDependencies.kotlinStdLib)
-    implementation (AppDependencies.androidLibraries)
+    implementation(AppDependencies.kotlinStdLib)
+    implementation(AppDependencies.androidLibraries)
 }
 
-project.ext{
+project.ext {
     set("artifactId", "components")
     set("groupId", "id.co.app")
-    set("versionName", "1.0.0")
+    set("versionName", "1.0.1")
     set("artifactName", "components")
 }
 
-apply{
+apply {
     from("$rootDir/publish.gradle")
 }

@@ -259,6 +259,12 @@ class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(contex
         configHelper()
     }
 
+    fun getText(): String = editText.text.toString()
+
+    fun setText(text: String) {
+        editText.setText(text)
+    }
+
     /**
      * Set message (helper) below TextField
      * @param text CharSequence that will be displayed

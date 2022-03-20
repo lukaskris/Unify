@@ -2,8 +2,8 @@
 object Versions {
 
 	//app level
-	const val kotlinVersion = "1.5.21"
-	const val androidGradleVersion = "7.0.4"
+	const val kotlinVersion = "1.6.0"
+	const val androidGradleVersion = "7.1.2"
 	const val jfrogVersion = "4.24.10"
 	const val googleServiceGms = "4.3.8"
 	const val crashlyticsPlugin = "2.7.1"
@@ -67,6 +67,6 @@ object Versions {
 
 	
 	// moshi
-	const val moshiVersion = "1.12.0"
+	const val moshiVersion = "1.13.0"
 	const val moshiRetrofitFactoryVersion = "2.9.0"
 }

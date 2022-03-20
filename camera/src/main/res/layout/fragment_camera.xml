@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/capture_button"
+            app:layout_constraintBottom_toTopOf="@+id/capture_group"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -37,14 +37,14 @@
             android:layout_gravity="end"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
-            android:textColor="@color/Unify_Static_White"
             android:background="?selectableItemBackgroundBorderless"
+            android:textColor="@color/Unify_Static_White"
             android:textSize="20sp"
             android:tint="@color/Unify_N0"
-            app:srcCompat="@drawable/ic_round_done_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/capture_button" />
+            app:layout_constraintTop_toTopOf="@+id/capture_group"
+            app:srcCompat="@drawable/ic_round_done_24" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/cancel_button"
@@ -54,36 +54,61 @@
             android:layout_marginStart="24dp"
             android:layout_marginBottom="24dp"
             android:background="?selectableItemBackgroundBorderless"
-            android:tint="@color/Unify_N0"
             android:textSize="20sp"
-            app:srcCompat="@drawable/ic_round_close_24"
+            android:tint="@color/Unify_N0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/capture_button" />
+            app:layout_constraintTop_toTopOf="@+id/capture_group"
+            app:srcCompat="@drawable/ic_round_close_24" />
 
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/capture_button"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/background_shape_button_oval"
-            android:src="@drawable/ic_baseline_camera_alt_24"
-            app:layout_constraintStart_toStartOf="parent"
+        <FrameLayout
+            android:id="@+id/capture_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/unify_space_16"
+            android:layout_marginBottom="@dimen/unify_space_24"
+            android:background="@drawable/background_shape_button_oval_alpha"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/capture_button"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:padding="@dimen/unify_space_8"
+                android:src="@drawable/ic_baseline_camera_alt_24" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/unify_space_16"
+            android:layout_marginEnd="@dimen/unify_space_16"
+            android:background="@drawable/background_shape_button_oval_alpha"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/swap_camera"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:padding="@dimen/unify_space_4"
+                android:src="@drawable/ic_round_autorenew_24" />
+        </FrameLayout>
 
         <FrameLayout
             android:id="@+id/loading_capture"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#80000000"
-            android:focusable="true"
             android:clickable="true"
+            android:focusable="true"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ProgressBar
                 android:layout_width="wrap_content"

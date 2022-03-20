@@ -24,12 +24,19 @@ class CarouselAdapter : RecyclerView.Adapter<CarouselAdapter.CarouselViewHolder>
     var listener: CarouselClickListener? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarouselViewHolder {
         val frameLayout = FrameLayout(parent.context)
-        val layoutParams = ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        val layoutParams = ViewGroup.MarginLayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.MATCH_PARENT
+        )
         frameLayout.layoutParams = layoutParams
 
         val image = ImageUnify(parent.context)
         val outValue = TypedValue()
-        parent.context.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+        parent.context.theme.resolveAttribute(
+            android.R.attr.selectableItemBackground,
+            outValue,
+            true
+        )
         image.id = R.id.carousel_image
         image.layoutParams = layoutParams
         image.foreground = ContextCompat.getDrawable(parent.context, outValue.resourceId)
@@ -56,39 +63,42 @@ class CarouselAdapter : RecyclerView.Adapter<CarouselAdapter.CarouselViewHolder>
         return data.size
     }
 
-    fun setRadius(radius: Int){
+    fun setRadius(radius: Int) {
         this.radius = radius
     }
 
-    fun setCenter(isCenter: Boolean){
+    fun setCenter(isCenter: Boolean) {
         this.isCenter = isCenter
     }
 
-    fun setMargin(marginAndOffset: Int){
+    fun setMargin(marginAndOffset: Int) {
         this.marginAndOffset = marginAndOffset
     }
 
     fun submitList(
         list: List<CarouselItem>
-    ){
+    ) {
         this.data.clear()
         this.data.addAll(list)
         notifyDataSetChanged()
     }
 
-    inner class CarouselViewHolder(private val frameLayout: FrameLayout, private val view: ImageUnify) : RecyclerView.ViewHolder(frameLayout){
-        fun bind(item: CarouselItem, position: Int){
-            if(isCenter){
+    inner class CarouselViewHolder(
+        frameLayout: FrameLayout,
+        private val view: ImageUnify
+    ) : RecyclerView.ViewHolder(frameLayout) {
+        fun bind(item: CarouselItem, position: Int) {
+            if (isCenter) {
                 view.setMargins(50, 0, 50, 0)
             }
-            frameLayout.findViewById<TextView>(R.id.carousel_text).text = position.toString()
+//            frameLayout.findViewById<TextView>(R.id.carousel_text).text = position.toString()
             view.cornerRadius = radius
             view.setOnClickListener {
                 listener?.onBannerClick(item)
             }
-            if(item.url.isNotEmpty()){
+            if (item.url.isNotEmpty()) {
                 view.setImageUrl(item.url, isSkipCache = false)
-            }else if(item.res != -1){
+            } else if (item.res != -1) {
                 view.setImageDrawable(ContextCompat.getDrawable(view.context, item.res))
             }
         }

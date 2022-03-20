@@ -9,7 +9,7 @@ import id.co.app.core.extension.isValid
 import id.co.app.core.glide.common.*
 import id.co.app.core.glide.transform.TopRightCrop
 
-internal object MediaLoaderApi {
+object MediaLoaderApi {
 
     private val handler by lazy(LazyThreadSafetyMode.NONE) { Handler() }
 

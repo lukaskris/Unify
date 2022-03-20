@@ -4,6 +4,7 @@ plugins {
     id("kotlin-kapt")
     id("maven-publish")
     id("com.jfrog.artifactory")
+    id("com.google.devtools.ksp").version("1.6.0-1.0.1")
 }
 
 android {
@@ -30,18 +31,19 @@ android {
 
     kotlinOptions {
         jvmTarget = "11"
+        moduleName = "id.co.app.querybuilder"
     }
 
     packagingOptions {
-        exclude("META-INF/DEPENDENCIES")
-        exclude("META-INF/LICENSE")
-        exclude("META-INF/LICENSE.txt")
-        exclude("META-INF/license.txt")
-        exclude("META-INF/NOTICE")
-        exclude("META-INF/NOTICE.txt")
-        exclude("META-INF/notice.txt")
-        exclude("META-INF/ASL2.0")
-        exclude("META-INF/*.kotlin_module")
+        resources.excludes.add("META-INF/DEPENDENCIES")
+        resources.excludes.add("META-INF/LICENSE")
+        resources.excludes.add("META-INF/LICENSE.txt")
+        resources.excludes.add("META-INF/license.txt")
+        resources.excludes.add("META-INF/NOTICE")
+        resources.excludes.add("META-INF/ASL2.0")
+        resources.excludes.add("META-INF/notice.txt")
+        resources.excludes.add("META-INF/NOTICE.txt")
+//        exclude("META-INF/*.kotlin_module")
     }
 }
 
@@ -54,7 +56,7 @@ dependencies {
 project.ext{
     set("artifactId", "querybuilder")
     set("groupId", "id.co.app")
-    set("versionName", "1.0.0")
+    set("versionName", "1.0.1")
     set("artifactName", "querybuilder")
 }
 
