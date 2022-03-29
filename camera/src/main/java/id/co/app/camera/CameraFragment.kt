@@ -41,6 +41,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     private val isMultiShotCamera by lazy { arguments?.getString("multishot").orEmpty() == "true" }
+    private val isSelfieCamera by lazy { arguments?.getString("selfie").orEmpty() == "true" }
     private var imageCapture: ImageCapture? = null
     private val binding by lazy { FragmentCameraBinding.inflate(layoutInflater) }
     private lateinit var outputDirectory: File
@@ -62,6 +63,8 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        lensFacing = if (!isSelfieCamera) CameraSelector.DEFAULT_BACK_CAMERA else
+                CameraSelector.DEFAULT_FRONT_CAMERA
         requestPermissions()
         outputDirectory = getOutputDirectory()
         cameraExecutor = Executors.newSingleThreadExecutor()
@@ -76,7 +79,6 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
             activity?.onBackPressed()
         }
         binding.swapCamera.setOnClickListener {
-//            CameraX.getCameraWithCameraSelector(lensFacing)
             lensFacing =
                 if (lensFacing == CameraSelector.DEFAULT_FRONT_CAMERA) CameraSelector.DEFAULT_BACK_CAMERA else
                     CameraSelector.DEFAULT_FRONT_CAMERA
