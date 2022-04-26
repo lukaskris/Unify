@@ -22,6 +22,7 @@ object AppDependencies {
     private const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
     private const val lifecycleKtx =
         "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleKtx}"
+    private const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
     private const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     private const val multiDex = "androidx.multidex:multidex:${Versions.multidexVersion}"
@@ -62,12 +63,12 @@ object AppDependencies {
 
     // cameraX android
     private const val cameraXCore = "androidx.camera:camera-core:${Versions.cameraxVersion}"
+    private const val mlKit = "com.google.android.gms:play-services-mlkit-barcode-scanning:${Versions.mlkitVersion}"
     private const val cameraX = "androidx.camera:camera-camera2:${Versions.cameraxVersion}"
     private const val cameraXLifecycle =
         "androidx.camera:camera-lifecycle:${Versions.cameraxVersion}"
     private const val cameraXView = "androidx.camera:camera-view:${Versions.cameraViewVersion}"
-    private const val cameraXExtension =
-        "androidx.camera:camera-extensions:${Versions.cameraViewVersion}"
+    private const val cameraXExtension = "androidx.camera:camera-extensions:${Versions.cameraViewVersion}"
 
 
     // hilt
@@ -161,6 +162,7 @@ object AppDependencies {
         add(kotlinStdLib)
         add(coreKtx)
         add(lifecycleKtx)
+        add(activityKtx)
         add(appcompat)
         add(material)
         add(multiDex)
@@ -197,7 +199,7 @@ object AppDependencies {
     }
 
     val cameraXLibraries = arrayListOf(
-        cameraXCore, cameraX, cameraXView, cameraXLifecycle, cameraXExtension
+        cameraXCore, cameraX, cameraXView, cameraXLifecycle, cameraXExtension, mlKit
     )
     val testLibraries = arrayListOf<String>().apply {
         add(junit)

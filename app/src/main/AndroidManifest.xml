@@ -83,6 +83,9 @@
         <activity
             android:name=".ui.emptystate.EmptyStateActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+        <activity
+            android:name=".ui.main.CameraActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
     </application>
 
 </manifest>

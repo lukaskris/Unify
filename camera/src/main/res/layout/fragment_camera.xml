@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="isScanner"
+            type="Boolean" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -17,6 +24,7 @@
             android:layout_height="0dp"
             android:background="@drawable/background_gradient_camera_shutter"
             android:paddingTop="8dp"
+            app:gone="@{isScanner}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="@+id/sample_picture_view" />
 
@@ -26,6 +34,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="16dp"
+            app:gone="@{isScanner}"
             app:layout_constraintBottom_toTopOf="@+id/capture_group"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -41,6 +50,7 @@
             android:textColor="@color/Unify_Static_White"
             android:textSize="20sp"
             android:tint="@color/Unify_N0"
+            app:gone="@{isScanner}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/capture_group"
@@ -56,11 +66,26 @@
             android:background="?selectableItemBackgroundBorderless"
             android:textSize="20sp"
             android:tint="@color/Unify_N0"
+            app:gone="@{isScanner}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/capture_group"
             app:srcCompat="@drawable/ic_round_close_24" />
-
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/back_button"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="end"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="@dimen/spacing_lvl7"
+            android:background="?selectableItemBackgroundBorderless"
+            android:textSize="20sp"
+            android:tint="@color/Unify_N0"
+            app:gone="@{!isScanner}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/iconunify_arrow_back" />
         <FrameLayout
             android:id="@+id/capture_group"
             android:layout_width="wrap_content"
@@ -68,6 +93,7 @@
             android:layout_marginTop="@dimen/unify_space_16"
             android:layout_marginBottom="@dimen/unify_space_24"
             android:background="@drawable/background_shape_button_oval_alpha"
+            app:gone="@{isScanner}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -83,7 +109,7 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/unify_space_16"
+            android:layout_marginTop="@dimen/unify_space_32"
             android:layout_marginEnd="@dimen/unify_space_16"
             android:background="@drawable/background_shape_button_oval_alpha"
             app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +120,8 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:padding="@dimen/unify_space_4"
-                android:src="@drawable/ic_round_autorenew_24" />
+                android:src="@drawable/ic_round_autorenew_24"
+                app:gone="@{isScanner}" />
         </FrameLayout>
 
         <FrameLayout
@@ -115,5 +142,37 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center" />
         </FrameLayout>
+
+        <id.co.app.components.typography.Typography
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_lvl8"
+            android:background="@drawable/background_shape_button_rounded"
+            android:backgroundTint="@color/Unify_N700_68"
+            android:paddingStart="@dimen/spacing_lvl4"
+            android:paddingTop="@dimen/spacing_lvl3"
+            android:paddingEnd="@dimen/spacing_lvl4"
+            android:paddingBottom="@dimen/spacing_lvl3"
+            android:text="@string/find_a_code_to_scan"
+            android:textColor="@color/Unify_N0"
+            app:gone="@{!isScanner}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/qr_code"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            android:layout_marginStart="@dimen/spacing_lvl8"
+            android:layout_marginEnd="@dimen/spacing_lvl8"
+            app:gone="@{!isScanner}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/qr_code_scanner"
+            app:tint="@color/Unify_N0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

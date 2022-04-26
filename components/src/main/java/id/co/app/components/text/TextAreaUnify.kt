@@ -340,6 +340,10 @@ class TextAreaUnify(context: Context, attrs: AttributeSet) : FrameLayout(context
         textFieldAppendText = suffix
     }
 
+    fun getPrependText() = textFieldPrependText
+
+    fun getAppendText() = textFieldAppendText
+
 
     /**
      * Return the text that TextField is displaying

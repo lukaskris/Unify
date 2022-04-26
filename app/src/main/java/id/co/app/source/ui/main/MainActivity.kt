@@ -84,18 +84,19 @@ class MainActivity : AppCompatActivity(), MyRecyclerViewAdapter.ItemClickListene
     private fun initList(){
 
         val menu = ArrayList<String>()
-        menu.add("Typography")
-        menu.add("Button")
-        menu.add("Label")
-        menu.add("Unify Icon")
-        menu.add("Empty State")
-        menu.add("Loader Dialog")
-        menu.add("TextField")
-        menu.add("TextArea")
-        menu.add("CoachMark")
-        menu.add("Carousel")
-        menu.add("Chip Unify")
-        menu.add("Notify")
+        menu.add("Typography") // 0
+        menu.add("Button") //1
+        menu.add("Label") //2
+        menu.add("Unify Icon") //3
+        menu.add("Empty State") // 4
+        menu.add("Loader Dialog")//5
+        menu.add("TextField")//6
+        menu.add("TextArea")//7
+        menu.add("CoachMark")//8
+        menu.add("Carousel")//9
+        menu.add("Chip Unify")//10
+        menu.add("Notify")//11
+        menu.add("Camera")//12
 
         val dividerItemDecoration = androidx.recyclerview.widget.DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
         binding.recyclerView.addItemDecoration(dividerItemDecoration)
@@ -116,7 +117,7 @@ class MainActivity : AppCompatActivity(), MyRecyclerViewAdapter.ItemClickListene
                 9 -> Intent(this, CarouselActivity::class.java)
                 10 -> Intent(this, ChipsActivity::class.java)
                 11 -> Intent(this, NotifySampleActivity::class.java)
-                12 -> Intent(this, EmptyStateActivity::class.java)
+                12 -> Intent(this, CameraActivity::class.java)
                 else -> Intent(this, TypographyActivity::class.java)
             }
         )

@@ -4,9 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.os.Build
-import android.text.Editable
-import android.text.TextUtils
-import android.text.TextWatcher
+import android.text.*
 import android.view.KeyEvent
 import android.view.View
 import android.view.ViewGroup
@@ -184,4 +182,42 @@ fun TextFieldUnify.addThousandSeparator(){
 		override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 		}
 	})
+}
+
+fun TextFieldUnify.setDisableEditText() {
+	editText.isClickable = true
+	editText.isFocusable = false
+	editText.inputType = InputType.TYPE_NULL
+}
+
+fun TextFieldUnify.setMaximum(max: Int){
+	editText.inputType = InputType.TYPE_CLASS_NUMBER
+	editText.filters = arrayOf(MinMaxFilter("0", max.toString()))
+}
+
+class MinMaxFilter() : InputFilter {
+	private var intMin: Int = 0
+	private var intMax: Int = 0
+	constructor(minValue: String, maxValue: String) : this() {
+		this.intMin = Integer.parseInt(minValue)
+		this.intMax = Integer.parseInt(maxValue)
+	}
+	override fun filter(
+		source: CharSequence,
+		start: Int,
+		end: Int,
+		dest: Spanned,
+		dStart: Int,
+		dEnd: Int
+	): CharSequence? {
+		try {
+			val input = (dest.toString() + source.toString()).toInt()
+			if (isInRange(intMin, intMax, input)) return null
+		} catch (nfe: java.lang.NumberFormatException) {
+		}
+		return ""
+	}
+	private fun isInRange(a: Int, b: Int, c: Int): Boolean {
+		return if (b > a) c in a..b else c in b..a
+	}
 }

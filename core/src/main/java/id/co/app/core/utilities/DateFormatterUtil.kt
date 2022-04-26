@@ -1,6 +1,7 @@
 package id.co.app.core.utilities
 
 import id.co.app.core.BuildConfig
+import id.co.app.core.extension.toIntOrZero
 import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,6 +29,9 @@ object DateFormatterUtil {
     private const val MEDIUM_FORMAT_PATTERN_3 = "yyyy-MM-dd"
     private const val MEDIUM_FORMAT_PATTERN_4 = "dd MMMM yyyy"
 
+    private const val MONTH_ONLY_PATTERN = "MMMM"
+    private const val MONTH_YEAR_PATTERN = "MMMM yyyy"
+
     private const val TIME_FORMAT_PATTERN = "dd-MM-yyyy HH:mm:ss"
     private const val MEDIUM_TIME_FORMAT_PATTERN = "dd-MM-yyyy HH:mm"
     private const val MEDIUM_TIME_FORMAT_PATTERN_2 = "dd MMM yyyy HH:mm"
@@ -54,11 +58,18 @@ object DateFormatterUtil {
             isFileTime(dateString) -> FILE_TIME_PATTERN
             isTimedZone(dateString) -> if (dateString.contains(".")) TIMED_ZONE_2_PATTERN else TIMED_ZONE_PATTERN
             isISO8601DateTime(dateString) -> if (dateString.contains('.')) ISO_8601_PATTERN else ISO_8601_PATTERN_2
+            isMonthYear(dateString) -> MONTH_YEAR_PATTERN
             isDateTime(dateString) -> if (dateString.count { it == ':' } == 3) TIME_FORMAT_PATTERN else MEDIUM_TIME_FORMAT_PATTERN
             dateString.contains("/") -> SHORT_FORMAT_PATTERN
             dateString.contains("-") -> MEDIUM_FORMAT_PATTERN_1
             else -> MEDIUM_FORMAT_PATTERN_2
         }
+    }
+
+    fun timestamp(): String {
+        val date = Date()
+        val simpleDateFormatter = SimpleDateFormat(FILE_TIME_PATTERN, Locale.getDefault())
+        return simpleDateFormatter.format(date)
     }
 
     /**
@@ -97,6 +108,8 @@ object DateFormatterUtil {
         return try {
             if (dateString.isEmpty()) return ""
             val pattern = when (outputFormat) {
+                FormatType.MONTH_ONLY -> MONTH_ONLY_PATTERN
+                FormatType.MONTH_YEAR_FORMAT -> MONTH_YEAR_PATTERN
                 FormatType.SHORT_FORMAT -> SHORT_FORMAT_PATTERN
                 FormatType.SHORT_FORMAT_MONTH -> SHORT_FORMAT_PATTERN_MONTH
                 FormatType.STANDARD_FORMAT -> MEDIUM_FORMAT_PATTERN_1
@@ -233,6 +246,8 @@ object DateFormatterUtil {
 
     private fun getPattern(format: FormatType): String{
         return when (format) {
+            FormatType.MONTH_ONLY -> MONTH_ONLY_PATTERN
+            FormatType.MONTH_YEAR_FORMAT -> MONTH_YEAR_PATTERN
             FormatType.SHORT_FORMAT -> SHORT_FORMAT_PATTERN
             FormatType.SHORT_FORMAT_MONTH -> SHORT_FORMAT_PATTERN_MONTH
             FormatType.STANDARD_FORMAT -> MEDIUM_FORMAT_PATTERN_1
@@ -295,6 +310,12 @@ object DateFormatterUtil {
         return diff / (24 * 60 * 60 * 1000)
     }
 
+    fun currentDay(): Int {
+        val date = Date()
+        val formatter = SimpleDateFormat("dd")
+        return formatter.format(date).toIntOrZero()
+    }
+
     /**
      * Tell whether or not a given string represent a date time string or a simple date
      *
@@ -325,6 +346,11 @@ object DateFormatterUtil {
         return dateString.trim().contains("T")
     }
 
+    fun isMonthYear(dateString: String): Boolean {
+        val splits = dateString.split(' ')
+        return splits.size == 2 && !splits.first().replace("-","").matches("[0-9]+".toRegex())
+    }
+
     /**
      * Tell whether or not a given string represent a ISO8601 date time string or a simple date
      *
@@ -348,6 +374,7 @@ object DateFormatterUtil {
     enum class FormatType {
         SHORT_FORMAT, // dd/MM
         SHORT_FORMAT_MONTH, // dd/MM
+        MONTH_ONLY, // MMM
         STANDARD_FORMAT, // dd-MM-yyyy
         STANDARD_FORMAT_YEAR, // yyyy-MM-dd
         STANDARD_FORMAT_MONTH, // dd MMM yyyy
@@ -360,6 +387,7 @@ object DateFormatterUtil {
         TIMEZONE_FORMAT, // yyyy-MM-dd'T'HH:mm:ssXXX
         TIMEZONE_2_FORMAT, // yyyy-MM-dd'T'HH:mm:ss.SSXXX
         FILE_FORMAT, // yyyyMMddHHmmss
+        MONTH_YEAR_FORMAT, // MMM yyyy
         CONFIRM_DATE_FORMAT, // MMddYYYYHHmmss
         HOUR_FORMAT // HH:ss
     }

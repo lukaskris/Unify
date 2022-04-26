@@ -41,7 +41,7 @@
             app:unify_text_field_counter="15"
             app:unify_text_field_append_drawable_icon_1="@drawable/sample_drawable" />
 
-        <id.co.app.components.text.TextAreaUnify
+        <id.co.app.components.text.TextFieldUnify
             android:id="@+id/input_age"
             android:layout_margin="16dp"
             android:layout_width="match_parent"
@@ -56,6 +56,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:unify_text_field_label="Price" />
+
+        <id.co.app.components.text.TextAreaUnify
+            android:id="@+id/input_price_area"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:unify_text_area_label="Remark"
+            app:unify_text_area_clearable="true"
+            app:unify_text_area_prepend_text="Prepend"
+            app:unify_text_area_counter="500"
+            app:unify_text_area_maxline="5"
+            app:unify_text_area_input_type="text" />
 
         <id.co.app.components.text.TextFieldUnify
             android:id="@+id/input_disabled"

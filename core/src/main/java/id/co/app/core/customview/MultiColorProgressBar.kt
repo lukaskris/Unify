@@ -123,6 +123,9 @@ class MultiColorProgressBar : View {
         primaryColor = color
     }
 
+    fun setSecondaryColor(color: Int){
+        secondaryColor = color
+    }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)

@@ -9,6 +9,7 @@ object Versions {
 	const val crashlyticsPlugin = "2.7.1"
 	//libs
 	const val coreKtx = "1.6.0"
+	const val activityKtx = "1.4.0"
 	const val appcompat = "1.3.1"
 	const val material = "1.4.0"
 	const val constraintLayout = "2.0.4"
@@ -42,6 +43,7 @@ object Versions {
 	const val commonIoVersion = "2.8.0"
 
 	const val cameraxVersion = "1.0.0"
+	const val mlkitVersion = "18.0.0"
 	const val cameraViewVersion = "1.0.0-alpha24"
 
 	const val retrofit = "2.9.0"

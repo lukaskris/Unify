@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import id.co.app.components.bottomsheet.BottomSheetUnify
 import id.co.app.components.button.UnifyButton
+import id.co.app.components.text.TextAreaUnify
 import id.co.app.components.text.TextFieldUnify
 import id.co.app.components.utils.HtmlLinkHelper
 import id.co.app.source.R
@@ -83,6 +84,7 @@ class TextFieldActivity : AppCompatActivity() {
             bottomSheet.show(supportFragmentManager,"BottomSheet Show")
         }
 
+        findViewById<TextAreaUnify>(R.id.input_price_area).prependText("Prepent 1")
         findViewById<TextFieldUnify>(R.id.input_age).editText.text = Editable.Factory.getInstance().newEditable("25")
         findViewById<TextFieldUnify>(R.id.input_age).addOnFocusChangeListener = { _, hasFocus ->
             if(hasFocus) {

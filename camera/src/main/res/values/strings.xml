@@ -1,3 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="find_a_code_to_scan">Find a code to scan</string>
 </resources>
