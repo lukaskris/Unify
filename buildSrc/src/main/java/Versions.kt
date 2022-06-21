@@ -29,6 +29,8 @@ object Versions {
 	const val pagingVersion = "3.0.0"
 	const val bomFirebaseVersion = "28.2.0"
 
+	const val compressionVersion = "3.0.1"
+
 	// room
 	const val room = "2.3.0"
 	const val jdbc = "3.32.3.3"

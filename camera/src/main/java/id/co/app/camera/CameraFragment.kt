@@ -4,6 +4,7 @@ import android.Manifest
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
@@ -28,6 +30,9 @@ import id.co.app.camera.databinding.FragmentCameraBinding
 import id.co.app.camera.databinding.LayoutImagePreviewBinding
 import id.co.app.core.model.eventbus.DataEvent
 import id.co.app.core.model.eventbus.EventBus
+import id.zelory.compressor.Compressor
+import id.zelory.compressor.constraint.default
+import kotlinx.coroutines.launch
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 import java.io.File
@@ -91,6 +96,7 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
     @Inject
     lateinit var eventBus: EventBus
+//    var eventBus = EventBus()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -143,6 +149,10 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         }
         binding.okButton.setOnClickListener {
             eventBus.invokeEvent(DataEvent(pictureList))
+            findNavController().previousBackStackEntry?.savedStateHandle?.set(
+                "pictures",
+                pictureList
+            )
             isDisposeByAction = true
             activity?.onBackPressed()
         }
@@ -193,12 +203,9 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         val imageCapture = imageCapture ?: return
 
         // Create time-stamped output file to hold the image
-        val photoFile = File(
-            outputDirectory,
-            SimpleDateFormat(
-                FILENAME_FORMAT, Locale.US
-            ).format(System.currentTimeMillis()) + ".jpg"
-        )
+        val timeDate =
+            SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(System.currentTimeMillis())
+        val photoFile = File(outputDirectory, "$timeDate.jpg")
 
         // Create output options object which contains file + metadata
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
@@ -220,12 +227,22 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                 }
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    if (isMultiShotCamera) {
-                        addPhotoList(photoFile)
-                    } else {
-                        eventBus.invokeEvent(DataEvent(listOf(photoFile)))
-                        isDisposeByAction = true
-                        activity?.onBackPressed()
+                    lifecycleScope.launch {
+                        val compressedImageFile = Compressor.compress(requireContext(), photoFile) {
+                            default(width = 640, format = Bitmap.CompressFormat.WEBP, quality = 70)
+                        }
+                        photoFile.delete()
+                        if (isMultiShotCamera) {
+                            addPhotoList(compressedImageFile)
+                        } else {
+                            eventBus.invokeEvent(DataEvent(listOf(compressedImageFile)))
+                            findNavController().previousBackStackEntry?.savedStateHandle?.set(
+                                "pictures",
+                                listOf(compressedImageFile)
+                            )
+                            isDisposeByAction = true
+                            activity?.onBackPressed()
+                        }
                     }
                 }
             })
@@ -332,7 +349,7 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                     // `rawValue` is the decoded value of the barcode
                     barcode?.rawValue?.let { value ->
                         // update our textView to show the decoded value
-                        if(!isDisposeByAction) {
+                        if (!isDisposeByAction) {
                             eventBus.invokeEvent(DataEvent(value))
                             isDisposeByAction = true
                             activity?.onBackPressed()

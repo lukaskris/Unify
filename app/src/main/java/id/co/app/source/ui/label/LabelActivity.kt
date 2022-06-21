@@ -64,7 +64,7 @@ class LabelActivity : AppCompatActivity() {
         labelSample10.setLabelImage(R.drawable.ic_android_black_24dp)
 
         val labelProgress = findViewById<LabelProgress>(R.id.label_progressbar_red)
-        labelProgress.setLabel("Terjual 80%", 80);
+        labelProgress.setLabel("Terjual 80%", 80)
 
         val labelSample13 = findViewById<Label>(R.id.LabelView13)
         labelSample13.setLabel("Set via hex color")

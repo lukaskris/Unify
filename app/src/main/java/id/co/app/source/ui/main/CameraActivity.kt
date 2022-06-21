@@ -24,7 +24,7 @@ class CameraActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, CameraFragment().apply {
-                arguments = bundleOf("scanner" to "true")
+                arguments = bundleOf("scanner" to "false")
             })
             .commitAllowingStateLoss()
     }

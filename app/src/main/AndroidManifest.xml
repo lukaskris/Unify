@@ -42,6 +42,7 @@
         <activity
             android:name="id.co.app.source.ui.main.MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -53,7 +53,7 @@ object DateFormatterUtil {
      * @param dateString Date String
      * @return Format Pattern
      */
-    private fun getDatePattern(dateString: String): String? {
+    fun getDatePattern(dateString: String): String? {
         return when {
             isFileTime(dateString) -> FILE_TIME_PATTERN
             isTimedZone(dateString) -> if (dateString.contains(".")) TIMED_ZONE_2_PATTERN else TIMED_ZONE_PATTERN
@@ -61,7 +61,8 @@ object DateFormatterUtil {
             isMonthYear(dateString) -> MONTH_YEAR_PATTERN
             isDateTime(dateString) -> if (dateString.count { it == ':' } == 3) TIME_FORMAT_PATTERN else MEDIUM_TIME_FORMAT_PATTERN
             dateString.contains("/") -> SHORT_FORMAT_PATTERN
-            dateString.contains("-") -> MEDIUM_FORMAT_PATTERN_1
+            Regex("^\\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])\$").matches(dateString) -> MEDIUM_FORMAT_PATTERN_3
+            Regex("^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[012])-\\d{4}\$").matches(dateString) -> MEDIUM_FORMAT_PATTERN_1
             else -> MEDIUM_FORMAT_PATTERN_2
         }
     }

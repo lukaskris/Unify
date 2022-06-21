@@ -44,6 +44,8 @@ object AppDependencies {
     private const val messaging = "com.google.firebase:firebase-messaging-ktx"
 
 
+    private const val compressor = "id.zelory:compressor:${Versions.compressionVersion}"
+
     // room
     private const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     private const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
@@ -183,6 +185,7 @@ object AppDependencies {
         add(pagingRuntime)
         add(barcodeScanner)
         add(timber)
+        add(compressor)
     }
 
     val persistenceLibraries = arrayListOf<String>().apply{

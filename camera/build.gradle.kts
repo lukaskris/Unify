@@ -66,7 +66,7 @@ dependencies {
 project.ext{
     set("artifactId", "camera")
     set("groupId", "id.co.app")
-    set("versionName", "1.1.2")
+    set("versionName", "1.1.3")
     set("artifactName", "camera")
 }
 

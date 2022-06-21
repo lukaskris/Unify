@@ -187,7 +187,7 @@ class SearchBarUnify: FrameLayout {
     }
 
     init {
-        View.inflate(context, R.layout.searchbar_layout,this)
+        View.inflate(context, R.layout.unify_searchbar_layout,this)
 
         searchBarTextField = findViewById(R.id.searchbar_textfield)
         searchBarIcon = findViewById(R.id.searchbar_icon)

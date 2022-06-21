@@ -4,6 +4,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.nfc.NfcManager
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
@@ -56,7 +57,11 @@ abstract class NfcFragment : Fragment() {
                         requireContext(),
                         requireActivity().javaClass
                     ).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
-                val nfcPendingIntent = PendingIntent.getActivity(requireContext(), 0, intent, 0)
+                val nfcPendingIntent = PendingIntent.getActivity(
+                    requireContext(), 0, intent,
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) PendingIntent.FLAG_MUTABLE
+                    else 0
+                )
                 nfcAdapter.enableForegroundDispatch(requireActivity(), nfcPendingIntent, null, null)
             }
         } catch (ex: IllegalStateException) {

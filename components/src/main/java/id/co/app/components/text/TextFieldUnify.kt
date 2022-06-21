@@ -82,7 +82,7 @@ class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(contex
                     }
 
                     override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                        if(TextUtils.isEmpty(p0)) {
+                        if(isEmpty(p0)) {
                             clearIconView.clearAnimation()
                             clearIconView.animate().scaleX(0f).scaleY(0f).setDuration(200).start()
                         } else {
@@ -677,37 +677,6 @@ class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(contex
             e.printStackTrace()
         }
     }
-    /*
-        Handle saving view state not correctly because same id with other view
-        if the layout show more than 1 TextField Unify
-        it fixed with new mechanism save state with textfield unify self way
-        http://web.archive.org/web/20180625034135/http://trickyandroid.com/saving-android-view-state-correctly/
-     */
-//    override fun onSaveInstanceState(): Parcelable? {
-//        val superState = super.onSaveInstanceState()
-//        val ss = SavedState(superState)
-//        ss.childrenStates = SparseArray()
-//        for (i in 0 until childCount) {
-//            getChildAt(i).saveHierarchyState(ss.childrenStates)
-//        }
-//        return ss
-//    }
-//
-//    override fun onRestoreInstanceState(state: Parcelable?) {
-//        val ss = state as SavedState
-//        super.onRestoreInstanceState(ss.superState)
-//        for (i in 0 until childCount) {
-//            getChildAt(i).restoreHierarchyState(ss.childrenStates)
-//        }
-//    }
-//
-//    override fun dispatchSaveInstanceState(container: SparseArray<Parcelable>?) {
-//        dispatchFreezeSelfOnly(container)
-//    }
-//
-//    override fun dispatchRestoreInstanceState(container: SparseArray<Parcelable>?) {
-//        dispatchThawSelfOnly(container)
-//    }
 
     private inner class TextDrawable(text: String, type: String) : Drawable() {
         val paint: Paint = Paint()
@@ -749,36 +718,4 @@ class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(contex
             return PixelFormat.TRANSLUCENT
         }
     }
-
-//    internal class SavedState : BaseSavedState {
-//        var childrenStates: SparseArray<Parcelable>? = null
-//
-//        constructor(superState: Parcelable?) : super(superState)
-//
-//        private constructor(`in`: Parcel?, classLoader: ClassLoader?) : super(`in`) {
-//            childrenStates = `in`?.readSparseArray(classLoader)
-//        }
-//
-//        override fun writeToParcel(out: Parcel, flags: Int) {
-//            super.writeToParcel(out, flags)
-//            out.writeSparseArray(childrenStates)
-//        }
-//
-//        companion object {
-//            val CREATOR: ClassLoaderCreator<SavedState> = object : ClassLoaderCreator<SavedState> {
-//
-//                override fun createFromParcel(source: Parcel?, loader: ClassLoader?): SavedState {
-//                    return SavedState(source, loader)
-//                }
-//
-//                override fun createFromParcel(source: Parcel?): SavedState {
-//                    return createFromParcel(source, null)
-//                }
-//
-//                override fun newArray(size: Int): Array<SavedState?> {
-//                    return arrayOfNulls(size)
-//                }
-//            }
-//        }
-//    }
 }

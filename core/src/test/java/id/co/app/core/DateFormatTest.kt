@@ -1,5 +1,6 @@
 package id.co.app.core
 
+import id.co.app.core.extension.formatDate
 import id.co.app.core.utilities.DateFormatterUtil
 import org.junit.Assert
 import org.junit.Test
@@ -41,6 +42,20 @@ class DateFormatTest {
         val resull2 = simpleDateFormatter2.format(dateIn)
 
         Assert.assertEquals(result,"09:53")
+
+    }
+
+    @Test
+    fun testDateFormatQR(){
+        val date = "2021-12-13"
+        val date2 = "13-06-2021"
+        val regex = Regex("^\\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])\$")
+        val regex2 = Regex("^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[012])-\\d{4}\$")
+
+        val dateOutput = date2.formatDate(DateFormatterUtil.FormatType.STANDARD_FORMAT)
+        val matches = regex2.matches(date2)
+        assert(matches)
+        DateFormatterUtil.formatDate(date, DateFormatterUtil.FormatType.STANDARD_FORMAT)
 
     }
 }
