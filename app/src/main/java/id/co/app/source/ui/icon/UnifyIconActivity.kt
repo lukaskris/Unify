@@ -23,6 +23,7 @@ import id.co.app.components.utils.toPx
 import id.co.app.source.R
 import id.co.app.source.databinding.ActivityIconUnifyBinding
 import id.co.app.source.databinding.UnifyiconSampleRecyclerLayoutBinding
+import timber.log.Timber
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -416,6 +417,10 @@ class UnifyIconActivity : AppCompatActivity() {
         binding.unifyiconSampleSizeBtn.setOnClickListener {
             adapter.size = findViewById<QuantityEditorUnify>(R.id.unifyicon_sample_size_qty).getValue()
             adapter.notifyDataSetChanged()
+        }
+
+        binding.unifyiconSampleSizeQty.setValueChangedListener { newValue, oldValue, isOver ->
+            Timber.tag("Unify").d("New Value: $newValue | Old Value: $oldValue | isOver: $isOver")
         }
 
         binding.iconunifySearchBtn.setOnClickListener {

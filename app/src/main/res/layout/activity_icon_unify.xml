@@ -119,9 +119,9 @@
 
                 <id.co.app.components.quantity.QuantityEditorUnify
                     android:id="@+id/unifyicon_sample_size_qty"
-                    app:qty_default_value="24"
-                    app:qty_min_value="1"
-                    app:qty_max_value="200"
+                    app:editor_qty_default_value="24"
+                    app:editor_qty_min_value="1"
+                    app:editor_qty_max_value="200"
                     android:layout_marginEnd="16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />

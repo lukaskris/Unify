@@ -62,7 +62,7 @@ dependencies {
 project.ext {
     set("artifactId", "components")
     set("groupId", "id.co.app")
-    set("versionName", "1.0.1")
+    set("versionName", "1.0.2")
     set("artifactName", "components")
 }
 

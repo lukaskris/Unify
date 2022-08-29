@@ -4,7 +4,6 @@ import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
@@ -13,6 +12,7 @@ import androidx.core.content.ContextCompat
 import id.co.app.components.R
 import id.co.app.components.icon.IconUnify
 import id.co.app.components.utils.setBodyText
+import timber.log.Timber
 import java.text.DecimalFormat
 
 
@@ -36,7 +36,7 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
     private var addListener: () -> Unit = {}
     private var subtractListener: () -> Unit = {}
 
-    private lateinit var textChangeListener: (newValue: Int, oldValue: Int, isOver: Int?) -> Unit
+    private var textChangeListener: ((newValue: Int, oldValue: Int, isOver: Int?) -> Unit)? = null
 
     /**
      * Minimum value boundary
@@ -53,6 +53,8 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
      */
     var autoHideKeyboard = false
 
+    private var isPressedButton = false
+
     private var newValue = 0
     private var oldValue = 0
 
@@ -61,22 +63,13 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
      */
     var stepValue = 1
 
-    /**
-     * Reference attribute variable
-     */
-    private var minValueReference = IntArray(1) { R.attr.qty_min_value }
-    private var maxValueReference = IntArray(1) { R.attr.qty_max_value }
-    private var defaultValueReference = IntArray(1) { R.attr.qty_default_value }
-    private var stepValueReference = IntArray(1) { R.attr.unify_qty_step_value }
-
     init {
         View.inflate(context, R.layout.quantity_editor_layout, this)
-
-        var defaultValue =
-            context.obtainStyledAttributes(attributeSet, defaultValueReference).getInt(0, 0)
-        minValue = context.obtainStyledAttributes(attributeSet, minValueReference).getInt(0, 0)
-        maxValue = context.obtainStyledAttributes(attributeSet, maxValueReference).getInt(0, 100)
-        stepValue = context.obtainStyledAttributes(attributeSet, stepValueReference).getInt(0, 1)
+        val attributeArray = context.obtainStyledAttributes(attributeSet, R.styleable.QuantityEditorUnify)
+        var defaultValue = attributeArray.getInt(R.styleable.QuantityEditorUnify_editor_qty_default_value, 0)
+        minValue = attributeArray.getInt(R.styleable.QuantityEditorUnify_editor_qty_min_value,0)
+        maxValue = attributeArray.getInt(R.styleable.QuantityEditorUnify_editor_qty_max_value, 100)
+        stepValue = attributeArray.getInt(R.styleable.QuantityEditorUnify_editor_qty_step_value, 1)
 
         addButton = findViewById(R.id.quantity_editor_add)
         subtractButton = findViewById(R.id.quantity_editor_substract)
@@ -100,8 +93,12 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
 
         addButton.setOnClickListener {
             editText.clearFocus()
-            var tempValue = getEditTextVal()
 
+            isPressedButton = true
+
+            var tempValue = getEditTextVal()
+            var o1 = oldValue
+            var n1 = newValue
             tempValue += stepValue
             if (tempValue > maxValue) {
                 tempValue = maxValue
@@ -118,7 +115,7 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
 
             subtractButton.isEnabled = true
 
-            if (::textChangeListener.isInitialized) textChangeListener(newValue, oldValue, null)
+            if (textChangeListener != null && newValue != oldValue) textChangeListener?.invoke(newValue, oldValue, null)
 
             addListener()
         }
@@ -133,6 +130,7 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
 
         subtractButton.setOnClickListener {
             editText.clearFocus()
+            isPressedButton = true
             var tempValue = getEditTextVal()
 
             tempValue -= stepValue
@@ -150,32 +148,34 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
             }
 
             addButton.isEnabled = true
-
-            if (::textChangeListener.isInitialized) textChangeListener(newValue, oldValue, null)
+            if (textChangeListener != null && newValue != oldValue) textChangeListener?.invoke(newValue, oldValue, null)
 
             subtractListener()
         }
 
         editText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                val tempValue = getEditTextVal()
-                editText.removeTextChangedListener(this)
+                if(!isPressedButton) {
+                    val tempValue = getEditTextVal()
+                    editText.removeTextChangedListener(this)
 
-                editText.setText(applyFormat(editText.text))
-                editText.setSelection(editText.text.length)
+                    editText.setText(applyFormat(editText.text))
+                    editText.setSelection(editText.text.length)
 
-                oldValue = newValue
-                newValue = tempValue
+                    oldValue = newValue
+                    newValue = tempValue
 
-                if (tempValue >= maxValue) {
-                    addButton.isEnabled = false
+                    if (tempValue >= maxValue) {
+                        addButton.isEnabled = false
+                    }
+
+                    subtractButton.isEnabled = true
+
+                    sendListenerTextChange()
+
+                    editText.addTextChangedListener(this)
                 }
-
-                subtractButton.isEnabled = true
-
-                if (::textChangeListener.isInitialized) textChangeListener(newValue, oldValue, null)
-
-                editText.addTextChangedListener(this)
+                isPressedButton = false
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -186,6 +186,7 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
 
             }
         })
+        attributeArray.recycle()
     }
 
     /**
@@ -225,9 +226,18 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
      * @param value new quantity editor value
      */
     fun setValue(value: Int) {
-        val isOver = checkOver(value)
+        clear()
+        checkOver(value)
+    }
 
-        if (::textChangeListener.isInitialized) textChangeListener(newValue, oldValue, isOver)
+    /**
+     * Set Id Quantity Editor and also clear text change
+     * @param id new ID
+     */
+    fun clear(){
+        newValue = 0
+        oldValue = 0
+        textChangeListener = null
     }
 
     /**
@@ -266,6 +276,12 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
         }
     }
 
+    private fun sendListenerTextChange(){
+        if (newValue != oldValue) {
+            textChangeListener?.invoke(newValue, oldValue, null)
+        }
+    }
+
     /**
      * Apply quantity editor format to param
      * @param source target source to apply the format
@@ -279,7 +295,7 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
         val formattedSource: String = try {
             formatter.format(cleanSource.toInt())
         } catch (e: Exception) {
-            Log.e("Unify", "QuantityEditorUnify Int size over")
+            Timber.tag("Unify").e("QuantityEditorUnify Int size over")
             formatter.format(maxValue)
         }
 
@@ -289,7 +305,7 @@ class QuantityEditorUnify(context: Context, attributeSet: AttributeSet) :
     private fun getEditTextVal(): Int {
         val tempStorageText = editText.text.toString().replace(".", "")
 
-        return if (tempStorageText.isNullOrEmpty()) {
+        return if (tempStorageText.isEmpty()) {
             newValue
         } else {
             tempStorageText.toInt()

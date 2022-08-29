@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="qty_min_value" format="integer"/>
-    <attr name="qty_max_value" format="integer"/>
-    <attr name="qty_default_value" format="integer"/>
-    <attr name="unify_qty_step_value" format="integer"/>
+    <declare-styleable name="QuantityEditorUnify">
+        <attr name="editor_qty_min_value" format="integer" />
+        <attr name="editor_qty_max_value" format="integer" />
+        <attr name="editor_qty_default_value" format="integer" />
+        <attr name="editor_qty_step_value" format="integer" />
+    </declare-styleable>
 </resources>

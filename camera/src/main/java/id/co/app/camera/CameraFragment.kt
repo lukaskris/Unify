@@ -32,6 +32,7 @@ import id.co.app.core.model.eventbus.DataEvent
 import id.co.app.core.model.eventbus.EventBus
 import id.zelory.compressor.Compressor
 import id.zelory.compressor.constraint.default
+import id.zelory.compressor.constraint.destination
 import kotlinx.coroutines.launch
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
@@ -53,6 +54,7 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     private val isMultiShotCamera by lazy { arguments?.getString("multishot").orEmpty() == "true" }
     private val isSelfieCamera by lazy { arguments?.getString("selfie").orEmpty() == "true" }
     private val isQrCode by lazy { arguments?.getString("scanner").orEmpty() == "true" }
+    private val appendName by lazy { arguments?.getString("append_name").orEmpty() }
 
     private val binding by lazy { FragmentCameraBinding.inflate(layoutInflater) }
     private var imageCapture: ImageCapture? = null
@@ -228,17 +230,15 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     lifecycleScope.launch {
-                        val compressedImageFile = Compressor.compress(requireContext(), photoFile) {
-                            default(width = 640, format = Bitmap.CompressFormat.WEBP, quality = 70)
-                        }
+                        val finalImageFile = getFinalDirectory(photoFile)
                         photoFile.delete()
                         if (isMultiShotCamera) {
-                            addPhotoList(compressedImageFile)
+                            addPhotoList(finalImageFile)
                         } else {
-                            eventBus.invokeEvent(DataEvent(listOf(compressedImageFile)))
+                            eventBus.invokeEvent(DataEvent(listOf(finalImageFile)))
                             findNavController().previousBackStackEntry?.savedStateHandle?.set(
                                 "pictures",
-                                listOf(compressedImageFile)
+                                listOf(finalImageFile)
                             )
                             isDisposeByAction = true
                             activity?.onBackPressed()
@@ -386,6 +386,14 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                 ).show()
             }
         }
+    }
+
+    private suspend fun getFinalDirectory(photoFile: File): File{
+        val compressedImageFile = Compressor.compress(requireContext(), photoFile) {
+            default(width = 640, format = Bitmap.CompressFormat.WEBP, quality = 70)
+            destination(File(getOutputDirectory(), (if(appendName.isNotBlank()) "$appendName-" else "") + System.currentTimeMillis() + ".webp"))
+        }
+        return compressedImageFile
     }
 
     companion object {
