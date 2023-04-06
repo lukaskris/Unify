@@ -17,4 +17,16 @@
     <string name="exit_confirm" translation_description="The label for exit app confirmation">Press again to exit</string>
     <string name="exit_application">Exit App</string>
     <string name="msg_token_fmt">Token: %s</string>
+    <string name="queued">Queued</string>
+    <string name="added">Added</string>
+    <string name="downloading">Downloading</string>
+    <string name="percent_progress">%1$d%%</string>
+    <string name="status_unknown">Unknown</string>
+    <string name="retry">Retry</string>
+    <string name="download_eta_sec">%1$ds left</string>
+    <string name="download_eta_min">%1$dm %2$ds left</string>
+    <string name="download_eta_hrs">%1$dh %2$dm %3$ds left</string>
+    <string name="download_speed_bytes">%1$d B/s</string>
+    <string name="download_speed_kb">%1$s KB/s</string>
+    <string name="download_speed_mb">%1$s MB/s</string>
 </resources>

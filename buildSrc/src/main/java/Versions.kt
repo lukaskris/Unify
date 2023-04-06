@@ -32,21 +32,23 @@ object Versions {
 	const val compressionVersion = "3.0.1"
 
 	// room
-	const val room = "2.3.0"
+	const val room = "2.4.0"
 	const val jdbc = "3.32.3.3"
+
+	const val worker = "2.7.1"
 
 	const val barcodeScannerVersion = "1.9.13"
 	const val timberVersion = "4.7.1"
-	const val jetpackNavigation = "2.4.0-alpha02"
+	const val jetpackNavigation = "2.5.3"
 
 	const val toastyVersion = "1.5.0"
 
 	const val securityVersion = "1.1.0-alpha03"
 	const val commonIoVersion = "2.8.0"
 
-	const val cameraxVersion = "1.0.0"
+	const val cameraxVersion = "1.2.1"
 	const val mlkitVersion = "18.0.0"
-	const val cameraViewVersion = "1.0.0-alpha24"
+	const val cameraViewVersion = "1.2.1"
 
 	const val retrofit = "2.9.0"
 	const val okHttpInterceptor = "4.9.0"

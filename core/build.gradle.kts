@@ -6,7 +6,6 @@ plugins {
     id("dagger.hilt.android.plugin")
     id("maven-publish")
     id("com.jfrog.artifactory")
-    id("com.google.devtools.ksp").version("1.6.0-1.0.1")
 }
 
 android {
@@ -63,28 +62,31 @@ dependencies {
     api(project(":components"))
     implementation(AppDependencies.kotlinStdLib)
     implementation(AppDependencies.androidLibraries)
+    implementation(AppDependencies.glide)
+    implementation(AppDependencies.glideOkHttp){
+        exclude(group="glide-parent")
+    }
+    implementation(AppDependencies.roomRuntime)
+    implementation(AppDependencies.pagingRuntime)
+    implementation(AppDependencies.shimmer)
+    implementation(AppDependencies.moshi)
+    implementation(AppDependencies.moshiRetrofitFactory)
+    implementation(AppDependencies.toasty)
     implementation(AppDependencies.dependencyInjectionLibraries)
-    implementation(AppDependencies.networkLibraries)
-    implementation(AppDependencies.persistenceLibraries)
-    implementation(AppDependencies.navigationLibraries)
     implementation(AppDependencies.guava) {
         exclude(group = "com.google.guava", module = "listenablefuture")
     }
 
-    debugImplementation(AppDependencies.chucker)
-    releaseImplementation(AppDependencies.chuckerNoOp)
 
     compileOnly(AppDependencies.hiltAssistedInject)
     kapt(AppDependencies.kaptLibraries)
-    ksp(AppDependencies.kspLibraries)
-    testImplementation(AppDependencies.testLibraries)
 
 }
 
 project.ext {
     set("artifactId", "core")
     set("groupId", "id.co.app")
-    set("versionName", "1.0.3")
+    set("versionName", "1.0.5")
     set("artifactName", "core")
 }
 

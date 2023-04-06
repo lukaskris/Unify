@@ -50,7 +50,6 @@
             android:textColor="@color/Unify_Static_White"
             android:textSize="20sp"
             android:tint="@color/Unify_N0"
-            app:gone="@{isScanner}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/capture_group"

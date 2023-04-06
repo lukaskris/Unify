@@ -18,8 +18,8 @@ object AppDependencies {
 
     //android ui
     const val material = "com.google.android.material:material:${Versions.material}"
-    private const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
-    private const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
+    const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+    const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
     private const val lifecycleKtx =
         "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleKtx}"
     private const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
@@ -28,13 +28,9 @@ object AppDependencies {
     private const val multiDex = "androidx.multidex:multidex:${Versions.multidexVersion}"
     private const val swipeRefreshVersion =
         "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshVersion}"
-
-    // shimmer
-    private const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
-
-    // glide
-
-    private const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glideOkHttp = "com.github.bumptech.glide:okhttp3-integration:${Versions.glide}"
     private const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
 
     const val bom = "com.google.firebase:firebase-bom:${Versions.bomFirebaseVersion}"
@@ -43,108 +39,67 @@ object AppDependencies {
     private const val config = "com.google.firebase:firebase-config-ktx"
     private const val messaging = "com.google.firebase:firebase-messaging-ktx"
 
-
     private const val compressor = "id.zelory:compressor:${Versions.compressionVersion}"
 
-    // room
-    private const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
-    private const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
-    private const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
-    private const val jdbcForSupportM1 = "org.xerial:sqlite-jdbc:${Versions.jdbc}"
+    const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
 
-    // jetpack
-    private const val navigationRuntime =
-        "androidx.navigation:navigation-runtime-ktx:${Versions.jetpackNavigation}"
-    private const val navigationFragment =
-        "androidx.navigation:navigation-fragment-ktx:${Versions.jetpackNavigation}"
-    private const val navigationDynamicFeatures =
-        "androidx.navigation:navigation-dynamic-features-fragment:${Versions.jetpackNavigation}"
-    private const val navigationUiKtx =
-        "androidx.navigation:navigation-ui-ktx:${Versions.jetpackNavigation}"
-
+    const val worker = "androidx.work:work-runtime-ktx:${Versions.worker}"
 
     // cameraX android
     private const val cameraXCore = "androidx.camera:camera-core:${Versions.cameraxVersion}"
     private const val mlKit = "com.google.android.gms:play-services-mlkit-barcode-scanning:${Versions.mlkitVersion}"
     private const val cameraX = "androidx.camera:camera-camera2:${Versions.cameraxVersion}"
-    private const val cameraXLifecycle =
-        "androidx.camera:camera-lifecycle:${Versions.cameraxVersion}"
+    private const val cameraXLifecycle = "androidx.camera:camera-lifecycle:${Versions.cameraxVersion}"
     private const val cameraXView = "androidx.camera:camera-view:${Versions.cameraViewVersion}"
     private const val cameraXExtension = "androidx.camera:camera-extensions:${Versions.cameraViewVersion}"
 
-
+    private const val navigationRuntime = "androidx.navigation:navigation-runtime-ktx:${Versions.jetpackNavigation}"
+//    const val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:${Versions.jetpackNavigation}"
     // hilt
-    private const val hilt = "com.google.dagger:hilt-android:${Versions.hiltVersion}"
-    private const val hiltCompiler =
+    const val hilt = "com.google.dagger:hilt-android:${Versions.hiltVersion}"
+    const val hiltCompiler =
         "com.google.dagger:hilt-android-compiler:${Versions.hiltVersion}"
-    private const val hiltNavigation =
-        "androidx.hilt:hilt-navigation-fragment:${Versions.hiltCompilerVersion}"
+    private const val hiltNavigation = "androidx.hilt:hilt-navigation-fragment:${Versions.hiltCompilerVersion}"
     private const val hiltTest = "com.google.dagger:hilt-android-testing:${Versions.hiltVersion}"
     private const val hiltViewModelAndroidX = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
-    private const val hiltCompilerAndroidX =
+    const val hiltCompilerAndroidX =
         "androidx.hilt:hilt-compiler:${Versions.hiltCompilerVersion}"
-    private const val hiltAssistedInjectProcessor =
+    const val hiltAssistedInjectProcessor =
         "com.squareup.inject:assisted-inject-processor-dagger2:${Versions.hiltAssistedVersion}"
     const val hiltAssistedInject =
         "com.squareup.inject:assisted-inject-annotations-dagger2:${Versions.hiltAssistedVersion}"
 
     // chucker
-    const val chucker = "com.github.chuckerteam.chucker:library:${Versions.chucker}"
-    const val chuckerNoOp = "com.github.chuckerteam.chucker:library-no-op:${Versions.chucker}"
+//    const val chucker = "com.github.chuckerteam.chucker:library:${Versions.chucker}"
+//    const val chuckerNoOp = "com.github.chuckerteam.chucker:library-no-op:${Versions.chucker}"
 
 
-    private const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    const val okHttpInterceptor =
-        "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpInterceptor}"
-
-    // moshi
     const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshiVersion}"
-    private const val moshiRetrofitFactory =
+    const val moshiRetrofitFactory =
         "com.squareup.retrofit2:converter-moshi:${Versions.moshiRetrofitFactoryVersion}"
     private const val moshiCodegen =
         "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshiVersion}"
-
-    const val exoPlayer = "com.google.android.exoplayer:exoplayer:${Versions.exoPlayer}"
-    private const val easyPermission = "pub.devrel:easypermissions:3.0.0"
+    private const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val okHttpInterceptor =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpInterceptor}"
+    const val easyPermission = "pub.devrel:easypermissions:3.0.0"
     const val guava = "com.google.guava:guava:30.1-android"
-
-    // paging
-    private const val pagingRuntime = "androidx.paging:paging-runtime:${Versions.pagingVersion}"
-
-    // zxing
-    private const val barcodeScanner = "me.dm7.barcodescanner:zxing:${Versions.barcodeScannerVersion}"
+    const val pagingRuntime = "androidx.paging:paging-runtime:${Versions.pagingVersion}"
 
     // timber
     const val timber = "com.jakewharton.timber:timber:${Versions.timberVersion}"
-
-    private const val toasty = "com.github.GrenderG:Toasty:${Versions.toastyVersion}"
-
+    const val toasty = "com.github.GrenderG:Toasty:${Versions.toastyVersion}"
     private const val securityX = "androidx.security:security-crypto:${Versions.securityVersion}"
 
     private const val commonIO = "commons-io:commons-io:${Versions.commonIoVersion}"
 
-
-    // test libs
-    private const val junit = "junit:junit:${Versions.junit}"
-    private const val mockk = "io.mockk:mockk:${Versions.mockk}"
-    private const val turbine = "app.cash.turbine:turbine:${Versions.turbine}"
-    private const val extJUnit = "androidx.test.ext:junit:${Versions.extJunit}"
-
-    // instrument test libs
-    private const val truth = "com.google.truth:truth:${Versions.truthVersion}"
-    private const val archCoreTesting =
-        "androidx.arch.core:core-testing:${Versions.archCoreVersion}"
-
     val kaptLibraries = arrayListOf<String>().apply {
         add(hiltCompiler)
         add(hiltCompilerAndroidX)
-        add(roomCompiler)
         add(glideCompiler)
         add(hiltAssistedInjectProcessor)
-    }
-
-    val kspLibraries = arrayListOf<String>().apply {
-        add(moshiCodegen)
     }
 
     val dependencyInjectionLibraries = arrayListOf<String>().apply {
@@ -153,63 +108,28 @@ object AppDependencies {
         add(hiltViewModelAndroidX)
     }
 
-    val networkLibraries = arrayListOf<String>().apply{
-        add(retrofit)
-        add(moshi)
-        add(moshiRetrofitFactory)
-        add(okHttpInterceptor)
-    }
-
     val androidLibraries = arrayListOf<String>().apply {
         add(kotlinStdLib)
         add(coreKtx)
         add(lifecycleKtx)
         add(activityKtx)
-        add(appcompat)
         add(material)
         add(multiDex)
-        add(swipeRefreshVersion)
         add(constraintLayout)
-        add(shimmer)
-        add(exoPlayer)
-        add(glide)
+        add(navigationRuntime)
         add(bom)
         add(analytics)
         add(config)
-        add(toasty)
         add(securityX)
         add(commonIO)
         add(messaging)
         add(crashlytics)
-        add(easyPermission)
-        add(pagingRuntime)
-        add(barcodeScanner)
         add(timber)
         add(compressor)
     }
-
-    val persistenceLibraries = arrayListOf<String>().apply{
-        add(roomRuntime)
-        add(jdbcForSupportM1)
-        add(roomKtx)
-    }
-
-    val navigationLibraries = arrayListOf<String>().apply{
-        add(navigationFragment)
-        add(navigationUiKtx)
-        add(navigationRuntime)
-        add(navigationDynamicFeatures)
-    }
-
     val cameraXLibraries = arrayListOf(
         cameraXCore, cameraX, cameraXView, cameraXLifecycle, cameraXExtension, mlKit
     )
-    val testLibraries = arrayListOf<String>().apply {
-        add(junit)
-        add(mockk)
-        add(truth)
-        add(archCoreTesting)
-    }
 
 }
 

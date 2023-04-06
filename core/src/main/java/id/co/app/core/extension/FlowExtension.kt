@@ -6,7 +6,6 @@ import kotlinx.coroutines.Dispatchers.Unconfined
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.Channel.Factory.UNLIMITED
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlin.time.Duration
 import kotlin.time.DurationUnit
 import kotlin.time.ExperimentalTime
@@ -203,13 +202,13 @@ private class ChannelBasedFlowTurbine<T>(
         cancel()
         return mutableListOf<Event<T>>().apply {
             while (true) {
-                this += events.poll() ?: break
+                this += events.tryReceive().getOrNull() ?: break
             }
         }
     }
 
     override fun expectNoEvents() {
-        val event = events.poll()
+        val event = events.tryReceive().getOrNull()
         if (event != null) {
             unexpectedEvent(event, "no events")
         }
@@ -253,7 +252,7 @@ private class ChannelBasedFlowTurbine<T>(
         val unconsumed = mutableListOf<Event<T>>()
         var cause: Throwable? = null
         while (true) {
-            val event = events.poll() ?: break
+            val event = events.tryReceive().getOrNull() ?: break
             unconsumed += event
             if (event is Event.Error) {
                 check(cause == null)

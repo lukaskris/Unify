@@ -6,8 +6,8 @@ import android.animation.ObjectAnimator
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.util.Size
 import android.view.LayoutInflater
 import android.view.View
@@ -33,9 +33,11 @@ import id.co.app.core.model.eventbus.EventBus
 import id.zelory.compressor.Compressor
 import id.zelory.compressor.constraint.default
 import id.zelory.compressor.constraint.destination
+import id.zelory.compressor.constraint.size
 import kotlinx.coroutines.launch
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
+import timber.log.Timber
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -171,7 +173,7 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
             )
             activity?.onBackPressed()
         }
-        binding.okButton.isVisible = isMultiShotCamera
+        binding.okButton.isVisible = isMultiShotCamera && !isQrCode
         binding.captureButton.setOnClickListener {
             takePhoto()
         }
@@ -219,7 +221,7 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
             ContextCompat.getMainExecutor(requireContext()),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onError(exc: ImageCaptureException) {
-                    Log.e(TAG, "Photo capture failed: ${exc.message}", exc)
+                    Timber.tag(TAG).e("Photo capture failed: ${exc.message}")
                     Toasty.error(
                         requireContext(),
                         "Photo capture failed: ${exc.message}",
@@ -283,7 +285,7 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                 }
 
             } catch (exc: Exception) {
-                Log.e(TAG, "Use case binding failed", exc)
+                Timber.tag(TAG).e("Use case binding failed, ${exc.message}")
             }
 
         }, ContextCompat.getMainExecutor(requireContext()))
@@ -359,7 +361,7 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                 .addOnFailureListener {
                     // This failure will happen if the barcode scanning model
                     // fails to download from Google Play Services
-                    Log.e(TAG, it.message.orEmpty())
+                    Timber.tag(TAG).e(it.message.orEmpty())
                 }.addOnCompleteListener {
                     // When the image is from CameraX analysis use case, must
                     // call image.close() on received images when finished
@@ -388,10 +390,22 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         }
     }
 
-    private suspend fun getFinalDirectory(photoFile: File): File{
+    private suspend fun getFinalDirectory(photoFile: File): File {
         val compressedImageFile = Compressor.compress(requireContext(), photoFile) {
-            default(width = 640, format = Bitmap.CompressFormat.WEBP, quality = 70)
-            destination(File(getOutputDirectory(), (if(appendName.isNotBlank()) "$appendName-" else "") + System.currentTimeMillis() + ".webp"))
+            default(
+                width = 640, format = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    Bitmap.CompressFormat.WEBP_LOSSLESS
+                } else {
+                    Bitmap.CompressFormat.WEBP
+                }, quality = 60
+            )
+            size(100_000)
+            destination(
+                File(
+                    getOutputDirectory(),
+                    (if (appendName.isNotBlank()) "$appendName-" else "") + "C-" + System.currentTimeMillis() + ".webp"
+                )
+            )
         }
         return compressedImageFile
     }
@@ -400,6 +414,8 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         private const val TAG = "CameraXBasic"
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
         private const val REQUEST_CODE_PERMISSIONS = 10
-        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+        private val REQUIRED_PERMISSIONS = arrayOf(
+            Manifest.permission.CAMERA
+        )
     }
 }

@@ -19,8 +19,8 @@ object DateFormatterUtil {
      */
     private const val LOG_TAG = "DateTimeUtils"
 
-    private const val TIMED_ZONE_PATTERN = "yyyy-MM-dd'T'HH:mm:ssXXX"
-    private const val TIMED_ZONE_2_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
+    private const val TIMED_ZONE_PATTERN = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+    private const val TIMED_ZONE_2_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
 
     private const val SHORT_FORMAT_PATTERN = "dd/MM"
     private const val SHORT_FORMAT_PATTERN_MONTH = "dd MMM"

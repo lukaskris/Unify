@@ -87,6 +87,9 @@
         <activity
             android:name=".ui.main.CameraActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+        <activity
+            android:name=".ui.downloader.SingleDownloadActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
     </application>
 
 </manifest>

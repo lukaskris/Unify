@@ -101,4 +101,6 @@ subprojects {
 dependencies {
     implementationProject(ModuleDependencies.widgets)
     implementation(AppDependencies.androidLibraries)
+    implementation(AppDependencies.appcompat)
+    implementation("com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava")
 }

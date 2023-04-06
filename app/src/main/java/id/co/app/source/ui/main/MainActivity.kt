@@ -24,6 +24,7 @@ import id.co.app.source.databinding.ActivityMainBinding
 import id.co.app.source.ui.carousell.CarouselActivity
 import id.co.app.source.ui.chip.ChipsActivity
 import id.co.app.source.ui.coachmark.CoachMarkActivity
+import id.co.app.source.ui.downloader.SingleDownloadActivity
 import id.co.app.source.ui.emptystate.EmptyStateActivity
 import id.co.app.source.ui.icon.UnifyIconActivity
 import id.co.app.source.ui.label.LabelActivity
@@ -97,6 +98,9 @@ class MainActivity : AppCompatActivity(), MyRecyclerViewAdapter.ItemClickListene
         menu.add("Chip Unify")//10
         menu.add("Notify")//11
         menu.add("Camera")//12
+        menu.add("LSDownloader")//13
+
+        binding.imageUnify.setImageUrl("")
 
         val dividerItemDecoration = androidx.recyclerview.widget.DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
         binding.recyclerView.addItemDecoration(dividerItemDecoration)
@@ -118,6 +122,7 @@ class MainActivity : AppCompatActivity(), MyRecyclerViewAdapter.ItemClickListene
                 10 -> Intent(this, ChipsActivity::class.java)
                 11 -> Intent(this, NotifySampleActivity::class.java)
                 12 -> Intent(this, CameraActivity::class.java)
+                13 -> Intent(this, SingleDownloadActivity::class.java)
                 else -> Intent(this, TypographyActivity::class.java)
             }
         )

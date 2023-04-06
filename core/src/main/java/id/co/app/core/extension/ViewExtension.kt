@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -19,7 +18,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import es.dmoral.toasty.Toasty
 import id.co.app.components.text.TextFieldUnify
-import id.co.app.core.R
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.util.*
@@ -50,15 +48,6 @@ fun View.setMarginTop(marginTop: Int) {
 	val menuLayoutParams = this.layoutParams as ViewGroup.MarginLayoutParams
 	menuLayoutParams.setMargins(0, marginTop, 0, 0)
 	this.layoutParams = menuLayoutParams
-}
-
-fun Activity.makeStatusBarNotTransparent() {
-	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-		window.apply {
-			decorView.systemUiVisibility = 0
-			statusBarColor = ContextCompat.getColor(this@makeStatusBarNotTransparent, R.color.color_primary_dark)
-		}
-	}
 }
 
 fun Context.showToast(message: String, duration: Int = Toast.LENGTH_LONG) {
@@ -165,7 +154,10 @@ fun TextFieldUnify.addThousandSeparator(){
 				val string = editText.text.toString()
 				if (!TextUtils.isEmpty(string)) {
 					val textWC = string.replace(".", "")
-					val number = textWC.toDouble()
+					var number = textWC.toDouble()
+					if(number.toInt() > Int.MAX_VALUE){
+						number = textWC.dropLast(1).toDouble()
+					}
 					editText.setText(dec.format(number))
 					editText.setSelection(dec.format(number).length)
 				}

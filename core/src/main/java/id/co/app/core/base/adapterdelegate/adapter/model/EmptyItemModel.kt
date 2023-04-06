@@ -1,5 +1,6 @@
 package id.co.app.core.base.adapterdelegate.adapter.model
 
+import androidx.annotation.DrawableRes
 import id.co.app.core.base.adapterdelegate.DelegateAdapterItem
 
 
@@ -10,11 +11,12 @@ import id.co.app.core.base.adapterdelegate.DelegateAdapterItem
  */
 class EmptyItemModel(
     val title: String = "Tidak ada data tersedia",
-    val subtitle: String = ""
+    val subtitle: String = "",
+    @DrawableRes val drawable: Int = -1
 ) : DelegateAdapterItem {
     override fun id(): Any = EMPTY_ITEM_MODEL
 
-    override fun content(): Any = title + subtitle
+    override fun content(): Any = title + subtitle + drawable
 
     companion object {
         private const val EMPTY_ITEM_MODEL = "EmptyItemModel"

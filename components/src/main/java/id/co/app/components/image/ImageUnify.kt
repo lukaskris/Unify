@@ -425,7 +425,6 @@ class ImageUnify : AppCompatImageView {
         val mRequestBuilder: RequestBuilder<Bitmap> = Glide.with(context).asBitmap()
 
         if (heightRatio == null) mRequestBuilder.dontTransform()
-
         mRequestBuilder.load(url).error(if (isRetryable) reloadDrawable else errorDrawable)
             .listener(object : RequestListener<Bitmap> {
                 override fun onLoadFailed(
@@ -460,7 +459,7 @@ class ImageUnify : AppCompatImageView {
                 }
             })
             .skipMemoryCache(isSkipCache)
-            .diskCacheStrategy(if(isSkipCache) DiskCacheStrategy.NONE else DiskCacheStrategy.AUTOMATIC)
+            .diskCacheStrategy(if (isSkipCache) DiskCacheStrategy.NONE else DiskCacheStrategy.AUTOMATIC)
             .into(this)
     }
 

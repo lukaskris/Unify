@@ -18,7 +18,6 @@
             android:id="@+id/empty_state"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:emptyStateImageDrawable="@drawable/ic_empty_result"
             app:emptyStateOrientation="vertical"
             app:emptyStateType="page"/>
     </LinearLayout>

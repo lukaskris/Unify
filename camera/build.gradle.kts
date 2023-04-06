@@ -58,7 +58,9 @@ dependencies {
     implementation(AppDependencies.androidLibraries)
     implementation(AppDependencies.dependencyInjectionLibraries)
     implementation(AppDependencies.cameraXLibraries)
-    implementation(AppDependencies.navigationLibraries)
+    implementation(AppDependencies.glide)
+    implementation(AppDependencies.toasty)
+    implementation(AppDependencies.easyPermission)
     kapt(AppDependencies.kaptLibraries)
     compileOnly(AppDependencies.hiltAssistedInject)
 }
@@ -66,7 +68,7 @@ dependencies {
 project.ext{
     set("artifactId", "camera")
     set("groupId", "id.co.app")
-    set("versionName", "1.1.4")
+    set("versionName", "1.1.5")
     set("artifactName", "camera")
 }
 

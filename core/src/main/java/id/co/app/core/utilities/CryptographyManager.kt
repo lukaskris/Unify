@@ -160,5 +160,4 @@ private class CryptographyManagerImpl : CryptographyManager {
 	}
 }
 
-@JsonClass(generateAdapter = true)
 data class CiphertextWrapper(val ciphertext: ByteArray, val initializationVector: ByteArray)

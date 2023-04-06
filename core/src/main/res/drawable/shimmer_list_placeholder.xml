@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_list"
     style="@style/Widget.MaterialComponents.CardView"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/home_list_height"
+    android:layout_height="100dp"
     android:layout_marginLeft="@dimen/margin_small"
     android:layout_marginTop="@dimen/margin_extra_very_small"
     android:layout_marginRight="@dimen/margin_small"
@@ -12,14 +13,16 @@
     android:elevation="3dp"
     app:cardBackgroundColor="?attr/colorSurface"
     app:cardCornerRadius="10dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    tools:ignore="NewApi">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/parent_view_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?android:attr/selectableItemBackground"
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        tools:ignore="NewApi">
         <TextView
             android:id="@+id/row_photo_rover_camera"
             android:layout_width="0dp"

@@ -26,18 +26,4 @@
     <!-- elevation for page Detail toolbar - used to convert to pixels when hiding/showing -->
     <dimen name="toolbar_elevation">8dp</dimen>
 
-    <!-- Page List Header margin -->
-    <dimen name="header_margin">24dp</dimen>
-
-    <dimen name="gallery_header_margin">72dp</dimen>
-
-    <dimen name="plant_description_min_height">555dp</dimen>
-    <dimen name="app_bar_backdrop_height">220dp</dimen>
-    <!--    <dimen name="page_detail_app_bar_height">278dp</dimen>-->
-
-    <dimen name="app_logo_width">100dp</dimen>
-    <dimen name="app_logo_height">42dp</dimen>
-
-    <dimen name="home_list_height">110dp</dimen>
-    <dimen name="home_icon_list_size">80dp</dimen>
 </resources>

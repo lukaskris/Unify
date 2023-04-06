@@ -50,7 +50,7 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(AppDependencies.androidLibraries)
-    implementation(AppDependencies.persistenceLibraries)
+    implementation(AppDependencies.roomRuntime)
 }
 
 project.ext{

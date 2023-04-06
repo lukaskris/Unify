@@ -19,9 +19,7 @@ import android.view.WindowManager
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
-import id.co.app.core.R
 
 object Common {
 
@@ -84,11 +82,7 @@ object Common {
                 } else {
                     decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                 }
-                statusBarColor = if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP) {
-                    ContextCompat.getColor(activity, R.color.color_primary_dark)
-                } else {
-                    Color.TRANSPARENT
-                }
+                statusBarColor = Color.TRANSPARENT
             }
         }
     }

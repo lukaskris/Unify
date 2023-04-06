@@ -54,15 +54,14 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-
-    implementation(AppDependencies.kotlinStdLib)
     implementation(AppDependencies.androidLibraries)
+    implementation(AppDependencies.glide)
 }
 
 project.ext {
     set("artifactId", "components")
     set("groupId", "id.co.app")
-    set("versionName", "1.0.2")
+    set("versionName", "1.1.0")
     set("artifactName", "components")
 }
 
