@@ -64,5 +64,6 @@ Thumbs.db
 .externalNativeBuild
 .cxx
 local.properties
+github.properties
 /.idea/
 /gradle/wrapper/

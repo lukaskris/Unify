@@ -5,7 +5,6 @@ plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("maven-publish")
-    id("com.jfrog.artifactory")
 }
 
 android {
@@ -26,6 +25,12 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+    }
+    publishing {
+        multipleVariants {
+            allVariants()
+            withJavadocJar()
         }
     }
 

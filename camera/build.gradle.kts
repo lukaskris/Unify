@@ -5,7 +5,6 @@ plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("maven-publish")
-    id("com.jfrog.artifactory")
 }
 
 android {
@@ -38,6 +37,12 @@ android {
     buildFeatures {
         dataBinding = true
     }
+    publishing {
+        multipleVariants {
+            allVariants()
+            withJavadocJar()
+        }
+    }
 
     packagingOptions {
         resources.excludes.add("META-INF/DEPENDENCIES")
@@ -68,7 +73,7 @@ dependencies {
 project.ext{
     set("artifactId", "camera")
     set("groupId", "id.co.app")
-    set("versionName", "1.1.5")
+    set("versionName", "1.1.9")
     set("artifactName", "camera")
 }
 
