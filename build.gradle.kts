@@ -21,7 +21,7 @@ val artifactory_username: String by project
 val artifactory_password: String by project
 
 allprojects {
-    apply(plugin = "com.jfrog.artifactory")
+//    apply(plugin = "com.jfrog.artifactory")
     apply(plugin = "maven-publish")
 
     repositories {
@@ -32,12 +32,12 @@ allprojects {
             setUrl("https://jitpack.io")
         }
 
-        maven {
-            url = uri("$artifactory_url/app-gradle-dev-local/")
-            credentials {
-                username = artifactory_username
-                password = artifactory_password
-            }
-        }
+//        maven {
+//            url = uri("$artifactory_url/app-gradle-dev-local/")
+//            credentials {
+//                username = artifactory_username
+//                password = artifactory_password
+//            }
+//        }
     }
 }

@@ -11,6 +11,7 @@ plugins {
     id("kotlin-kapt")
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
+    id("maven-publish")
 }
 
 android {

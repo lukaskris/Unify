@@ -33,6 +33,7 @@ import id.co.app.core.model.eventbus.EventBus
 import id.zelory.compressor.Compressor
 import id.zelory.compressor.constraint.default
 import id.zelory.compressor.constraint.destination
+import id.zelory.compressor.constraint.quality
 import id.zelory.compressor.constraint.size
 import kotlinx.coroutines.launch
 import pub.devrel.easypermissions.AppSettingsDialog
@@ -353,6 +354,10 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                         // update our textView to show the decoded value
                         if (!isDisposeByAction) {
                             eventBus.invokeEvent(DataEvent(value))
+                            findNavController().previousBackStackEntry?.savedStateHandle?.set(
+                                BARCODE_TAG,
+                                value
+                            )
                             isDisposeByAction = true
                             activity?.onBackPressed()
                         }
@@ -392,14 +397,13 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
     private suspend fun getFinalDirectory(photoFile: File): File {
         val compressedImageFile = Compressor.compress(requireContext(), photoFile) {
-            default(
-                width = 640, format = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                    Bitmap.CompressFormat.WEBP_LOSSLESS
-                } else {
-                    Bitmap.CompressFormat.WEBP
-                }, quality = 60
-            )
-            size(100_000)
+            val format = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                Bitmap.CompressFormat.WEBP_LOSSLESS
+            } else {
+                Bitmap.CompressFormat.WEBP
+            }
+            default(width = 480, format = format)
+            quality(60)
             destination(
                 File(
                     getOutputDirectory(),
@@ -412,6 +416,7 @@ class CameraFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
     companion object {
         private const val TAG = "CameraXBasic"
+        const val BARCODE_TAG = "result_barcode"
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
         private const val REQUEST_CODE_PERMISSIONS = 10
         private val REQUIRED_PERMISSIONS = arrayOf(
