@@ -27,12 +27,6 @@ android {
             )
         }
     }
-    publishing {
-        multipleVariants {
-            allVariants()
-            withJavadocJar()
-        }
-    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
