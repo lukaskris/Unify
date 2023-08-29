@@ -53,6 +53,22 @@ dependencies {
     implementation(AppDependencies.roomRuntime)
 }
 
+afterEvaluate {
+    publishing {
+        publications {
+            register("release", MavenPublication::class){
+                // Applies the component for the release build variant.
+                // NOTE : Delete this line code if you publish Native Java / Kotlin Library
+                from(components["release"])
+                groupId = "id.co.app"
+                artifactId = "querybuilder"
+                version = "1.0.1"
+                artifact("$buildDir/outputs/aar/${project.name}-release.aar") // this is the solution I came up with
+            }
+        }
+    }
+}
+
 project.ext{
     set("artifactId", "querybuilder")
     set("groupId", "id.co.app")

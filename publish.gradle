@@ -1,95 +1,40 @@
-// apply plugin: 'com.jfrog.artifactory'
 apply plugin: 'maven-publish'
 
+ext {
+    githubRepoUrl = "https://maven.pkg.github.com/lukaskris/Unify"
+}
 
-def githubProperties = new Properties()
-githubProperties.load(new FileInputStream(rootProject.file("github.properties"))) //Set env variable GPR_USER & GPR_API_KEY if not adding a properties file
+repositories {
+    maven {
+        url = uri(githubRepoUrl)
+        credentials {
+            username = project.findProperty("gprUser") ?: System.getenv("GPR_USER")
+            password = project.findProperty("gprApiKey") ?: System.getenv("GPR_API_KEY")
+        }
+    }
+}
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                groupId project.groupId
-                artifactId project.artifactId
-                version project.versionName
 
-                afterEvaluate {
-                    from components.release
-                }
-            }
-            bar(MavenPublication) {
-                groupId project.groupId
-                artifactId project.artifactId
-                version project.versionName
-                artifact("$buildDir/outputs/aar/"+project.artifactName+"-release.aar")
-                //generate .pom file with transitive dependencies
-                pom.withXml {
-                    def dependenciesNode = asNode().appendNode('dependencies')
+publishing {
+    publications {
+        bar(MavenPublication) {
+            groupId project.groupId
+            artifactId project.artifactId
+            version project.versionName
+            artifact("$buildDir/outputs/aar/"+project.artifactName+"-release.aar")
 
-                    //Iterate over the compile dependencies (we don't want the test ones), adding a <dependency> node for each
-                    configurations.api.allDependencies.each {
-                        if (it.group != null && it.name != null) {
-                            def dependencyNode = dependenciesNode.appendNode('dependency')
-                            dependencyNode.appendNode('groupId', it.group)
-                            dependencyNode.appendNode('artifactId', it.name)
-                            dependencyNode.appendNode('version', it.version)
-                        }
+            pom.withXml {
+                def dependenciesNode = asNode().appendNode('dependencies')
+
+                configurations.api.allDependencies.each {
+                    if (it.group != null && it.name != null) {
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', it.group)
+                        dependencyNode.appendNode('artifactId', it.name)
+                        dependencyNode.appendNode('version', it.version)
                     }
                 }
             }
         }
     }
 }
-//publishing {
-//    publications {
-//        release(MavenPublication) {
-//            groupId project.groupId
-//            artifactId project.artifactId
-//            version project.versionName
-//
-//            afterEvaluate {
-//                from components.release
-//            }
-//        }
-//        aar(MavenPublication) {
-//            groupId project.groupId
-//            artifactId project.artifactId
-//            version project.versionName
-//            artifact("$buildDir/outputs/aar/"+project.artifactName+"-release.aar")
-//            pom.withXml {
-//                def dependenciesNode = asNode().appendNode('dependencies')
-//
-//                //Iterate over the compile dependencies (we don't want the test ones), adding a <dependency> node for each
-//                configurations.api.allDependencies.each {
-//                    if (it.group != null && it.name != null) {
-//                        def dependencyNode = dependenciesNode.appendNode('dependency')
-//                        dependencyNode.appendNode('groupId', it.group)
-//                        dependencyNode.appendNode('artifactId', it.name)
-//                        dependencyNode.appendNode('version', it.version)
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
-
-
-repositories {
-    maven {
-        name = "Unify"
-        /** Configure path of your package repository on Github
-         ** Replace GITHUB_USERID with your/organisation Github userID
-         ** and REPOSITORY with the repository name on GitHub
-         */
-        url = uri("https://maven.pkg.github.com/lukaskris/Unify")
-        credentials {
-            /** Create github.properties in root project folder file with
-             ** gpr.usr=GITHUB_USER_ID & gpr.key=PERSONAL_ACCESS_TOKEN
-             ** Set env variable GPR_USER & GPR_API_KEY if not adding a properties file**/
-
-            username = "lukaskris12@gmail.com"
-            password = "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"
-        }
-    }
-}
-

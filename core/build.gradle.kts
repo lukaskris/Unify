@@ -89,6 +89,23 @@ project.ext {
     set("artifactName", "core")
 }
 
+
+afterEvaluate {
+    publishing {
+        publications {
+            register("release", MavenPublication::class){
+                // Applies the component for the release build variant.
+                // NOTE : Delete this line code if you publish Native Java / Kotlin Library
+                from(components["release"])
+                groupId = "id.co.app"
+                artifactId = "core"
+                version = "1.0.5"
+                artifact("$buildDir/outputs/aar/${project.name}-release.aar") // this is the solution I came up with
+            }
+        }
+    }
+}
+
 apply {
     from("$rootDir/publish.gradle")
 }
