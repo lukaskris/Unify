@@ -2,8 +2,8 @@
 object Versions {
 
 	//app level
-	const val kotlinVersion = "1.6.0"
-	const val androidGradleVersion = "7.1.2"
+	const val kotlinVersion = "1.8.10"
+	const val androidGradleVersion = "7.4.0"
 	const val jfrogVersion = "4.24.10"
 	const val googleServiceGms = "4.3.8"
 	const val crashlyticsPlugin = "2.7.1"
@@ -53,7 +53,7 @@ object Versions {
 	const val retrofit = "2.9.0"
 	const val okHttpInterceptor = "4.9.0"
 
-	const val hiltVersion = "2.38.1"
+	const val hiltVersion = "2.44.2"
 	const val hiltCompilerVersion = "1.0.0"
 	const val hiltAssistedVersion = "0.8.1"
 

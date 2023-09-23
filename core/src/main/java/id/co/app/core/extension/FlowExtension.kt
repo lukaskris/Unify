@@ -183,7 +183,7 @@ private class ChannelBasedFlowTurbine<T>(
         return if (timeout == Duration.ZERO) {
             body()
         } else {
-            withTimeout(timeout.toLongMilliseconds()) {
+            withTimeout(timeout.inWholeMilliseconds) {
                 body()
             }
         }

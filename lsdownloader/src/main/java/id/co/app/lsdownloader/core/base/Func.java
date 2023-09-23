@@ -1,6 +1,6 @@
 package id.co.app.lsdownloader.core.base;
 
-import org.jetbrains.annotations.NotNull;
+
 
 
 /**
@@ -15,6 +15,6 @@ public interface Func<R> {
      *
      * @param result Result of a request made by a caller. Result is never null.
      */
-    void call(@NotNull R result);
+    void call(R result);
 
 }
