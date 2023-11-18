@@ -252,7 +252,7 @@ class TextFieldUnify(context: Context, attrs: AttributeSet) : FrameLayout(contex
         counterView = ((textInputLayout.getChildAt(1) as ViewGroup?)?.getChildAt(1)) as TextView?
 
         counterView?.gravity = Gravity.RIGHT
-        counterView?.width = StaticLayout.getDesiredWidth("$length / $length", counterView?.getPaint()).toInt()
+        counterView?.width = StaticLayout.getDesiredWidth("$length / $length", counterView?.paint).toInt()
         counterView?.text = context.getString(R.string.textfield_counter, 0, length)
         counterView?.setTextColor(secondaryColorStateList)
 

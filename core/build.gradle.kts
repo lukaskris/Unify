@@ -29,13 +29,13 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-        kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
         moduleName = "id.co.app.core"
     }
 
@@ -76,7 +76,7 @@ dependencies {
         exclude(group = "com.google.guava", module = "listenablefuture")
     }
 
-
+    testImplementation(AppDependencies.)
     compileOnly(AppDependencies.hiltAssistedInject)
     kapt(AppDependencies.kaptLibraries)
 

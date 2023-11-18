@@ -2,8 +2,6 @@ package id.co.app.core
 
 import id.co.app.core.extension.formatDate
 import id.co.app.core.utilities.DateFormatterUtil
-import org.junit.Assert
-import org.junit.Test
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -17,7 +15,7 @@ import java.util.*
 class DateFormatTest {
     @Test
     fun testDateFormatPattern2(){
-        val date = "2020-02-02T02:02:02.02+02:00"
+        val date = "2023-11-07T00:00:00+08:00"
         val dateOutput = DateFormatterUtil.formatDate(date, DateFormatterUtil.FormatType.FULL_TIME_FORMAT)
 
         print(dateOutput)

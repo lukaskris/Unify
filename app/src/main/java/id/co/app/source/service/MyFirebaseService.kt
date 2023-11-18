@@ -3,7 +3,7 @@ package id.co.app.source.service
 import android.util.Log
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import id.co.app.components.notify.Notify
+import id.co.app.notification.NotificationDelivery
 
 
 /**
@@ -108,7 +108,7 @@ class MyFirebaseService : FirebaseMessagingService() {
      * @param messageBody FCM message body received.
      */
     private fun sendNotification(titleNotification: String, messageBody: String) {
-        Notify.with(this)
+        NotificationDelivery.with(this)
             .content {
                 title = titleNotification
                 text = messageBody

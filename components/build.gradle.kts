@@ -29,13 +29,13 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-        kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
         moduleName = "id.co.app.components"
     }
 
@@ -61,7 +61,7 @@ dependencies {
 project.ext {
     set("artifactId", "components")
     set("groupId", "id.co.app")
-    set("versionName", "1.1.0")
+    set("versionName", "1.1.2")
     set("artifactName", "components")
 }
 
@@ -114,7 +114,7 @@ afterEvaluate {
                 artifact(javadocJar)
                 groupId = "id.co.app"
                 artifactId = "components"
-                version = "1.1.0"
+                version = "1.1.2"
 //                artifact("$buildDir/outputs/aar/${project.name}-release.aar") // this is the solution I came up with
             }
         }

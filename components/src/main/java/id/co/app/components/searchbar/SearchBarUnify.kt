@@ -21,6 +21,7 @@ import id.co.app.components.utils.setImage
 import id.co.app.components.utils.toPx
 
 class SearchBarUnify: FrameLayout {
+    var searchBarRoot: LinearLayout
     var searchBarTextField: EditText
     var searchBarIcon: ImageButton
     var searchBarPrefixIcon: ImageView
@@ -189,6 +190,7 @@ class SearchBarUnify: FrameLayout {
     init {
         View.inflate(context, R.layout.unify_searchbar_layout,this)
 
+        searchBarRoot = findViewById(R.id.search_bar_root)
         searchBarTextField = findViewById(R.id.searchbar_textfield)
         searchBarIcon = findViewById(R.id.searchbar_icon)
         searchBarPrefixIcon = findViewById(R.id.searchbar_prefix_icon)
@@ -240,7 +242,7 @@ class SearchBarUnify: FrameLayout {
                             scale.start()
                             scale.addListener(
                                 object : AnimatorListenerAdapter() {
-                                    override fun onAnimationEnd(animation: Animator?) {
+                                    override fun onAnimationEnd(animation: Animator) {
                                         super.onAnimationEnd(animation)
                                         searchBarIcon.setImageResource(R.drawable.unify_clear_ic)
                                     }
@@ -268,7 +270,7 @@ class SearchBarUnify: FrameLayout {
                             scale.start()
                             scale.addListener(
                                 object : AnimatorListenerAdapter() {
-                                    override fun onAnimationEnd(animation: Animator?) {
+                                    override fun onAnimationEnd(animation: Animator) {
                                         super.onAnimationEnd(animation)
                                         if (iconDrawable != null) {
                                             searchBarIcon.setImageDrawable(iconDrawable)
