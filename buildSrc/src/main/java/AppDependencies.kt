@@ -105,7 +105,6 @@ object AppDependencies {
     val dependencyInjectionLibraries = arrayListOf<String>().apply {
         add(hilt)
         add(hiltNavigation)
-        add(hiltViewModelAndroidX)
     }
 
     val androidLibraries = arrayListOf<String>().apply {

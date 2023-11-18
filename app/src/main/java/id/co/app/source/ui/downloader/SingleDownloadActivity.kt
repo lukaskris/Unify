@@ -25,7 +25,7 @@ import java.text.DecimalFormat
 class SingleDownloadActivity : AppCompatActivity(), LSDownloaderObserver<Download> {
 
     private val binding by lazy { ActivitySingleDownloadBinding.inflate(layoutInflater) }
-    private val lsDownloader by lazy { LSDownloader.Impl.getDefaultInstance() }
+//    private val lsDownloader by lazy { LSDownloader.Impl.getDefaultInstance() }
     private lateinit var request: Request
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,7 @@ class SingleDownloadActivity : AppCompatActivity(), LSDownloaderObserver<Downloa
             .setHttpDownloader(HttpUrlConnectionDownloader(Downloader.FileDownloaderType.PARALLEL)) // OR
             //.setHttpDownloader(getOkHttpDownloader())
             .build()
-        LSDownloader.Impl.setDefaultInstanceConfiguration(fetchConfiguration)
+//        LSDownloader.Impl.setDefaultInstanceConfiguration(fetchConfiguration)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         checkStoragePermission()
@@ -47,16 +47,16 @@ class SingleDownloadActivity : AppCompatActivity(), LSDownloaderObserver<Downloa
 
     override fun onResume() {
         super.onResume()
-        lsDownloader.attachFetchObserversForDownload(request.id, this)
+//        lsDownloader.attachFetchObserversForDownload(request.id, this)
     }
     override fun onPause() {
         super.onPause()
-        lsDownloader.removeFetchObserversForDownload(request.id, this)
+//        lsDownloader.removeFetchObserversForDownload(request.id, this)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        lsDownloader.close()
+//        lsDownloader.close()
     }
 
     override fun onRequestPermissionsResult(
@@ -88,11 +88,11 @@ class SingleDownloadActivity : AppCompatActivity(), LSDownloaderObserver<Downloa
         request.priority = Priority.HIGH
         request.networkType = NetworkType.ALL
 
-        lsDownloader.attachFetchObserversForDownload(request.id, this)
-            .enqueue(request,
-                { result -> request = result }, {
-                    Timber.d("SingleDownloadActivity Error: %1\$s", it.toString())
-                })
+//        lsDownloader.attachFetchObserversForDownload(request.id, this)
+//            .enqueue(request,
+//                { result -> request = result }, {
+//                    Timber.d("SingleDownloadActivity Error: %1\$s", it.toString())
+//                })
     }
 
     private fun getExtrasForRequest(request: Request): Extras {
@@ -165,7 +165,7 @@ class SingleDownloadActivity : AppCompatActivity(), LSDownloaderObserver<Downloa
             "Download Failed: ErrorCode: $error", Snackbar.LENGTH_INDEFINITE
         )
         snackbar.setAction(R.string.retry) { v ->
-            lsDownloader.retry(request.id)
+//            lsDownloader.retry(request.id)
             snackbar.dismiss()
         }
         snackbar.show()

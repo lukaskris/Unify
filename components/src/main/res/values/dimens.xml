@@ -121,4 +121,24 @@
     <dimen name="pageMargin">20dp</dimen>
     <dimen name="pagerOffset">30dp</dimen>
     <dimen name="pageMarginAndoffset">50dp</dimen>
+
+    <dimen name="listitem_padding_top_bottom">16dp</dimen>
+
+    <dimen name="listitem_padding_left">16dp</dimen>
+    <dimen name="listitem_padding_right">16dp</dimen>
+
+    <dimen name="listitem_left_control_margin_right">8dp</dimen>
+
+    <dimen name="listitem_description_padding_top">2dp</dimen>
+    <dimen name="listitem_description_padding_right">16dp</dimen>
+
+    <dimen name="listitem_icon_margin_right">20dp</dimen>
+
+    <dimen name="listitem_title_padding_right">20dp</dimen>
+
+    <dimen name="listitem_icon_width">48dp</dimen>
+
+    <dimen name="listitem_icon_vertical_margin">12dp</dimen>
+    <dimen name="home_icon_list_size">24dp</dimen>
+    <dimen name="home_list_height">100dp</dimen>
 </resources>

@@ -39,9 +39,6 @@ internal object NotificationInterop {
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     internal fun getActiveNotifications(notificationManager: NotificationManager): List<NotifyExtender> {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            return ArrayList()
-        }
 
         return notificationManager.activeNotifications
             .map { NotifyExtender(it) }

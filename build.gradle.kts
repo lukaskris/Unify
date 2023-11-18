@@ -3,6 +3,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven("/tmp/test-repo")
         maven { setUrl("https://jitpack.io") }
     }
 
@@ -28,6 +29,7 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
+        maven("/tmp/test-repo")
         maven {
             setUrl("https://jitpack.io")
         }

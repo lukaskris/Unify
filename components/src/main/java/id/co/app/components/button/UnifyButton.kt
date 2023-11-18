@@ -422,9 +422,8 @@ class UnifyButton : AppCompatTextView {
         initButtonBackground()
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-
         if (isLoading && ::loadingDrawable.isInitialized) {
             loadingDrawable.setBounds(
                 loaderLeftBound,

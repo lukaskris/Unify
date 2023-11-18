@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.IconCompat
-import id.co.app.components.notify.Notify
+import id.co.app.notification.NotificationDelivery
 import id.co.app.source.R
 
 
@@ -27,19 +27,19 @@ class NotifySampleActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_notify)
 
-        Notify.defaultConfig {
+        NotificationDelivery.defaultConfig {
             header {
                 color =
                     ContextCompat.getColor(this@NotifySampleActivity, R.color.color_primary_dark)
             }
-            alerting(Notify.CHANNEL_DEFAULT_KEY) {
+            alerting(NotificationDelivery.CHANNEL_DEFAULT_KEY) {
                 lightColor = Color.RED
             }
         }
     }
 
     fun notifyDefault(view: View) {
-        Notify.with(this)
+        NotificationDelivery.with(this)
             .content {
                 title = "New dessert menu"
                 text = "The Cheesecake Factory has a new dessert for you to try!"
@@ -54,9 +54,9 @@ class NotifySampleActivity : AppCompatActivity() {
     }
 
     fun notifyTextList(view: View) {
-        Notify.with(this)
+        NotificationDelivery.with(this)
             .alerting("Test priority"){
-                channelImportance = Notify.IMPORTANCE_MAX
+                channelImportance = NotificationDelivery.IMPORTANCE_MAX
                 vibrationPattern = listOf(1000, 1000)
             }
             .asTextList {
@@ -74,7 +74,7 @@ class NotifySampleActivity : AppCompatActivity() {
     }
 
     fun notifyBigText(view: View) {
-        Notify.with(this)
+        NotificationDelivery.with(this)
             .asBigText {
                 title = "Chocolate brownie sundae"
                 text = "Try our newest dessert option!"
@@ -88,7 +88,7 @@ class NotifySampleActivity : AppCompatActivity() {
     }
 
     fun notifyBigPicture(view: View) {
-        Notify.with(this)
+        NotificationDelivery.with(this)
             .asBigPicture {
                 title = "Chocolate brownie sundae"
                 text = "Get a look at this amazing dessert!"
@@ -102,7 +102,7 @@ class NotifySampleActivity : AppCompatActivity() {
     }
 
     fun notifyMessage(view: View) {
-        Notify.with(this)
+        NotificationDelivery.with(this)
             .asMessage {
                 userDisplayName = "Karn"
                 conversationTitle = "Sundae chat"
@@ -137,7 +137,7 @@ class NotifySampleActivity : AppCompatActivity() {
             return
         }
 
-        Notify.with(this)
+        NotificationDelivery.with(this)
             .content {
                 title = "New dessert menu"
                 text = "The Cheesecake Factory has a new dessert for you to try!"
@@ -146,7 +146,8 @@ class NotifySampleActivity : AppCompatActivity() {
                 // Create bubble intent
                 val target = Intent(this@NotifySampleActivity, BubbleActivity::class.java)
                 val bubbleIntent =
-                    PendingIntent.getActivity(this@NotifySampleActivity, 0, target, 0 /* flags */)
+                    PendingIntent.getActivity(this@NotifySampleActivity, 0, target,
+                        PendingIntent.FLAG_IMMUTABLE /* flags */)
 
                 bubbleIcon = IconCompat.createWithResource(
                     this@NotifySampleActivity,
@@ -160,7 +161,7 @@ class NotifySampleActivity : AppCompatActivity() {
 
     fun notifyIndeterminateProgress(view: View) {
 
-        Notify.with(this)
+        NotificationDelivery.with(this)
             .asBigText {
                 title = "Uploading files"
                 expandedText = "The files are being uploaded!"
@@ -174,7 +175,7 @@ class NotifySampleActivity : AppCompatActivity() {
 
     fun notifyDeterminateProgress(view: View) {
 
-        Notify.with(this)
+        NotificationDelivery.with(this)
             .asBigText {
                 title = "Bitcoin payment processing"
                 expandedText = "Your payment was sent to the Bitcoin network"

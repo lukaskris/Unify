@@ -448,24 +448,29 @@ class CoachMark(private val context: Context) : PopupWindow(context) {
                 smoothScroll.apply {
                     duration = UnifyMotion.T3
                     addListener(object: Animator.AnimatorListener {
-                        override fun onAnimationRepeat(p0: Animator?) {
+                        override fun onAnimationStart(animation: Animator, isReverse: Boolean) {
 
                         }
 
-                        override fun onAnimationEnd(p0: Animator?) {
+                        override fun onAnimationStart(animation: Animator) {
+                        }
+
+                        override fun onAnimationEnd(animation: Animator, isReverse: Boolean) {
                             if(!isDismissed)
                                 setUpStepCoachMark(item.anchorView, item.title, item.description, item.position).let {
                                     animateShow()
                                 }
                         }
 
-                        override fun onAnimationCancel(p0: Animator?) {
-
+                        override fun onAnimationEnd(animation: Animator) {
                         }
 
-                        override fun onAnimationStart(p0: Animator?) {
-
+                        override fun onAnimationCancel(animation: Animator) {
                         }
+
+                        override fun onAnimationRepeat(animation: Animator) {
+                        }
+
 
                     })
                     start()
@@ -623,7 +628,7 @@ class CoachMark(private val context: Context) : PopupWindow(context) {
         if(!isDismissed) {
             contentView.animate().scaleX(0.7f).scaleY(0.7f).alpha(0.0f).setInterpolator(UnifyMotion.EASE_OUT).setDuration(UnifyMotion.T3)
                 .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator?) {
+                override fun onAnimationEnd(animation: Animator) {
                     dismiss()
                     onDismissListener.invoke()
                     isDismissed = true
