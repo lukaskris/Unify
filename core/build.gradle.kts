@@ -76,7 +76,6 @@ dependencies {
         exclude(group = "com.google.guava", module = "listenablefuture")
     }
 
-    testImplementation(AppDependencies.)
     compileOnly(AppDependencies.hiltAssistedInject)
     kapt(AppDependencies.kaptLibraries)
 
