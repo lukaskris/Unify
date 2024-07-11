@@ -117,7 +117,7 @@ afterEvaluate {
                 artifact(javadocJar)
                 groupId = "id.co.app"
                 artifactId = "lsdownloader"
-                version = "1.0.0"
+                version = "1.1.0"
 //                artifact("$buildDir/outputs/aar/${project.name}-release.aar") // this is the solution I came up with
             }
         }

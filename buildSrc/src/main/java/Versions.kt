@@ -46,9 +46,9 @@ object Versions {
 	const val securityVersion = "1.1.0-alpha03"
 	const val commonIoVersion = "2.8.0"
 
-	const val cameraxVersion = "1.2.1"
+	const val cameraxVersion = "1.3.3"
 	const val mlkitVersion = "18.0.0"
-	const val cameraViewVersion = "1.2.1"
+	const val cameraViewVersion = "1.3.3"
 
 	const val retrofit = "2.9.0"
 	const val okHttpInterceptor = "4.9.0"
