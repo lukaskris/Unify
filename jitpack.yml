@@ -2,3 +2,18 @@ jdk:
   - openjdk11
 before_install:
   - ./scripts/prepareJitpackEnvironment.sh
+install:
+  - FILE="-Dfile=camera-release.aar"
+  - mvn install:install-file $FILE -DgroupId=id.co.app -DartifactId=camera -Dversion=1.2.0 -Dpackaging=aar -DgeneratePom=true
+  - FILE="-Dfile=core-release.aar"
+  - mvn install:install-file $FILE -DgroupId=id.co.app -DartifactId=core -Dversion=1.0.5 -Dpackaging=aar -DgeneratePom=true
+  - FILE="-Dfile=notification-release.aar"
+  - mvn install:install-file $FILE -DgroupId=id.co.app -DartifactId=notification -Dversion=1.0.0 -Dpackaging=aar -DgeneratePom=true
+  - FILE="-Dfile=querybuilder-release.aar"
+  - mvn install:install-file $FILE -DgroupId=id.co.app -DartifactId=querybuilder -Dversion=1.0.1 -Dpackaging=aar -DgeneratePom=true
+  - FILE="-Dfile=lsdownloader-release.aar"
+  - mvn install:install-file $FILE -DgroupId=id.co.app -DartifactId=lsdownloader -Dversion=1.1.0 -Dpackaging=aar -DgeneratePom=true
+  - FILE="-Dfile=retrofiturlhandler-release.aar"
+  - mvn install:install-file $FILE -DgroupId=id.co.app -DartifactId=retrofiturlhandler -Dversion=1.0.1 -Dpackaging=aar -DgeneratePom=true
+  - FILE="-Dfile=components-release.aar"
+  - mvn install:install-file $FILE -DgroupId=id.co.app -DartifactId=components -Dversion=1.0.1 -Dpackaging=aar -DgeneratePom=true

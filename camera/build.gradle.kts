@@ -123,7 +123,7 @@ afterEvaluate {
                 // earlier.
                 artifact(sourcesJar)
                 artifact(javadocJar)
-                 groupId = "id.co.app"
+                groupId = "id.co.app"
                 artifactId = "camera"
                 version = "1.2.0"
 //                 artifact("$buildDir/outputs/aar/${project.name}-release.aar") // this is the solution I came up with
